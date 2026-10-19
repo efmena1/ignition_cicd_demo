@@ -1,0 +1,18 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "emena",
+      "timestamp": "2026-10-19T16:11:38Z"
+    },
+    "lastModificationSignature": "4ce73f41fbf89a02e24013e732da3ff78a0017dec4e69b3b0c5a368dec85ad1a",
+    "uuid": "717d7be7-eb73-42f3-a18e-58e4a6b80607",
+    "enabled": true
+  }
+}
