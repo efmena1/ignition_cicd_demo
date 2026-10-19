@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "description": "",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json",
+    "instructions.csv"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "emena",
+      "timestamp": "2026-10-19T15:43:32Z"
+    },
+    "uuid": "202f11cc-8be2-4b3b-a050-af3b8d58ecd2",
+    "lastModificationSignature": "aa30bfa04d6e47b0c23f8b42a0a58270051176e28fcdc5b7403f815a700e130d",
+    "enabled": true
+  }
+}
