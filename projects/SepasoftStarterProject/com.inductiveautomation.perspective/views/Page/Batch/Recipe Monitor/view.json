@@ -1,0 +1,134 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "flx_header"
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "50px"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "gap": "10px",
+            "alignItems": "center"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "batchSelector"
+            },
+            "type": "mes.production.batchSelector",
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "margin": "4px 6px",
+                "overflow": "visible"
+              }
+            },
+            "propConfig": {
+              "props.beginDateTime": {
+                "binding": {
+                  "config": {
+                    "path": "../dt_begin.props.value"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.endDateTime": {
+                "binding": {
+                  "config": {
+                    "path": "../dt_end.props.value"
+                  },
+                  "type": "property"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "dt_begin"
+            },
+            "type": "ia.input.date-time-input",
+            "position": {
+              "basis": "220px"
+            },
+            "props": {
+              "style": {
+                "margin": "4px 6px"
+              }
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "expression": "dateArithmetic(now(0), -1, \"day\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "dt_end"
+            },
+            "type": "ia.input.date-time-input",
+            "position": {
+              "basis": "220px"
+            },
+            "props": {
+              "style": {
+                "margin": "4px 6px"
+              }
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "expression": "now(0)"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "batchRecipeMonitor"
+        },
+        "type": "mes.batch.batchRecipeMonitor",
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.batchID": {
+            "binding": {
+              "config": {
+                "path": "../flx_header/batchSelector.props.selectedBatchID"
+              },
+              "type": "property"
+            }
+          }
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

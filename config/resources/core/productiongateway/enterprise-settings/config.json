@@ -1,0 +1,21 @@
+{
+  "enterprise": false,
+  "enterpriseGateway": "",
+  "equipmentServerSettings": [],
+  "isDataRetentionEnabled": true,
+  "isMonitoringDebugEnabled": false,
+  "isMonitoringEnabled": true,
+  "knownChildGateways": [],
+  "localGateway": "_0:0:Ignition-MSIGS66-STEALTH",
+  "maxArtifactSizeKB": 10000,
+  "maxSyncKeys": 1000,
+  "objectSyncChangeCount": 10000,
+  "objectSyncCheckInterval": 15,
+  "parentGateway": "",
+  "previousLocalGateway": "",
+  "retentionPeriodInDays": -1,
+  "threadCount": 4,
+  "uniqueGatewayIdentifier": "Ignition-MSIGS66-STEALTH",
+  "verticalSyncLoopTime": 60000,
+  "verticalSyncMaxPendingSaves": 500000
+}

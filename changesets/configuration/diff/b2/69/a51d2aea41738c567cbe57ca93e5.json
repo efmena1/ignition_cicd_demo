@@ -1,0 +1,439 @@
+{
+  "changesetData": {
+    "uuid": "b269a51d-2aea-4173-8c56-7cbe57ca93e5",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:40.595Z",
+    "appliedOnChangesetUUID": "386778c0-cf0b-4122-8131-8408e8c112ae",
+    "hash": "15b3154d4ee93b8341d857c1c6d2747f694541011a7d82dc35964cbf352e1ebd",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:40.520379500Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Equipment State": {
+        "aa113f69-50bf-4303-8f1b-bf46558fa6dd": {
+          "meta": {
+            "name": "Starved"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "aa113f69-50bf-4303-8f1b-bf46558fa6dd"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "26d80231-f8ec-44cc-9eff-ff357bd2cbac|EquipmentStateClass",
+              "newValueFriendly": "Default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Starved"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateCode",
+              "oldValue": "0",
+              "newValue": "6"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateType",
+              "oldValue": "Idle",
+              "newValue": "Starved"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateOverride",
+              "oldValue": "Prohibited",
+              "newValue": "Optional"
+            }
+          ]
+        },
+        "32820b29-70d8-4bb5-9c86-97b565dfc895": {
+          "meta": {
+            "name": "Unplanned Downtime"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "32820b29-70d8-4bb5-9c86-97b565dfc895"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "26d80231-f8ec-44cc-9eff-ff357bd2cbac|EquipmentStateClass",
+              "newValueFriendly": "Default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Unplanned Downtime"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateCode",
+              "oldValue": "0",
+              "newValue": "3"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateType",
+              "oldValue": "Idle",
+              "newValue": "Unplanned Downtime"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateOverride",
+              "oldValue": "Prohibited",
+              "newValue": "Optional"
+            }
+          ]
+        },
+        "972f2a5f-7095-4cd6-ab2e-d99a756bd53c": {
+          "meta": {
+            "name": "Idle"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "972f2a5f-7095-4cd6-ab2e-d99a756bd53c"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "26d80231-f8ec-44cc-9eff-ff357bd2cbac|EquipmentStateClass",
+              "newValueFriendly": "Default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Idle"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateCode",
+              "oldValue": "0",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateOverride",
+              "oldValue": "Prohibited",
+              "newValue": "Optional"
+            }
+          ]
+        },
+        "13275ca0-4638-4cb9-9966-e633bb5d8983": {
+          "meta": {
+            "name": "Disabled"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "13275ca0-4638-4cb9-9966-e633bb5d8983"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "26d80231-f8ec-44cc-9eff-ff357bd2cbac|EquipmentStateClass",
+              "newValueFriendly": "Default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Disabled"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateType",
+              "oldValue": "Idle",
+              "newValue": "Disabled"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateOverride",
+              "oldValue": "Prohibited",
+              "newValue": "Optional"
+            }
+          ]
+        },
+        "23aa29c9-0046-4181-858f-31e528b83b5b": {
+          "meta": {
+            "name": "Planned Downtime"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "23aa29c9-0046-4181-858f-31e528b83b5b"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "26d80231-f8ec-44cc-9eff-ff357bd2cbac|EquipmentStateClass",
+              "newValueFriendly": "Default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Planned Downtime"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateCode",
+              "oldValue": "0",
+              "newValue": "4"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateType",
+              "oldValue": "Idle",
+              "newValue": "Planned Downtime"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateOverride",
+              "oldValue": "Prohibited",
+              "newValue": "Optional"
+            }
+          ]
+        },
+        "9945afa1-e7be-42fe-b440-39864d284e8a": {
+          "meta": {
+            "name": "Blocked"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "9945afa1-e7be-42fe-b440-39864d284e8a"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "26d80231-f8ec-44cc-9eff-ff357bd2cbac|EquipmentStateClass",
+              "newValueFriendly": "Default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Blocked"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateCode",
+              "oldValue": "0",
+              "newValue": "5"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateType",
+              "oldValue": "Idle",
+              "newValue": "Blocked"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateOverride",
+              "oldValue": "Prohibited",
+              "newValue": "Optional"
+            }
+          ]
+        },
+        "4f586737-cced-40e8-a929-a0d7ba5f1b67": {
+          "meta": {
+            "name": "Running"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "4f586737-cced-40e8-a929-a0d7ba5f1b67"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "26d80231-f8ec-44cc-9eff-ff357bd2cbac|EquipmentStateClass",
+              "newValueFriendly": "Default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Running"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateCode",
+              "oldValue": "0",
+              "newValue": "1"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateType",
+              "oldValue": "Idle",
+              "newValue": "Running"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateOverride",
+              "oldValue": "Prohibited",
+              "newValue": "Optional"
+            }
+          ]
+        }
+      },
+      "Equipment State Root": {
+        "52a0b623-2c54-4b45-95e8-b6e9a3a58696": {
+          "meta": {
+            "name": "Equipment States"
+          },
+          "changes": [
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "26d80231-f8ec-44cc-9eff-ff357bd2cbac|EquipmentStateClass",
+              "newValueFriendly": "Default"
+            }
+          ]
+        }
+      },
+      "Equipment State Class": {
+        "26d80231-f8ec-44cc-9eff-ff357bd2cbac": {
+          "meta": {
+            "name": "Default"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "26d80231-f8ec-44cc-9eff-ff357bd2cbac"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "52a0b623-2c54-4b45-95e8-b6e9a3a58696|EquipmentStateRoot",
+              "newValueFriendly": "Equipment States"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateClassDefault",
+              "oldValue": "false",
+              "newValue": "true"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EquipmentStateClassSecurity",
+              "newValue": "09278bca-c37e-44ea-a80a-cce59f842b72|Administrator"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "13275ca0-4638-4cb9-9966-e633bb5d8983|EquipmentState",
+              "newValueFriendly": "Disabled"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "4f586737-cced-40e8-a929-a0d7ba5f1b67|EquipmentState",
+              "newValueFriendly": "Running"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "972f2a5f-7095-4cd6-ab2e-d99a756bd53c|EquipmentState",
+              "newValueFriendly": "Idle"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "32820b29-70d8-4bb5-9c86-97b565dfc895|EquipmentState",
+              "newValueFriendly": "Unplanned Downtime"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "23aa29c9-0046-4181-858f-31e528b83b5b|EquipmentState",
+              "newValueFriendly": "Planned Downtime"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "9945afa1-e7be-42fe-b440-39864d284e8a|EquipmentState",
+              "newValueFriendly": "Blocked"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "aa113f69-50bf-4303-8f1b-bf46558fa6dd|EquipmentState",
+              "newValueFriendly": "Starved"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

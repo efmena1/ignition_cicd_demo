@@ -1,0 +1,494 @@
+{
+  "changesetData": {
+    "uuid": "2daefab0-0bb0-4648-b66b-00de5424ec00",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:14.971Z",
+    "appliedOnChangesetUUID": "5a0056b5-2171-4e00-bfc7-855a538a1447",
+    "hash": "8fa7ae29d2ddc589b455693a6090f74859e62adec6f3ce2706e8a23388dc796d",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:14.899797300Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Signature Root Template": {
+        "da1c126e-0e6e-4832-8aac-d6bbd51e0db1": {
+          "meta": {
+            "name": "Signature Templates"
+          },
+          "changes": [
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "36a260b5-852a-401c-a35f-b3931b2337ac|SignatureTemplate",
+              "newValueFriendly": "Production Ready - Modify Formula State"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "9e1de249-2d18-4c66-bd3c-7a5515520d0c|SignatureTemplate",
+              "newValueFriendly": "Preproduction - Modify Formula State"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "e67f560b-ae4a-4871-9fa1-44caaa86efa3|SignatureTemplate",
+              "newValueFriendly": "Inactive - Modify Formula State"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "e32044e4-a220-4741-934c-b8e461df2cd2|SignatureTemplate",
+              "newValueFriendly": "Production Ready - Enqueue Formula State"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "efad0b1d-6394-4a13-bdd2-9e550a41cd19|SignatureTemplate",
+              "newValueFriendly": "Preproduction - Enqueue Formula State"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "f2dc28f9-5b9f-4dd9-815b-6f7373d6f8c4|SignatureTemplate",
+              "newValueFriendly": "Inactive - Enqueue Formula State"
+            }
+          ]
+        }
+      },
+      "Signature Template": {
+        "36a260b5-852a-401c-a35f-b3931b2337ac": {
+          "meta": {
+            "name": "Production Ready - Modify Formula State"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Production Ready - Modify Formula State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "36a260b5-852a-401c-a35f-b3931b2337ac"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to modify formula state in the state Production Ready."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumReferenceUUID",
+              "newValue": "b70dcf64-7abc-43af-8c8a-8e630f9d7fb7"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumRelationshipType",
+              "newValue": "modify"
+            }
+          ]
+        },
+        "9e1de249-2d18-4c66-bd3c-7a5515520d0c": {
+          "meta": {
+            "name": "Preproduction - Modify Formula State"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Preproduction - Modify Formula State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "9e1de249-2d18-4c66-bd3c-7a5515520d0c"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to modify formula state in the state Preproduction."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumReferenceUUID",
+              "newValue": "c1f316f8-98a7-4401-990f-c8bc763e4fb2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumRelationshipType",
+              "newValue": "modify"
+            }
+          ]
+        },
+        "f2dc28f9-5b9f-4dd9-815b-6f7373d6f8c4": {
+          "meta": {
+            "name": "Inactive - Enqueue Formula State"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Inactive - Enqueue Formula State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "f2dc28f9-5b9f-4dd9-815b-6f7373d6f8c4"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to enqueue formula state in the state Inactive."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumReferenceUUID",
+              "newValue": "7e8bf8f2-15ba-4313-a8b1-7e0d1f43b672"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumRelationshipType",
+              "newValue": "enqueue"
+            }
+          ]
+        },
+        "e32044e4-a220-4741-934c-b8e461df2cd2": {
+          "meta": {
+            "name": "Production Ready - Enqueue Formula State"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Production Ready - Enqueue Formula State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "e32044e4-a220-4741-934c-b8e461df2cd2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to enqueue formula state in the state Production Ready."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumReferenceUUID",
+              "newValue": "b70dcf64-7abc-43af-8c8a-8e630f9d7fb7"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumRelationshipType",
+              "newValue": "enqueue"
+            }
+          ]
+        },
+        "e67f560b-ae4a-4871-9fa1-44caaa86efa3": {
+          "meta": {
+            "name": "Inactive - Modify Formula State"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Inactive - Modify Formula State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "e67f560b-ae4a-4871-9fa1-44caaa86efa3"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to modify formula state in the state Inactive."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumReferenceUUID",
+              "newValue": "7e8bf8f2-15ba-4313-a8b1-7e0d1f43b672"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumRelationshipType",
+              "newValue": "modify"
+            }
+          ]
+        },
+        "efad0b1d-6394-4a13-bdd2-9e550a41cd19": {
+          "meta": {
+            "name": "Preproduction - Enqueue Formula State"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Preproduction - Enqueue Formula State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "efad0b1d-6394-4a13-bdd2-9e550a41cd19"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to enqueue formula state in the state Preproduction."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumReferenceUUID",
+              "newValue": "c1f316f8-98a7-4401-990f-c8bc763e4fb2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumRelationshipType",
+              "newValue": "enqueue"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

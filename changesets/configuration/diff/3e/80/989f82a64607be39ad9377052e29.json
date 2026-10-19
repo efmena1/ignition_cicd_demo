@@ -1,0 +1,36 @@
+{
+  "changesetData": {
+    "uuid": "3e80989f-82a6-4607-be39-ad9377052e29",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:14.587Z",
+    "appliedOnChangesetUUID": "46daa169-8cd7-4c36-ae7f-26f2524d477d",
+    "hash": "cd2881464941e4e17b9de642eb8a966881839d074bf74a1357ec9434ee0cad67",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:14.573592Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Definition": {
+        "438d5b14-f8ce-4bb9-bf31-8ed68f5a11ce": {
+          "meta": {
+            "name": "Script"
+          },
+          "changes": [
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Immutable Built-in Enum for Batch Script options."
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

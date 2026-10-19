@@ -1,0 +1,52 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "mesObjectSelector"
+        },
+        "type": "mes.production.mesObjectSelector",
+        "position": {
+          "basis": "50px"
+        },
+        "props": {
+          "displayText": "Process Cell",
+          "style": {
+            "margin": "4px 6px",
+            "overflow": "visible"
+          },
+          "includeProcessCellObjects": true
+        }
+      },
+      {
+        "meta": {
+          "name": "unitManager"
+        },
+        "type": "mes.batch.unitManager",
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.processCellPath": {
+            "binding": {
+              "config": {
+                "path": "../mesObjectSelector.props.selectedMESObject.equipmentPath"
+              },
+              "type": "property"
+            }
+          }
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

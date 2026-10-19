@@ -1,0 +1,15 @@
+{
+    "version": 1, 
+    "restricted": false, 
+    "scope": "A", 
+    "overridable": true, 
+    "files": [
+        "config.json", 
+        "index.css", 
+        "alert-dialog.css", 
+        "user-drawer.css", 
+        "docked-navigation.css", 
+        "minimalist-scrollbars.css"
+    ], 
+    "attributes": {}
+}

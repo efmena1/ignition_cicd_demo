@@ -1,0 +1,1434 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 260
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Menu"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "backActionStyle": {
+            "classes": "Menu/All_Header"
+          },
+          "backActionText": "All Features",
+          "itemStyle": {
+            "classes": "Menu/Item"
+          },
+          "style": {
+            "classes": "Menu/Menu"
+          },
+          "items": [
+            {
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/home"
+                },
+                "text": "Home"
+              },
+              "navIcon": {
+                "color": "",
+                "path": ""
+              },
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "/",
+              "visible": true
+            },
+            {
+              "enabled": true,
+              "items": [
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/read_more"
+                    },
+                    "text": "README"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/production/readme",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/build"
+                    },
+                    "text": "Equipment Manager"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/production/equipment-manager",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/track_changes"
+                    },
+                    "text": "Value Editor"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/production/value-editor",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/insights"
+                    },
+                    "text": "Analysis"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/production/analysis",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/dynamic_feed"
+                    },
+                    "text": "Material Manager"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/production/material-manager",
+                  "visible": true
+                }
+              ],
+              "label": {
+                "icon": {
+                  "path": "material/control_camera"
+                },
+                "text": "Production"
+              },
+              "navIcon": {
+                "color": "",
+                "path": "material/chevron_right"
+              },
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "",
+              "visible": true
+            },
+            {
+              "enabled": true,
+              "items": [
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/read_more"
+                    },
+                    "text": "README"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/oee/readme",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/build"
+                    },
+                    "text": "Equipment Manager"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/oee/equipment-manager",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/assignment"
+                    },
+                    "text": "Work Orders"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/oee/work-orders",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/control_camera"
+                    },
+                    "text": "Run Control"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/oee/run-control",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list_alt"
+                    },
+                    "text": "Downtime Table"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/oee/downtime-table",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/timeline"
+                    },
+                    "text": "Time Chart"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/oee/time-chart",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/insights"
+                    },
+                    "text": "Analysis"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/oee/analysis",
+                  "visible": true
+                }
+              ],
+              "label": {
+                "icon": {
+                  "path": "material/domain"
+                },
+                "text": "OEE"
+              },
+              "navIcon": {
+                "color": "",
+                "path": "material/chevron_right"
+              },
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "",
+              "visible": true
+            },
+            {
+              "enabled": true,
+              "items": [
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/read_more"
+                    },
+                    "text": "README"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/batch/readme",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/build"
+                    },
+                    "text": "Equipment Manager"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/batch/equipment-manager",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/format_list_numbered"
+                    },
+                    "text": "Enum Manager"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/batch/enum-manager",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/qr_code_scanner"
+                    },
+                    "text": "Unit Class Manager"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/batch/unit-class-manager",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/center_focus_strong"
+                    },
+                    "text": "Unit Manager"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/batch/unit-manager",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/crop_16_9"
+                    },
+                    "text": "Phase Manager"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/batch/phase-manager",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/account_tree"
+                    },
+                    "text": "Recipe Editor"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/batch/recipe-editor",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/science"
+                    },
+                    "text": "Formula Manager"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/batch/formula-manager",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/receipt_long"
+                    },
+                    "text": "Signature Templates"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/batch/signature-templates",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list_alt"
+                    },
+                    "text": "Batch List"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/batch/batch-list",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/chrome_reader_mode"
+                    },
+                    "text": "Batch Controller"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/batch/batch-controller",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/remove_from_queue"
+                    },
+                    "text": "Recipe Monitor"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/batch/recipe-monitor",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/microwave"
+                    },
+                    "text": "Message List"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/batch/message-list",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/assessment"
+                    },
+                    "text": "Auth Challenges"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/batch/auth-challenges",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/library_books"
+                    },
+                    "text": "EBR Viewer"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/batch/ebr-viewer",
+                  "visible": true
+                }
+              ],
+              "label": {
+                "icon": {
+                  "path": "material/science"
+                },
+                "text": "Batch"
+              },
+              "navIcon": {
+                "color": "",
+                "path": "material/chevron_right"
+              },
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "",
+              "visible": true
+            },
+            {
+              "enabled": true,
+              "items": [
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/read_more"
+                    },
+                    "text": "README"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/settings/readme",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/build"
+                    },
+                    "text": "Equipment Manager"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/settings/equipment-manager",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list_alt"
+                    },
+                    "text": "Recipe Selector"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/settings/recipe-selector",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/account_tree"
+                    },
+                    "text": "Tree Editor"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/settings/tree-editor",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/reorder"
+                    },
+                    "text": "Editor Table"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/settings/editor-table",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/compare_arrows"
+                    },
+                    "text": "Variance Viewer"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/settings/variance-viewer",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/track_changes"
+                    },
+                    "text": "Changelog"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/settings/changelog",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/insights"
+                    },
+                    "text": "Analysis"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/settings/analysis-report",
+                  "visible": true
+                }
+              ],
+              "label": {
+                "icon": {
+                  "path": "material/settings"
+                },
+                "text": "Settings & Changeover"
+              },
+              "navIcon": {
+                "color": "",
+                "path": "material/chevron_right"
+              },
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "",
+              "visible": true
+            },
+            {
+              "enabled": true,
+              "items": [
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/read_more"
+                    },
+                    "text": "README"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/spc/readme",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/build"
+                    },
+                    "text": "Equipment Manager"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/spc/equipment-manager",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/format_list_numbered"
+                    },
+                    "text": "Sample Definition Manager"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/spc/sample-definition-manager",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list_alt"
+                    },
+                    "text": "Location Sample List"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/spc/location-sample-list",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/insights"
+                    },
+                    "text": "Analysis"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/spc/analysis",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [
+                    {
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "Individual"
+                      },
+                      "navIcon": {
+                        "color": "",
+                        "path": ""
+                      },
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/spc/charts/individual",
+                      "visible": true
+                    },
+                    {
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "XBar (XBarR)"
+                      },
+                      "navIcon": {
+                        "color": "",
+                        "path": ""
+                      },
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/spc/charts/xbar",
+                      "visible": true
+                    },
+                    {
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "Box and Whisker"
+                      },
+                      "navIcon": {
+                        "color": "",
+                        "path": ""
+                      },
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/spc/charts/box-and-whisker",
+                      "visible": true
+                    },
+                    {
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "C-Chart"
+                      },
+                      "navIcon": {
+                        "color": "",
+                        "path": ""
+                      },
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/spc/charts/c-chart",
+                      "visible": true
+                    },
+                    {
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "Histogram"
+                      },
+                      "navIcon": {
+                        "color": "",
+                        "path": ""
+                      },
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/spc/charts/histogram",
+                      "visible": true
+                    },
+                    {
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "Median"
+                      },
+                      "navIcon": {
+                        "color": "",
+                        "path": ""
+                      },
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/spc/charts/median",
+                      "visible": true
+                    },
+                    {
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "Moving Range"
+                      },
+                      "navIcon": {
+                        "color": "",
+                        "path": ""
+                      },
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/spc/charts/moving-range",
+                      "visible": true
+                    },
+                    {
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "NP-Chart"
+                      },
+                      "navIcon": {
+                        "color": "",
+                        "path": ""
+                      },
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/spc/charts/np-chart",
+                      "visible": true
+                    },
+                    {
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "P-Chart"
+                      },
+                      "navIcon": {
+                        "color": "",
+                        "path": ""
+                      },
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/spc/charts/p-chart",
+                      "visible": true
+                    },
+                    {
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "Pareto"
+                      },
+                      "navIcon": {
+                        "color": "",
+                        "path": ""
+                      },
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/spc/charts/pareto",
+                      "visible": true
+                    },
+                    {
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "Process Capability and Performance"
+                      },
+                      "navIcon": {
+                        "color": "",
+                        "path": ""
+                      },
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/spc/charts/process-capability-and-performance",
+                      "visible": true
+                    },
+                    {
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "Process Performance"
+                      },
+                      "navIcon": {
+                        "color": "",
+                        "path": ""
+                      },
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/spc/charts/process-performance",
+                      "visible": true
+                    },
+                    {
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "Process Capability"
+                      },
+                      "navIcon": {
+                        "color": "",
+                        "path": ""
+                      },
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/spc/charts/process-capability",
+                      "visible": true
+                    },
+                    {
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "XBarS (Std Deviation)"
+                      },
+                      "navIcon": {
+                        "color": "",
+                        "path": ""
+                      },
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/spc/charts/xbars",
+                      "visible": true
+                    },
+                    {
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "U-Chart"
+                      },
+                      "navIcon": {
+                        "color": "",
+                        "path": ""
+                      },
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/spc/charts/u-chart",
+                      "visible": true
+                    }
+                  ],
+                  "label": {
+                    "icon": {
+                      "path": "material/timeline"
+                    },
+                    "text": "Charts"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/insights"
+                    },
+                    "text": "Analysis"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/spc/analysis-report",
+                  "visible": true
+                }
+              ],
+              "label": {
+                "icon": {
+                  "path": "material/timeline"
+                },
+                "text": "SPC"
+              },
+              "navIcon": {
+                "color": "",
+                "path": "material/chevron_right"
+              },
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "",
+              "visible": true
+            },
+            {
+              "enabled": true,
+              "items": [
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/read_more"
+                    },
+                    "text": "README"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/trace/readme",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/build"
+                    },
+                    "text": "Equipment Manager"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/trace/equipment-manager",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/dehaze"
+                    },
+                    "text": "Operation Patterns"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/trace/operation-patterns",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list_alt"
+                    },
+                    "text": "Inventory"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/trace/inventory",
+                  "visible": true
+                },
+                {
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/account_tree"
+                    },
+                    "text": "Trace Graph"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": ""
+                  },
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/trace/trace-graph",
+                  "visible": true
+                }
+              ],
+              "label": {
+                "icon": {
+                  "path": "material/account_tree"
+                },
+                "text": "Trace"
+              },
+              "navIcon": {
+                "color": "",
+                "path": "material/chevron_right"
+              },
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "",
+              "visible": true
+            }
+          ]
+        },
+        "type": "ia.navigation.menutree"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Menu/Menu"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

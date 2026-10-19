@@ -1,0 +1,7 @@
+{
+  "title": "Global",
+  "description": "Global Project For Scripting",
+  "enabled": true,
+  "inheritable": true,
+  "parent": ""
+}

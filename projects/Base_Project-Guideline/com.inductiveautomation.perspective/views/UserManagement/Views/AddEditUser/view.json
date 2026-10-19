@@ -1,0 +1,3262 @@
+{
+  "custom": {
+    "editUser": {
+      "badge": "",
+      "contactInformation": [],
+      "firstname": "",
+      "getId": "",
+      "getRoles": "",
+      "language": "",
+      "lastname": "",
+      "notes": "",
+      "schedule": "",
+      "scheduleModifications": [],
+      "username": ""
+    }
+  },
+  "params": {
+    "mode": "add",
+    "selectedUser": "",
+    "userSource": "default"
+  },
+  "propConfig": {
+    "custom.editUser": {
+      "binding": {
+        "config": {
+          "struct": {
+            "mode": "{view.params.mode}",
+            "selectedUser": "{view.params.selectedUser}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tdef coalesce(value, fallback):\n\t\t\u0027\u0027\u0027\n\t\tFunction replaces None values with an empty string for input fields.\n\t\t\u0027\u0027\u0027\n\t\tif value is None:\n\t\t\treturn fallback\n\t\treturn value\n\t\n\t\u0027\u0027\u0027\n\tMAIN FUNCTION\n\t\u0027\u0027\u0027\n\tuserSource \u003d self.params.userSource\n\tselectedUser \u003d value[\"selectedUser\"]\n\tmode \u003d value[\"mode\"]\n\t\n\tif mode \u003d\u003d \"add\":\n\t\tusername \u003d None\n\telse:\n\t\tusername \u003d selectedUser\n\t\t\n\tuserObj \u003d system.user.getUser(userSource, username)\n\n\tif username \u003d\u003d None or username \u003d\u003d \"\" or userObj \u003d\u003d None:\n\t\tself.getChild(\"root\").custom.changePassword \u003d True\n\t\temptyDict \u003d {\n\t\t\t\u0027username\u0027:\t\t\"\",\n\t\t\t\u0027firstname\u0027:\t\"\",\n\t\t\t\u0027lastname\u0027:\t\t\"\",\n\t\t\t\u0027notes\u0027:\t\t\"\",\n\t\t\t\u0027badge\u0027:\t\t\"\",\n\t\t\t\u0027schedule\u0027:\t\t\"\",\n\t\t\t\u0027language\u0027:\t\t\"\",\n\t\t\t\u0027getId\u0027:\t\t\"\",\n\t\t\t\u0027getRoles\u0027:\t\t\"\",\n\t\t\t\u0027contactInformation\u0027:[],\n\t\t\t\u0027scheduleModifications\u0027:[],\n\t\t}\n\t\treturn emptyDict\n\telse:\n\t\tuserObj \u003d system.user.getUser(userSource, username)\n\t\tif userObj !\u003d None:\n\t\t\tuserDict \u003d {\n\t\t\t\t\u0027username\u0027:\t\tcoalesce(userObj.get(\u0027username\u0027), \"\"),\n\t\t\t\t\u0027firstname\u0027:\tcoalesce(userObj.get(\u0027firstname\u0027), \"\"),\n\t\t\t\t\u0027lastname\u0027:\t\tcoalesce(userObj.get(\u0027lastname\u0027), \"\"),\n\t\t\t\t\u0027notes\u0027:\t\tcoalesce(userObj.get(\u0027notes\u0027), \"\"),\n\t\t\t\t\u0027badge\u0027:\t\tcoalesce(userObj.get(\u0027badge\u0027), \"\"),\n\t\t\t\t\u0027schedule\u0027:\t\tcoalesce(userObj.get(\u0027schedule\u0027), \"\"),\n\t\t\t\t\u0027language\u0027:\t\tcoalesce(userObj.get(\u0027language\u0027), \"\"),\n\t\t\t\t\u0027getId\u0027:\t\tcoalesce(userObj.getId(), \"\"),\n\t\t\t\t\u0027getRoles\u0027:\t\tcoalesce(userObj.getRoles(), \"\"),\n\t\t\t\t\u0027contactInformation\u0027:[],\n\t\t\t\t\u0027scheduleModifications\u0027:[],\n\t\t\t\t\u0027getPath\u0027:userObj.getPath()\n\t\t\t}\n\t\t\t\n\t\t\t# Update ScheduleModifications to contain the returned values of .getScheduleAdjustment().\n\t\t\tscheduleAdjustments \u003d userObj.getScheduleAdjustments()\n\t\t\tfor schedule in scheduleAdjustments:\n\t\t\t\ttempSchedule \u003d {\u0027Start\u0027:schedule.getStart(), \u0027End\u0027:schedule.getEnd(), \u0027Note\u0027:schedule.getNote(), \u0027Available\u0027:schedule.isAvailable(), \u0027Remove\u0027:\u0027\u0027}\n\t\t\t\tuserDict[\u0027scheduleModifications\u0027].append(tempSchedule)\n\n\t\t\t# Update ContactInformation to contain the returned values of .getContactInfo()\n\t\t\tcontactInfo \u003d userObj.getContactInfo()\n\t\t\tfor contact in contactInfo:\n\t\t\t\ttempContact \u003d {\"Type\":contact.contactType, \"Value\":contact.value, \"Selected\":False, \"Delete\":\"\"}\n\t\t\t\tuserDict[\u0027contactInformation\u0027].append(tempContact)\n\t\t\treturn userDict",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.error": {
+      "binding": {
+        "config": {
+          "expression": "if ({/root/User Properties and Roles/User Properties/User Properties Input/Username and Password/Username/Username Input/Icon.custom.errorMessage} +\r\n\t{/root/User Properties and Roles/User Properties/User Properties Input/Username and Password/Password/Password Input/Icon.custom.errorMessage} +\r\n\t{/root/User Properties and Roles/User Properties/Notes and Badge/Notes/Notes Count.custom.errorMessage} +\r\n\t{/root/User Properties and Roles/User Properties/Notes and Badge/Badge/Badge Count.custom.errorMessage} \u003d \"\", False, True)"
+        },
+        "type": "expr"
+      }
+    },
+    "params.mode": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.selectedUser": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.userSource": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 760,
+      "width": 700
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Header"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.params.mode} \u003d \"add\", \"Users \u003e Add User\", \"Users \u003e Edit User\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Spacing"
+            },
+            "position": {
+              "basis": "20px",
+              "grow": 1,
+              "shrink": 0
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\t# Set Contact Information table\u0027s selectedRow back to null.\n\tself.parent.parent.getChild(\"Contact Information\").getChild(\"Contact Info Table\").getChild(\"Table\").custom.rowSelected \u003d None\n\t\n\t# Send the user back to User Management (home) view.\n\tsystem.perspective.sendMessage(\"UserManagement_ChangeView\", payload\u003d{\"view\":\"home\"}, scope\u003d\"page\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "cursor": "pointer",
+                "fontSize": "15px"
+              },
+              "text": "\u003c Back"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tdef convertToUserObject(userSource, user, mode):\n\t\t\u0027\u0027\u0027\n\t\tFunction that converts the given object into a user object that can be sent to the Gateway.\n\t\t\u0027\u0027\u0027\n\t\t# Check if adding a new user else, get the user object from the Gateway.\n\t\tif mode \u003d\u003d \"add\":\n\t\t\tuserObject \u003d system.user.getNewUser(userSource, user[\u0027username\u0027])\n\t\telse:\n\t\t\tuserObject \u003d system.user.getUser(userSource, user[\u0027oldUsername\u0027])\n\t\t\n\t\tuserObject.set(\u0027username\u0027,     user[\u0027username\u0027])\n\t\tuserObject.set(\u0027firstname\u0027,    user[\u0027firstname\u0027])\n\t\tuserObject.set(\u0027lastname\u0027,     user[\u0027lastname\u0027])\n\t\tuserObject.set(\u0027schedule\u0027,     user[\u0027schedule\u0027])\n\t\tuserObject.set(\u0027notes\u0027,        user[\u0027notes\u0027])\n\t\tuserObject.set(\u0027language\u0027,     user[\u0027language\u0027])\n\t\tuserObject.set(\u0027badge\u0027,        user[\u0027badge\u0027])\n\t\tif user.has_key(\u0027password\u0027):\n\t\t\tuserObject.set(\u0027password\u0027, user[\u0027password\u0027])\n\t\t\n\t\t# Add list of selected roles to the user object.\n\t\troles \u003d []\n\t\tuserRoles \u003d user[\u0027roles\u0027]\n\t\tfor role in userRoles:\n\t\t\tif role[\u0027selected\u0027] \u003d\u003d True:\n\t\t\t\troles.append(role[\u0027role\u0027])\n\t\tuserObject.setRoles(roles)\n\n\t\t# Remove previous ContactInfo and loop through new contactInformation and add to the user object.\n\t\tuserObject.setContactInfo(None)\n\t\tcontactInformation \u003d user[\u0027contactInformation\u0027]\n\t\tfor info in contactInformation:\n\t\t\tinformation \u003d {info[\u0027Type\u0027]: info[\u0027Value\u0027]}\n\t\t\tuserObject.addContactInfo(information)\n\t\t\t\n\t\t# Create a list of schedule modifications and set to user object.\n\t\tschedules \u003d []\n\t\tscheduleModifications \u003d user[\u0027scheduleModifications\u0027]\n\t\tfor schedule in scheduleModifications:\n\t\t\tif isinstance(schedule[\u0027Start\u0027], long):\n\t\t\t\tstart \u003d system.date.fromMillis(schedule[\u0027Start\u0027])\n\t\t\telse:\n\t\t\t\tstart \u003d schedule[\u0027Start\u0027]\n\t\t\tif isinstance(schedule[\u0027End\u0027], long):\n\t\t\t\tend \u003d system.date.fromMillis(schedule[\u0027End\u0027])\n\t\t\telse:\n\t\t\t\tend \u003d schedule[\u0027End\u0027]\n\t\t\tavailable \u003d schedule[\u0027Available\u0027]\n\t\t\tnote \u003d schedule[\u0027Note\u0027]\n\t\t\tschedules.append(system.user.createScheduleAdjustment(start, end, available, note))\n\t\tuserObject.setScheduleAdjustments(schedules)\n\t\t\n\t\treturn userObject\n\t\n\n\t\u0027\u0027\u0027\n\tIf there are no errors, adds/updates the user object on the Gateway and sends the user back to the User Management (home) view.\n\tIf an error is found, open popup with error message.\n\t\u0027\u0027\u0027\n\tif self.view.custom.error \u003d\u003d True:\n\t\tparams \u003d {\n\t\t\t\u0027username\u0027:\tself.parent.parent.getChild(\"User Properties and Roles\").getChild(\"User Properties\").getChild(\"User Properties Input\").getChild(\"Username and Password\").getChild(\"Username\").getChild(\"Username Input\").getChild(\"Icon\").custom.errorMessage,\n\t\t\t\u0027password\u0027:\tself.parent.parent.getChild(\"User Properties and Roles\").getChild(\"User Properties\").getChild(\"User Properties Input\").getChild(\"Username and Password\").getChild(\"Password\").getChild(\"Password Input\").getChild(\"Icon\").custom.errorMessage,\n\t\t\t\u0027notes\u0027:\tself.parent.parent.getChild(\"User Properties and Roles\").getChild(\"User Properties\").getChild(\"Notes and Badge\").getChild(\"Notes\").getChild(\"Notes Count\").custom.errorMessage,\n\t\t\t\u0027badge\u0027:\tself.parent.parent.getChild(\"User Properties and Roles\").getChild(\"User Properties\").getChild(\"Notes and Badge\").getChild(\"Badge\").getChild(\"Badge Count\").custom.errorMessage,\n\t\t\t\u0027mode\u0027:\t\t\u0027user\u0027\n\t\t\t}\n\t\t\t\n\t\t# Open up error message popup with a list of errors.\n\t\tsystem.perspective.openPopup(id\u003d\u0027UserManagement_SaveError\u0027, view\u003d\u0027UserManagement/Views/Popups/Popup_SaveError\u0027, params\u003dparams, showCloseIcon\u003dFalse, draggable\u003dFalse)\n\t\t\n\telse:\n\t\tmode \u003d self.view.params.mode\n\t\tuserSource \u003d self.view.params.userSource\n\t\tchangePassword \u003d self.view.getChild(\"root\").custom.changePassword\n\t\t\n\t\t# Create an object from the values of input components.\n\t\tuser \u003d {\n\t\t\t\u0027oldUsername\u0027:\t\t\t\tself.view.custom.editUser.username,\n\t\t\t\u0027username\u0027:\t\t\t\t\tself.view.getChild(\"root\").custom.username,\n\t\t\t\u0027firstname\u0027:\t\t\t\tself.view.getChild(\"root\").custom.firstname,\n\t\t\t\u0027lastname\u0027:\t\t\t\t\tself.view.getChild(\"root\").custom.lastname,\n\t\t\t\u0027schedule\u0027:\t\t\t\t\tself.view.getChild(\"root\").custom.schedule,\n\t\t\t\u0027language\u0027:\t\t\t\t\tself.view.getChild(\"root\").custom.language,\n\t\t\t\u0027notes\u0027:\t\t\t\t\tself.view.getChild(\"root\").custom.notes,\n\t\t\t\u0027badge\u0027:\t\t\t\t\tself.view.getChild(\"root\").custom.badge,\n\t\t\t\u0027contactInformation\u0027:\t \tself.view.getChild(\"root\").custom.contactInformation,\n\t\t\t\u0027scheduleModifications\u0027:\tself.view.getChild(\"root\").custom.scheduleModifications,\n\t\t\t\u0027roles\u0027:\t\t\t\t\tself.parent.parent.getChild(\"User Properties and Roles\").getChild(\"Roles\").getChild(\"FlexRepeater\").props.instances,\n\t\t\t}\n\t\t\t\t\n\t\t# If a new user or a user being edited has a password change, add the new password to the user object.\n\t\tif changePassword \u003d\u003d True:\n\t\t\tuser[\"password\"] \u003d self.view.getChild(\"root\").custom.password\n\t\t\n\t\t# Convert the \"user\" object to a user object for updating the Gateway.\n\t\tuserObject \u003d convertToUserObject(userSource, user, mode)\n\t\t\n\t\t# If a new user, add the user to the Gateway. Else, edit the user on the Gateway.\n\t\tif mode \u003d\u003d \"add\":\n\t\t\tsystem.user.addUser(userSource, userObject)\n\t\telse:\n\t\t\tsystem.user.editUser(userSource, userObject)\n\t\t\n\t\t# Clear the two password input fields.\n\t\tself.parent.parent.getChild(\"User Properties and Roles\").getChild(\"User Properties\").getChild(\"User Properties Input\").getChild(\"Username and Password\").getChild(\"Password\").getChild(\"Password Input\").getChild(\"PasswordField\").props.text \u003d \u0027\u0027\n\t\tself.parent.parent.getChild(\"User Properties and Roles\").getChild(\"User Properties\").getChild(\"User Properties Input\").getChild(\"Username and Password\").getChild(\"Password\").getChild(\"Check Password Input\").getChild(\"PasswordField\").props.text  \u003d \u0027\u0027\n\t\t\n\t\t# Set Contact Information\u0027s table selected row back to null.\n\t\tself.parent.parent.getChild(\"Contact Information\").getChild(\"Contact Info Table\").getChild(\"Table\").custom.rowSelected \u003d None\n\t\t\n\t\t# Navigate back to the User Management (home) view.\n\t\tsystem.perspective.sendMessage(\"UserManagement_ChangeView\", payload\u003d{\"view\":\"home\"}, scope\u003d\"page\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "basis": "50px",
+              "shrink": 0
+            },
+            "props": {
+              "image": {
+                "position": "center"
+              },
+              "style": {
+                "backgroundColor": "#E9E2E2",
+                "color": "#000000",
+                "marginBottom": "5px",
+                "marginLeft": "10px",
+                "marginRight": "5px",
+                "marginTop": "5px"
+              },
+              "text": "Save"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "basis": "40px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "UserManagement/Headers",
+            "marginBottom": "10px",
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "User Properties Label"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "classes": "UserManagement/SectionHeaders",
+                    "marginBottom": "0px"
+                  },
+                  "text": "User Properties"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Username Label"
+                            },
+                            "position": {
+                              "shrink": 0
+                            },
+                            "props": {
+                              "style": {
+                                "marginBottom": "2px",
+                                "marginLeft": "5px"
+                              },
+                              "text": "Username"
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "Username TextField"
+                                },
+                                "position": {
+                                  "basis": "200px",
+                                  "grow": 1
+                                },
+                                "propConfig": {
+                                  "props.text": {
+                                    "binding": {
+                                      "config": {
+                                        "path": "view.params.mode"
+                                      },
+                                      "transforms": [
+                                        {
+                                          "fallback": "{view.custom.editUser.username}",
+                                          "inputType": "scalar",
+                                          "mappings": [
+                                            {
+                                              "input": "add",
+                                              "output": "\"\""
+                                            }
+                                          ],
+                                          "outputType": "expression",
+                                          "type": "map"
+                                        }
+                                      ],
+                                      "type": "property"
+                                    }
+                                  }
+                                },
+                                "props": {
+                                  "deferUpdates": false,
+                                  "rejectUpdatesWhileFocused": false,
+                                  "style": {
+                                    "classes": "UserManagement/InputFont"
+                                  }
+                                },
+                                "type": "ia.input.text-field"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "meta": {
+                                      "name": "Label"
+                                    },
+                                    "position": {
+                                      "grow": 1,
+                                      "shrink": 0
+                                    },
+                                    "propConfig": {
+                                      "props.text": {
+                                        "binding": {
+                                          "config": {
+                                            "path": "parent.custom.errorMessage"
+                                          },
+                                          "type": "property"
+                                        }
+                                      }
+                                    },
+                                    "props": {
+                                      "style": {
+                                        "backgroundColor": "#F6F6F6",
+                                        "borderColor": "#BBBBBB",
+                                        "borderStyle": "solid",
+                                        "borderWidth": "1px",
+                                        "fontSize": "12px",
+                                        "marginLeft": "25px",
+                                        "marginTop": "-5px",
+                                        "padding": "4px",
+                                        "position": "absolute",
+                                        "visibility": "hidden",
+                                        "width": "120px"
+                                      }
+                                    },
+                                    "type": "ia.display.label"
+                                  },
+                                  {
+                                    "events": {
+                                      "dom": {
+                                        "onMouseOut": {
+                                          "config": {
+                                            "script": "\tself.getSibling(\"Label\").props.style.visibility \u003d \"hidden\""
+                                          },
+                                          "scope": "G",
+                                          "type": "script"
+                                        },
+                                        "onMouseOver": {
+                                          "config": {
+                                            "script": "\tif self.parent.custom.errorMessage !\u003d \"\":\n\t\tself.getSibling(\"Label\").props.style.visibility \u003d \"visible\""
+                                          },
+                                          "scope": "G",
+                                          "type": "script"
+                                        }
+                                      }
+                                    },
+                                    "meta": {
+                                      "name": "Icon"
+                                    },
+                                    "position": {
+                                      "basis": "22px",
+                                      "shrink": 0
+                                    },
+                                    "propConfig": {
+                                      "props.color": {
+                                        "binding": {
+                                          "config": {
+                                            "path": "parent.custom.errorMessage"
+                                          },
+                                          "transforms": [
+                                            {
+                                              "fallback": "#FF0000",
+                                              "inputType": "scalar",
+                                              "mappings": [
+                                                {
+                                                  "input": "",
+                                                  "output": "#228B22"
+                                                }
+                                              ],
+                                              "outputType": "scalar",
+                                              "type": "map"
+                                            }
+                                          ],
+                                          "type": "property"
+                                        }
+                                      },
+                                      "props.path": {
+                                        "binding": {
+                                          "config": {
+                                            "path": "parent.custom.errorMessage"
+                                          },
+                                          "transforms": [
+                                            {
+                                              "fallback": "material/error",
+                                              "inputType": "scalar",
+                                              "mappings": [
+                                                {
+                                                  "input": "",
+                                                  "output": "material/check_circle"
+                                                }
+                                              ],
+                                              "outputType": "scalar",
+                                              "type": "map"
+                                            }
+                                          ],
+                                          "type": "property"
+                                        }
+                                      }
+                                    },
+                                    "type": "ia.display.icon"
+                                  }
+                                ],
+                                "meta": {
+                                  "name": "Icon"
+                                },
+                                "position": {
+                                  "basis": "22px",
+                                  "shrink": 0
+                                },
+                                "propConfig": {
+                                  "custom.errorMessage": {
+                                    "binding": {
+                                      "config": {
+                                        "path": "../Username TextField.props.text"
+                                      },
+                                      "transforms": [
+                                        {
+                                          "code": "\tuserSource \u003d self.view.params.userSource\n\tusers \u003d system.user.getUsers(userSource)\n\tselectedUser \u003d self.view.params.selectedUser\n\t\n\t# Gather all the users into an array\n\tusernames \u003d []\n\tif users:\n\t\tfor user in users:\n\t\t\tusernames.append(user.get(\u0027username\u0027))\n\t\n\t# Check if the value in username textfield matches a username already on the gateway or is empty, then return False\n\t# as well create error message. Else, return True and clear the error messages.\n\tif users:\n\t\tif value in usernames:\n\t\t\tif selectedUser:\n\t\t\t\tif value \u003d\u003d selectedUser:\n\t\t\t\t\treturn \"\"\n\t\t\t\telse:\n\t\t\t\t\treturn \"Username already exists.\"\n\t\t\telif selectedUser \u003d\u003d \"\":\n\t\t\t\treturn \"Username already exists.\"\n\t\telif value \u003d\u003d \u0027\u0027:\n\t\t\treturn \"Username field cannot be empty.\"\n\t\telse:\n\t\t\treturn \"\"",
+                                          "type": "script"
+                                        }
+                                      ],
+                                      "type": "property"
+                                    }
+                                  }
+                                },
+                                "type": "ia.container.flex"
+                              }
+                            ],
+                            "meta": {
+                              "name": "Username Input"
+                            },
+                            "position": {
+                              "basis": "26px",
+                              "shrink": 0
+                            },
+                            "props": {
+                              "style": {
+                                "marginLeft": "5px",
+                                "marginRight": "5px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Username"
+                        },
+                        "position": {
+                          "basis": "150px",
+                          "grow": 1,
+                          "shrink": 0
+                        },
+                        "props": {
+                          "direction": "column",
+                          "style": {
+                            "marginTop": "8px"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "Password Label"
+                                },
+                                "props": {
+                                  "style": {
+                                    "classes": "ScheduleManagement/InputFont",
+                                    "marginLeft": "5px"
+                                  },
+                                  "text": "Password"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "Spacing"
+                                },
+                                "position": {
+                                  "grow": 1,
+                                  "shrink": 0
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "Checkbox"
+                                },
+                                "position": {
+                                  "shrink": 0
+                                },
+                                "propConfig": {
+                                  "position.display": {
+                                    "binding": {
+                                      "config": {
+                                        "path": "view.params.mode"
+                                      },
+                                      "transforms": [
+                                        {
+                                          "fallback": true,
+                                          "inputType": "scalar",
+                                          "mappings": [
+                                            {
+                                              "input": "add",
+                                              "output": false
+                                            }
+                                          ],
+                                          "outputType": "scalar",
+                                          "type": "map"
+                                        }
+                                      ],
+                                      "type": "property"
+                                    }
+                                  },
+                                  "props.selected": {
+                                    "binding": {
+                                      "config": {
+                                        "path": "view.params.mode"
+                                      },
+                                      "transforms": [
+                                        {
+                                          "fallback": false,
+                                          "inputType": "scalar",
+                                          "mappings": [
+                                            {
+                                              "input": "add",
+                                              "output": true
+                                            }
+                                          ],
+                                          "outputType": "scalar",
+                                          "type": "map"
+                                        }
+                                      ],
+                                      "type": "property"
+                                    }
+                                  }
+                                },
+                                "props": {
+                                  "checkedIcon": {
+                                    "style": {
+                                      "width": "18px"
+                                    }
+                                  },
+                                  "style": {
+                                    "classes": "ScheduleManagement/InputFont",
+                                    "height": "16px",
+                                    "marginRight": "7px"
+                                  },
+                                  "text": "Edit Password?",
+                                  "textPosition": "left",
+                                  "uncheckedIcon": {
+                                    "style": {
+                                      "width": "18px"
+                                    }
+                                  }
+                                },
+                                "type": "ia.input.checkbox"
+                              }
+                            ],
+                            "meta": {
+                              "name": "Password Label Check Box"
+                            },
+                            "position": {
+                              "shrink": 0
+                            },
+                            "props": {
+                              "style": {
+                                "marginBottom": "2px",
+                                "overflow": "visible"
+                              },
+                              "wrap": "wrap"
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PasswordField"
+                                },
+                                "position": {
+                                  "basis": "200px",
+                                  "grow": 1
+                                },
+                                "propConfig": {
+                                  "props.enabled": {
+                                    "binding": {
+                                      "config": {
+                                        "path": "/root.custom.changePassword"
+                                      },
+                                      "type": "property"
+                                    }
+                                  }
+                                },
+                                "props": {
+                                  "allowReveal": false
+                                },
+                                "type": "ia.input.password-field"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "events": {
+                                      "dom": {
+                                        "onMouseOut": {
+                                          "config": {
+                                            "script": "\tself.getSibling(\"Label\").props.style.visibility \u003d \"hidden\""
+                                          },
+                                          "scope": "G",
+                                          "type": "script"
+                                        },
+                                        "onMouseOver": {
+                                          "config": {
+                                            "script": "\tif self.parent.custom.errorMessage !\u003d \"\":\n\t\tself.getSibling(\"Label\").props.style.visibility \u003d \"visible\""
+                                          },
+                                          "scope": "G",
+                                          "type": "script"
+                                        }
+                                      }
+                                    },
+                                    "meta": {
+                                      "name": "Icon"
+                                    },
+                                    "position": {
+                                      "basis": "22px"
+                                    },
+                                    "propConfig": {
+                                      "meta.visible": {
+                                        "binding": {
+                                          "config": {
+                                            "struct": {
+                                              "changePassword": "{/root.custom.changePassword}",
+                                              "mode": "{view.params.mode}"
+                                            },
+                                            "waitOnAll": true
+                                          },
+                                          "transforms": [
+                                            {
+                                              "code": "\t# Icon will be visible if user is being added or a user is being edited and the change password checkbox is true.\n\tif value[\"mode\"] \u003d\u003d \"\" or (value[\"mode\"] !\u003d \"\" and value[\"changePassword\"] \u003d\u003d True):\n\t\treturn True\n\telse:\n\t\treturn False",
+                                              "type": "script"
+                                            }
+                                          ],
+                                          "type": "expr-struct"
+                                        }
+                                      },
+                                      "props.color": {
+                                        "binding": {
+                                          "config": {
+                                            "path": "parent.custom.errorMessage"
+                                          },
+                                          "transforms": [
+                                            {
+                                              "fallback": "#FF0000",
+                                              "inputType": "scalar",
+                                              "mappings": [
+                                                {
+                                                  "input": "",
+                                                  "output": "#228B22"
+                                                }
+                                              ],
+                                              "outputType": "scalar",
+                                              "type": "map"
+                                            }
+                                          ],
+                                          "type": "property"
+                                        }
+                                      },
+                                      "props.path": {
+                                        "binding": {
+                                          "config": {
+                                            "path": "parent.custom.errorMessage"
+                                          },
+                                          "transforms": [
+                                            {
+                                              "fallback": "material/error",
+                                              "inputType": "scalar",
+                                              "mappings": [
+                                                {
+                                                  "input": "",
+                                                  "output": "material/check_circle"
+                                                }
+                                              ],
+                                              "outputType": "scalar",
+                                              "type": "map"
+                                            }
+                                          ],
+                                          "type": "property"
+                                        }
+                                      }
+                                    },
+                                    "type": "ia.display.icon"
+                                  },
+                                  {
+                                    "meta": {
+                                      "name": "Label"
+                                    },
+                                    "position": {
+                                      "basis": "50px"
+                                    },
+                                    "propConfig": {
+                                      "props.text": {
+                                        "binding": {
+                                          "config": {
+                                            "path": "parent.custom.errorMessage"
+                                          },
+                                          "type": "property"
+                                        }
+                                      }
+                                    },
+                                    "props": {
+                                      "style": {
+                                        "backgroundColor": "#F6F6F6",
+                                        "borderColor": "#BBBBBB",
+                                        "borderStyle": "solid",
+                                        "borderWidth": "1px",
+                                        "fontSize": "12px",
+                                        "marginLeft": "25px",
+                                        "marginTop": "-6px",
+                                        "padding": "4px",
+                                        "position": "absolute",
+                                        "visibility": "hidden",
+                                        "width": "150px"
+                                      }
+                                    },
+                                    "type": "ia.display.label"
+                                  }
+                                ],
+                                "meta": {
+                                  "name": "Icon"
+                                },
+                                "position": {
+                                  "basis": "22px",
+                                  "shrink": 0
+                                },
+                                "propConfig": {
+                                  "custom.errorMessage": {
+                                    "binding": {
+                                      "config": {
+                                        "struct": {
+                                          "changePassword": "{/root.custom.changePassword}",
+                                          "password": "{../PasswordField.props.text}",
+                                          "passwordCheck": "{.../Check Password Input/PasswordField.props.text}"
+                                        },
+                                        "waitOnAll": true
+                                      },
+                                      "transforms": [
+                                        {
+                                          "code": "\tpassword \u003d value[\u0027password\u0027]\n\tpasswordCheck \u003d value[\u0027passwordCheck\u0027]\n\tchangePassword \u003d value[\u0027changePassword\u0027]\n\n\t# If editing user and change password checkbox set to false, ignore password field errors.\n\tif changePassword \u003d\u003d False:\n\t\treturn \"\"\n\t# If password and check password input fields do not match or either input fields are blank, return with an error message.\n\t# Error if password does not equal check or password fields are empty.\n\telif password !\u003d passwordCheck or password \u003d\u003d \u0027\u0027 or passwordCheck \u003d\u003d \u0027\u0027:\n\t\t\treturn \"Password fields do not match or are empty.\"\n\telse:\n\t\treturn \"\"",
+                                          "type": "script"
+                                        }
+                                      ],
+                                      "type": "expr-struct"
+                                    }
+                                  }
+                                },
+                                "type": "ia.container.flex"
+                              }
+                            ],
+                            "meta": {
+                              "name": "Password Input"
+                            },
+                            "position": {
+                              "basis": "26px"
+                            },
+                            "props": {
+                              "style": {
+                                "classes": "UserManagement/InputFont",
+                                "height": "26px",
+                                "marginLeft": "5px",
+                                "marginRight": "5px",
+                                "overflow": "visible"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PasswordField"
+                                },
+                                "position": {
+                                  "basis": "200px",
+                                  "grow": 1
+                                },
+                                "propConfig": {
+                                  "props.enabled": {
+                                    "binding": {
+                                      "config": {
+                                        "path": "/root.custom.changePassword"
+                                      },
+                                      "type": "property"
+                                    }
+                                  }
+                                },
+                                "props": {
+                                  "allowReveal": false,
+                                  "placeholder": "Re-Enter Password"
+                                },
+                                "type": "ia.input.password-field"
+                              },
+                              {
+                                "meta": {
+                                  "name": "Label"
+                                },
+                                "position": {
+                                  "basis": "22px",
+                                  "shrink": 0
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "Check Password Input"
+                            },
+                            "position": {
+                              "basis": "26px"
+                            },
+                            "props": {
+                              "style": {
+                                "classes": "UserManagement/InputFont",
+                                "height": "26px",
+                                "marginLeft": "5px",
+                                "marginRight": "5px",
+                                "marginTop": "2px",
+                                "overflow": "visible"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Password"
+                        },
+                        "position": {
+                          "basis": "150px",
+                          "grow": 1,
+                          "shrink": 0
+                        },
+                        "props": {
+                          "direction": "column",
+                          "style": {
+                            "marginTop": "8px",
+                            "overflow": "visible"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "Username and Password"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "overflow": "visible"
+                      },
+                      "wrap": "wrap"
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "FirstName Label"
+                            },
+                            "position": {
+                              "shrink": 0
+                            },
+                            "props": {
+                              "style": {
+                                "marginBottom": "2px",
+                                "marginLeft": "5px"
+                              },
+                              "text": "First Name"
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "FirstName TextField"
+                            },
+                            "position": {
+                              "basis": "26px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "props.text": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.mode"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "fallback": "{view.custom.editUser.firstname}",
+                                      "inputType": "scalar",
+                                      "mappings": [
+                                        {
+                                          "input": "add",
+                                          "output": "\"\""
+                                        }
+                                      ],
+                                      "outputType": "expression",
+                                      "type": "map"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "style": {
+                                "classes": "UserManagement/InputFont",
+                                "marginLeft": "5px",
+                                "marginRight": "10px"
+                              }
+                            },
+                            "type": "ia.input.text-field"
+                          }
+                        ],
+                        "meta": {
+                          "name": "First Name"
+                        },
+                        "position": {
+                          "basis": "100px",
+                          "grow": 1,
+                          "shrink": 0
+                        },
+                        "props": {
+                          "direction": "column",
+                          "style": {
+                            "marginTop": "8px"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      },
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "LastName Label"
+                            },
+                            "position": {
+                              "shrink": 0
+                            },
+                            "props": {
+                              "style": {
+                                "marginBottom": "2px",
+                                "marginLeft": "5px"
+                              },
+                              "text": "Last Name"
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "LastName TextField"
+                            },
+                            "position": {
+                              "basis": "26px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "props.text": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.mode"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "fallback": "{view.custom.editUser.lastname}",
+                                      "inputType": "scalar",
+                                      "mappings": [
+                                        {
+                                          "input": "add",
+                                          "output": "\"\""
+                                        }
+                                      ],
+                                      "outputType": "expression",
+                                      "type": "map"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "style": {
+                                "classes": "UserManagement/InputFont",
+                                "marginLeft": "5px",
+                                "marginRight": "10px"
+                              }
+                            },
+                            "type": "ia.input.text-field"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Last Name"
+                        },
+                        "position": {
+                          "basis": "100px",
+                          "grow": 1,
+                          "shrink": 0
+                        },
+                        "props": {
+                          "direction": "column",
+                          "style": {
+                            "marginTop": "8px"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "First and Last Name"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "props": {
+                      "wrap": "wrap"
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Schedule Label"
+                            },
+                            "position": {
+                              "shrink": 0
+                            },
+                            "props": {
+                              "style": {
+                                "marginBottom": "2px",
+                                "marginLeft": "5px"
+                              },
+                              "text": "Schedule"
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "Schedule Dropdown"
+                            },
+                            "position": {
+                              "basis": "26px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "props.options": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.custom.editUser"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\t\n\t# Update Schedule Dropdown options.\n\tscheduleObjects \u003d system.user.getSchedules()\n\t\n\t# Create a list of schedules pulled from the Gateway. Skip duplicate names.\n\tschedules \u003d []\n\tfor scheduleObject in scheduleObjects:\n\t\tskip \u003d False\n\t\tfor item in schedules:\n\t\t\tif item[\u0027value\u0027] \u003d\u003d scheduleObject.getName():\n\t\t\t\tskip \u003d True\n\t\tif skip \u003d\u003d False:\n\t\t\tschedules.append({\u0027value\u0027:scheduleObject.getName(), \u0027label\u0027:scheduleObject.getName()})\n\t\n\treturn schedules",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              },
+                              "props.value": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.mode"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "fallback": "{view.custom.editUser.schedule}",
+                                      "inputType": "scalar",
+                                      "mappings": [
+                                        {
+                                          "input": "add",
+                                          "output": "\"Always\""
+                                        }
+                                      ],
+                                      "outputType": "expression",
+                                      "type": "map"
+                                    },
+                                    {
+                                      "code": "\t# Check if schedule assigned to user exists on the Gateway.\n\tscheduleExists \u003d False\n\tfor option in self.props.options:\n\t\tif value \u003d\u003d option[\"value\"]:\n\t\t\tscheduleExists \u003d True\n\t\t\tbreak\t\n\t\n\t# If schedule doesn\u0027t exist, return the first schedule option from dropdown. Else, return the existing value.\n\tif value \u003d\u003d None or value \u003d\u003d \u0027\u0027 or scheduleExists \u003d\u003d False:\n\t\t# Check if a first option exists, else return default schedule \"Always\".\n\t\tif self.props.options:\n\t\t\treturn self.props.options[0].value\n\t\telse:\n\t\t\treturn \"Always\"\n\telse:\n\t\treturn value\t",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "dropdownOptionStyle": {
+                                "classes": "UserManagement/InputFont"
+                              },
+                              "style": {
+                                "classes": "UserManagement/InputFont",
+                                "marginLeft": "5px",
+                                "marginRight": "10px"
+                              }
+                            },
+                            "type": "ia.input.dropdown"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Schedule"
+                        },
+                        "position": {
+                          "basis": "100px",
+                          "grow": 1,
+                          "shrink": 0
+                        },
+                        "props": {
+                          "direction": "column",
+                          "style": {
+                            "marginTop": "8px",
+                            "overflow": "visible"
+                          },
+                          "wrap": "wrap"
+                        },
+                        "type": "ia.container.flex"
+                      },
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Language Label"
+                            },
+                            "position": {
+                              "shrink": 0
+                            },
+                            "props": {
+                              "style": {
+                                "marginBottom": "2px",
+                                "marginLeft": "5px"
+                              },
+                              "text": "Language"
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "custom": {
+                              "locale": "class java.util.Locale"
+                            },
+                            "meta": {
+                              "name": "Language Dropdown"
+                            },
+                            "position": {
+                              "basis": "26px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "props.options": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.mode"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\tfrom java.util import Locale\n\timport operator\n\n\t# Gets list of available locales from the Gateway and creates a dictionary of locales.\n\tlist \u003d []\n\tfor locale in Locale.getAvailableLocales():\n\t\t# If the locale has a country associated with the local, append the country name.\n\t\tif \"-\" in locale.toLanguageTag():\n\t\t\tdict \u003d  { \"value\": locale.toLanguageTag().replace(\"-\", \"_\"), \"label\": locale.displayLanguage + \" (\" + locale.displayCountry + \")\" }\n\t \telse:\n\t\t\tdict \u003d  { \"value\": locale.toLanguageTag().replace(\"-\", \"_\"), \"label\": locale.displayLanguage }\n\t \tlist.append(dict)\n\tlist \u003d sorted(list)\n\treturn list[1:]",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              },
+                              "props.value": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.mode"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "fallback": "{view.custom.editUser.language}",
+                                      "inputType": "scalar",
+                                      "mappings": [
+                                        {
+                                          "input": "add",
+                                          "output": "\"en\""
+                                        }
+                                      ],
+                                      "outputType": "expression",
+                                      "type": "map"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "dropdownOptionStyle": {
+                                "classes": "UserManagement/InputFont"
+                              },
+                              "style": {
+                                "classes": "UserManagement/InputFont",
+                                "height": "24px",
+                                "marginLeft": "5px",
+                                "marginRight": "10px"
+                              }
+                            },
+                            "type": "ia.input.dropdown"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Language"
+                        },
+                        "position": {
+                          "basis": "100px",
+                          "grow": 1,
+                          "shrink": 0
+                        },
+                        "props": {
+                          "direction": "column",
+                          "style": {
+                            "marginTop": "8px"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "Schedule and Language"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "overflow": "visible"
+                      },
+                      "wrap": "wrap"
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "User Properties Input"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "classes": "UserManagement/InputFont"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Notes Label"
+                        },
+                        "position": {
+                          "shrink": 0
+                        },
+                        "props": {
+                          "style": {
+                            "marginBottom": "2px",
+                            "marginLeft": "5px"
+                          },
+                          "text": "Notes"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "Notes TextArea"
+                        },
+                        "position": {
+                          "basis": "50px",
+                          "grow": 1,
+                          "shrink": 0
+                        },
+                        "propConfig": {
+                          "props.style.borderColor": {
+                            "binding": {
+                              "config": {
+                                "path": "../Notes Count.custom.errorMessage"
+                              },
+                              "transforms": [
+                                {
+                                  "fallback": "#FF0000",
+                                  "inputType": "scalar",
+                                  "mappings": [
+                                    {
+                                      "input": "",
+                                      "output": "#A0A0A0"
+                                    }
+                                  ],
+                                  "outputType": "scalar",
+                                  "type": "map"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          },
+                          "props.style.borderStyle": {
+                            "binding": {
+                              "config": {
+                                "path": "../Notes Count.custom.errorMessage"
+                              },
+                              "transforms": [
+                                {
+                                  "fallback": "dashed",
+                                  "inputType": "scalar",
+                                  "mappings": [
+                                    {
+                                      "input": "",
+                                      "output": "solid"
+                                    }
+                                  ],
+                                  "outputType": "scalar",
+                                  "type": "map"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          },
+                          "props.style.borderWidth": {
+                            "binding": {
+                              "config": {
+                                "path": "../Notes Count.custom.errorMessage"
+                              },
+                              "transforms": [
+                                {
+                                  "fallback": "2px",
+                                  "inputType": "scalar",
+                                  "mappings": [
+                                    {
+                                      "input": "",
+                                      "output": "1px"
+                                    }
+                                  ],
+                                  "outputType": "scalar",
+                                  "type": "map"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          },
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "path": "view.params.mode"
+                              },
+                              "transforms": [
+                                {
+                                  "fallback": "{view.custom.editUser.notes}",
+                                  "inputType": "scalar",
+                                  "mappings": [
+                                    {
+                                      "input": "add",
+                                      "output": "\"\""
+                                    }
+                                  ],
+                                  "outputType": "expression",
+                                  "type": "map"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "deferUpdates": false,
+                          "style": {
+                            "classes": "UserManagement/InputFont",
+                            "marginBottom": "1px",
+                            "marginLeft": "5px",
+                            "marginRight": "10px"
+                          },
+                          "wrap": "hard"
+                        },
+                        "type": "ia.input.text-area"
+                      },
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Spacing"
+                            },
+                            "position": {
+                              "grow": 1,
+                              "shrink": 0
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "Notes Count Label"
+                            },
+                            "position": {
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "props.style.color": {
+                                "binding": {
+                                  "config": {
+                                    "path": "parent.custom.errorMessage"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "fallback": "#FF0000",
+                                      "inputType": "scalar",
+                                      "mappings": [
+                                        {
+                                          "input": "",
+                                          "output": "#000000"
+                                        }
+                                      ],
+                                      "outputType": "scalar",
+                                      "type": "map"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              },
+                              "props.style.fontWeight": {
+                                "binding": {
+                                  "config": {
+                                    "path": "parent.custom.errorMessage"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "fallback": "bold",
+                                      "inputType": "scalar",
+                                      "mappings": [
+                                        {
+                                          "input": "",
+                                          "output": "normal"
+                                        }
+                                      ],
+                                      "outputType": "scalar",
+                                      "type": "map"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              },
+                              "props.text": {
+                                "binding": {
+                                  "config": {
+                                    "path": ".../Notes TextArea.props.text"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\t# Return the character count of Note Text Area over a total of 500.\n\tif value \u003d\u003d None:\n\t\treturn \"0/500\"\n\tvalue \u003d str(len(value)) + \"/500\"\n\treturn value",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "style": {
+                                "fontSize": "10px",
+                                "marginRight": "10px",
+                                "textAlign": "center"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Notes Count"
+                        },
+                        "position": {
+                          "shrink": 0
+                        },
+                        "propConfig": {
+                          "custom.errorMessage": {
+                            "binding": {
+                              "config": {
+                                "path": "../Notes TextArea.props.text"
+                              },
+                              "transforms": [
+                                {
+                                  "code": "\t# If the Notes Text Area contains more than 500 characters, return an error.\n\tvalue \u003d len(value)\n\tif value \u003e 500:\n\t\treturn \"Notes cannot be more than 500 characters.\"\n\telse:\n\t\treturn \"\"",
+                                  "type": "script"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "overflow": "hidden"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "Notes"
+                    },
+                    "position": {
+                      "basis": "100px",
+                      "grow": 1,
+                      "shrink": 0
+                    },
+                    "props": {
+                      "direction": "column",
+                      "style": {
+                        "classes": "UserManagement/InputFont"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Badge Label"
+                        },
+                        "position": {
+                          "shrink": 0
+                        },
+                        "props": {
+                          "style": {
+                            "marginBottom": "2px",
+                            "marginLeft": "5px"
+                          },
+                          "text": "Badge"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "Badge TextArea"
+                        },
+                        "position": {
+                          "basis": "50px",
+                          "grow": 1,
+                          "shrink": 0
+                        },
+                        "propConfig": {
+                          "props.style.borderColor": {
+                            "binding": {
+                              "config": {
+                                "path": "../Badge Count.custom.errorMessage"
+                              },
+                              "transforms": [
+                                {
+                                  "fallback": null,
+                                  "inputType": "scalar",
+                                  "mappings": [
+                                    {
+                                      "input": "",
+                                      "output": "#A0A0A0"
+                                    }
+                                  ],
+                                  "outputType": "scalar",
+                                  "type": "map"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          },
+                          "props.style.borderStyle": {
+                            "binding": {
+                              "config": {
+                                "path": "../Badge Count.custom.errorMessage"
+                              },
+                              "transforms": [
+                                {
+                                  "fallback": "dashed",
+                                  "inputType": "scalar",
+                                  "mappings": [
+                                    {
+                                      "input": "",
+                                      "output": "solid"
+                                    }
+                                  ],
+                                  "outputType": "scalar",
+                                  "type": "map"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          },
+                          "props.style.borderWidth": {
+                            "binding": {
+                              "config": {
+                                "path": "../Badge Count.custom.errorMessage"
+                              },
+                              "transforms": [
+                                {
+                                  "fallback": "2px",
+                                  "inputType": "scalar",
+                                  "mappings": [
+                                    {
+                                      "input": "",
+                                      "output": "1px"
+                                    }
+                                  ],
+                                  "outputType": "scalar",
+                                  "type": "map"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          },
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "path": "view.params.mode"
+                              },
+                              "transforms": [
+                                {
+                                  "fallback": "{view.custom.editUser.badge}",
+                                  "inputType": "scalar",
+                                  "mappings": [
+                                    {
+                                      "input": "add",
+                                      "output": "\"\""
+                                    }
+                                  ],
+                                  "outputType": "expression",
+                                  "type": "map"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "deferUpdates": false,
+                          "style": {
+                            "classes": "UserManagement/InputFont",
+                            "marginBottom": "1px",
+                            "marginLeft": "5px",
+                            "marginRight": "10px"
+                          },
+                          "wrap": "hard"
+                        },
+                        "type": "ia.input.text-area"
+                      },
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Spacing"
+                            },
+                            "position": {
+                              "grow": 1,
+                              "shrink": 0
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "Badge Count Label"
+                            },
+                            "position": {
+                              "basis": "autop"
+                            },
+                            "propConfig": {
+                              "props.style.color": {
+                                "binding": {
+                                  "config": {
+                                    "path": "parent.custom.errorMessage"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "fallback": "#FF0000",
+                                      "inputType": "scalar",
+                                      "mappings": [
+                                        {
+                                          "input": "",
+                                          "output": "#000000"
+                                        }
+                                      ],
+                                      "outputType": "scalar",
+                                      "type": "map"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              },
+                              "props.style.fontWeight": {
+                                "binding": {
+                                  "config": {
+                                    "path": "parent.custom.errorMessage"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "fallback": "bold",
+                                      "inputType": "scalar",
+                                      "mappings": [
+                                        {
+                                          "input": "",
+                                          "output": "normal"
+                                        }
+                                      ],
+                                      "outputType": "scalar",
+                                      "type": "map"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              },
+                              "props.text": {
+                                "binding": {
+                                  "config": {
+                                    "path": ".../Badge TextArea.props.text"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\t# Return the number of characters that exist in Badge Text Area.\n\tif value \u003d\u003d None:\n\t\treturn \"0/500\"\n\tvalue \u003d str(len(value)) + \"/500\"\n\treturn value",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "style": {
+                                "fontSize": "10px",
+                                "marginRight": "10px",
+                                "textAlign": "center"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Badge Count"
+                        },
+                        "position": {
+                          "shrink": 0
+                        },
+                        "propConfig": {
+                          "custom.errorMessage": {
+                            "binding": {
+                              "config": {
+                                "path": "../Badge TextArea.props.text"
+                              },
+                              "transforms": [
+                                {
+                                  "code": "\t# If Badge Text Area is has more than 500 characters, return an error message.\n\tvalue \u003d len(value)\n\tif value \u003e 500:\n\t\treturn \"Badges cannot be more than 500 characters.\"\n\telse:\n\t\treturn \"\"",
+                                  "type": "script"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "overflow": "hidden"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "Badge"
+                    },
+                    "position": {
+                      "basis": "100px",
+                      "grow": 1,
+                      "shrink": 0
+                    },
+                    "props": {
+                      "direction": "column",
+                      "style": {
+                        "classes": "UserManagement/InputFont"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "Notes and Badge"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "marginTop": "8px"
+                  },
+                  "wrap": "wrap"
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "User Properties"
+            },
+            "position": {
+              "basis": "500px",
+              "grow": 1
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "classes": "UserManagement/SectionHeaders"
+                  },
+                  "text": "Roles"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "FlexRepeater"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.instances": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.username"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tcurrentRoles \u003d system.user.getRoles(self.view.params.userSource)\n\tmode \u003d self.view.params.mode\n\t\n\t# Create an object containing all roles specified on the Gateway.\n\t# Set all roles as unselected.\n\troleArray \u003d []\n\tfor role in currentRoles:\n\t\troleArray.append({\"role\":role, \"selected\":False})\n\t\n\t# If editing, compares the the roles that the user has to the full list of\n\t# roles from the Gateway and changes the roles that match to be selected \u003d True.\n\tif mode \u003d\u003d \"edit\":\n\t\tuserRoles \u003d self.view.custom.editUser.getRoles\n\t\tfor instance in userRoles:\n\t\t\tfor role in roleArray:\n\t\t\t\tif instance \u003d\u003d role[\u0027role\u0027]:\n\t\t\t\t\trole[\u0027selected\u0027] \u003d True\n\t\t\t\t\t\n\treturn sorted(roleArray, key\u003dlambda x:x[\u0027role\u0027].lower())\n",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "direction": "column",
+                  "elementPosition": {
+                    "basis": "auto",
+                    "grow": 0,
+                    "shrink": 0
+                  },
+                  "path": "UserManagement/Tools/Roles Checkbox",
+                  "style": {
+                    "backgroundColor": "#FAFAFB",
+                    "borderColor": "#A9A9A9",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "classes": "UserManagement/InputFont",
+                    "marginRight": "5px"
+                  },
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false
+                },
+                "type": "ia.display.flex-repeater"
+              },
+              {
+                "meta": {
+                  "name": "Spacing"
+                },
+                "position": {
+                  "basis": "12px",
+                  "shrink": 0
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Roles"
+            },
+            "position": {
+              "basis": "130px",
+              "grow": 1,
+              "shrink": 0
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "classes": "UserManagement/InputFont"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "User Properties and Roles"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "marginLeft": "7px",
+            "marginRight": "7px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Contact Info Label"
+            },
+            "position": {
+              "basis": "20px"
+            },
+            "props": {
+              "style": {
+                "classes": "UserManagement/SectionHeaders",
+                "marginLeft": "5px"
+              },
+              "text": "Contact Information"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "custom": {
+                  "rowSelected": null
+                },
+                "events": {
+                  "component": {
+                    "onEditCellCommit": {
+                      "config": {
+                        "script": "\t# If the column is \u0027Value\u0027, update value in contact information list.\n\tif event[\u0027column\u0027] \u003d\u003d \u0027Value\u0027:\n\t\tdata \u003d self.view.params.contactInformation\n\t\tdata[event[\u0027row\u0027]][\u0027Value\u0027] \u003d event[\u0027value\u0027]"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Table"
+                },
+                "position": {
+                  "basis": "400px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.columns[0].viewParams.contactInformation": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.contactInformation"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[0].viewPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.contactInformation"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif len(value) \u003d\u003d 0:\n\t\treturn \u0027\u0027\n\treturn \u0027UserManagement/Tools/ContactInformation/Move Selection\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[1].viewParams.contactInformation": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.contactInformation"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[1].viewPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.contactInformation"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif len(value) \u003d\u003d 0:\n\t\treturn \u0027\u0027\n\treturn \u0027UserManagement/Tools/ContactInformation/Dropdown\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[2].viewParams.contactInformation": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.contactInformation"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[2].viewPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.contactInformation"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif len(value) \u003d\u003d 0:\n\t\treturn \u0027\u0027\n\treturn \u0027UserManagement/Tools/Input TextField\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[3].viewParams.contactInformation": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.contactInformation"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[3].viewParams.rowSelected": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.rowSelected"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[3].viewPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.contactInformation"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif len(value) \u003d\u003d 0:\n\t\treturn \u0027\u0027\n\treturn \u0027UserManagement/Tools/Remove Button\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.data": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.contactInformation"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\t# If contact information list empty, create an empty row.\n\tif len(value) is 0:\n\t\tself.custom.rowSelected \u003d None\n\t\treturn [{\u0027Delete\u0027:\u0027\u0027, \u0027Type\u0027:\u0027\u0027, \u0027Move\u0027:\u0027\u0027, \u0027Value\u0027:\u0027\u0027}]\n\telse:\n\t\treturn value",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "cells": {
+                    "allowEditOn": "single-click",
+                    "style": {
+                      "fontSize": "12px"
+                    }
+                  },
+                  "columns": [
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "Selected",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": "Select"
+                      },
+                      "justify": "auto",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "#62A3F6",
+                          "linecap": "round",
+                          "width": 5
+                        },
+                        "max": 100,
+                        "track": {
+                          "color": "#DADADA",
+                          "linecap": "round",
+                          "width": 2
+                        },
+                        "value": {
+                          "color": "#7D7D7D",
+                          "show": true
+                        }
+                      },
+                      "render": "view",
+                      "resizable": false,
+                      "sortable": false,
+                      "strictWidth": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "#2196F3",
+                          "unselected": "#FFFFFF"
+                        }
+                      },
+                      "viewParams": {},
+                      "visible": true,
+                      "width": 55
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "Type",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "UserManagement/LeftVerticalHeaderBar"
+                        },
+                        "title": "Type"
+                      },
+                      "justify": "left",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "#62A3F6",
+                          "linecap": "round",
+                          "width": 5
+                        },
+                        "max": 100,
+                        "track": {
+                          "color": "#DADADA",
+                          "linecap": "round",
+                          "width": 2
+                        },
+                        "value": {
+                          "color": "#7D7D7D",
+                          "show": true
+                        }
+                      },
+                      "render": "view",
+                      "resizable": false,
+                      "sortable": false,
+                      "strictWidth": false,
+                      "style": {
+                        "borderLeftColor": "#606060",
+                        "borderLeftStyle": "solid",
+                        "borderLeftWidth": "1px",
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "#2196F3",
+                          "unselected": "#FFFFFF"
+                        }
+                      },
+                      "viewParams": {},
+                      "visible": true,
+                      "width": 60
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "Value",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "UserManagement/LeftVerticalHeaderBar"
+                        },
+                        "title": "Value"
+                      },
+                      "justify": "left",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "#62A3F6",
+                          "linecap": "round",
+                          "width": 5
+                        },
+                        "max": 100,
+                        "track": {
+                          "color": "#DADADA",
+                          "linecap": "round",
+                          "width": 2
+                        },
+                        "value": {
+                          "color": "#7D7D7D",
+                          "show": true
+                        }
+                      },
+                      "render": "view",
+                      "resizable": false,
+                      "sortable": false,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "#2196F3",
+                          "unselected": "#FFFFFF"
+                        }
+                      },
+                      "viewParams": {
+                        "type": "contactInformation"
+                      },
+                      "visible": true,
+                      "width": 100
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "Delete",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "UserManagement/LeftVerticalHeaderBar"
+                        },
+                        "title": "Remove?"
+                      },
+                      "justify": "center",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "#62A3F6",
+                          "linecap": "round",
+                          "width": 5
+                        },
+                        "max": 100,
+                        "track": {
+                          "color": "#DADADA",
+                          "linecap": "round",
+                          "width": 2
+                        },
+                        "value": {
+                          "color": "#7D7D7D",
+                          "show": true
+                        }
+                      },
+                      "render": "view",
+                      "resizable": false,
+                      "sortable": false,
+                      "strictWidth": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "#2196F3",
+                          "unselected": "#FFFFFF"
+                        }
+                      },
+                      "viewParams": {
+                        "removeType": "contactInformation"
+                      },
+                      "visible": true,
+                      "width": 75
+                    }
+                  ],
+                  "pager": {
+                    "bottom": false
+                  },
+                  "rows": {
+                    "highlight": {
+                      "enabled": false
+                    }
+                  },
+                  "selection": {
+                    "enableRowSelection": false,
+                    "mode": "multiple interval"
+                  }
+                },
+                "scripts": {
+                  "customMethods": [],
+                  "extensionFunctions": null,
+                  "messageHandlers": [
+                    {
+                      "messageType": "UserManagement_ContactInfoTypeChange",
+                      "pageScope": true,
+                      "script": "\t# Update contact information \u0027type\u0027 for the row that has been modified.\n\tdata \u003d self.view.custom.editUser.contactInformation\n\tdata[payload[\u0027row\u0027]][\u0027Type\u0027] \u003d payload[\u0027type\u0027]",
+                      "sessionScope": false,
+                      "viewScope": false
+                    },
+                    {
+                      "messageType": "UserManagement_ContactInfoRowSelected",
+                      "pageScope": true,
+                      "script": "\t# Update contact info list\u0027s selected value to reflect the row selected and \n\t# unselect all other rows.\n\tself.custom.rowSelected \u003d payload[\u0027row\u0027]\n\trowSelected \u003d int(payload[\u0027row\u0027])\n\tcontactInfo \u003d self.view.custom.editUser.contactInformation\n\t\n\t# Loop through contact information, unselecting all rows and setting the selected check box.\n\tfor row, value in enumerate(contactInfo):\n\t\tif row !\u003d rowSelected:\n\t\t\tvalue[\u0027Selected\u0027] \u003d False\n\t\telse:\n\t\t\tvalue[\"Selected\"] \u003d payload[\"selected\"]",
+                      "sessionScope": false,
+                      "viewScope": false
+                    },
+                    {
+                      "messageType": "UserManagement_ContactInfoValueChange",
+                      "pageScope": true,
+                      "script": "\t# Update ContactInformation to reflect the value (text field) modified on the table.\n\tcontactInfo \u003d self.view.custom.editUser.contactInformation\n\tcontactInfo[payload[\u0027row\u0027]][\u0027Value\u0027] \u003d payload[\u0027value\u0027]",
+                      "sessionScope": false,
+                      "viewScope": false
+                    },
+                    {
+                      "messageType": "UserManagement_UpdateContactInfo",
+                      "pageScope": true,
+                      "script": "\t# Update Contact Information with new list.\n\tself.view.custom.editUser.contactInformation \u003d payload[\"contactInformation\"]",
+                      "sessionScope": false,
+                      "viewScope": false
+                    }
+                  ]
+                },
+                "type": "ia.display.table"
+              },
+              {
+                "children": [
+                  {
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\t# Append a new object to ContactInformation.\n\tself.view.custom.editUser.contactInformation.append({\u0027Selected\u0027:False, \u0027Type\u0027:\u0027email\u0027, \u0027Value\u0027:\u0027\u0027, \u0027Delete\u0027:\u0027\u0027})"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Add Icon"
+                    },
+                    "position": {
+                      "basis": "26px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "color": "#00AC00",
+                      "path": "material/add",
+                      "style": {
+                        "classes": "UserManagement/TableEditorIcons"
+                      }
+                    },
+                    "type": "ia.display.icon"
+                  },
+                  {
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\t# Move selected contact information row up one.\n\trowSelected \u003d self.parent.parent.getChild(\"Table\").custom.rowSelected\n\t\n\tif rowSelected \u003d\u003d None:\n\t\tpass\n\telif rowSelected-1 \u003e\u003d 0:\n\t\tdata \u003d self.view.custom.editUser.contactInformation\n\t\tdata[rowSelected-1], data[rowSelected] \u003d data[rowSelected], data[rowSelected-1]\t\n\t\tself.parent.parent.getChild(\"Table\").custom.rowSelected \u003d rowSelected-1"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Up Icon"
+                    },
+                    "position": {
+                      "basis": "32px"
+                    },
+                    "propConfig": {
+                      "props.color": {
+                        "binding": {
+                          "config": {
+                            "struct": {
+                              "data": "{view.custom.editUser.contactInformation}",
+                              "rowSelected": "{.../Table.custom.rowSelected}"
+                            },
+                            "waitOnAll": true
+                          },
+                          "transforms": [
+                            {
+                              "code": "\t# Show Icon as grey if contact information list consists of one or less contacts or no row is selected.\n\tif value[\"rowSelected\"] \u003d\u003d 0 or value[\"rowSelected\"] \u003d\u003d None:\n\t\treturn \"#888888\"\n\telse:\n\t\treturn \"#004DFF\"",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr-struct"
+                        }
+                      }
+                    },
+                    "props": {
+                      "path": "material/expand_less",
+                      "style": {
+                        "classes": "UserManagement/TableEditorIcons",
+                        "cursor": "pointer"
+                      }
+                    },
+                    "type": "ia.display.icon"
+                  },
+                  {
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\t# Move select contact information row down one.\n\trowSelected \u003d self.parent.parent.getChild(\"Table\").custom.rowSelected\n\t\n\tif rowSelected \u003d\u003d None:\n\t\tpass\n\telif rowSelected+1 !\u003d len(self.view.custom.editUser.contactInformation): \n\t\tdata \u003d self.view.custom.editUser.contactInformation\n\t\tdata[rowSelected+1], data[rowSelected] \u003d data[rowSelected], data[rowSelected+1]\n\t\tself.parent.parent.getChild(\"Table\").custom.rowSelected \u003d rowSelected+1\n\t\tself.view.custom.editUser.contactInformation \u003d data"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Down Icon"
+                    },
+                    "position": {
+                      "basis": "32px"
+                    },
+                    "propConfig": {
+                      "props.color": {
+                        "binding": {
+                          "config": {
+                            "struct": {
+                              "data": "{view.custom.editUser.contactInformation}",
+                              "rowSelected": "{.../Table.custom.rowSelected}"
+                            },
+                            "waitOnAll": true
+                          },
+                          "transforms": [
+                            {
+                              "code": "\t# Show Icon as grey if the selected row is the last row in list, or the contact list is of length one or less, or now row is selected.\n\tif value[\"rowSelected\"] \u003d\u003d (len(value[\"data\"])-1) or len(value[\"data\"]) \u003c\u003d 1 or value[\"rowSelected\"] \u003d\u003d None:\n\t\treturn \"#888888\"\n\telse:\n\t\treturn \"#004DFF\"\n",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr-struct"
+                        }
+                      }
+                    },
+                    "props": {
+                      "path": "material/expand_more",
+                      "style": {
+                        "classes": "UserManagement/TableEditorIcons",
+                        "cursor": "pointer"
+                      }
+                    },
+                    "type": "ia.display.icon"
+                  }
+                ],
+                "meta": {
+                  "name": "Icon FlexContainer"
+                },
+                "position": {
+                  "basis": "40px",
+                  "shrink": 0
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "overflow": "hidden"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Contact Info Table"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "props": {
+              "justify": "center",
+              "style": {
+                "borderColor": "#D4D4D4",
+                "borderStyle": "solid",
+                "borderWidth": "1px",
+                "classes": "UserManagement/InputFont",
+                "marginLeft": "5px",
+                "marginRight": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Contact Information"
+        },
+        "position": {
+          "basis": "200px",
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "marginBottom": "10px",
+            "marginLeft": "7px",
+            "marginRight": "7px",
+            "marginTop": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Schedule Modifications Label"
+            },
+            "position": {
+              "basis": "20px"
+            },
+            "props": {
+              "style": {
+                "classes": "UserManagement/SectionHeaders",
+                "marginLeft": "5px"
+              },
+              "text": "Schedule Modifications"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "custom": {
+                  "error": 0,
+                  "rowSelected": 2
+                },
+                "events": {
+                  "component": {
+                    "onEditCellCommit": {
+                      "config": {
+                        "script": "\t# If \u0027Note\u0027 column modified, update schedule modification list with new value.\n\tif event[\u0027column\u0027] \u003d\u003d \u0027Note\u0027:\n\t\tdata \u003d self.view.custom.editUser.ScheduleModifications\n\t\tdata[event[\u0027row\u0027]][\u0027Note\u0027] \u003d event[\u0027value\u0027]"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Table"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "custom.errorMessage": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.error"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif value \u003e 0:\n\t\treturn \u0027All Schedule Modifications must have a Start and End date.\u0027\n\telse:\n\t\treturn \u0027\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[0].viewParams.scheduleModifications": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.scheduleModifications"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[0].viewPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.scheduleModifications"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\t# Hide embedded view if the table is blank.\n\tif len(value) \u003d\u003d 0:\n\t\treturn \u0027\u0027\n\treturn \u0027UserManagement/Tools/ScheduleModifications/Date Picker\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[1].viewParams.scheduleModifications": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.scheduleModifications"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[1].viewPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.scheduleModifications"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\t# Hide embedded view if the table is blank.\n\tif len(value) \u003d\u003d 0:\n\t\treturn \u0027\u0027\n\treturn \u0027UserManagement/Tools/ScheduleModifications/Date Picker\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[2].viewParams.scheduleModifications": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.scheduleModifications"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[2].viewPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.scheduleModifications"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\t# Hide embedded view if the table is blank.\n\tif len(value) \u003d\u003d 0:\n\t\treturn \u0027\u0027\n\treturn \u0027UserManagement/Tools/ScheduleModifications/Available Checkbox\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[3].viewParams.scheduleModification": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.scheduleModifications"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[3].viewPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.scheduleModifications"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif len(value) \u003d\u003d 0:\n\t\treturn \u0027\u0027\n\treturn \u0027UserManagement/Tools/Input TextField\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[4].viewParams.scheduleModifications": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.scheduleModifications"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[4].viewPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.scheduleModifications"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\t# Hide embedded view if the table is blank.\n\tif len(value) \u003d\u003d 0:\n\t\treturn \u0027\u0027\n\treturn \u0027UserManagement/Tools/Remove Button\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.data": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.editUser.scheduleModifications"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\t# If table is empty, add empty values so table headers are displayed. Else, return schedule modification list.\n\tif len(value) is 0:\n\t\tself.custom.error \u003d 0\n\t\treturn [{\u0027Start\u0027:\u0027\u0027, \u0027End\u0027:\u0027\u0027, \u0027Note\u0027:\u0027\u0027, \u0027Available\u0027:\u0027\u0027, \u0027Remove\u0027:\u0027\u0027}]\n\treturn value",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "cells": {
+                    "allowEditOn": "single-click",
+                    "style": {
+                      "fontSize": "12px"
+                    }
+                  },
+                  "columns": [
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "Start",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": "Start"
+                      },
+                      "justify": "auto",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "#62A3F6",
+                          "linecap": "round",
+                          "width": 5
+                        },
+                        "max": 100,
+                        "track": {
+                          "color": "#DADADA",
+                          "linecap": "round",
+                          "width": 2
+                        },
+                        "value": {
+                          "color": "#7D7D7D",
+                          "show": true
+                        }
+                      },
+                      "render": "view",
+                      "resizable": false,
+                      "sortable": false,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "#2196F3",
+                          "unselected": "#FFFFFF"
+                        }
+                      },
+                      "viewParams": {},
+                      "visible": true,
+                      "width": 140
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "End",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "UserManagement/LeftVerticalHeaderBar"
+                        },
+                        "title": "End"
+                      },
+                      "justify": "left",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "#62A3F6",
+                          "linecap": "round",
+                          "width": 5
+                        },
+                        "max": 100,
+                        "track": {
+                          "color": "#DADADA",
+                          "linecap": "round",
+                          "width": 2
+                        },
+                        "value": {
+                          "color": "#7D7D7D",
+                          "show": true
+                        }
+                      },
+                      "render": "view",
+                      "resizable": false,
+                      "sortable": false,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "#2196F3",
+                          "unselected": "#FFFFFF"
+                        }
+                      },
+                      "viewParams": {},
+                      "visible": true,
+                      "width": 140
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "Available",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "UserManagement/LeftVerticalHeaderBar"
+                        },
+                        "title": "Available?"
+                      },
+                      "justify": "left",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "#62A3F6",
+                          "linecap": "round",
+                          "width": 5
+                        },
+                        "max": 100,
+                        "track": {
+                          "color": "#DADADA",
+                          "linecap": "round",
+                          "width": 2
+                        },
+                        "value": {
+                          "color": "#7D7D7D",
+                          "show": true
+                        }
+                      },
+                      "render": "view",
+                      "resizable": false,
+                      "sortable": false,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "#2196F3",
+                          "unselected": "#FFFFFF"
+                        }
+                      },
+                      "viewParams": {},
+                      "visible": true,
+                      "width": 70
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "Note",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "UserManagement/LeftVerticalHeaderBar"
+                        },
+                        "title": "Note"
+                      },
+                      "justify": "left",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "#62A3F6",
+                          "linecap": "round",
+                          "width": 5
+                        },
+                        "max": 100,
+                        "track": {
+                          "color": "#DADADA",
+                          "linecap": "round",
+                          "width": 2
+                        },
+                        "value": {
+                          "color": "#7D7D7D",
+                          "show": true
+                        }
+                      },
+                      "render": "view",
+                      "resizable": false,
+                      "sortable": false,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "#2196F3",
+                          "unselected": "#FFFFFF"
+                        }
+                      },
+                      "viewParams": {
+                        "type": "scheduleModification"
+                      },
+                      "visible": true,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "Remove",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "UserManagement/LeftVerticalHeaderBar"
+                        },
+                        "title": "Remove?"
+                      },
+                      "justify": "center",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "#62A3F6",
+                          "linecap": "round",
+                          "width": 5
+                        },
+                        "max": 100,
+                        "track": {
+                          "color": "#DADADA",
+                          "linecap": "round",
+                          "width": 2
+                        },
+                        "value": {
+                          "color": "#7D7D7D",
+                          "show": true
+                        }
+                      },
+                      "render": "view",
+                      "resizable": false,
+                      "sortable": false,
+                      "strictWidth": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "#2196F3",
+                          "unselected": "#FFFFFF"
+                        }
+                      },
+                      "viewParams": {
+                        "removeType": "scheduleModifications"
+                      },
+                      "visible": true,
+                      "width": 75
+                    }
+                  ],
+                  "pager": {
+                    "bottom": false
+                  },
+                  "rows": {
+                    "highlight": {
+                      "enabled": false
+                    }
+                  },
+                  "selection": {
+                    "enableRowSelection": false,
+                    "mode": "multiple interval"
+                  }
+                },
+                "scripts": {
+                  "customMethods": [],
+                  "extensionFunctions": null,
+                  "messageHandlers": [
+                    {
+                      "messageType": "UserManagement_ScheduleModificationChangeDate",
+                      "pageScope": true,
+                      "script": "\t# Update ScheduleModifications to reflect the datetime change on the table.\n#\ttry:\n\tself.view.custom.editUser.scheduleModifications[payload[\u0027row\u0027]][payload[\u0027column\u0027]] \u003d payload[\u0027value\u0027]\n#\texcept:\n#\t\tpass",
+                      "sessionScope": false,
+                      "viewScope": false
+                    },
+                    {
+                      "messageType": "UserManagement_ScheduleModificationAvailability",
+                      "pageScope": true,
+                      "script": "\t# Update Schedule Modification to reflect the availability value changed on the table.\n\tscheduleMods \u003d self.view.custom.editUser.scheduleModifications\n\tscheduleMods[payload[\u0027row\u0027]][\u0027Available\u0027] \u003d payload[\u0027availability\u0027]",
+                      "sessionScope": false,
+                      "viewScope": false
+                    },
+                    {
+                      "messageType": "UserManagement_ScheduleModificationChangeNote",
+                      "pageScope": true,
+                      "script": "\t# Update ScheduleModifications to reflect the note text field changed on the table.\n\tscheduleMods \u003d self.view.custom.editUser.scheduleModifications\n\n#\ttry:\n\tscheduleMods[payload[\u0027row\u0027]][\u0027Note\u0027] \u003d payload[\u0027value\u0027]\n#\texcept:\n#\t\tpass",
+                      "sessionScope": false,
+                      "viewScope": false
+                    },
+                    {
+                      "messageType": "UserManagement_UpdateScheduleModifications",
+                      "pageScope": true,
+                      "script": "\t# Update Schedule Modifications with new list.\n\tself.view.custom.editUser.scheduleModifications \u003d payload[\"scheduleModification\"]",
+                      "sessionScope": false,
+                      "viewScope": false
+                    }
+                  ]
+                },
+                "type": "ia.display.table"
+              },
+              {
+                "children": [
+                  {
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\t# Append a new object to ScheduleModifications.\n\tself.view.custom.editUser.scheduleModifications.append({\u0027Start\u0027:system.date.now(), \u0027End\u0027:system.date.now(), \u0027Available\u0027:False, \u0027Note\u0027:\u0027\u0027, \u0027Remove\u0027:\u0027\u0027})"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Add Icon"
+                    },
+                    "position": {
+                      "basis": "26px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "color": "#00AC00",
+                      "path": "material/add",
+                      "style": {
+                        "classes": "UserManagement/TableEditorIcons"
+                      }
+                    },
+                    "type": "ia.display.icon"
+                  }
+                ],
+                "meta": {
+                  "name": "Icon FlexContainer"
+                },
+                "position": {
+                  "basis": "40px",
+                  "shrink": 0
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "overflow": "hidden"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Schedule Modification Table"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "props": {
+              "justify": "center",
+              "style": {
+                "borderColor": "#D4D4D4",
+                "borderStyle": "solid",
+                "borderWidth": "1px",
+                "classes": "UserManagement/InputFont",
+                "marginLeft": "5px",
+                "marginRight": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Schedule Modification"
+        },
+        "position": {
+          "basis": "200px",
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "marginLeft": "7px",
+            "marginRight": "7px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.badge": {
+        "binding": {
+          "config": {
+            "path": "./User Properties and Roles/User Properties/Notes and Badge/Badge/Badge TextArea.props.text"
+          },
+          "type": "property"
+        }
+      },
+      "custom.changePassword": {
+        "binding": {
+          "config": {
+            "bidirectional": true,
+            "path": "./User Properties and Roles/User Properties/User Properties Input/Username and Password/Password/Password Label Check Box/Checkbox.props.selected"
+          },
+          "type": "property"
+        }
+      },
+      "custom.contactInformation": {
+        "binding": {
+          "config": {
+            "path": "view.custom.editUser.contactInformation"
+          },
+          "type": "property"
+        }
+      },
+      "custom.firstname": {
+        "binding": {
+          "config": {
+            "path": "./User Properties and Roles/User Properties/User Properties Input/First and Last Name/First Name/FirstName TextField.props.text"
+          },
+          "type": "property"
+        }
+      },
+      "custom.language": {
+        "binding": {
+          "config": {
+            "path": "./User Properties and Roles/User Properties/User Properties Input/Schedule and Language/Language/Language Dropdown.props.value"
+          },
+          "type": "property"
+        }
+      },
+      "custom.lastname": {
+        "binding": {
+          "config": {
+            "path": "./User Properties and Roles/User Properties/User Properties Input/First and Last Name/Last Name/LastName TextField.props.text"
+          },
+          "type": "property"
+        }
+      },
+      "custom.notes": {
+        "binding": {
+          "config": {
+            "path": "./User Properties and Roles/User Properties/Notes and Badge/Notes/Notes TextArea.props.text"
+          },
+          "type": "property"
+        }
+      },
+      "custom.password": {
+        "binding": {
+          "config": {
+            "path": "./User Properties and Roles/User Properties/User Properties Input/Username and Password/Password/Password Input/PasswordField.props.text"
+          },
+          "type": "property"
+        }
+      },
+      "custom.schedule": {
+        "binding": {
+          "config": {
+            "path": "./User Properties and Roles/User Properties/User Properties Input/Schedule and Language/Schedule/Schedule Dropdown.props.value"
+          },
+          "type": "property"
+        }
+      },
+      "custom.scheduleModifications": {
+        "binding": {
+          "config": {
+            "path": "view.custom.editUser.scheduleModifications"
+          },
+          "type": "property"
+        }
+      },
+      "custom.username": {
+        "binding": {
+          "config": {
+            "path": "./User Properties and Roles/User Properties/User Properties Input/Username and Password/Username/Username Input/Username TextField.props.text"
+          },
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "#F1F1F1",
+        "borderStyle": "solid",
+        "borderWidth": "1px",
+        "minWidth": "320px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

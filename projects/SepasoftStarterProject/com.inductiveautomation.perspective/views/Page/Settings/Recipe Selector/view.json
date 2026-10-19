@@ -1,0 +1,59 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "mesObjectSelector"
+        },
+        "type": "mes.production.mesObjectSelector",
+        "position": {
+          "basis": "50px"
+        },
+        "props": {
+          "displayText": "Equipment",
+          "style": {
+            "margin": "4px 6px",
+            "overflow": "visible"
+          },
+          "includeMESEnterpriseObjects": true,
+          "includeMESSiteObjects": true,
+          "includeMESAreaObjects": true,
+          "includeMESLineObjects": true,
+          "includeMESLineCellObjects": true
+        }
+      },
+      {
+        "meta": {
+          "name": "scoSelectorList"
+        },
+        "type": "mes.recipe.scoSelectorList",
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "showMasterRecipes": true
+        },
+        "propConfig": {
+          "props.equipmentPath": {
+            "binding": {
+              "config": {
+                "path": "../mesObjectSelector.props.selectedMESObject.equipmentPath"
+              },
+              "type": "property"
+            }
+          }
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

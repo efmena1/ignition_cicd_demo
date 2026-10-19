@@ -1,0 +1,140 @@
+/* ─────────────────────────────────────────────────────────────
+   alert-dialog.css
+   Popup de resultado para formularios (submit → info/success/warning/danger)
+   ───────────────────────────────────────────────────────────── */
+
+.psc-alert-dialog {
+    --ad-info-accent:    #378ADD;
+    --ad-success-accent: #408F36;
+    --ad-warning-accent: #DD9237;
+    --ad-danger-accent:  #C22722;
+    --ad-lab-accent:     #886EA2;
+
+    --ad-surface:       var(--card, var(--neutral-10));
+    --ad-border:        var(--neutral-30);
+    --ad-radius:        10px;
+    --ad-accent-width:  6px;
+    --ad-title-size:    16px;
+    --ad-message-size:  14px;
+    --ad-message-color: var(--neutral-70);
+    --ad-details-bg:    var(--neutral-20);
+    --ad-details-color: var(--neutral-60);
+    --ad-divider:       var(--neutral-20);
+    --ad-font:          var(--fl-font, Poppins);
+
+    --ad-tint-mix:   14%;
+    --ad-title-mix:  70%;
+    --ad-strip-mix:  100%;
+
+    --ad-accent: var(--ad-info-accent);
+
+    --ad-tint:  color-mix(in srgb, var(--ad-accent) var(--ad-tint-mix),  var(--ad-surface));
+    --ad-title: color-mix(in srgb, var(--ad-accent) var(--ad-title-mix), var(--neutral-100));
+    --ad-strip: color-mix(in srgb, var(--ad-accent) var(--ad-strip-mix), var(--neutral-100));
+
+    min-height: 0px !important; 
+    max-height: 70vh !important; 
+    background: var(--ad-surface);
+    border: 0.5px solid var(--ad-border);
+    border-radius: var(--ad-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
+    font-family: var(--ad-font);
+}
+
+.psc-alert-dialog-info       { --ad-accent: var(--ad-info-accent); }
+.psc-alert-dialog-success    { --ad-accent: var(--ad-success-accent); }
+.psc-alert-dialog-warning    { --ad-accent: var(--ad-warning-accent); }
+.psc-alert-dialog-danger     { --ad-accent: var(--ad-danger-accent); }
+.psc-alert-dialog-laboratory { --ad-accent: var(--ad-lab-accent); }
+
+.psc-alert-dialog-accent {
+    background: var(--ad-strip);
+    min-width: var(--ad-accent-width);
+}
+
+.psc-alert-dialog-header {
+    background: var(--ad-tint);
+    padding: 14px 16px;
+}
+
+.psc-alert-dialog-title .ia_labelComponent,
+.psc-alert-dialog-title span {
+    color: var(--ad-title);
+    font-family: var(--ad-font);
+    font-size: var(--ad-title-size);
+    font-weight: 500;
+}
+
+.psc-alert-dialog-icon svg,
+.psc-alert-dialog-icon svg path {
+    fill: var(--ad-title);
+}
+
+.psc-alert-dialog-body {
+    padding: 16px;
+}
+
+.psc-alert-dialog-message .ia_labelComponent,
+.psc-alert-dialog-message span {
+    color: var(--ad-message-color);
+    font-family: var(--ad-font);
+    font-size: var(--ad-message-size);
+    line-height: 1.6;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.psc-alert-dialog-details {
+    background: var(--ad-details-bg);
+    color: var(--ad-details-color);
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    border-radius: 4px;
+    padding: 10px 12px;
+}
+
+.psc-alert-dialog-footer {
+    padding: 12px 16px;
+    border-top: 0.5px solid var(--ad-divider);
+}
+
+button.psc-alert-dialog-button--primary,
+button.psc-alert-dialog-button--primary.ia_button--primary {
+    background: var(--ad-strip) !important;
+    border-color: var(--ad-strip) !important;
+    color: var(--ad-surface) !important;
+    font-family: var(--ad-font);
+}
+
+button.psc-alert-dialog-button--primary .text {
+    color: var(--ad-surface) !important;
+    font-family: var(--ad-font);
+}
+
+button.psc-alert-dialog-button--ghost,
+button.psc-alert-dialog-button--ghost.ia_button--secondary {
+    background: transparent !important;
+    border: 0.5px solid var(--neutral-30) !important;
+    font-family: var(--ad-font);
+}
+
+button.psc-alert-dialog-button--ghost .text {
+    color: var(--neutral-70) !important;
+    font-family: var(--ad-font);
+}
+
+button.psc-alert-dialog-button--ghost:hover {
+    background: var(--neutral-20) !important;
+}
+
+button.psc-alert-dialog-button--ghost:hover .text {
+    color: var(--button-label-hover, var(--neutral-90)) !important;
+}
+
+.psc-alert-dialog-progress {
+    background: var(--ad-strip);
+    opacity: 0.5;
+    transition: width 200ms linear;
+}

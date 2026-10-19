@@ -1,0 +1,62 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Card"
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "maxWidth": "900px",
+            "width": "100%",
+            "margin": "0 auto",
+            "backgroundColor": "rgba(0,0,0,0.02)",
+            "border": "1px solid rgba(0,0,0,0.08)",
+            "borderRadius": "8px",
+            "padding": "28px 32px"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "Markdown"
+            },
+            "type": "ia.display.markdown",
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "markdown": {
+                "escapeHtml": false
+              },
+              "source": "# Trace\n\nStock `mes.trace.*` (plus `mes.production.mesEquipmentManager`) screens for Track & Trace genealogy. Work through them in this order:\n\n1. **Equipment Manager** (Production module) - build the equipment model operations and material will be traced against.\n2. **Operation Patterns** - record a trace operation against each of the 6 material flow patterns (Receive, Inspection, Split, Blend, Rework, Scrap) - every tab pairs a couple of screen inputs with a `system.mes.trace.configureMaterial`/`recordOperation` call in the `Trace.OperationPatterns` script library. See Sepasoft's own [Operation Pattern Framework](https://docs.sepasoft.com/articles/user-manual/operation-pattern-framework) doc for a fuller description of each pattern.\n3. **Inventory** - filter by Material and/or Equipment and click Refresh to pull current on-hand lot quantities (via `system.mes.trace.getInventory`) into a table.\n4. **Trace Graph** - visualize the genealogy recorded above, forward and backward from a selected lot.\n",
+              "style": {
+                "fontSize": 15,
+                "lineHeight": "1.6"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "padding": "24px",
+        "overflow": "auto"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "custom": {
+    "fileExt": "",
+    "fileName": "",
+    "fileReady": false,
+    "installDone": true,
+    "statusMsg": "-- Ignition 8.1.53 (b2026032414) -\u003e 8.1\n-- carpeta ya existe\nOK [Font] instalado\nOK font-face agregado"
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 780,
+      "width": 700
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "LblTitle"
+        },
+        "position": {
+          "height": 30,
+          "width": 500,
+          "x": 24,
+          "y": 20
+        },
+        "props": {
+          "style": {
+            "color": "#1a1a1a",
+            "fontSize": "20px",
+            "fontWeight": "500"
+          },
+          "text": "Fonts Installer"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LblSubtitle"
+        },
+        "position": {
+          "height": 18,
+          "width": 600,
+          "x": 24,
+          "y": 52
+        },
+        "props": {
+          "style": {
+            "color": "#666666",
+            "fontSize": "13px",
+            "fontWeight": "400"
+          },
+          "text": "Install fonts (.ttf .otf .woff .woff2)"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Sep1"
+        },
+        "position": {
+          "height": 1,
+          "width": 652,
+          "x": 24,
+          "y": 78
+        },
+        "props": {
+          "style": {
+            "background": "#e0e0e0"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LblStep1"
+        },
+        "position": {
+          "height": 18,
+          "width": 600,
+          "x": 24,
+          "y": 92
+        },
+        "props": {
+          "style": {
+            "color": "#444444",
+            "fontSize": "12px",
+            "fontWeight": "500"
+          },
+          "text": "1. Select the file — it will be automatically installed upon upload"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onFileReceived": {
+              "config": {
+                "script": "\timport os\n\t\n\tthemes_selected \u003d [\n\t    \u0027light\u0027,\u0027dark\u0027,\u0027dark-cool\u0027,\n\t    \u0027light-cool\u0027,\u0027dark-warm\u0027,\u0027light-warm\u0027\n\t]\n\t\n\tallowed \u003d [\u0027ttf\u0027, \u0027otf\u0027, \u0027woff\u0027, \u0027woff2\u0027, \u0027svg\u0027]\n\t\n\tfile_name \u003d event.file.name\n\tfile_ext  \u003d file_name.split(\u0027.\u0027)[-1].lower()\n\tfolder_name \u003d \u0027.\u0027.join(file_name.split(\u0027.\u0027)[:-1])\n\t\n\tresults \u003d []\n\tGLOBAL_FOLDER \u003d \u0027ats-global\u0027\n\t\n\tif file_ext not in allowed:\n\t    self.view.custom.statusMsg  \u003d \u0027Unsupported type: .\u0027 + file_ext\n\t    self.view.custom.installDone \u003d False\n\t    return\n\t\n\t# ── Detect version ─────────────────────────────────────────\n\ttry:\n\t    version_info \u003d system.util.getVersion()\n\t    version_str  \u003d str(version_info)\n\t    parts        \u003d version_str.split(\u0027.\u0027)\n\t    major        \u003d int(parts[0])\n\t    minor        \u003d int(parts[1])\n\texcept:\n\t    major, minor, version_str \u003d 8, 1, \u0027unknown\u0027\n\t\n\tif major \u003e 8 or (major \u003d\u003d 8 and minor \u003e\u003d 3):\n\t    BASE_PATH   \u003d os.path.join(\u0027data\u0027,\u0027config\u0027,\u0027resources\u0027,\u0027core\u0027,\u0027com.inductiveautomation.perspective\u0027)\n\t    THEMES_BASE \u003d os.path.join(BASE_PATH,\u0027themes\u0027)\n\t    results.append(\u0027-- Ignition \u0027 + version_str + \u0027 -\u003e 8.3\u0027)\n\telse:\n\t    BASE_PATH   \u003d os.path.join(\u0027data\u0027,\u0027modules\u0027,\u0027com.inductiveautomation.perspective\u0027)\n\t    THEMES_BASE \u003d os.path.join(BASE_PATH,\u0027themes\u0027)\n\t    results.append(\u0027-- Ignition \u0027 + version_str + \u0027 -\u003e 8.1\u0027)\n\t\n\t\n\t# ── Resource type ──────────────────────────────────────────\n\tif file_ext in [\u0027ttf\u0027,\u0027otf\u0027,\u0027woff\u0027,\u0027woff2\u0027]:\n\t    directory_type \u003d \u0027fonts\u0027\n\t    config_content \u003d \u0027{\\n}\u0027\n\t    type_label     \u003d \u0027Font\u0027\n\telif file_ext \u003d\u003d \u0027svg\u0027:\n\t    directory_type \u003d \u0027icons\u0027\n\t    config_content \u003d \u0027{\\n\\t\"svgFileName\": \"\u0027 + file_name + \u0027\"\\n}\u0027\n\t    type_label     \u003d \u0027Icon\u0027\n\t\n\t\n\tdir_path  \u003d os.path.join(BASE_PATH, directory_type, folder_name)\n\tfile_path \u003d os.path.join(dir_path, file_name)\n\t\n\t# ats-global\n\tglobal_dir \u003d os.path.join(THEMES_BASE, GLOBAL_FOLDER)\n\tindex_path \u003d os.path.join(global_dir, \u0027index.css\u0027)\n\t\n\ttry:\n\t\n\t    # ── Create resource folder ────────────────────────────────\n\t    if not os.path.exists(dir_path):\n\t        os.makedirs(dir_path)\n\t\n\t        with open(os.path.join(dir_path,\u0027config.json\u0027),\u0027w\u0027) as f:\n\t            f.write(config_content)\n\t\n\t        resource_content \u003d (\n\t            \u0027{\\n\u0027\n\t            \u0027    \"scope\": \"A\",\\n\u0027\n\t            \u0027    \"version\": 1,\\n\u0027\n\t            \u0027    \"restricted\": false,\\n\u0027\n\t            \u0027    \"overridable\": true,\\n\u0027\n\t            \u0027    \"files\": [\"config.json\",\"\u0027 + file_name + \u0027\"],\\n\u0027\n\t            \u0027    \"attributes\": {}\\n\u0027\n\t            \u0027}\u0027\n\t        )\n\t\n\t        with open(os.path.join(dir_path,\u0027resource.json\u0027),\u0027w\u0027) as f:\n\t            f.write(resource_content)\n\t\n\t        results.append(\u0027OK resource folder created\u0027)\n\t    else:\n\t        results.append(\u0027-- folder already exists\u0027)\n\t\n\t\n\t    # ── Copy file ───────────────────────────────────────\n\t    event.file.copyTo(file_path)\n\t    results.append(\u0027OK [\u0027 + type_label + \u0027] installed\u0027)\n\t\n\t\n\t    # ── Create ats-global if not exists ───────────────────────\n\t    if not os.path.exists(global_dir):\n\t        os.makedirs(global_dir)\n\t\n\t    if not os.path.exists(index_path):\n\t        with open(index_path,\u0027w\u0027) as f:\n\t            f.write(\u0027/* ATS Global */\\n\u0027)\n\t\n\t\n\t    # ── ONLY if font → add @font-face ─────────────────\n\t    if directory_type \u003d\u003d \u0027fonts\u0027:\n\t\n\t        format_map \u003d {\n\t            \u0027ttf\u0027: \u0027truetype\u0027,\n\t            \u0027otf\u0027: \u0027opentype\u0027,\n\t            \u0027woff\u0027: \u0027woff\u0027,\n\t            \u0027woff2\u0027: \u0027woff2\u0027\n\t        }\n\t\n\t        font_format \u003d format_map.get(file_ext, \u0027truetype\u0027)\n\t\n\t        font_url \u003d \u0027/data/perspective/fonts/\u0027 + file_name\n\t        font_family \u003d folder_name\n\t\n\t        font_face_block \u003d (\n\t            \u0027\\n\\n/* ATS Fonts */\\n\u0027\n\t            \u0027@font-face {\\n\u0027\n\t            \u0027    font-family: \"\u0027 + font_family.replace(\u0027-Regular\u0027,\u0027\u0027) + \u0027\";\\n\u0027\n\t            \u0027    src: url(\"\u0027 + font_url + \u0027\") format(\"\u0027 + font_format + \u0027\");\\n\u0027\n\t            \u0027}\\n\u0027\n\t        )\n\t\n\t        with open(index_path,\u0027r\u0027) as f:\n\t            content \u003d f.read()\n\t\n\t        # Robust validation\n\t        if \u0027font-family: \"\u0027 + font_family + \u0027\"\u0027 in content:\n\t            results.append(\u0027-- font already exists: \u0027 + font_family)\n\t        else:\n\t            with open(index_path,\u0027a\u0027) as f:\n\t                f.write(font_face_block)\n\t            results.append(\u0027OK font-face added\u0027)\n\t\n\t\n\t    # ── Global import in themes ──────────────────────────────\n\t    theme_import_line \u003d \u0027@import \"../\u0027 + GLOBAL_FOLDER + \u0027/index.css\";\u0027\n\t\n\t    for theme in themes_selected:\n\t        theme_index \u003d os.path.join(THEMES_BASE, theme, \u0027index.css\u0027)\n\t\n\t        if not os.path.exists(theme_index):\n\t            continue\n\t\n\t        with open(theme_index,\u0027r\u0027) as f:\n\t            existing \u003d f.read()\n\t\n\t        if theme_import_line in existing:\n\t            continue\n\t\n\t        with open(theme_index,\u0027a\u0027) as f:\n\t            f.write(\u0027\\n\\n/* ATS Global */\\n\u0027 + theme_import_line + \u0027\\n\u0027)\n\t\n\t        results.append(\u0027OK import added to \u0027 + theme)\n\t\n\t\n\t    # ── Result ────────────────────────────────────────────\n\t    self.view.custom.statusMsg   \u003d \u0027\\n\u0027.join(results)\n\t    self.view.custom.installDone \u003d True\n\t\n\texcept Exception as e:\n\t    self.view.custom.installDone \u003d False\n\t    self.view.custom.statusMsg   \u003d \u0027ERROR: \u0027 + str(e)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "FileUpload"
+        },
+        "position": {
+          "height": 120,
+          "width": 380,
+          "x": 24,
+          "y": 114
+        },
+        "type": "ia.input.fileupload"
+      },
+      {
+        "meta": {
+          "name": "LblFileInfo",
+          "visible": false
+        },
+        "position": {
+          "height": 18,
+          "width": 380,
+          "x": 24,
+          "y": 240
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.statusMsg"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "#999999",
+            "fontSize": "12px",
+            "fontStyle": "italic"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Sep2"
+        },
+        "position": {
+          "height": 1,
+          "width": 652,
+          "x": 24,
+          "y": 272
+        },
+        "props": {
+          "style": {
+            "background": "#e0e0e0"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LblStep2"
+        },
+        "position": {
+          "height": 18,
+          "width": 300,
+          "x": 24,
+          "y": 284
+        },
+        "props": {
+          "style": {
+            "color": "#444444",
+            "fontSize": "12px",
+            "fontWeight": "500"
+          },
+          "text": "2. Supported Types"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LblFontIcon"
+        },
+        "position": {
+          "height": 14,
+          "width": 14,
+          "x": 24,
+          "y": 308
+        },
+        "props": {
+          "style": {
+            "color": "#1565c0",
+            "fontSize": "12px",
+            "fontWeight": "400"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LblFontLabel"
+        },
+        "position": {
+          "height": 18,
+          "width": 80,
+          "x": 42,
+          "y": 306
+        },
+        "props": {
+          "style": {
+            "color": "#1565c0",
+            "fontSize": "12px",
+            "fontWeight": "500"
+          },
+          "text": "Fonts"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LblFontExts"
+        },
+        "position": {
+          "height": 16,
+          "width": 300,
+          "x": 42,
+          "y": 322
+        },
+        "props": {
+          "style": {
+            "color": "#666666",
+            "fontSize": "11px",
+            "fontWeight": "400"
+          },
+          "text": ".ttf  .otf  .woff  .woff2  →  fonts/{nombre}/"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Sep3"
+        },
+        "position": {
+          "height": 1,
+          "width": 652,
+          "x": 24,
+          "y": 390
+        },
+        "props": {
+          "style": {
+            "background": "#e0e0e0"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LblStep3"
+        },
+        "position": {
+          "height": 18,
+          "width": 300,
+          "x": 24,
+          "y": 402
+        },
+        "props": {
+          "style": {
+            "color": "#444444",
+            "fontSize": "12px",
+            "fontWeight": "500"
+          },
+          "text": "Result"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tself.view.custom.statusMsg   \u003d \u0027\u0027\n\tself.view.custom.installDone \u003d False\n"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "BtnLimpiarExtra"
+        },
+        "position": {
+          "height": 36,
+          "width": 140,
+          "x": 24,
+          "y": 426
+        },
+        "props": {
+          "style": {
+            "fontFamily": "FjallaOne",
+            "fontWeight": "500"
+          },
+          "text": "Clean"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tself.view.custom.statusMsg   \u003d \u0027\u0027\n\tself.view.custom.installDone \u003d False\n"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "BtnLimpiar",
+          "visible": false
+        },
+        "position": {
+          "height": 36,
+          "width": 100,
+          "x": 176,
+          "y": 426
+        },
+        "props": {
+          "text": "Limpiar"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "LblStatus"
+        },
+        "position": {
+          "height": 185,
+          "width": 652,
+          "x": 24,
+          "y": 476
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.statusMsg"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "background": "#f5f5f5",
+            "border": "1px solid #e0e0e0",
+            "borderRadius": "4px",
+            "color": "#444444",
+            "fontFamily": "monospace",
+            "fontSize": "12px",
+            "padding": "6px 10px",
+            "whiteSpace": "pre-wrap"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

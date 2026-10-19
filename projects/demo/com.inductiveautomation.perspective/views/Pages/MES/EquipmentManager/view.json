@@ -1,0 +1,25 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "mesEquipmentManager"
+        },
+        "position": {
+          "grow": 1
+        },
+        "type": "mes.production.mesEquipmentManager"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

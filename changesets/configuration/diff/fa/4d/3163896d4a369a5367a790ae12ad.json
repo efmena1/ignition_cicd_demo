@@ -1,0 +1,52 @@
+{
+  "changesetData": {
+    "uuid": "fa4d3163-896d-4a36-9a53-67a790ae12ad",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:13.988Z",
+    "appliedOnChangesetUUID": "INITIAL",
+    "hash": "e575124f370bd069705eb78ee9e5b6fd13d9a67a5fa051b7500ab66a7a1e51f2",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:13.934613300Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Signature Root Template": {
+        "da1c126e-0e6e-4832-8aac-d6bbd51e0db1": {
+          "meta": {
+            "name": "Signature Templates"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "Core"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

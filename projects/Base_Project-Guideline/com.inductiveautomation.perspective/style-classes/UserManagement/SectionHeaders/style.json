@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "fontFamily": "Arial",
+      "fontSize": "15px",
+      "marginBottom": "9px"
+    }
+  }
+}

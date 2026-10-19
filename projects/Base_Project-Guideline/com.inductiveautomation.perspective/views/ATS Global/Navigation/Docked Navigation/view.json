@@ -1,0 +1,749 @@
+{
+  "custom": {},
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\t\n\t\n\t\n\tdef cleanIcon(icon):\n\t    # Limpia color y opacity que haya quedado guardado del estado bloqueado\n\t    if not icon:\n\t        return None\n\t    cleaned \u003d dict(icon)\n\t    cleaned.pop(\u0027color\u0027, None)\n\t    if \u0027style\u0027 in cleaned:\n\t        style \u003d dict(cleaned[\u0027style\u0027])\n\t        style.pop(\u0027opacity\u0027, None)\n\t        if style:\n\t            cleaned[\u0027style\u0027] \u003d style\n\t        else:\n\t            cleaned.pop(\u0027style\u0027, None)\n\t    return cleaned if cleaned else None\n\t\n\tdef applyAccessStyle(items):\n\t\tif self.session.props.auth.authenticated:\n\t\t\tuserRoles \u003d self.session.props.auth.user.roles\n\t\telse:\n\t\t\tuserRoles \u003d []\n\t\t\n\t\tresult \u003d []\n\t\tfor item in items:\n\t\t    newItem \u003d dict(item)\n\t\t    accessRoles \u003d item.get(\u0027data\u0027, {}).get(\u0027accessRoles\u0027, [])\n\t\t    hasAccess \u003d not accessRoles or any(role in userRoles for role in accessRoles)\n\t\t\n\t\t    if hasAccess:\n\t\t\t\tlabel \u003d item.get(\u0027label\u0027, \u0027\u0027)\n\t\t\t\tif label.startswith(\u0027🔒 \u0027):\n\t\t\t\t    newItem[\u0027label\u0027] \u003d label[3:]\n\t\t        # Tiene acceso: limpiar cualquier estilo bloqueado que haya quedado guardado\n\t\t\t\tcurrentIcon \u003d item.get(\u0027icon\u0027, None)\n\t\t\t\tcleaned \u003d cleanIcon(currentIcon)\n\t\t\t\tif cleaned:\n\t\t\t\t    newItem[\u0027icon\u0027] \u003d cleaned\n\t\t\t\telif \u0027icon\u0027 in newItem:\n\t\t\t\t    newItem.pop(\u0027icon\u0027, None)\n\t\t    else:\n\t\t    \tnewItem[\u0027label\u0027] \u003d \u0027🔒 \u0027 + item.get(\u0027label\u0027, \u0027\u0027)\n\t\t        # Sin acceso: aplicar estilo bloqueado\n\t\t        currentIcon \u003d item.get(\u0027icon\u0027, None)\n\t\t        if currentIcon and currentIcon.get(\u0027path\u0027):\n\t\t            newItem[\u0027icon\u0027] \u003d {\n\t\t                \u0027path\u0027: currentIcon.get(\u0027path\u0027),\n\t\t                \u0027color\u0027: \u0027var(--neutral-30)\u0027,\n\t\t                \u0027style\u0027: {\n\t\t                   \n\t\t                }\n\t\t            }\n\t\t        else:\n\t\t            newItem[\u0027icon\u0027] \u003d {\n\t\t                \u0027color\u0027: \u0027var(--neutral-30)\u0027,\n\t\t                \u0027style\u0027: {\n\t\t                  \n\t\t                }\n\t\t            }\n\t\t\n\t\t    if item.get(\u0027items\u0027):\n\t\t        newItem[\u0027items\u0027] \u003d applyAccessStyle(item[\u0027items\u0027])\n\t\t    result.append(newItem)\n\t\treturn result\n\t\n\titems \u003d self.getChild(\"root\").getChild(\"Tree\").props.items\t\n\tself.getChild(\"root\").getChild(\"Tree\").custom.allItems \u003d items\n\t\n\tself.getChild(\"root\").getChild(\"Tree\").props.items \u003d applyAccessStyle(items)\n\t\n\t\n\t\n\t"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 700,
+      "width": 275
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon_Search"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "props": {
+              "color": "var(--neutral-50)",
+              "path": "material/search",
+              "style": {
+                "height": "30px",
+                "position": "absolute",
+                "right": "12px",
+                "top": 18,
+                "width": "30px",
+                "zIndex": 99
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "events": {
+              "component": {
+                "onPropertyChange": {
+                  "config": {
+                    "script": "# Obtiene el texto de búsqueda actual\nsearchText \u003d self.props.text.lower() if self.props.text else \u0027\u0027\n\ndef filterItems(items, search):\n    if not search:\n        return items\n    result \u003d []\n    for item in items:\n        children \u003d filterItems(item.get(\u0027items\u0027, []), search)\n        label \u003d item.get(\u0027label\u0027, \u0027\u0027).lower()\n        if search in label or children:\n            newItem \u003d dict(item)\n            newItem[\u0027items\u0027] \u003d children\n            newItem[\u0027expanded\u0027] \u003d True if children else item.get(\u0027expanded\u0027, False)\n            result.append(newItem)\n    return result\n\n# Accede al árbol y filtra\ntree \u003d self.parent.getChild(\u0027Tree\u0027)\noriginalItems \u003d self.parent.custom.get(\u0027allItems\u0027, None)\n\nif originalItems is None:\n    # Primera vez: guarda los items originales en custom del contenedor\n    self.parent.custom[\u0027allItems\u0027] \u003d list(tree.props.items)\n    originalItems \u003d self.parent.custom[\u0027allItems\u0027]\n\ntree.props.items \u003d filterItems(list(originalItems), searchText)\n"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "SearchField"
+            },
+            "position": {
+              "basis": "38px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "onChange": {
+                  "enabled": null,
+                  "script": "\tsearchText \u003d currentValue.value.lower() if currentValue.value else \"\"\n\t\n\tdef fuzzyMatch(label, search):\n\t    if not search:\n\t        return True\n\t    if search in label:\n\t        return True\n\t    it \u003d iter(label)\n\t    return all(c in it for c in search)\n\t\n\tdef filterItems(items, search):\n\t    if not search:\n\t        return items\n\t    result \u003d []\n\t    for item in items:\n\t        label \u003d item.get(\u0027label\u0027, \u0027\u0027).lower()\n\t        if fuzzyMatch(label, search):\n\t            # El padre coincide: incluir con TODOS sus hijos intactos\n\t            newItem \u003d dict(item)\n\t            newItem[\u0027expanded\u0027] \u003d True\n\t            result.append(newItem)\n\t        else:\n\t            # El padre no coincide: revisar si algún hijo coincide\n\t            children \u003d filterItems(item.get(\u0027items\u0027, []), search)\n\t            if children:\n\t                newItem \u003d dict(item)\n\t                newItem[\u0027items\u0027] \u003d children\n\t                newItem[\u0027expanded\u0027] \u003d True\n\t                result.append(newItem)\n\t    return result\n\t\n\ttree \u003d self.parent.parent.getChild(\"Tree\")\n\t\n\tif not self.parent.parent.getChild(\"Tree\").custom.allItems:\n\t    self.parent.parent.getChild(\"Tree\").custom.allItems \u003d system.util.jsonDecode(\n\t        system.util.jsonEncode(tree.props.items)\n\t    )\n\t\n\toriginalItems \u003d self.parent.parent.getChild(\"Tree\").custom.allItems\n\tself.parent.parent.getChild(\"Tree\").props.items \u003d filterItems(list(originalItems), searchText)"
+                }
+              }
+            },
+            "props": {
+              "deferUpdates": false,
+              "placeholder": "Search",
+              "rejectUpdatesWhileFocused": false,
+              "style": {
+                "backgroundColor": "var(--neutral-10)",
+                "borderColor": "var(--neutral-30)",
+                "borderStyle": "solid",
+                "borderWidth": "0.5px",
+                "classes": "menu-input",
+                "margin": "10px",
+                "paddingLeft": "30px"
+              }
+            },
+            "type": "ia.input.text-field"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.getSibling(\"SearchField\").props.text \u003d \u0027\u0027\n\tself.getSibling(\"SearchField\").focus()"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon_Delete"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{../SearchField.props.text} !\u003d \u0027\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "color": "var(--neutral-50)",
+              "path": "material/close",
+              "style": {
+                "height": "20px",
+                "position": "absolute",
+                "right": "45px",
+                "top": 22,
+                "width": "20px",
+                "zIndex": 99
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "custom": {
+          "allItems": {}
+        },
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "60px"
+        },
+        "props": {
+          "style": {
+            "classes": "docked-nav",
+            "position": "relative"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "custom": {
+          "allItems": [
+            {
+              "data": {
+                "navType": "page",
+                "target": "/"
+              },
+              "expanded": false,
+              "icon": {
+                "path": "material/home"
+              },
+              "items": [],
+              "label": "Home"
+            },
+            {
+              "data": {},
+              "expanded": true,
+              "icon": {
+                "path": "material/build"
+              },
+              "items": [
+                {
+                  "data": {},
+                  "expanded": false,
+                  "icon": {
+                    "path": "material/insights"
+                  },
+                  "items": [],
+                  "label": "Ad Hoc Chart"
+                },
+                {
+                  "data": {},
+                  "expanded": false,
+                  "icon": {
+                    "path": "material/notifications"
+                  },
+                  "items": [],
+                  "label": "Alarm Status Table"
+                },
+                {
+                  "data": {},
+                  "expanded": false,
+                  "icon": {
+                    "path": "material/history"
+                  },
+                  "items": [],
+                  "label": "Alarm Journal Table"
+                }
+              ],
+              "label": "Tools"
+            },
+            {
+              "data": {},
+              "expanded": true,
+              "items": [
+                {
+                  "data": {
+                    "accessRoles": [
+                      "Role1",
+                      "Administrator"
+                    ],
+                    "navType": "page",
+                    "target": "/user-management"
+                  },
+                  "expanded": false,
+                  "icon": {
+                    "path": "material/supervised_user_circle"
+                  },
+                  "items": [],
+                  "label": "User Management"
+                },
+                {
+                  "data": {
+                    "accessRoles": [
+                      "Role1",
+                      "Administrator"
+                    ],
+                    "navType": "page",
+                    "target": "/roster-management"
+                  },
+                  "expanded": false,
+                  "icon": {
+                    "path": "material/contact_phone"
+                  },
+                  "items": [],
+                  "label": "Roster Management"
+                },
+                {
+                  "data": {
+                    "accessRoles": [
+                      "Role1",
+                      "Administrator"
+                    ],
+                    "navType": "page",
+                    "target": "/shift-management"
+                  },
+                  "expanded": false,
+                  "icon": {
+                    "path": "material/more_time"
+                  },
+                  "items": [],
+                  "label": "Shift Management"
+                }
+              ],
+              "label": "Settings"
+            }
+          ],
+          "backupItems": [
+            {
+              "data": {
+                "navType": "page",
+                "target": "/"
+              },
+              "expanded": false,
+              "icon": {
+                "color": "",
+                "path": "material/home",
+                "style": {}
+              },
+              "items": [],
+              "label": "Home"
+            },
+            {
+              "data": {},
+              "expanded": false,
+              "icon": {
+                "color": "",
+                "path": "material/build",
+                "style": {}
+              },
+              "items": [
+                {
+                  "data": {},
+                  "expanded": false,
+                  "icon": {
+                    "color": "",
+                    "path": "material/insights",
+                    "style": {}
+                  },
+                  "items": [],
+                  "label": "Ad Hoc Chart"
+                },
+                {
+                  "data": {},
+                  "expanded": false,
+                  "icon": {
+                    "color": "",
+                    "path": "material/notifications",
+                    "style": {}
+                  },
+                  "items": [],
+                  "label": "Alarm Status Table"
+                },
+                {
+                  "data": {},
+                  "expanded": false,
+                  "icon": {
+                    "color": "",
+                    "path": "material/history",
+                    "style": {}
+                  },
+                  "items": [],
+                  "label": "Alarm Journal Table"
+                }
+              ],
+              "label": "Tools"
+            },
+            {
+              "data": {},
+              "expanded": true,
+              "items": [
+                {
+                  "data": {
+                    "accessRoles": [
+                      "Role1",
+                      "Administrator1"
+                    ],
+                    "navType": "page",
+                    "target": "/user-management"
+                  },
+                  "expanded": false,
+                  "icon": {
+                    "color": "",
+                    "path": "material/supervised_user_circle",
+                    "style": {}
+                  },
+                  "items": [],
+                  "label": "User Management"
+                },
+                {
+                  "data": {
+                    "navType": "page",
+                    "target": "/roster-management"
+                  },
+                  "expanded": false,
+                  "icon": {
+                    "color": "",
+                    "path": "material/contact_phone",
+                    "style": {}
+                  },
+                  "items": [],
+                  "label": "Roster Management"
+                },
+                {
+                  "data": {},
+                  "expanded": false,
+                  "icon": {
+                    "color": "",
+                    "path": "material/more_time",
+                    "style": {}
+                  },
+                  "items": [],
+                  "label": "Shift Management"
+                }
+              ],
+              "label": "Settings"
+            }
+          ],
+          "filteredItems": [
+            {
+              "data": {},
+              "expanded": true,
+              "items": [
+                {
+                  "data": {
+                    "navType": "page",
+                    "target": "/roster-management"
+                  },
+                  "expanded": false,
+                  "items": [],
+                  "label": "Report"
+                }
+              ],
+              "label": "Settings"
+            }
+          ],
+          "itemsTemp": [
+            {
+              "data": {},
+              "expanded": false,
+              "items": [
+                {
+                  "data": {},
+                  "expanded": false,
+                  "items": [],
+                  "label": "Item"
+                }
+              ],
+              "label": "Reports"
+            },
+            {
+              "data": {
+                "accessRoles": [
+                  "Role1",
+                  "Role2"
+                ]
+              },
+              "expanded": true,
+              "items": [
+                {
+                  "data": {
+                    "accessRoles": [
+                      "Role1"
+                    ]
+                  },
+                  "expanded": false,
+                  "icon": {
+                    "color": "#E68A1F",
+                    "path": "material/add_comment",
+                    "style": {}
+                  },
+                  "items": [],
+                  "label": "Equipment Management",
+                  "style": {
+                    "color": "var(--neutral-30)",
+                    "cursor": "not-allowed",
+                    "opacity": "0.45"
+                  }
+                },
+                {
+                  "data": {},
+                  "expanded": false,
+                  "items": [],
+                  "label": "Material Management"
+                }
+              ],
+              "label": "MES Settings",
+              "style": {
+                "color": "var(--neutral-30)",
+                "cursor": "not-allowed",
+                "opacity": "0.45"
+              }
+            },
+            {
+              "data": {},
+              "expanded": false,
+              "items": [
+                {
+                  "data": {
+                    "navType": "page",
+                    "target": "/user-management"
+                  },
+                  "expanded": false,
+                  "items": [],
+                  "label": "Item"
+                },
+                {
+                  "data": {
+                    "navType": "page",
+                    "target": "/roster-management"
+                  },
+                  "expanded": false,
+                  "items": [],
+                  "label": "Report"
+                }
+              ],
+              "label": "Settings"
+            }
+          ]
+        },
+        "events": {
+          "component": {
+            "onItemClicked": {
+              "config": {
+                "script": "\tdata \u003d event.get(\u0027data\u0027, {})\n\tnavType     \u003d data.get(\u0027navType\u0027, \u0027\u0027)\n\ttarget      \u003d data.get(\u0027target\u0027, \u0027\u0027)\n\taccessRoles \u003d data.get(\u0027accessRoles\u0027, [])\n\t\n\t# Verificar acceso si hay roles definidos\n\tif accessRoles:\n\t\tif self.session.props.auth.authenticated:\n\t\t\tuserRoles \u003d self.session.props.auth.user.roles\n\t\thasAccess \u003d any(role in userRoles for role in accessRoles)\n\t\tif not hasAccess:\n\t\t    return\n\t\n\tif not target:\n\t    return\n\t\n\tif navType \u003d\u003d \u0027page\u0027:\n\t    system.perspective.navigate(page\u003dtarget)\n\t\n\telif navType \u003d\u003d \u0027view\u0027:\n\t    system.perspective.navigate(view\u003dtarget)\n\t\n\telif navType \u003d\u003d \u0027url\u0027:\n\t    system.perspective.navigate(url\u003dtarget)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Tree"
+        },
+        "position": {
+          "basis": "466px",
+          "grow": 1
+        },
+        "props": {
+          "appearance": {
+            "defaultNodeIcons": {
+              "collapsed": {
+                "path": "material/folder"
+              },
+              "empty": {
+                "path": "material/stop"
+              },
+              "expanded": {
+                "path": "material/folder_open"
+              }
+            },
+            "expandIcons": {
+              "collapsed": {
+                "path": "material/keyboard_arrow_down"
+              },
+              "expanded": {
+                "path": "material/keyboard_arrow_up"
+              }
+            },
+            "rowHeight": 40,
+            "unselectedStyle": {
+              "color": "var(--neutral-70)",
+              "fontFamily": "Roboto",
+              "fontWeight": "lighter"
+            }
+          },
+          "items": [
+            {
+              "data": {
+                "navType": "page",
+                "target": "/"
+              },
+              "expanded": false,
+              "icon": {
+                "path": "material/home"
+              },
+              "items": [],
+              "label": "Home"
+            },
+            {
+              "data": {},
+              "expanded": false,
+              "icon": {
+                "path": "material/build"
+              },
+              "items": [
+                {
+                  "data": {
+                    "navType": "page",
+                    "target": "/ad-hoc-trends"
+                  },
+                  "expanded": false,
+                  "icon": {
+                    "path": "material/insights"
+                  },
+                  "items": [],
+                  "label": "Ad Hoc Trends"
+                },
+                {
+                  "data": {
+                    "navType": "page",
+                    "target": "/alarm-status-table"
+                  },
+                  "expanded": false,
+                  "icon": {
+                    "path": "material/notifications"
+                  },
+                  "items": [],
+                  "label": "Alarm Status Table"
+                },
+                {
+                  "data": {
+                    "navType": "page",
+                    "target": "/alarm-journal-table"
+                  },
+                  "expanded": false,
+                  "icon": {
+                    "path": "material/history"
+                  },
+                  "items": [],
+                  "label": "Alarm Journal Table"
+                },
+                {
+                  "data": {
+                    "navType": "page",
+                    "target": "/audit-report"
+                  },
+                  "expanded": false,
+                  "icon": {
+                    "path": "material/fact_check"
+                  },
+                  "items": [],
+                  "label": "Audit Report"
+                }
+              ],
+              "label": "Tools"
+            },
+            {
+              "data": {},
+              "expanded": false,
+              "items": [
+                {
+                  "data": {
+                    "accessRoles": [
+                      "Administrator"
+                    ],
+                    "navType": "page",
+                    "target": "/user-management"
+                  },
+                  "expanded": false,
+                  "icon": {
+                    "path": "material/supervised_user_circle"
+                  },
+                  "items": [],
+                  "label": "User Management"
+                },
+                {
+                  "data": {
+                    "accessRoles": [
+                      "Role1",
+                      "Administrator"
+                    ],
+                    "navType": "page",
+                    "target": "/roster-management"
+                  },
+                  "expanded": false,
+                  "icon": {
+                    "path": "material/contact_phone"
+                  },
+                  "items": [],
+                  "label": "Roster Management"
+                },
+                {
+                  "data": {
+                    "accessRoles": [
+                      "Role1",
+                      "Administrator"
+                    ],
+                    "navType": "page",
+                    "target": "/shift-management"
+                  },
+                  "expanded": false,
+                  "icon": {
+                    "path": "material/more_time"
+                  },
+                  "items": [],
+                  "label": "Shift Management"
+                }
+              ],
+              "label": "Settings"
+            }
+          ],
+          "selection": [
+            "2/1"
+          ],
+          "selectionData": [
+            {
+              "itemPath": "2/1",
+              "value": {
+                "navType": "page",
+                "target": "/roster-management"
+              }
+            }
+          ],
+          "style": {
+            "classes": "tree-nav",
+            "marginTop": "20px",
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.display.tree"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "ats"
+            },
+            "position": {
+              "basis": "52px"
+            },
+            "props": {
+              "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHMAAABHCAYAAAA0qHhdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2tpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wUmlnaHRzPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvcmlnaHRzLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcFJpZ2h0czpNYXJrZWQ9IkZhbHNlIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjUxQzFCRjI2QjcwNjExRTRBMzgyOTM1QTM5RTM3OTNGIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjUxQzFCRjI1QjcwNjExRTRBMzgyOTM1QTM5RTM3OTNGIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzMgTWFjaW50b3NoIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InV1aWQ6NDYzNkU3NjZCNTEyMTFFNEFFNDI5NzY5NDkwM0EyREIiIHN0UmVmOmRvY3VtZW50SUQ9InV1aWQ6NDYzNkU3NjBCNTEyMTFFNEFFNDI5NzY5NDkwM0EyREIiLz4gPC9yZGY6RGVz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\u003d",
+              "style": {
+                "overflow": "visible"
+              }
+            },
+            "type": "ia.display.image"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "26px"
+            },
+            "props": {
+              "alignVertical": "bottom",
+              "style": {
+                "color": "var(--neutral-60)",
+                "fontFamily": "Arial",
+                "fontSize": "12px"
+              },
+              "text": "The Independent Solution Provider for"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "props": {
+              "alignVertical": "top",
+              "style": {
+                "color": "var(--neutral-80)",
+                "fontFamily": "Arial",
+                "fontSize": "15px",
+                "fontWeight": "bold"
+              },
+              "text": "Smart Digital Transformation"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "120px"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "paddingBottom": "20px",
+            "paddingLeft": "20px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "custom": {
+      "allItems": {}
+    },
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "var(--neutral-10)",
+        "classes": "docked-nav",
+        "padding": "10px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "mesObjectSelector"
+        },
+        "type": "mes.production.mesObjectSelector",
+        "position": {
+          "basis": "50px"
+        },
+        "props": {
+          "displayText": "Line",
+          "style": {
+            "margin": "4px 6px",
+            "overflow": "visible"
+          },
+          "includeMESLineObjects": true,
+          "includeMESLineCellGroupObjects": true,
+          "includeMESLineCellObjects": true
+        }
+      },
+      {
+        "meta": {
+          "name": "runDirector"
+        },
+        "type": "mes.oee.runDirector",
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.equipmentPath": {
+            "binding": {
+              "config": {
+                "path": "../mesObjectSelector.props.selectedMESObject.equipmentPath"
+              },
+              "type": "property"
+            }
+          }
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

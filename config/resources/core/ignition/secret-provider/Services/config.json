@@ -1,0 +1,29 @@
+{
+  "profile": {
+    "type": "internal"
+  },
+  "settings": {
+    "secrets": {
+      "Database_Ignition": {
+        "ciphertext": {
+          "ciphertext": "17t95Aiwp24lRQ",
+          "encrypted_key": "2KHlFZOewEuVtkWHbgwJPzatd6Yu7yVnkWebaMtdTLt6jr-FFsIq7g",
+          "iv": "4ueSZ36V4O0lN2j-",
+          "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzkwMjg0MDc2LCJ6aXAiOiJERUYifQ",
+          "tag": "W3tZ__HFFl5n3-VBQBYUUw"
+        },
+        "description": ""
+      },
+      "Database_MES": {
+        "ciphertext": {
+          "ciphertext": "HWSa_Vcttb6xhw",
+          "encrypted_key": "Y9Ua6eaw_kvApH5wWUSruEdS7NVilfrlKo3X9g9trhY3N6sSCueFsg",
+          "iv": "yYfQCR1Rgyfu3OFX",
+          "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzkwMjg0MDg5LCJ6aXAiOiJERUYifQ",
+          "tag": "WoOWjaa-ASKc2KfDsKXyHw"
+        },
+        "description": ""
+      }
+    }
+  }
+}

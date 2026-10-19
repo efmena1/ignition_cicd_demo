@@ -1,0 +1,210 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "SplitContainer"
+        },
+        "type": "ia.container.split",
+        "position": {
+          "basis": "790px",
+          "grow": 1
+        },
+        "props": {
+          "split": {
+            "position": "25%"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "flx_left"
+            },
+            "position": {
+              "position": "left"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex",
+            "children": [
+              {
+                "meta": {
+                  "name": "mesObjectSelector"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "basis": "50px"
+                },
+                "props": {
+                  "displayText": "Equipment",
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  },
+                  "includeAllEquipmentObjects": true
+                }
+              },
+              {
+                "meta": {
+                  "name": "dt_start"
+                },
+                "type": "ia.input.date-time-input",
+                "position": {
+                  "basis": "60px"
+                },
+                "props": {
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "expression": "dateArithmetic(now(0), -1, \"day\")"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "dt_end"
+                },
+                "type": "ia.input.date-time-input",
+                "position": {
+                  "basis": "60px"
+                },
+                "props": {
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "expression": "now(0)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "flx_right"
+            },
+            "position": {
+              "position": "right"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex",
+            "children": [
+              {
+                "meta": {
+                  "name": "mesValueEditor"
+                },
+                "type": "mes.production.mesValueEditor",
+                "position": {
+                  "basis": "500px",
+                  "grow": 1
+                },
+                "props": {
+                  "tagCollectors": {
+                    "includeActiveRecipe": "Enabled",
+                    "includeBatchParam": "Enabled",
+                    "includeEquipmentAdditionalFactor": "Enabled",
+                    "includeEquipmentCount": "Enabled",
+                    "includeEquipmentCycleCount": "Enabled",
+                    "includeEquipmentInfeedCountScale": "Enabled",
+                    "includeEquipmentInfeedUnits": "Enabled",
+                    "includeEquipmentMode": "Enabled",
+                    "includeEquipmentNote": "Enabled",
+                    "includeEquipmentOperationUUID": "Enabled",
+                    "includeEquipmentOutfeedUnits": "Enabled",
+                    "includeEquipmentPackageCount": "Enabled",
+                    "includeEquipmentProductCode": "Enabled",
+                    "includeEquipmentRatePeriod": "Enabled",
+                    "includeEquipmentRejectCountScale": "Enabled",
+                    "includeEquipmentRejectUnits": "Enabled",
+                    "includeEquipmentScheduleCount": "Enabled",
+                    "includeEquipmentScheduleDuration": "Enabled",
+                    "includeEquipmentScheduleRate": "Enabled",
+                    "includeEquipmentShift": "Enabled",
+                    "includeEquipmentStandardRate": "Enabled",
+                    "includeEquipmentState": "Enabled",
+                    "includeEquipmentTargetChangeoverTime": "Enabled",
+                    "includeEquipmentWorkOrder": "Enabled",
+                    "includeLineInfeedCountEquipmentUUID": "Enabled",
+                    "includeLineOutfeedCountEquipmentUUID": "Enabled",
+                    "includeRecipeEnabled": "Enabled",
+                    "includeRecipeScale": "Enabled",
+                    "includeRecipeVariance": "Enabled",
+                    "includeSampleAdditionalFactor": "Enabled",
+                    "includeSampleApprovedBy": "Enabled",
+                    "includeSampleAttribute": "Enabled",
+                    "includeSampleCause": "Enabled",
+                    "includeSampleCauseEnteredBy": "Enabled",
+                    "includeSampleControlLimit": "Enabled",
+                    "includeSampleDefinitionUUID": "Enabled",
+                    "includeSampleEnteredBy": "Enabled",
+                    "includeSampleExcludedBy": "Enabled",
+                    "includeSampleNoteEnteredBy": "Enabled",
+                    "includeSampleNoteValue": "Enabled",
+                    "includeSampleReferenceNumber": "Enabled",
+                    "includeSampleScheduled": "Enabled",
+                    "includeSampleTag": "Enabled",
+                    "includeSampleTakenBy": "Enabled"
+                  }
+                },
+                "propConfig": {
+                  "props.beginDate": {
+                    "binding": {
+                      "config": {
+                        "path": ".../flx_left/dt_start.props.value"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.endDate": {
+                    "binding": {
+                      "config": {
+                        "path": ".../flx_left/dt_end.props.value"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.equipmentPath": {
+                    "binding": {
+                      "config": {
+                        "path": ".../flx_left/mesObjectSelector.props.selectedMESObject.equipmentPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "pages": {
+    "/": {
+      "title": "",
+      "viewPath": "Main Views/Home/Home"
+    },
+    "/ad-hoc-trends": {
+      "title": "",
+      "viewPath": "Tools/AdHocTrends/AdHocTrends"
+    },
+    "/alarm-journal-table": {
+      "title": "",
+      "viewPath": "Tools/Alarm Journal Table/Alarm Journal Table"
+    },
+    "/alarm-status-table": {
+      "title": "",
+      "viewPath": "Tools/Alarm Status Table/Alarm Status Table"
+    },
+    "/audit-report": {
+      "title": "",
+      "viewPath": "Tools/Audit Report"
+    },
+    "/roster-management": {
+      "title": "",
+      "viewPath": "RosterManagement/RosterManagement"
+    },
+    "/shift-management": {
+      "title": "",
+      "viewPath": "ScheduleManagement/ScheduleManagement"
+    },
+    "/user-management": {
+      "title": "",
+      "viewPath": "UserManagement/UserManagement"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom",
+    "left": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "cover",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "menu-cover",
+        "modal": true,
+        "resizable": false,
+        "show": "onDemand",
+        "size": 270,
+        "viewParams": {},
+        "viewPath": "ATS Global/Navigation/Docked Navigation"
+      }
+    ],
+    "top": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 50,
+        "viewParams": {},
+        "viewPath": "ATS Global/Headers/Header Toggle Navigation/Header"
+      }
+    ]
+  }
+}

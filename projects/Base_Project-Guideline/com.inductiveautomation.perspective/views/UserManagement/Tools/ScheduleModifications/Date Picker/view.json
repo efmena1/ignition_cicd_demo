@@ -1,0 +1,122 @@
+{
+  "custom": {},
+  "params": {
+    "column": "",
+    "row": "",
+    "scheduleModifications": []
+  },
+  "propConfig": {
+    "params.column": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.row": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.scheduleModifications": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 30,
+      "width": 200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "DateTimeInput"
+        },
+        "position": {
+          "basis": "30px",
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.placeholder": {
+            "binding": {
+              "config": {
+                "path": "this.props.formattedValues.datetime"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "path": "this.props.value"
+              },
+              "transforms": [
+                {
+                  "fallback": "#FF000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "",
+                      "output": "#FF0000"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "path": "view.params.scheduleModifications"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\tfrom datetime import datetime\n\t\n\tscheduleMods \u003d value\n\t# Returns current datetime if a datetime is not specified for the cell.\n\tif len(scheduleMods) \u003d\u003d 0 or scheduleMods[self.view.params.row][self.view.params.column] \u003d\u003d \u0027\u0027:\n\t\treturn system.date.now()\n\t# If the datetime is unicode, convert to a datetime and return.\n\telif isinstance(scheduleMods[self.view.params.row][self.view.params.column], unicode):\n\t\treturn datetime.strptime(scheduleMods[self.view.params.row][self.view.params.column], \u0027%Y-%m-%dT%H:%M:%S.%fZ\u0027)\n\t# Else, return the datetime stored in the dateset. \n\telse:\n\t\treturn scheduleMods[self.view.params.row][self.view.params.column]\n\t",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            },
+            "onChange": {
+              "enabled": null,
+              "script": "\t# Send a message to the Schedule Modification table to update the dataset and cell being edited with the new value selected.\n\tif origin \u003d\u003d \"Browser\":\n\t\tsystem.perspective.sendMessage(\u0027UserManagement_ScheduleModificationChangeDate\u0027, payload\u003d{\u0027row\u0027:self.view.params.row, \u0027column\u0027:self.view.params.column, \u0027value\u0027:currentValue}, scope\u003d\u0027page\u0027)"
+            },
+            "persistent": false
+          }
+        },
+        "props": {
+          "formattedValue": "Sep 25, 2020 3:42 PM",
+          "formattedValues": {
+            "date": "Sep 25, 2020",
+            "datetime": "Sep 25, 2020 3:42 PM",
+            "time": "3:42 PM"
+          },
+          "style": {
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "classes": "UserManagement/InputFont",
+            "fontSize": "12px",
+            "paddingBottom": "1px",
+            "paddingTop": "1px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.input.date-time-input"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "UserManagement/MainFont",
+        "overflow": "visible"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

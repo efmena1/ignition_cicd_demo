@@ -1,0 +1,420 @@
+{
+  "custom": {
+    "themes": [
+      {
+        "label": "light",
+        "value": "light"
+      },
+      {
+        "label": "light-cool",
+        "value": "light-cool"
+      },
+      {
+        "label": "dark",
+        "value": "dark"
+      },
+      {
+        "label": "dark-cool",
+        "value": "dark-cool"
+      }
+    ]
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tdropdown  \u003d self.getChild(\"root\").getChild(\"FlexContainer\").getChild(\"Dropdown\")\n\tdropdown.props.value \u003d self.session.props.theme"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "propConfig": {
+    "custom.themes": {
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 300,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "text": "#theme.appearance"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Preview"
+                    },
+                    "position": {
+                      "basis": "30px"
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "user-drawer-theme-preview user-drawer-theme-preview--light"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "user-drawer-theme-label"
+                      },
+                      "text": "#theme.appearance.light"
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tself.session.props.theme \u003d \u0027light-cool\u0027"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Light"
+                },
+                "position": {
+                  "basis": "50%",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.style.classes": {
+                    "binding": {
+                      "config": {
+                        "path": "session.props.theme"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "user-drawer-theme-option",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": "pecs_light",
+                              "output": "user-drawer-theme-option user-drawer-theme-option--active"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "gap": 6
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Preview"
+                    },
+                    "position": {
+                      "basis": "30px"
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "user-drawer-theme-preview user-drawer-theme-preview--dark"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "user-drawer-theme-label"
+                      },
+                      "text": "#theme.appearance.dark"
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tself.session.props.theme \u003d \u0027dark-cool\u0027"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Dark"
+                },
+                "position": {
+                  "basis": "50%",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.style.classes": {
+                    "binding": {
+                      "config": {
+                        "path": "session.props.theme"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "user-drawer-theme-option",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": "pecs_dark",
+                              "output": "user-drawer-theme-option user-drawer-theme-option--active"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "gap": 6
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Options"
+            },
+            "position": {
+              "basis": "80px",
+              "shrink": 0
+            },
+            "props": {
+              "justify": "space-between",
+              "style": {
+                "classes": "user-drawer-theme-option",
+                "gap": 2
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Theme"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "user-drawer-theme-wrapper"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "text": "#common.language"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Dropdown"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "propConfig": {
+              "props.value": {
+                "onChange": {
+                  "enabled": null,
+                  "script": "\tself.session.props.locale \u003d currentValue.value"
+                }
+              }
+            },
+            "props": {
+              "allowCustomOptions": true,
+              "options": [
+                {
+                  "label": "ESP",
+                  "value": "es"
+                },
+                {
+                  "label": "ENG",
+                  "value": "en"
+                }
+              ],
+              "value": "en-US"
+            },
+            "type": "ia.input.dropdown"
+          }
+        ],
+        "meta": {
+          "name": "Language"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-between",
+          "style": {
+            "classes": "user-drawer-status-wrapper",
+            "margin-bottom": "auto"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "props": {
+              "text": "#gateway.status"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Led"
+                },
+                "position": {
+                  "basis": "8px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "align-self": "center",
+                    "classes": "user-drawer-status-dot",
+                    "height": "8px",
+                    "width": "8px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Status"
+                },
+                "position": {
+                  "basis": "32px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"#gateway.status.\"+if({session.props.gateway.connected}\u003dTrue,\"connected\",\"disconnected\")"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "user-drawer-status-label"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "style": {
+                "classes": "user-drawer-status",
+                "gap": 8
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Status"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "user-drawer-status-wrapper",
+            "margin-bottom": "auto"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "user-drawer",
+        "padding": "10px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

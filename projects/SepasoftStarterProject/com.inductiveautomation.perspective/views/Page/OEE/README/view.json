@@ -1,0 +1,62 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Card"
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "maxWidth": "900px",
+            "width": "100%",
+            "margin": "0 auto",
+            "backgroundColor": "rgba(0,0,0,0.02)",
+            "border": "1px solid rgba(0,0,0,0.08)",
+            "borderRadius": "8px",
+            "padding": "28px 32px"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "Markdown"
+            },
+            "type": "ia.display.markdown",
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "markdown": {
+                "escapeHtml": false
+              },
+              "source": "# OEE\n\nStock `mes.production.*` (Equipment Manager, Material Manager, Work Orders) + `mes.oee.*` (Run Control, Downtime Table, Time Chart) screens for Overall Equipment Effectiveness. Work through them in this order:\n\n1. **Equipment Manager** (Production module) - create the equipment (lines, cells) OEE will be calculated against.\n2. **Material Manager** (Production module) - create materials and their production settings.\n3. **Work Orders** (optional) - create a work order to run production against.\n4. **Run Control** - start a production run, in either work order or material mode.\n5. **Downtime Table** - view downtime events logged during the run.\n6. **Time Chart** - view a Gantt-style timeline of state/mode changes for a line and its cells over a date range.\n7. **Analysis** - create and build reports on the sampled/run data.\n",
+              "style": {
+                "fontSize": 15,
+                "lineHeight": "1.6"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "padding": "24px",
+        "overflow": "auto"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

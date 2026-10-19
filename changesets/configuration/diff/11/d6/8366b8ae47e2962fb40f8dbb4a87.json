@@ -1,0 +1,48 @@
+{
+  "changesetData": {
+    "uuid": "11d68366-b8ae-47e2-962f-b40f8dbb4a87",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "emena",
+    "appliedAt": "2026-10-15T05:17:48.593Z",
+    "appliedOnChangesetUUID": "5892e0ca-4e1e-4059-a92b-71310d2e6b71",
+    "hash": "642f67bca15171ae7be36413197b27d69e853b83b696aee21b52ee4cf499f515",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:17:48.577834700Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Area": {
+        "45e5b7ef-8d33-40e5-9983-da435a8b417b": {
+          "meta": {
+            "name": "Area"
+          },
+          "changes": [
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "oldValue": "New Area",
+              "newValue": "Area"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentActiveType",
+              "oldValue": "INACTIVE",
+              "newValue": "ACTIVE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentPath",
+              "oldValue": "Enterprise\\Site\\New Area",
+              "newValue": "Enterprise\\Site\\Area"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

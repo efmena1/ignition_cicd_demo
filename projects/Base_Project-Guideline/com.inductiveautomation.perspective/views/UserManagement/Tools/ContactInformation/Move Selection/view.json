@@ -1,0 +1,78 @@
+{
+  "custom": {},
+  "params": {
+    "contactInformation": [],
+    "row": ""
+  },
+  "propConfig": {
+    "params.contactInformation": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.row": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 30,
+      "width": 30
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\t# If toggled, sends a message to the Contact Information table with the row number that was toggled.\n\tsystem.perspective.sendMessage(\u0027UserManagement_ContactInfoRowSelected\u0027, payload\u003d{\u0027row\u0027:self.view.params.row, \u0027selected\u0027:self.props.selected}, scope\u003d\u0027page\u0027)\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Checkbox"
+        },
+        "position": {
+          "basis": "36px"
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "path": "view.params.contactInformation"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\t# Returns either True or False depening on whether that row is selected or not.\n\treturn value[self.view.params.row][\u0027Selected\u0027]",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": ""
+        },
+        "type": "ia.input.checkbox"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "UserManagement/MainFont",
+        "overflow": "visible"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "es.json",
+    "en.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "unknown",
+      "timestamp": "2026-10-14T23:31:04Z"
+    },
+    "ignorePunctuation": false,
+    "caseInsensitive": false,
+    "lastModificationSignature": "c2529735538ecd39b40cb96cea9f2d14f8e5c924174dce34f8877b8dcd7b0f51",
+    "ignoreWhitespace": false,
+    "ignoreTags": false
+  }
+}

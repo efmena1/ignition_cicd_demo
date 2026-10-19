@@ -1,0 +1,75 @@
+{
+  "custom": {},
+  "params": {
+    "title": "Toggle"
+  },
+  "propConfig": {
+    "params.title": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 40,
+      "width": 187
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Title"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.title"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "fl-label",
+            "paddingBottom": "0px",
+            "paddingLeft": "55px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "ToggleSwitch"
+        },
+        "position": {
+          "basis": "36px",
+          "grow": 1
+        },
+        "props": {
+          "selected": true,
+          "style": {
+            "classes": "fl-input-ts",
+            "position": "absolute",
+            "top": "7px"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "margin": "2px",
+        "overflow": "hidden",
+        "position": "relative"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

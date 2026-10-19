@@ -1,0 +1,373 @@
+{
+  "changesetData": {
+    "uuid": "817ad406-a2f0-4dee-a4e9-72c183523890",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "emena",
+    "appliedAt": "2026-10-15T05:18:22.256Z",
+    "appliedOnChangesetUUID": "0e28260d-4e5c-4e80-834a-287ac0020cb5",
+    "hash": "0b287940b3ecbfb6fabcf02d9892a3a92d8ce79749d23b16e579e779e21934b9",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:18:22.152519Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Area": {
+        "45e5b7ef-8d33-40e5-9983-da435a8b417b": {
+          "meta": {
+            "name": "Area"
+          },
+          "changes": [
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "3bb1e9f5-34c0-421c-b69f-dc0b533650a5|Line",
+              "friendlyPath": "Enterprise\\Site\\Area\\New Line",
+              "newValueFriendly": "New Line"
+            }
+          ]
+        }
+      },
+      "Line": {
+        "3bb1e9f5-34c0-421c-b69f-dc0b533650a5": {
+          "meta": {
+            "name": "New Line"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "3bb1e9f5-34c0-421c-b69f-dc0b533650a5"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentActiveType",
+              "oldValue": "ACTIVE",
+              "newValue": "INACTIVE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentCellOrder",
+              "newValue": "2"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "45e5b7ef-8d33-40e5-9983-da435a8b417b|Area",
+              "friendlyPath": "Enterprise\\Site\\Area",
+              "newValueFriendly": "Area"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "New Line"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentPath",
+              "oldValue": "",
+              "newValue": "Enterprise\\Site\\Area\\New Line"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "eb997395-1ef8-4603-9931-daad7687e3f3|Equipment Mode"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Mode.TagCollectorType",
+              "newValue": "Equipment Mode"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "ffd2d79d-2005-434f-8feb-c55e933fff5e|Equipment State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment State.TagCollectorType",
+              "newValue": "Equipment State"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "40eb9bc6-7030-49be-a52a-04b0d989ee4d|Equipment Note"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Note.TagCollectorType",
+              "newValue": "Equipment Note"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "aad1e2ba-3322-44b9-bdfa-3a1783d07b6f|Equipment Shift"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Shift.TagCollectorType",
+              "newValue": "Equipment Shift"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "c632ee6d-8f83-446f-aa29-2a8be2c2e281|Equipment Product Code"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Product Code.TagCollectorType",
+              "newValue": "Equipment Product Code"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "ce09a390-1912-42b1-87ee-35f10daf3533|Equipment Work Order"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Work Order.TagCollectorType",
+              "newValue": "Equipment Work Order"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "cadb500a-0e12-4fec-9692-8d328e4d5a39|Equipment Package Count"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Package Count.TagCollectorType",
+              "newValue": "Equipment Package Count"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "41a78815-103c-48d4-8056-3426b620a8e7|Equipment Outfeed Units"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Outfeed Units.TagCollectorType",
+              "newValue": "Equipment Outfeed Units"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "7a659f1b-b2eb-4245-93c9-9760a837deb8|Equipment Infeed Count Scale"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Infeed Count Scale.TagCollectorType",
+              "newValue": "Equipment Infeed Count Scale"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "ee722bb4-9ab5-4699-847e-f0895e6fa4f8|Equipment Infeed Units"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Infeed Units.TagCollectorType",
+              "newValue": "Equipment Infeed Units"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "07c88094-410d-40fe-ba35-3ca1903fe3ab|Equipment Reject Count Scale"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Reject Count Scale.TagCollectorType",
+              "newValue": "Equipment Reject Count Scale"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "c1981226-4282-4026-b79b-28956413b54c|Equipment Reject Units"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Reject Units.TagCollectorType",
+              "newValue": "Equipment Reject Units"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "9c58fab2-830c-4e9c-a99c-8dd7316dd9f9|Equipment Standard Rate"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Standard Rate.TagCollectorType",
+              "newValue": "Equipment Standard Rate"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "b74987b0-6b21-4320-bd60-f4463dd01a3e|Equipment Schedule Rate"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Schedule Rate.TagCollectorType",
+              "newValue": "Equipment Schedule Rate"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "e0a74ce3-24c2-47c6-9c0c-e8cf0f3b6596|Equipment Schedule Count"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Schedule Count.TagCollectorType",
+              "newValue": "Equipment Schedule Count"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "180533e9-2601-485e-9266-413d3bde32f3|Equipment Schedule Duration"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Schedule Duration.TagCollectorType",
+              "newValue": "Equipment Schedule Duration"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "2dce02ed-5d3c-40aa-8dfd-c608776cc39d|Equipment Rate Period"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Rate Period.TagCollectorType",
+              "newValue": "Equipment Rate Period"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "bc784121-34a3-42e5-b78e-1d293ea3c6dd|Equipment Target Changeover Time"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Target Changeover Time.TagCollectorType",
+              "newValue": "Equipment Target Changeover Time"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "c8efe7f1-d6de-4131-993b-affd77f43c65|Equipment Cycle Count"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Cycle Count.TagCollectorType",
+              "newValue": "Equipment Cycle Count"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "22d569a1-e112-4145-87e7-a5955040d9a3|Equipment Operation UUID"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Equipment Operation UUID.TagCollectorType",
+              "newValue": "Equipment Operation UUID"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "a977fe35-7af8-411e-989d-34df67f4ad70|Recipe Enabled"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Recipe Enabled.TagCollectorType",
+              "newValue": "Recipe Enabled"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "93a5ecf2-b1eb-446d-86e5-d8c4fe943681|Active Recipe"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Active Recipe.TagCollectorType",
+              "newValue": "Active Recipe"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "d24d3237-d6e8-48d7-a4e7-e6a27dc86c78|Recipe Change Note"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Recipe Change Note.TagCollectorType",
+              "newValue": "Recipe Change Note"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "73465d4d-0a7a-4c3f-961e-524616f88864|Recipe Scale"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Recipe Scale.TagCollectorType",
+              "newValue": "Recipe Scale"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "c10d0d16-90a6-42d8-b8ee-0b17591445f7|Line Infeed Count Equipment UUID"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Line Infeed Count Equipment UUID.TagCollectorType",
+              "newValue": "Line Infeed Count Equipment UUID"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "6db1e294-472d-4ab3-89c4-e9643589e994|Line Outfeed Count Equipment UUID"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Line Outfeed Count Equipment UUID.TagCollectorType",
+              "newValue": "Line Outfeed Count Equipment UUID"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "Counter",
+              "newValue": "ec8ace2f-a665-4098-bfb2-56b3cb760484|Material Out"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Counter.Material Out.Description",
+              "oldValue": "",
+              "newValue": "Default counter used for OEE outfeed count."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Counter.Material Out.Kind",
+              "oldValue": "General",
+              "newValue": "Outfeed"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeClassUUID",
+              "newValue": "bb4de399-ec60-4df1-9e39-0a6bb208fd24"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentStateClassUUID",
+              "newValue": "26d80231-f8ec-44cc-9eff-ff357bd2cbac"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

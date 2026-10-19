@@ -1,0 +1,52 @@
+{
+  "changesetData": {
+    "uuid": "e1fa8121-e90b-4c05-b243-837028011095",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:21.328Z",
+    "appliedOnChangesetUUID": "5a3179bb-ed99-4c86-88c3-5bbaf4257aba",
+    "hash": "440bf62daf826046b8d740a351893fed9e0aad91b110a3603e148e02a3df9152",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:21.315887700Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Batch Root Master Template": {
+        "bfd8e50c-5352-4833-903d-5feb9453b3eb": {
+          "meta": {
+            "name": "Master Templates"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "bfd8e50c-5352-4833-903d-5feb9453b3eb"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Master Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

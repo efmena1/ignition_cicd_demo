@@ -1,0 +1,147 @@
+{
+  "custom": {
+    "currentView": "home",
+    "rosterAction": "add",
+    "userSourceValidator": [
+      "No Errors"
+    ]
+  },
+  "params": {
+    "userSources": [
+      "default"
+    ]
+  },
+  "propConfig": {
+    "custom.currentView": {
+      "persistent": true
+    },
+    "custom.rosterAction": {
+      "persistent": true
+    },
+    "custom.userSourceValidator": {
+      "binding": {
+        "config": {
+          "path": "view.params.userSources"
+        },
+        "transforms": [
+          {
+            "code": "\t\u0027\u0027\u0027\n\tThis binding prevents the user from using the Roster Management if a user source is misspelled or\n\tthere are multiple usersources that share a common username in their user list.\n\t\n\tWhen params.userSource is updated this binding:\n\t\t- Checks that all user sources are valid.\n\t\t- Checks that user sources do not share common usernames.\n\t\t\t- If user sources have common usernames, the Roster Management component will \n\t\t\t  modify rosters so the users come from the first user source in the params.userSource\n\t\t\t  that contains the similar username.\n\t\u0027\u0027\u0027\n\timport itertools\n\t\n\tuserSources \u003d value\n\t\n\terrors \u003d []\n\tgoodUserSources \u003d []\n\tfor userSource in userSources:\n\t\ttry:\n\t\t\tgoodUserSources.append({\"users\": system.user.getUsers(userSource), \"userSource\": userSource})\n\t\texcept:\n\t\t\terrors.append(userSource)\n\t\n\t# If getting users based on userSource failed, return errors.\n\tif errors:\n\t\treturn {\"errorMessage\": \"One or more user sources does not exist, check spelling or remove source from userSources.\", \"failedUserSourceEntries\": errors}\n\t\n\t# Return an empty list if there are no user source errors or duplicate usernames across user sources. \n\treturn [\"No Errors\"]",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.userSources": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.userSources[0]": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 500,
+      "width": 700
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Home"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.currentView} \u003d \"home\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "currentRoster": "tester"
+          },
+          "path": "RosterManagement/Views/Home"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "AddEditRoster"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.currentView} \u003d \"addEditRoster\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.currentRoster": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "../Home.props.params.currentRoster"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.rosterAction": {
+            "binding": {
+              "config": {
+                "path": "view.custom.rosterAction"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.userSources": {
+            "binding": {
+              "config": {
+                "path": "view.params.userSources"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "RosterManagement/Views/AddEditRoster"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "RosterManagement_ChangeViews",
+          "pageScope": true,
+          "script": "\t# Refresh Roster Table and change views.\n\tsystem.perspective.sendMessage(\"RosterManagement_UpdateTable\", payload\u003d{}, scope\u003d\"page\")\n\tself.view.custom.currentView   \u003d payload[\"view\"]\n\tself.view.custom.rosterAction  \u003d payload[\"type\"]",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

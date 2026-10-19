@@ -1,0 +1,435 @@
+{
+  "changesetData": {
+    "uuid": "5843c625-309a-4328-972f-3effeb83f7db",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:41.027Z",
+    "appliedOnChangesetUUID": "661b04c3-9407-45b6-a6c5-2e2b9fbd855b",
+    "hash": "aeba6444255136a6447f1fd54aee903a18b229efb19ccca5930cb6ed65323a58",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:40.955667300Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Equipment Mode": {
+        "7fda17ce-7725-4855-8987-9ffeae39de90": {
+          "meta": {
+            "name": "Other"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "7fda17ce-7725-4855-8987-9ffeae39de90"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "bb4de399-ec60-4df1-9e39-0a6bb208fd24|EquipmentModeClass",
+              "newValueFriendly": "Default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Other"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeCode",
+              "oldValue": "0",
+              "newValue": "5"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeType",
+              "oldValue": "Unknown",
+              "newValue": "Other"
+            }
+          ]
+        },
+        "9293d05c-50da-43dd-9c91-102bc3728606": {
+          "meta": {
+            "name": "Maintenance"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "9293d05c-50da-43dd-9c91-102bc3728606"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "bb4de399-ec60-4df1-9e39-0a6bb208fd24|EquipmentModeClass",
+              "newValueFriendly": "Default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Maintenance"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeCode",
+              "oldValue": "0",
+              "newValue": "4"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeType",
+              "oldValue": "Unknown",
+              "newValue": "Maintenance"
+            }
+          ]
+        },
+        "86c5636c-5374-43e0-903d-0e17b9773ba2": {
+          "meta": {
+            "name": "Idle"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "86c5636c-5374-43e0-903d-0e17b9773ba2"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "bb4de399-ec60-4df1-9e39-0a6bb208fd24|EquipmentModeClass",
+              "newValueFriendly": "Default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Idle"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeCode",
+              "oldValue": "0",
+              "newValue": "3"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeType",
+              "oldValue": "Unknown",
+              "newValue": "Idle"
+            }
+          ]
+        },
+        "e9ba1ade-702b-49b8-bc63-4cfc6be9f8b4": {
+          "meta": {
+            "name": "Disabled"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "e9ba1ade-702b-49b8-bc63-4cfc6be9f8b4"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "bb4de399-ec60-4df1-9e39-0a6bb208fd24|EquipmentModeClass",
+              "newValueFriendly": "Default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Disabled"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeType",
+              "oldValue": "Unknown",
+              "newValue": "Disabled"
+            }
+          ]
+        },
+        "b7e0eb19-28e5-4391-9f36-27c4e3c01371": {
+          "meta": {
+            "name": "Changeover"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "b7e0eb19-28e5-4391-9f36-27c4e3c01371"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "bb4de399-ec60-4df1-9e39-0a6bb208fd24|EquipmentModeClass",
+              "newValueFriendly": "Default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Changeover"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeCode",
+              "oldValue": "0",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeType",
+              "oldValue": "Unknown",
+              "newValue": "Changeover"
+            }
+          ]
+        },
+        "c515c9e3-9e53-4abe-9a69-c61fcb72c8c2": {
+          "meta": {
+            "name": "Production"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "c515c9e3-9e53-4abe-9a69-c61fcb72c8c2"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "bb4de399-ec60-4df1-9e39-0a6bb208fd24|EquipmentModeClass",
+              "newValueFriendly": "Default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Production"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeCode",
+              "oldValue": "0",
+              "newValue": "1"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeType",
+              "oldValue": "Unknown",
+              "newValue": "Production"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeIncludeInOEE",
+              "oldValue": "false",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeIncludeProductionCounts",
+              "oldValue": "false",
+              "newValue": "true"
+            }
+          ]
+        },
+        "31398e43-8cc3-4ade-b28b-05529f99b5d6": {
+          "meta": {
+            "name": "Cleaning"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "31398e43-8cc3-4ade-b28b-05529f99b5d6"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "bb4de399-ec60-4df1-9e39-0a6bb208fd24|EquipmentModeClass",
+              "newValueFriendly": "Default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Cleaning"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeCode",
+              "oldValue": "0",
+              "newValue": "6"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeType",
+              "oldValue": "Unknown",
+              "newValue": "Cleaning"
+            }
+          ]
+        }
+      },
+      "Equipment Mode Class": {
+        "bb4de399-ec60-4df1-9e39-0a6bb208fd24": {
+          "meta": {
+            "name": "Default"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "bb4de399-ec60-4df1-9e39-0a6bb208fd24"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "8c99f038-f002-41a6-b06b-ad39be8371c2|EquipmentModeRoot",
+              "newValueFriendly": "Equipment Modes"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentModeClassDefault",
+              "oldValue": "false",
+              "newValue": "true"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EquipmentModeClassSecurity",
+              "newValue": "69d95bd8-0c69-41f0-a708-ed43a3e769a8|Administrator"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "90819e5f-a5f6-46dc-9445-80dd3355ee80|EquipmentMode"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "fdac750f-e404-438c-b368-bbb93083db5b|EquipmentMode"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "31edb6a0-2e30-44b2-bd59-7a2d36d252ab|EquipmentMode"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "ffe5b2f0-6795-410a-a288-9909f8d90c1c|EquipmentMode"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "a383d5de-6313-4532-8b7a-bdfb78a6bc9f|EquipmentMode"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "81f66cbf-a6e1-4d26-b57c-dc043a468bc4|EquipmentMode"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "4b4ff366-9447-4cb6-8781-0c90dd04c175|EquipmentMode"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "e9ba1ade-702b-49b8-bc63-4cfc6be9f8b4|EquipmentMode",
+              "newValueFriendly": "Disabled"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "c515c9e3-9e53-4abe-9a69-c61fcb72c8c2|EquipmentMode",
+              "newValueFriendly": "Production"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "b7e0eb19-28e5-4391-9f36-27c4e3c01371|EquipmentMode",
+              "newValueFriendly": "Changeover"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "86c5636c-5374-43e0-903d-0e17b9773ba2|EquipmentMode",
+              "newValueFriendly": "Idle"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "9293d05c-50da-43dd-9c91-102bc3728606|EquipmentMode",
+              "newValueFriendly": "Maintenance"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "31398e43-8cc3-4ade-b28b-05529f99b5d6|EquipmentMode",
+              "newValueFriendly": "Cleaning"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "7fda17ce-7725-4855-8987-9ffeae39de90|EquipmentMode",
+              "newValueFriendly": "Other"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

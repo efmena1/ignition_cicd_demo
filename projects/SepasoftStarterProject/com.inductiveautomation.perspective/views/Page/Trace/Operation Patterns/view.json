@@ -1,0 +1,4809 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "None_1"
+        },
+        "type": "ia.container.flex",
+        "props": {
+          "direction": "column",
+          "style": {
+            "maxWidth": "770px",
+            "width": "100%",
+            "margin": "0 auto",
+            "backgroundColor": "rgba(0,0,0,0.02)",
+            "border": "1px solid rgba(0,0,0,0.08)",
+            "borderRadius": "8px",
+            "padding": "20px 24px",
+            "gap": "6px",
+            "overflow": "visible"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "lbl_desc"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "36px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "No tracked input, one output - e.g. receiving raw material or finished goods into the system for the first time.",
+              "style": {
+                "fontStyle": "italic",
+                "color": "#666666",
+                "fontSize": 13
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "row_name"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Operation Name",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "txt_opName"
+                },
+                "type": "ia.input.text-field",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Receive",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_equipment"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Operation Equipment",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "eq_operation"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Line/Cell",
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  },
+                  "includeMESLineObjects": true,
+                  "includeMESLineCellGroupObjects": true,
+                  "includeMESLineCellObjects": true,
+                  "includeUnitObjects": true,
+                  "includeMESStorageUnitObjects": true
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "lbl_outputs"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "28px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Outputs",
+              "style": {
+                "fontWeight": "700",
+                "marginTop": "6px"
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "row_out1_lot"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Output 1 Lot #",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lotno_out_1"
+                },
+                "type": "ia.input.text-field",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out1_mat"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Material",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "mat_out_1"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Material",
+                  "includeMaterialDefObjects": true,
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out1_qty"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Quantity",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "qty_out_1"
+                },
+                "type": "ia.input.numeric-entry-field",
+                "position": {
+                  "basis": "110px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "value": 1.0,
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out1_dest"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Destination",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "eq_out_1"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Destination",
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  },
+                  "includeMESLineObjects": true,
+                  "includeMESLineCellGroupObjects": true,
+                  "includeMESLineCellObjects": true,
+                  "includeUnitObjects": true,
+                  "includeMESStorageUnitObjects": true
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_action"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "46px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "14px",
+                "marginTop": "8px"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "btn_record"
+                },
+                "type": "ia.input.button",
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "text": "Record Operation",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tcard = self.parent.parent\n\tlblResult = self.getSibling(\"lbl_result\")\n\topName = card.getChild(\"row_name\").getChild(\"txt_opName\").props.text\n\topEquipment = card.getChild(\"row_equipment\").getChild(\"eq_operation\").props.selectedMESObject.equipmentPath\n\t\n\ttry:\n\t\tlotNoOut1 = card.getChild(\"row_out1_lot\").getChild(\"lotno_out_1\").props.text\n\t\tmaterialNameOut1 = card.getChild(\"row_out1_mat\").getChild(\"mat_out_1\").props.selectedMESObject.name\n\t\tqtyOut1 = card.getChild(\"row_out1_qty\").getChild(\"qty_out_1\").props.value\n\t\tdestOut1 = card.getChild(\"row_out1_dest\").getChild(\"eq_out_1\").props.selectedMESObject.equipmentPath\n\t\t\n\t\tTrace.OperationPatterns.recordReceive(\n\t\t\topName, opEquipment,\n\t\t\tmaterialNameOut1, lotNoOut1, qtyOut1, destOut1)\n\t\t\n\t\tlblResult.props.text = \"Recorded: \" + opName\n\t\tlblResult.props.style = {\"color\": \"#2e7d32\", \"fontWeight\": \"600\"}\n\texcept Exception, e:\n\t\tlblResult.props.text = \"Error: \" + str(e)\n\t\tlblResult.props.style = {\"color\": \"#c62828\", \"fontWeight\": \"600\"}"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lbl_result"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "text": ""
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "1_1"
+        },
+        "type": "ia.container.flex",
+        "props": {
+          "direction": "column",
+          "style": {
+            "maxWidth": "770px",
+            "width": "100%",
+            "margin": "0 auto",
+            "backgroundColor": "rgba(0,0,0,0.02)",
+            "border": "1px solid rgba(0,0,0,0.08)",
+            "borderRadius": "8px",
+            "padding": "20px 24px",
+            "gap": "6px",
+            "overflow": "visible"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "lbl_desc"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "36px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "One input, one output - e.g. quality inspection, movement between locations, re-labeling, quantity adjustment.",
+              "style": {
+                "fontStyle": "italic",
+                "color": "#666666",
+                "fontSize": 13
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "row_name"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Operation Name",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "txt_opName"
+                },
+                "type": "ia.input.text-field",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Inspection",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_equipment"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Operation Equipment",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "eq_operation"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Line/Cell",
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  },
+                  "includeMESLineObjects": true,
+                  "includeMESLineCellGroupObjects": true,
+                  "includeMESLineCellObjects": true,
+                  "includeUnitObjects": true,
+                  "includeMESStorageUnitObjects": true
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "lbl_inputs"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "28px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Inputs",
+              "style": {
+                "fontWeight": "700",
+                "marginTop": "6px"
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "row_in1_lot"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Input 1 Lot",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lot_in_1"
+                },
+                "type": "mes.trace.mesLotSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "includeActiveLots": true,
+                  "lotAvailabilityFilter": "Both",
+                  "maxResults": 500,
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  }
+                },
+                "propConfig": {
+                  "props.beginDateTime": {
+                    "binding": {
+                      "config": {
+                        "path": ".../row_in1_start/dt_start_in_1.props.value"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.endDateTime": {
+                    "binding": {
+                      "config": {
+                        "path": ".../row_in1_end/dt_end_in_1.props.value"
+                      },
+                      "type": "property"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in1_start"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Start Date",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "dt_start_in_1"
+                },
+                "type": "ia.input.date-time-input",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "expression": "dateArithmetic(now(0), -7, \"day\")"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in1_end"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "End Date",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "dt_end_in_1"
+                },
+                "type": "ia.input.date-time-input",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "expression": "now(0)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in1_qty"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Quantity",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "qty_in_1"
+                },
+                "type": "ia.input.numeric-entry-field",
+                "position": {
+                  "basis": "110px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "value": 1.0,
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "lbl_outputs"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "28px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Outputs",
+              "style": {
+                "fontWeight": "700",
+                "marginTop": "6px"
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "row_out1_lot"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Output 1 Lot #",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lotno_out_1"
+                },
+                "type": "ia.input.text-field",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out1_mat"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Material",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "mat_out_1"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Material",
+                  "includeMaterialDefObjects": true,
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out1_qty"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Quantity",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "qty_out_1"
+                },
+                "type": "ia.input.numeric-entry-field",
+                "position": {
+                  "basis": "110px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "value": 1.0,
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out1_dest"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Destination",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "eq_out_1"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Destination",
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  },
+                  "includeMESLineObjects": true,
+                  "includeMESLineCellGroupObjects": true,
+                  "includeMESLineCellObjects": true,
+                  "includeUnitObjects": true,
+                  "includeMESStorageUnitObjects": true
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_action"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "46px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "14px",
+                "marginTop": "8px"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "btn_record"
+                },
+                "type": "ia.input.button",
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "text": "Record Operation",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tcard = self.parent.parent\n\tlblResult = self.getSibling(\"lbl_result\")\n\topName = card.getChild(\"row_name\").getChild(\"txt_opName\").props.text\n\topEquipment = card.getChild(\"row_equipment\").getChild(\"eq_operation\").props.selectedMESObject.equipmentPath\n\t\n\ttry:\n\t\tlotIn1Selector = card.getChild(\"row_in1_lot\").getChild(\"lot_in_1\")\n\t\tlotIn1 = system.mes.loadMESObject(lotIn1Selector.props.selectedLotUUID)\n\t\tqtyIn1 = card.getChild(\"row_in1_qty\").getChild(\"qty_in_1\").props.value\n\t\t\n\t\tlotNoOut1 = card.getChild(\"row_out1_lot\").getChild(\"lotno_out_1\").props.text\n\t\tmaterialNameOut1 = card.getChild(\"row_out1_mat\").getChild(\"mat_out_1\").props.selectedMESObject.name\n\t\tqtyOut1 = card.getChild(\"row_out1_qty\").getChild(\"qty_out_1\").props.value\n\t\tdestOut1 = card.getChild(\"row_out1_dest\").getChild(\"eq_out_1\").props.selectedMESObject.equipmentPath\n\t\t\n\t\tTrace.OperationPatterns.recordInspection(\n\t\t\topName, opEquipment,\n\t\t\tlotIn1.getMaterialDefLink().getName(), lotIn1.getName(), qtyIn1, lotIn1.getUnits(),\n\t\t\tmaterialNameOut1, lotNoOut1, qtyOut1, destOut1)\n\t\t\n\t\tlblResult.props.text = \"Recorded: \" + opName\n\t\tlblResult.props.style = {\"color\": \"#2e7d32\", \"fontWeight\": \"600\"}\n\texcept Exception, e:\n\t\tlblResult.props.text = \"Error: \" + str(e)\n\t\tlblResult.props.style = {\"color\": \"#c62828\", \"fontWeight\": \"600\"}"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lbl_result"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "text": ""
+                }
+              }
+            ]
+          }
+        ],
+        "position": {
+          "tabIndex": 1
+        }
+      },
+      {
+        "meta": {
+          "name": "1_Many"
+        },
+        "type": "ia.container.flex",
+        "props": {
+          "direction": "column",
+          "style": {
+            "maxWidth": "770px",
+            "width": "100%",
+            "margin": "0 auto",
+            "backgroundColor": "rgba(0,0,0,0.02)",
+            "border": "1px solid rgba(0,0,0,0.08)",
+            "borderRadius": "8px",
+            "padding": "20px 24px",
+            "gap": "6px",
+            "overflow": "visible"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "lbl_desc"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "36px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "One input, multiple outputs - e.g. splitting a bulk lot into smaller lots, cutting stock into pieces.",
+              "style": {
+                "fontStyle": "italic",
+                "color": "#666666",
+                "fontSize": 13
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "row_name"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Operation Name",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "txt_opName"
+                },
+                "type": "ia.input.text-field",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Split",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_equipment"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Operation Equipment",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "eq_operation"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Line/Cell",
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  },
+                  "includeMESLineObjects": true,
+                  "includeMESLineCellGroupObjects": true,
+                  "includeMESLineCellObjects": true,
+                  "includeUnitObjects": true,
+                  "includeMESStorageUnitObjects": true
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "lbl_inputs"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "28px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Inputs",
+              "style": {
+                "fontWeight": "700",
+                "marginTop": "6px"
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "row_in1_lot"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Input 1 Lot",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lot_in_1"
+                },
+                "type": "mes.trace.mesLotSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "includeActiveLots": true,
+                  "lotAvailabilityFilter": "Both",
+                  "maxResults": 500,
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  }
+                },
+                "propConfig": {
+                  "props.beginDateTime": {
+                    "binding": {
+                      "config": {
+                        "path": ".../row_in1_start/dt_start_in_1.props.value"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.endDateTime": {
+                    "binding": {
+                      "config": {
+                        "path": ".../row_in1_end/dt_end_in_1.props.value"
+                      },
+                      "type": "property"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in1_start"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Start Date",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "dt_start_in_1"
+                },
+                "type": "ia.input.date-time-input",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "expression": "dateArithmetic(now(0), -7, \"day\")"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in1_end"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "End Date",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "dt_end_in_1"
+                },
+                "type": "ia.input.date-time-input",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "expression": "now(0)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in1_qty"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Quantity",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "qty_in_1"
+                },
+                "type": "ia.input.numeric-entry-field",
+                "position": {
+                  "basis": "110px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "value": 1.0,
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "lbl_outputs"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "28px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Outputs",
+              "style": {
+                "fontWeight": "700",
+                "marginTop": "6px"
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "row_out1_lot"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Output 1 Lot #",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lotno_out_1"
+                },
+                "type": "ia.input.text-field",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out1_mat"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Material",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "mat_out_1"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Material",
+                  "includeMaterialDefObjects": true,
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out1_qty"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Quantity",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "qty_out_1"
+                },
+                "type": "ia.input.numeric-entry-field",
+                "position": {
+                  "basis": "110px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "value": 1.0,
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out1_dest"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Destination",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "eq_out_1"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Destination",
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  },
+                  "includeMESLineObjects": true,
+                  "includeMESLineCellGroupObjects": true,
+                  "includeMESLineCellObjects": true,
+                  "includeUnitObjects": true,
+                  "includeMESStorageUnitObjects": true
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out2_lot"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Output 2 Lot #",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lotno_out_2"
+                },
+                "type": "ia.input.text-field",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out2_mat"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Material",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "mat_out_2"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Material",
+                  "includeMaterialDefObjects": true,
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out2_qty"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Quantity",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "qty_out_2"
+                },
+                "type": "ia.input.numeric-entry-field",
+                "position": {
+                  "basis": "110px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "value": 1.0,
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out2_dest"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Destination",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "eq_out_2"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Destination",
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  },
+                  "includeMESLineObjects": true,
+                  "includeMESLineCellGroupObjects": true,
+                  "includeMESLineCellObjects": true,
+                  "includeUnitObjects": true,
+                  "includeMESStorageUnitObjects": true
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_action"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "46px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "14px",
+                "marginTop": "8px"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "btn_record"
+                },
+                "type": "ia.input.button",
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "text": "Record Operation",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tcard = self.parent.parent\n\tlblResult = self.getSibling(\"lbl_result\")\n\topName = card.getChild(\"row_name\").getChild(\"txt_opName\").props.text\n\topEquipment = card.getChild(\"row_equipment\").getChild(\"eq_operation\").props.selectedMESObject.equipmentPath\n\t\n\ttry:\n\t\tlotIn1Selector = card.getChild(\"row_in1_lot\").getChild(\"lot_in_1\")\n\t\tlotIn1 = system.mes.loadMESObject(lotIn1Selector.props.selectedLotUUID)\n\t\tqtyIn1 = card.getChild(\"row_in1_qty\").getChild(\"qty_in_1\").props.value\n\t\t\n\t\tlotNoOut1 = card.getChild(\"row_out1_lot\").getChild(\"lotno_out_1\").props.text\n\t\tmaterialNameOut1 = card.getChild(\"row_out1_mat\").getChild(\"mat_out_1\").props.selectedMESObject.name\n\t\tqtyOut1 = card.getChild(\"row_out1_qty\").getChild(\"qty_out_1\").props.value\n\t\tdestOut1 = card.getChild(\"row_out1_dest\").getChild(\"eq_out_1\").props.selectedMESObject.equipmentPath\n\t\t\n\t\tlotNoOut2 = card.getChild(\"row_out2_lot\").getChild(\"lotno_out_2\").props.text\n\t\tmaterialNameOut2 = card.getChild(\"row_out2_mat\").getChild(\"mat_out_2\").props.selectedMESObject.name\n\t\tqtyOut2 = card.getChild(\"row_out2_qty\").getChild(\"qty_out_2\").props.value\n\t\tdestOut2 = card.getChild(\"row_out2_dest\").getChild(\"eq_out_2\").props.selectedMESObject.equipmentPath\n\t\t\n\t\tTrace.OperationPatterns.recordSplit(\n\t\t\topName, opEquipment,\n\t\t\tlotIn1.getMaterialDefLink().getName(), lotIn1.getName(), qtyIn1, lotIn1.getUnits(),\n\t\t\tmaterialNameOut1, lotNoOut1, qtyOut1, destOut1,\n\t\t\tmaterialNameOut2, lotNoOut2, qtyOut2, destOut2)\n\t\t\n\t\tlblResult.props.text = \"Recorded: \" + opName\n\t\tlblResult.props.style = {\"color\": \"#2e7d32\", \"fontWeight\": \"600\"}\n\texcept Exception, e:\n\t\tlblResult.props.text = \"Error: \" + str(e)\n\t\tlblResult.props.style = {\"color\": \"#c62828\", \"fontWeight\": \"600\"}"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lbl_result"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "text": ""
+                }
+              }
+            ]
+          }
+        ],
+        "position": {
+          "tabIndex": 2
+        }
+      },
+      {
+        "meta": {
+          "name": "Many_1"
+        },
+        "type": "ia.container.flex",
+        "props": {
+          "direction": "column",
+          "style": {
+            "maxWidth": "770px",
+            "width": "100%",
+            "margin": "0 auto",
+            "backgroundColor": "rgba(0,0,0,0.02)",
+            "border": "1px solid rgba(0,0,0,0.08)",
+            "borderRadius": "8px",
+            "padding": "20px 24px",
+            "gap": "6px",
+            "overflow": "visible"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "lbl_desc"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "36px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Multiple inputs, one output - e.g. blending raw materials into a batch, assembly of components, kitting.",
+              "style": {
+                "fontStyle": "italic",
+                "color": "#666666",
+                "fontSize": 13
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "row_name"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Operation Name",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "txt_opName"
+                },
+                "type": "ia.input.text-field",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Blend",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_equipment"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Operation Equipment",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "eq_operation"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Line/Cell",
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  },
+                  "includeMESLineObjects": true,
+                  "includeMESLineCellGroupObjects": true,
+                  "includeMESLineCellObjects": true,
+                  "includeUnitObjects": true,
+                  "includeMESStorageUnitObjects": true
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "lbl_inputs"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "28px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Inputs",
+              "style": {
+                "fontWeight": "700",
+                "marginTop": "6px"
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "row_in1_lot"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Input 1 Lot",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lot_in_1"
+                },
+                "type": "mes.trace.mesLotSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "includeActiveLots": true,
+                  "lotAvailabilityFilter": "Both",
+                  "maxResults": 500,
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  }
+                },
+                "propConfig": {
+                  "props.beginDateTime": {
+                    "binding": {
+                      "config": {
+                        "path": ".../row_in1_start/dt_start_in_1.props.value"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.endDateTime": {
+                    "binding": {
+                      "config": {
+                        "path": ".../row_in1_end/dt_end_in_1.props.value"
+                      },
+                      "type": "property"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in1_start"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Start Date",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "dt_start_in_1"
+                },
+                "type": "ia.input.date-time-input",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "expression": "dateArithmetic(now(0), -7, \"day\")"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in1_end"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "End Date",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "dt_end_in_1"
+                },
+                "type": "ia.input.date-time-input",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "expression": "now(0)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in1_qty"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Quantity",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "qty_in_1"
+                },
+                "type": "ia.input.numeric-entry-field",
+                "position": {
+                  "basis": "110px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "value": 1.0,
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in2_lot"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Input 2 Lot",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lot_in_2"
+                },
+                "type": "mes.trace.mesLotSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "includeActiveLots": true,
+                  "lotAvailabilityFilter": "Both",
+                  "maxResults": 500,
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  }
+                },
+                "propConfig": {
+                  "props.beginDateTime": {
+                    "binding": {
+                      "config": {
+                        "path": ".../row_in2_start/dt_start_in_2.props.value"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.endDateTime": {
+                    "binding": {
+                      "config": {
+                        "path": ".../row_in2_end/dt_end_in_2.props.value"
+                      },
+                      "type": "property"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in2_start"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Start Date",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "dt_start_in_2"
+                },
+                "type": "ia.input.date-time-input",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "expression": "dateArithmetic(now(0), -7, \"day\")"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in2_end"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "End Date",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "dt_end_in_2"
+                },
+                "type": "ia.input.date-time-input",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "expression": "now(0)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in2_qty"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Quantity",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "qty_in_2"
+                },
+                "type": "ia.input.numeric-entry-field",
+                "position": {
+                  "basis": "110px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "value": 1.0,
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "lbl_outputs"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "28px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Outputs",
+              "style": {
+                "fontWeight": "700",
+                "marginTop": "6px"
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "row_out1_lot"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Output 1 Lot #",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lotno_out_1"
+                },
+                "type": "ia.input.text-field",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out1_mat"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Material",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "mat_out_1"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Material",
+                  "includeMaterialDefObjects": true,
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out1_qty"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Quantity",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "qty_out_1"
+                },
+                "type": "ia.input.numeric-entry-field",
+                "position": {
+                  "basis": "110px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "value": 1.0,
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out1_dest"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Destination",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "eq_out_1"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Destination",
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  },
+                  "includeMESLineObjects": true,
+                  "includeMESLineCellGroupObjects": true,
+                  "includeMESLineCellObjects": true,
+                  "includeUnitObjects": true,
+                  "includeMESStorageUnitObjects": true
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_action"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "46px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "14px",
+                "marginTop": "8px"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "btn_record"
+                },
+                "type": "ia.input.button",
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "text": "Record Operation",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tcard = self.parent.parent\n\tlblResult = self.getSibling(\"lbl_result\")\n\topName = card.getChild(\"row_name\").getChild(\"txt_opName\").props.text\n\topEquipment = card.getChild(\"row_equipment\").getChild(\"eq_operation\").props.selectedMESObject.equipmentPath\n\t\n\ttry:\n\t\tlotIn1Selector = card.getChild(\"row_in1_lot\").getChild(\"lot_in_1\")\n\t\tlotIn1 = system.mes.loadMESObject(lotIn1Selector.props.selectedLotUUID)\n\t\tqtyIn1 = card.getChild(\"row_in1_qty\").getChild(\"qty_in_1\").props.value\n\t\t\n\t\tlotIn2Selector = card.getChild(\"row_in2_lot\").getChild(\"lot_in_2\")\n\t\tlotIn2 = system.mes.loadMESObject(lotIn2Selector.props.selectedLotUUID)\n\t\tqtyIn2 = card.getChild(\"row_in2_qty\").getChild(\"qty_in_2\").props.value\n\t\t\n\t\tlotNoOut1 = card.getChild(\"row_out1_lot\").getChild(\"lotno_out_1\").props.text\n\t\tmaterialNameOut1 = card.getChild(\"row_out1_mat\").getChild(\"mat_out_1\").props.selectedMESObject.name\n\t\tqtyOut1 = card.getChild(\"row_out1_qty\").getChild(\"qty_out_1\").props.value\n\t\tdestOut1 = card.getChild(\"row_out1_dest\").getChild(\"eq_out_1\").props.selectedMESObject.equipmentPath\n\t\t\n\t\tTrace.OperationPatterns.recordBlend(\n\t\t\topName, opEquipment,\n\t\t\tlotIn1.getMaterialDefLink().getName(), lotIn1.getName(), qtyIn1, lotIn1.getUnits(),\n\t\t\tlotIn2.getMaterialDefLink().getName(), lotIn2.getName(), qtyIn2, lotIn2.getUnits(),\n\t\t\tmaterialNameOut1, lotNoOut1, qtyOut1, destOut1)\n\t\t\n\t\tlblResult.props.text = \"Recorded: \" + opName\n\t\tlblResult.props.style = {\"color\": \"#2e7d32\", \"fontWeight\": \"600\"}\n\texcept Exception, e:\n\t\tlblResult.props.text = \"Error: \" + str(e)\n\t\tlblResult.props.style = {\"color\": \"#c62828\", \"fontWeight\": \"600\"}"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lbl_result"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "text": ""
+                }
+              }
+            ]
+          }
+        ],
+        "position": {
+          "tabIndex": 3
+        }
+      },
+      {
+        "meta": {
+          "name": "Many_Many"
+        },
+        "type": "ia.container.flex",
+        "props": {
+          "direction": "column",
+          "style": {
+            "maxWidth": "770px",
+            "width": "100%",
+            "margin": "0 auto",
+            "backgroundColor": "rgba(0,0,0,0.02)",
+            "border": "1px solid rgba(0,0,0,0.08)",
+            "borderRadius": "8px",
+            "padding": "20px 24px",
+            "gap": "6px",
+            "overflow": "visible"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "lbl_desc"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "36px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Multiple inputs, multiple outputs - e.g. rework producing reworked and scrap lots, disassembly and re-kitting.",
+              "style": {
+                "fontStyle": "italic",
+                "color": "#666666",
+                "fontSize": 13
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "row_name"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Operation Name",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "txt_opName"
+                },
+                "type": "ia.input.text-field",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Rework",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_equipment"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Operation Equipment",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "eq_operation"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Line/Cell",
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  },
+                  "includeMESLineObjects": true,
+                  "includeMESLineCellGroupObjects": true,
+                  "includeMESLineCellObjects": true,
+                  "includeUnitObjects": true,
+                  "includeMESStorageUnitObjects": true
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "lbl_inputs"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "28px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Inputs",
+              "style": {
+                "fontWeight": "700",
+                "marginTop": "6px"
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "row_in1_lot"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Input 1 Lot",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lot_in_1"
+                },
+                "type": "mes.trace.mesLotSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "includeActiveLots": true,
+                  "lotAvailabilityFilter": "Both",
+                  "maxResults": 500,
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  }
+                },
+                "propConfig": {
+                  "props.beginDateTime": {
+                    "binding": {
+                      "config": {
+                        "path": ".../row_in1_start/dt_start_in_1.props.value"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.endDateTime": {
+                    "binding": {
+                      "config": {
+                        "path": ".../row_in1_end/dt_end_in_1.props.value"
+                      },
+                      "type": "property"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in1_start"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Start Date",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "dt_start_in_1"
+                },
+                "type": "ia.input.date-time-input",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "expression": "dateArithmetic(now(0), -7, \"day\")"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in1_end"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "End Date",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "dt_end_in_1"
+                },
+                "type": "ia.input.date-time-input",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "expression": "now(0)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in1_qty"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Quantity",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "qty_in_1"
+                },
+                "type": "ia.input.numeric-entry-field",
+                "position": {
+                  "basis": "110px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "value": 1.0,
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in2_lot"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Input 2 Lot",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lot_in_2"
+                },
+                "type": "mes.trace.mesLotSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "includeActiveLots": true,
+                  "lotAvailabilityFilter": "Both",
+                  "maxResults": 500,
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  }
+                },
+                "propConfig": {
+                  "props.beginDateTime": {
+                    "binding": {
+                      "config": {
+                        "path": ".../row_in2_start/dt_start_in_2.props.value"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.endDateTime": {
+                    "binding": {
+                      "config": {
+                        "path": ".../row_in2_end/dt_end_in_2.props.value"
+                      },
+                      "type": "property"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in2_start"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Start Date",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "dt_start_in_2"
+                },
+                "type": "ia.input.date-time-input",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "expression": "dateArithmetic(now(0), -7, \"day\")"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in2_end"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "End Date",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "dt_end_in_2"
+                },
+                "type": "ia.input.date-time-input",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "expression": "now(0)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in2_qty"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Quantity",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "qty_in_2"
+                },
+                "type": "ia.input.numeric-entry-field",
+                "position": {
+                  "basis": "110px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "value": 1.0,
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "lbl_outputs"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "28px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Outputs",
+              "style": {
+                "fontWeight": "700",
+                "marginTop": "6px"
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "row_out1_lot"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Output 1 Lot #",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lotno_out_1"
+                },
+                "type": "ia.input.text-field",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out1_mat"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Material",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "mat_out_1"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Material",
+                  "includeMaterialDefObjects": true,
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out1_qty"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Quantity",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "qty_out_1"
+                },
+                "type": "ia.input.numeric-entry-field",
+                "position": {
+                  "basis": "110px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "value": 1.0,
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out1_dest"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Destination",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "eq_out_1"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Destination",
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  },
+                  "includeMESLineObjects": true,
+                  "includeMESLineCellGroupObjects": true,
+                  "includeMESLineCellObjects": true,
+                  "includeUnitObjects": true,
+                  "includeMESStorageUnitObjects": true
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out2_lot"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Output 2 Lot #",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lotno_out_2"
+                },
+                "type": "ia.input.text-field",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out2_mat"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Material",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "mat_out_2"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Material",
+                  "includeMaterialDefObjects": true,
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out2_qty"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Quantity",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "qty_out_2"
+                },
+                "type": "ia.input.numeric-entry-field",
+                "position": {
+                  "basis": "110px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "value": 1.0,
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_out2_dest"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Destination",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "eq_out_2"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Destination",
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  },
+                  "includeMESLineObjects": true,
+                  "includeMESLineCellGroupObjects": true,
+                  "includeMESLineCellObjects": true,
+                  "includeUnitObjects": true,
+                  "includeMESStorageUnitObjects": true
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_action"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "46px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "14px",
+                "marginTop": "8px"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "btn_record"
+                },
+                "type": "ia.input.button",
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "text": "Record Operation",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tcard = self.parent.parent\n\tlblResult = self.getSibling(\"lbl_result\")\n\topName = card.getChild(\"row_name\").getChild(\"txt_opName\").props.text\n\topEquipment = card.getChild(\"row_equipment\").getChild(\"eq_operation\").props.selectedMESObject.equipmentPath\n\t\n\ttry:\n\t\tlotIn1Selector = card.getChild(\"row_in1_lot\").getChild(\"lot_in_1\")\n\t\tlotIn1 = system.mes.loadMESObject(lotIn1Selector.props.selectedLotUUID)\n\t\tqtyIn1 = card.getChild(\"row_in1_qty\").getChild(\"qty_in_1\").props.value\n\t\t\n\t\tlotIn2Selector = card.getChild(\"row_in2_lot\").getChild(\"lot_in_2\")\n\t\tlotIn2 = system.mes.loadMESObject(lotIn2Selector.props.selectedLotUUID)\n\t\tqtyIn2 = card.getChild(\"row_in2_qty\").getChild(\"qty_in_2\").props.value\n\t\t\n\t\tlotNoOut1 = card.getChild(\"row_out1_lot\").getChild(\"lotno_out_1\").props.text\n\t\tmaterialNameOut1 = card.getChild(\"row_out1_mat\").getChild(\"mat_out_1\").props.selectedMESObject.name\n\t\tqtyOut1 = card.getChild(\"row_out1_qty\").getChild(\"qty_out_1\").props.value\n\t\tdestOut1 = card.getChild(\"row_out1_dest\").getChild(\"eq_out_1\").props.selectedMESObject.equipmentPath\n\t\t\n\t\tlotNoOut2 = card.getChild(\"row_out2_lot\").getChild(\"lotno_out_2\").props.text\n\t\tmaterialNameOut2 = card.getChild(\"row_out2_mat\").getChild(\"mat_out_2\").props.selectedMESObject.name\n\t\tqtyOut2 = card.getChild(\"row_out2_qty\").getChild(\"qty_out_2\").props.value\n\t\tdestOut2 = card.getChild(\"row_out2_dest\").getChild(\"eq_out_2\").props.selectedMESObject.equipmentPath\n\t\t\n\t\tTrace.OperationPatterns.recordRework(\n\t\t\topName, opEquipment,\n\t\t\tlotIn1.getMaterialDefLink().getName(), lotIn1.getName(), qtyIn1, lotIn1.getUnits(),\n\t\t\tlotIn2.getMaterialDefLink().getName(), lotIn2.getName(), qtyIn2, lotIn2.getUnits(),\n\t\t\tmaterialNameOut1, lotNoOut1, qtyOut1, destOut1,\n\t\t\tmaterialNameOut2, lotNoOut2, qtyOut2, destOut2)\n\t\t\n\t\tlblResult.props.text = \"Recorded: \" + opName\n\t\tlblResult.props.style = {\"color\": \"#2e7d32\", \"fontWeight\": \"600\"}\n\texcept Exception, e:\n\t\tlblResult.props.text = \"Error: \" + str(e)\n\t\tlblResult.props.style = {\"color\": \"#c62828\", \"fontWeight\": \"600\"}"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lbl_result"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "text": ""
+                }
+              }
+            ]
+          }
+        ],
+        "position": {
+          "tabIndex": 4
+        }
+      },
+      {
+        "meta": {
+          "name": "1_None"
+        },
+        "type": "ia.container.flex",
+        "props": {
+          "direction": "column",
+          "style": {
+            "maxWidth": "770px",
+            "width": "100%",
+            "margin": "0 auto",
+            "backgroundColor": "rgba(0,0,0,0.02)",
+            "border": "1px solid rgba(0,0,0,0.08)",
+            "borderRadius": "8px",
+            "padding": "20px 24px",
+            "gap": "6px",
+            "overflow": "visible"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "lbl_desc"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "36px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "One input, no tracked output - e.g. scrapping a failed lot, consuming tooling or consumables.",
+              "style": {
+                "fontStyle": "italic",
+                "color": "#666666",
+                "fontSize": 13
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "row_name"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Operation Name",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "txt_opName"
+                },
+                "type": "ia.input.text-field",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Scrap",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_equipment"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Operation Equipment",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "eq_operation"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "displayText": "Line/Cell",
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  },
+                  "includeMESLineObjects": true,
+                  "includeMESLineCellGroupObjects": true,
+                  "includeMESLineCellObjects": true,
+                  "includeUnitObjects": true,
+                  "includeMESStorageUnitObjects": true
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "lbl_inputs"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "basis": "28px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Inputs",
+              "style": {
+                "fontWeight": "700",
+                "marginTop": "6px"
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "row_in1_lot"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Input 1 Lot",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lot_in_1"
+                },
+                "type": "mes.trace.mesLotSelector",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "includeActiveLots": true,
+                  "lotAvailabilityFilter": "Both",
+                  "maxResults": 500,
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  }
+                },
+                "propConfig": {
+                  "props.beginDateTime": {
+                    "binding": {
+                      "config": {
+                        "path": ".../row_in1_start/dt_start_in_1.props.value"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.endDateTime": {
+                    "binding": {
+                      "config": {
+                        "path": ".../row_in1_end/dt_end_in_1.props.value"
+                      },
+                      "type": "property"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in1_start"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Start Date",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "dt_start_in_1"
+                },
+                "type": "ia.input.date-time-input",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "expression": "dateArithmetic(now(0), -7, \"day\")"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in1_end"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "End Date",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "dt_end_in_1"
+                },
+                "type": "ia.input.date-time-input",
+                "position": {
+                  "basis": "0px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "expression": "now(0)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_in1_qty"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "56px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "10px",
+                "flexWrap": "wrap",
+                "overflow": "visible"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "basis": "160px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Quantity",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": 13
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "qty_in_1"
+                },
+                "type": "ia.input.numeric-entry-field",
+                "position": {
+                  "basis": "110px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "value": 1.0,
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "row_action"
+            },
+            "type": "ia.container.flex",
+            "position": {
+              "basis": "46px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "row",
+              "style": {
+                "alignItems": "center",
+                "gap": "14px",
+                "marginTop": "8px"
+              }
+            },
+            "children": [
+              {
+                "meta": {
+                  "name": "btn_record"
+                },
+                "type": "ia.input.button",
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "text": "Record Operation",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tcard = self.parent.parent\n\tlblResult = self.getSibling(\"lbl_result\")\n\topName = card.getChild(\"row_name\").getChild(\"txt_opName\").props.text\n\topEquipment = card.getChild(\"row_equipment\").getChild(\"eq_operation\").props.selectedMESObject.equipmentPath\n\t\n\ttry:\n\t\tlotIn1Selector = card.getChild(\"row_in1_lot\").getChild(\"lot_in_1\")\n\t\tlotIn1 = system.mes.loadMESObject(lotIn1Selector.props.selectedLotUUID)\n\t\tqtyIn1 = card.getChild(\"row_in1_qty\").getChild(\"qty_in_1\").props.value\n\t\t\n\t\tTrace.OperationPatterns.recordScrap(\n\t\t\topName, opEquipment,\n\t\t\tlotIn1.getMaterialDefLink().getName(), lotIn1.getName(), qtyIn1, lotIn1.getUnits())\n\t\t\n\t\tlblResult.props.text = \"Recorded: \" + opName\n\t\tlblResult.props.style = {\"color\": \"#2e7d32\", \"fontWeight\": \"600\"}\n\texcept Exception, e:\n\t\tlblResult.props.text = \"Error: \" + str(e)\n\t\tlblResult.props.style = {\"color\": \"#c62828\", \"fontWeight\": \"600\"}"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "lbl_result"
+                },
+                "type": "ia.display.label",
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "text": ""
+                }
+              }
+            ]
+          }
+        ],
+        "position": {
+          "tabIndex": 5
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "tabs": [
+        "None:1",
+        "1:1",
+        "1:Many",
+        "Many:1",
+        "Many:Many",
+        "1:None"
+      ],
+      "style": {
+        "overflow": "visible"
+      }
+    },
+    "type": "ia.container.tab"
+  }
+}

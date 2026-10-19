@@ -1,0 +1,123 @@
+{
+  "changesetData": {
+    "uuid": "0e3068f2-8ab1-4943-858e-b196d618594c",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:14.772Z",
+    "appliedOnChangesetUUID": "42a2f26d-b613-4125-8d72-550738bf4c1c",
+    "hash": "a93d99ca3eab853510f31e6fb2bcc7d8f6419866bdf12393a4ec014905c3709c",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:14.751986700Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Definition": {
+        "9ed9cd56-10e2-4e98-938a-2eac5418446d": {
+          "meta": {
+            "name": "Signature_Template"
+          },
+          "changes": [
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "46d9cc45-c326-4fb8-b8cc-801306ac5f92|batchAbortAuthorization"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "94bbd896-c962-46e2-a774-292cba755a16|batchHoldAuthorization"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.batchHoldAuthorization.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "1"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "eac6e970-26cf-439c-acbf-ec2afc53c6a7|batchPauseAuthorization"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.batchPauseAuthorization.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "2"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "27a684b6-1672-404a-9244-bd9cbff01412|batchResetAuthorization"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.batchResetAuthorization.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "3"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "8f043534-5203-4d92-9643-835e670dd524|batchRestartAuthorization"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.batchRestartAuthorization.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "4"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "c0d22c0d-73f9-4930-b6b2-57951f70117d|batchResumeAuthorization"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.batchResumeAuthorization.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "5"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "6a2c09d9-89d6-42d7-bd75-21d3c93857e1|batchStartAuthorization"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.batchStartAuthorization.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "6"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "15be32df-f9bd-42bb-9723-87aa8013db72|batchStopAuthorization"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.batchStopAuthorization.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "7"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "abcc3b62-996d-455e-9e22-f5e586952e53|MESAdmin"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.MESAdmin.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "8"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

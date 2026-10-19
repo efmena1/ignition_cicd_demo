@@ -1,0 +1,48 @@
+{
+  "changesetData": {
+    "uuid": "d52658bb-b1b4-4314-bdd4-960b9bf807c7",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "emena",
+    "appliedAt": "2026-10-15T05:18:06.047Z",
+    "appliedOnChangesetUUID": "cd1b7aae-b1a7-4c9f-9d9c-655f2d3313d3",
+    "hash": "ef50254dd41f703362386b9879742036fc419ffe7b819df495d34c5cd247fea8",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:18:06.025885100Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Process Cell": {
+        "19d7a5d3-31e3-43a4-bf9a-3825f8087e5a": {
+          "meta": {
+            "name": "Process Cell"
+          },
+          "changes": [
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "oldValue": "New Process Cell",
+              "newValue": "Process Cell"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentActiveType",
+              "oldValue": "INACTIVE",
+              "newValue": "ACTIVE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentPath",
+              "oldValue": "Enterprise\\Site\\Area\\New Process Cell",
+              "newValue": "Enterprise\\Site\\Area\\Process Cell"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

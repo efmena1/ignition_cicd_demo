@@ -1,0 +1,406 @@
+{
+  "custom": {},
+  "params": {
+    "dateRangePeriodIndex": -1,
+    "endDate": null,
+    "startDate": null
+  },
+  "propConfig": {
+    "params.dateRangePeriodIndex": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.endDate": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.startDate": {
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 50,
+      "width": 573
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Date"
+        },
+        "position": {
+          "basis": "320px"
+        },
+        "propConfig": {
+          "props.params.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.startDate"
+              },
+              "type": "property"
+            },
+            "onChange": {
+              "enabled": null,
+              "script": "\tif self.view.params.dateRangePeriodIndex !\u003d -1:\n\t\tself.view.params.dateRangePeriodIndex \u003d -1"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "title": "Start Date"
+          },
+          "path": "ATS Global/Components/FL Inputs/Date"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Date_0"
+        },
+        "position": {
+          "basis": "320px"
+        },
+        "propConfig": {
+          "props.params.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.endDate"
+              },
+              "type": "property"
+            },
+            "onChange": {
+              "enabled": null,
+              "script": "\tif self.view.params.dateRangePeriodIndex !\u003d -1:\n\t\tself.view.params.dateRangePeriodIndex \u003d -1"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "title": "End Date"
+          },
+          "path": "ATS Global/Components/FL Inputs/Date"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\timport system\n\n\tindex \u003d self.props.value\n\tnow \u003d system.date.now()\n\t\n\t# Base: hoy a las 06:00\n\tstart_day \u003d system.date.setTime(now, 6, 0, 0)\n\t\n\tstart_date \u003d start_day\n\tend_date \u003d start_day\n\t\n\t# Helpers\n\tyear \u003d system.date.getYear(now)\n\tmonth \u003d system.date.getMonth(now)\n\t\n\tif index \u003d\u003d 0:  # Current day\n\t    start_date \u003d start_day\n\t    end_date \u003d system.date.addDays(start_date, 1)\n\t\n\telif index \u003d\u003d 1:  # Yesterday\n\t    start_date \u003d system.date.addDays(start_day, -1)\n\t    end_date \u003d system.date.addDays(start_date, 1)\n\t\n\telif index \u003d\u003d 2:  # Current Week (lunes inicio)\n\t    dow \u003d system.date.getDayOfWeek(start_day)  # 1\u003dSunday\n\t    offset \u003d -(dow - 2) if dow !\u003d 1 else -6\n\t    start_date \u003d system.date.addDays(start_day, offset)\n\t    end_date \u003d system.date.addDays(start_date, 7)\n\t\n\telif index \u003d\u003d 3:  # Last Week\n\t    dow \u003d system.date.getDayOfWeek(start_day)\n\t    offset \u003d -(dow - 2) if dow !\u003d 1 else -6\n\t    this_week_start \u003d system.date.addDays(start_day, offset)\n\t    start_date \u003d system.date.addDays(this_week_start, -7)\n\t    end_date \u003d system.date.addDays(start_date, 7)\n\t\n\telif index \u003d\u003d 4:  # Current month\n\t    start_date \u003d system.date.setTime(\n\t        system.date.getDate(year, month, 1),\n\t        6, 0, 0\n\t    )\n\t    end_date \u003d system.date.addMonths(start_date, 1)\n\t\n\telif index \u003d\u003d 5:  # Last month\n\t    first_this_month \u003d system.date.getDate(year, month, 1)\n\t    start_date \u003d system.date.setTime(\n\t        system.date.addMonths(first_this_month, -1),\n\t        6, 0, 0\n\t    )\n\t    end_date \u003d system.date.setTime(first_this_month, 6, 0, 0)\n\t\n\telif index \u003d\u003d 6:  # Current year to date\n\t    start_date \u003d system.date.setTime(\n\t        system.date.getDate(year, 0, 1),\n\t        6, 0, 0\n\t    )\n\t    end_date \u003d system.date.addDays(start_day, 1)\n\t\n\telif index \u003d\u003d 7:  # Shift 1 (6-14)\n\t    start_date \u003d system.date.setTime(now, 6, 0, 0)\n\t    end_date \u003d system.date.setTime(now, 14, 0, 0)\n\t\n\telif index \u003d\u003d 8:  # Shift 2 (14-22)\n\t    start_date \u003d system.date.setTime(now, 14, 0, 0)\n\t    end_date \u003d system.date.setTime(now, 22, 0, 0)\n\t\n\telif index \u003d\u003d 9:  # Shift 3 (22-6)\n\t    start_date \u003d system.date.setTime(now, 22, 0, 0)\n\t    end_date \u003d system.date.addDays(\n\t        system.date.setTime(now, 6, 0, 0), 1\n\t    )\n\t\n\telif index \u003d\u003d -1:  # Custom\n\t    system.perspective.print(\"Custom\")\n\t\n\telse:  # Default current month\n\t    start_date \u003d system.date.setTime(\n\t        system.date.getDate(year, month, 1),\n\t        6, 0, 0\n\t    )\n\t    end_date \u003d system.date.addMonths(start_date, 1)\n\t\n\t# Asignar\n\tif index !\u003d -1:\n\t    self.view.params.startDate \u003d start_date\n\t    self.view.params.endDate \u003d end_date"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Dropdown"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.dateRangePeriodIndex"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "dropdownOptionStyle": {
+            "classes": "fl-input-dd",
+            "overflow": "visible"
+          },
+          "minMenuHeight": 149,
+          "options": [
+            {
+              "label": "Today",
+              "value": 0
+            },
+            {
+              "label": "Yesterday",
+              "value": 1
+            },
+            {
+              "label": "This Week",
+              "value": 2
+            },
+            {
+              "label": "Last Week",
+              "value": 3
+            },
+            {
+              "label": "This Month",
+              "value": 4
+            },
+            {
+              "label": "Last Month",
+              "value": 5
+            },
+            {
+              "label": "Year to Date",
+              "value": 6
+            },
+            {
+              "label": "Shift 1",
+              "value": 7
+            },
+            {
+              "label": "Shift 2",
+              "value": 8
+            },
+            {
+              "label": "Shift 3",
+              "value": 9
+            },
+            {
+              "label": "Custom",
+              "value": -1
+            }
+          ],
+          "placeholder": {
+            "text": ""
+          },
+          "search": {
+            "enabled": false
+          },
+          "style": {
+            "classes": "fl-input-dd",
+            "marginBottom": "2px",
+            "paddingLeft": "0px"
+          }
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tif self.getSibling(\"FlexContainer\").position.display:\n\t\tself.getSibling(\"FlexContainer\").position.display \u003d False\n\telse:\n\t\tself.getSibling(\"FlexContainer\").position.display \u003d True"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "basis": "23px",
+          "shrink": 0
+        },
+        "props": {
+          "color": "var(--neutral-70)",
+          "path": "material/settings_ethernet",
+          "style": {
+            "borderBottomColor": "var(--neutral-30)",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 0.5,
+            "margin": "2px",
+            "paddingRight": "0px",
+            "paddingTop": "18px"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\timport system\n\n\tview \u003d self.view\n\t\n\tstart \u003d view.params.startDate\n\tend \u003d view.params.endDate\n\t\n\t# Validar nulls\n\tif start is None or end is None:\n\t    return\n\t\n\t# Obtener valores del spinner\n\tcontainer \u003d self.parent\n\tamount \u003d container.getChild(\"NumericEntryField\").props.value\n\tunit \u003d container.getChild(\"Dropdown\").props.value\n\t\n\t# Multiplicador negativo (izquierda)\n\tamount \u003d -amount\n\t\n\t# Aplicar desplazamiento\n\tif unit \u003d\u003d 0:  # Hour\n\t    start \u003d system.date.addHours(start, amount)\n\t    end \u003d system.date.addHours(end, amount)\n\t\n\telif unit \u003d\u003d 1:  # Day\n\t    start \u003d system.date.addDays(start, amount)\n\t    end \u003d system.date.addDays(end, amount)\n\t\n\telif unit \u003d\u003d 2:  # Week\n\t    start \u003d system.date.addWeeks(start, amount)\n\t    end \u003d system.date.addWeeks(end, amount)\n\t\n\telif unit \u003d\u003d 3:  # Month\n\t    start \u003d system.date.addMonths(start, amount)\n\t    end \u003d system.date.addMonths(end, amount)\n\t\n\telif unit \u003d\u003d 4:  # Year\n\t    start \u003d system.date.addYears(start, amount)\n\t    end \u003d system.date.addYears(end, amount)\n\t\n\t# Asignar\n\tview.params.startDate \u003d start\n\tview.params.endDate \u003d end\n\t\n\t# Opcional: forzar custom\n\tview.params.dateRangePeriodIndex \u003d -1"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon_Left"
+            },
+            "position": {
+              "basis": "30px",
+              "shrink": 0
+            },
+            "props": {
+              "path": "material/chevron_left",
+              "style": {
+                "paddingTop": "5px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": "40px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "classes": "fl-input"
+              },
+              "value": 1
+            },
+            "type": "ia.input.numeric-entry-field"
+          },
+          {
+            "meta": {
+              "name": "Dropdown"
+            },
+            "position": {
+              "basis": "60px",
+              "grow": 1,
+              "shrink": 0
+            },
+            "props": {
+              "dropdownOptionStyle": {
+                "classes": "fl-input-dd"
+              },
+              "options": [
+                {
+                  "label": "Hour",
+                  "value": 0
+                },
+                {
+                  "label": "Day",
+                  "value": 1
+                },
+                {
+                  "label": "Week",
+                  "value": 2
+                },
+                {
+                  "label": "Month",
+                  "value": 3
+                },
+                {
+                  "label": "Year",
+                  "value": 4
+                }
+              ],
+              "style": {
+                "classes": "fl-input"
+              },
+              "value": 1
+            },
+            "type": "ia.input.dropdown"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\timport system\n\t\n\tview \u003d self.view\n\t\n\tstart \u003d view.params.startDate\n\tend \u003d view.params.endDate\n\t\n\t# Validar nulls\n\tif start is None or end is None:\n\t    return\n\t\n\t# Obtener valores del spinner\n\tcontainer \u003d self.parent\n\tamount \u003d container.getChild(\"NumericEntryField\").props.value\n\tunit \u003d container.getChild(\"Dropdown\").props.value\n\t\n\t# Aplicar desplazamiento positivo\n\tif unit \u003d\u003d 0:  # Hour\n\t    start \u003d system.date.addHours(start, amount)\n\t    end \u003d system.date.addHours(end, amount)\n\t\n\telif unit \u003d\u003d 1:  # Day\n\t    start \u003d system.date.addDays(start, amount)\n\t    end \u003d system.date.addDays(end, amount)\n\t\n\telif unit \u003d\u003d 2:  # Week\n\t    start \u003d system.date.addWeeks(start, amount)\n\t    end \u003d system.date.addWeeks(end, amount)\n\t\n\telif unit \u003d\u003d 3:  # Month\n\t    start \u003d system.date.addMonths(start, amount)\n\t    end \u003d system.date.addMonths(end, amount)\n\t\n\telif unit \u003d\u003d 4:  # Year\n\t    start \u003d system.date.addYears(start, amount)\n\t    end \u003d system.date.addYears(end, amount)\n\t\n\t# Asignar\n\tview.params.startDate \u003d start\n\tview.params.endDate \u003d end\n\t\n\t# Opcional: forzar custom\n\tview.params.dateRangePeriodIndex \u003d -1"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon_Right"
+            },
+            "position": {
+              "basis": "30px",
+              "shrink": 0
+            },
+            "props": {
+              "path": "material/chevron_right",
+              "style": {
+                "paddingTop": "5px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.position.display \u003d False"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon_Close"
+            },
+            "position": {
+              "basis": "30px",
+              "shrink": 0
+            },
+            "props": {
+              "path": "material/arrow_drop_up",
+              "style": {
+                "paddingTop": "5px"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onSelect": {
+              "config": {
+                "script": "\tsystem.perspective.print(event)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "250px",
+          "display": false
+        },
+        "props": {
+          "style": {
+            "border": "solid 0.5px var(--neutral-30)",
+            "classes": "basic-blur",
+            "height": "40px",
+            "overflow": "visible",
+            "paddingBottom": "5px",
+            "position": "absolute",
+            "right": 0,
+            "top": "55px",
+            "width": "230px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "overflow": "visible",
+        "position": "relative"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "custom": {},
+  "params": {
+    "contactInformation": [],
+    "row": "",
+    "scheduleModification": [],
+    "type": ""
+  },
+  "propConfig": {
+    "params.contactInformation": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.row": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.scheduleModification": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 26,
+      "width": 200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "TextField"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "ContactInformation": "{view.params.contactInformation}",
+                  "ScheduleModification": "{view.params.scheduleModification}",
+                  "row": "{view.params.row}",
+                  "type": "{view.params.type}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\t# Check whether this textfield is for the Contact Information or Schedule Modification table\n\t# and return the proper information to show in the respective textfield.\n\tinput \u003d \u0027\u0027\n\tif value[\u0027type\u0027] \u003d\u003d \u0027contactInformation\u0027:\n\t\tinput \u003d self.view.params.contactInformation[self.view.params.row][\u0027Value\u0027]\n\telif value[\u0027type\u0027] \u003d\u003d \u0027scheduleModification\u0027:\n\t\tinput \u003d self.view.params.scheduleModification[self.view.params.row][\u0027Note\u0027]\n\t\t\n\treturn input\n",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            },
+            "onChange": {
+              "enabled": null,
+              "script": "\t# Check if the textfield being edited belongs to the Contact Information or Schedule \n\t# Modification table and sent a message to the respective table with the updated textfield\n\t# and row value as the params.\n\ttype  \u003d self.view.params.type\n\n\tif origin \u003d\u003d \"Browser\":\n\t\tif type \u003d\u003d \u0027contactInformation\u0027:\n\t\t\tpayload \u003d {\u0027row\u0027:self.view.params.row, \u0027value\u0027:self.props.text}\n\t\t\tsystem.perspective.sendMessage(\u0027UserManagement_ContactInfoValueChange\u0027, payload, scope\u003d\u0027page\u0027)\n\t\telif type \u003d\u003d \u0027scheduleModification\u0027:\n\t\t\tpayload \u003d {\u0027row\u0027:self.view.params.row, \u0027value\u0027:self.props.text}\n\t\t\tsystem.perspective.sendMessage(\u0027UserManagement_ScheduleModificationChangeNote\u0027, payload, scope\u003d\u0027page\u0027)"
+            }
+          }
+        },
+        "props": {
+          "deferUpdates": false,
+          "placeholder": "Type here...",
+          "style": {
+            "borderBottomLeftRadius": "4px",
+            "borderBottomRightRadius": "4px",
+            "borderColor": "#4A4A4A63",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "4px",
+            "borderTopRightRadius": "4px",
+            "borderWidth": "1px",
+            "classes": "UserManagement/InputFont",
+            "textIndent": "1px"
+          }
+        },
+        "type": "ia.input.text-field"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "changesetData": {
+    "uuid": "5892e0ca-4e1e-4059-a92b-71310d2e6b71",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "emena",
+    "appliedAt": "2026-10-15T05:17:41.145Z",
+    "appliedOnChangesetUUID": "a2800e43-eb86-4976-801a-c90c909e8923",
+    "hash": "0a12d22b2841ec211ea0e6239a33aeaa946c4ab5d13df19af1de005e170de8fe",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:17:41.124301500Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Area": {
+        "45e5b7ef-8d33-40e5-9983-da435a8b417b": {
+          "meta": {
+            "name": "New Area"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "45e5b7ef-8d33-40e5-9983-da435a8b417b"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentActiveType",
+              "oldValue": "ACTIVE",
+              "newValue": "INACTIVE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentCellOrder",
+              "newValue": "0"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "42de40db-e600-4dce-bc3e-47cb9e67c05d|Site",
+              "friendlyPath": "Enterprise\\Site",
+              "newValueFriendly": "Site"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "New Area"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentPath",
+              "oldValue": "",
+              "newValue": "Enterprise\\Site\\New Area"
+            }
+          ]
+        }
+      },
+      "Site": {
+        "42de40db-e600-4dce-bc3e-47cb9e67c05d": {
+          "meta": {
+            "name": "Site"
+          },
+          "changes": [
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "45e5b7ef-8d33-40e5-9983-da435a8b417b|Area",
+              "friendlyPath": "Enterprise\\Site\\New Area",
+              "newValueFriendly": "New Area"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

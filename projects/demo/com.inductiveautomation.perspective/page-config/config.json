@@ -1,0 +1,47 @@
+{
+  "pages": {
+    "/": {
+      "title": "Home",
+      "viewPath": "Pages/Home/Home"
+    },
+    "/mes/equipment-manager": {
+      "title": "Equipment Manager",
+      "viewPath": "Pages/MES/EquipmentManager"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom",
+    "left": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "auto",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "Navigation",
+        "modal": false,
+        "resizable": false,
+        "show": "auto",
+        "size": 270,
+        "viewParams": {},
+        "viewPath": "Layout/Navigation/Navigation"
+      }
+    ],
+    "top": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 48,
+        "viewParams": {},
+        "viewPath": "Layout/Header/Header"
+      }
+    ]
+  }
+}

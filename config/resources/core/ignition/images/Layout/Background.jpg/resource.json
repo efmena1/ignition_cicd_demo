@@ -1,0 +1,21 @@
+{
+  "scope": "A",
+  "description": "",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Background.jpg"
+  ],
+  "attributes": {
+    "size": 320521,
+    "lastModificationSignature": "d032c05dc0153472565fa2ac9d4a78b8b62a1e9cc0c3a95c73d8be7e62d22858",
+    "width": 2048,
+    "format": "JPEG",
+    "lastModification": {
+      "actor": "emena",
+      "timestamp": "2026-10-14T23:11:17Z"
+    },
+    "height": 1396
+  }
+}

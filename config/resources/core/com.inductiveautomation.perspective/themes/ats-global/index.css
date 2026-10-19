@@ -1,0 +1,114 @@
+@import "./alert-dialog.css";
+@import "./user-drawer.css";
+@import "./docked-navigation.css";
+@import "./minimalist-scrollbars.css";
+
+/* ATS Global - component index */
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-Black";
+    src: url("/data/perspective/fonts/Poppins-Black.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-BlackItalic";
+    src: url("/data/perspective/fonts/Poppins-BlackItalic.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-Bold";
+    src: url("/data/perspective/fonts/Poppins-Bold.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-BoldItalic";
+    src: url("/data/perspective/fonts/Poppins-BoldItalic.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-ExtraBold";
+    src: url("/data/perspective/fonts/Poppins-ExtraBold.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-ExtraBoldItalic";
+    src: url("/data/perspective/fonts/Poppins-ExtraBoldItalic.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-ExtraLight";
+    src: url("/data/perspective/fonts/Poppins-ExtraLight.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-ExtraLightItalic";
+    src: url("/data/perspective/fonts/Poppins-ExtraLightItalic.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-Italic";
+    src: url("/data/perspective/fonts/Poppins-Italic.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-Light";
+    src: url("/data/perspective/fonts/Poppins-Light.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-LightItalic";
+    src: url("/data/perspective/fonts/Poppins-LightItalic.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url("/data/perspective/fonts/Poppins-Medium.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-MediumItalic";
+    src: url("/data/perspective/fonts/Poppins-MediumItalic.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins";
+    src: url("/data/perspective/fonts/Poppins-Regular.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-SemiBold";
+    src: url("/data/perspective/fonts/Poppins-SemiBold.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-SemiBoldItalic";
+    src: url("/data/perspective/fonts/Poppins-SemiBoldItalic.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-Thin";
+    src: url("/data/perspective/fonts/Poppins-Thin.ttf") format("truetype");
+}
+
+/* ATS Fonts */
+@font-face {
+    font-family: "Poppins-ThinItalic";
+    src: url("/data/perspective/fonts/Poppins-ThinItalic.ttf") format("truetype");
+}

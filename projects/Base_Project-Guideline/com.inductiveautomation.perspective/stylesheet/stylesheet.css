@@ -1,0 +1,118 @@
+/*  TABLE  --------------------------------------------*/
+:root {
+
+  --fl-accent:#2196f3;
+
+  --fl-line-idle:rgba(255,255,255,0.42);
+
+  --fl-line-focus:#2196f3;
+
+  --fl-text:rgba(255,255,255,0.87);
+
+  --fl-label-idle: var(--neutral-60);
+
+  --fl-font:Roboto;
+
+  --fl-height:48px;
+
+}
+
+.ia_table {
+    gap: 10px;
+    background-color: var(--neutral-10) !important;
+    padding: 8px 8px 0px 8px !important;
+    border-radius: 10px;
+}
+
+.ia_table__headContainer{
+    border-radius: 0px;
+    background-color: var(--neutral-10);
+    box-shadow: none;
+    width: 100% !important;
+    padding: 5px 0px;
+    color: #282828;
+    border-bottom: 0.5px solid var(--neutral-20) !important;
+  
+}
+
+
+.ia_table__headContainer .content {
+    justify-content: center !important;
+    font-size: 15px;
+    color: var(--neutral-80);
+    font-weight: bolder;
+}
+
+.ia_table__body {
+    border-radius: 2px;
+    border: none;
+    background-color: var(--neutral-10) !important;
+}
+
+.ia_tableComponent {
+    border-radius: 10px;
+    border: none; 
+    background-color: var(--neutral-10) !important;
+    
+}
+
+.ia_table__body__rowGroup {
+    /*border-bottom: 1px solid var(--neutral-40) !important;*/
+    height: 70px;
+    color: var(--neutral-60);
+    background-color: var(--neutral-10) !important;
+    
+}
+.ia_table__body__row {
+	border-bottom: 1px solid var(--neutral-20) !important;
+	
+}
+
+.ia_table__cell .content{
+	margin-left:5px;
+	text-align: justify-all !important;
+	align-items: center !important;
+	justify-content: center !important;
+}
+
+
+.ia_tableComponent__filterContainer{
+	width: 40% !important;
+	height: 50px !important;
+	border: none;
+	background-color: transparent !important;
+	margin-bottom:-9px;
+	margin-top: 5px
+}
+
+.filterResults{
+	font-size:12px;	
+	font-weight:400;
+	color: var(--neutral-60);
+}
+
+.table-container .ia_inputField{
+	outline:none!important;
+	padding-left: 15px !important;
+	border: none;
+	border-bottom:0.5px solid var(--neutral-30)!important;
+	overflow: visible !important;
+	font-size:16px;
+
+  	font-weight:400;
+	background:	
+			linear-gradient(var(--fl-line-focus),var(--fl-line-focus)) left bottom/0% 2px no-repeat,
+			linear-gradient(var(--fl-line-idle),var(--fl-line-idle)) left bottom/100% 1px no-repeat;
+	transition:background-size .3s ease;
+}
+
+.table-container .ia_inputField:focus-within,
+.table-container .ia_inputField [tabindex="0"]:focus {
+	outline:none!important;
+	background:
+			linear-gradient(var(--fl-line-focus),var(--fl-line-focus)) left bottom/100% 2px no-repeat,
+			linear-gradient(var(--fl-line-idle),var(--fl-line-idle)) left bottom/100% 1px no-repeat;
+
+}
+
+/* -----------------End table ----------------*/

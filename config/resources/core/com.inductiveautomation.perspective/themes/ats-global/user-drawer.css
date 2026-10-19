@@ -1,0 +1,362 @@
+/* ---------------------------------------------------------------------------------------------- */
+/* ----------------------------------------- User Drawer -----------------------------------------*/
+/* ---------------------------------------------------------------------------------------------- */
+
+@keyframes userDrawerIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+#popup-userdrawer.ia_popup {
+  border-radius: 16px;
+  overflow: hidden;
+  animation-name: userDrawerIn;
+  animation-duration: 180ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: both;
+  outline: none;
+}
+
+.psc-user-drawer-hero {
+  padding: 20px 24px;
+  background:
+    radial-gradient(
+      120% 100% at 100% 0%,
+      color-mix(
+        in srgb,
+        var(--co-branding-button-color, var(--success)) 22%,
+        transparent
+      ) 0%,
+      transparent 55%
+    ),
+    var(--container);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+
+.psc-user-drawer-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      color-mix(in srgb, var(--success) 8%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--success) 8%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 24px 24px;
+  -webkit-mask: radial-gradient(80% 80% at 100% 0%, black, transparent 70%);
+          mask: radial-gradient(80% 80% at 100% 0%, black, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.psc-user-drawer-hero > * {
+  position: relative;
+}
+
+.psc-user-drawer-avatar {
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--co-branding-button-color, var(--success)) 0%,
+    color-mix(
+      in srgb,
+      var(--co-branding-button-color, var(--callToAction--active)) 80%,
+      black
+    ) 100%
+  );
+  color: var(--co-branding-button-text-color, var(--white));
+  box-shadow: 0 8px 24px -6px
+  color-mix(
+    in srgb,
+    var(--co-branding-button-color, var(--success)) 50%,
+    transparent
+  );
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  line-height: 56px;
+  height: 56px;
+}
+
+.psc-user-drawer-name {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--label);
+  letter-spacing: -0.02em;
+}
+
+.psc-user-drawer-chip {
+  padding: 3px 9px;
+  border-radius: var(--borderRadius);
+  background: var(--callToActionHighlight);
+  color: var(--success);
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.psc-user-drawer-theme-wrapper {
+  padding: 6px 26px;
+}
+
+/* Selector de tema. */
+.psc-user-drawer-theme {
+  background: var(--containerRoot);
+  border: 1px solid var(--border);
+  border-radius: var(--borderRadius);
+  padding: 4px;
+}
+
+.psc-user-drawer-theme-option {
+  padding: 6px 6px;
+  border-radius: var(--borderRadius);
+  cursor: pointer;
+  transition: background .15s, box-shadow .15s;
+}
+
+.psc-user-drawer-theme-option--active {
+  background: var(--container);
+  box-shadow: var(--boxShadow1);
+}
+
+/* Muestras fijas de las paletas base light y dark. */
+.psc-user-drawer-theme-preview {
+  border-radius: var(--borderRadius);
+  border: 1px solid var(--border);
+}
+
+.psc-user-drawer-theme-preview--light {
+  background: linear-gradient(135deg, #FAFAFA, #F4F4F4);
+}
+
+.psc-user-drawer-theme-preview--dark {
+  background: linear-gradient(135deg, #323232, #161616);
+}
+
+.psc-user-drawer-theme-preview--system {
+  background: linear-gradient(
+    135deg,
+    #FAFAFA 0%,
+    #FAFAFA 50%,
+    #161616 50%,
+    #161616 100%
+  );
+}
+
+.psc-user-drawer-theme-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--neutral-70);
+  text-align: center;
+}
+
+.psc-user-drawer-theme-option--active .psc-user-drawer-theme-label {
+  color: var(--label);
+}
+
+.psc-user-drawer-status-wrapper {
+  padding: 8px 26px;
+}
+
+/* Estado de la sesión. */
+.psc-user-drawer-status {
+  padding: 10px 12px;
+  background: var(--containerNested);
+  border: 1px solid var(--border);
+  border-radius: var(--borderRadius);
+}
+
+.psc-user-drawer-status-dot {
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 8px var(--success);
+}
+
+.psc-user-drawer-status-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--neutral-80);
+}
+
+/* La alineación del timestamp depende del Flex padre. */
+.psc-user-drawer-status-ts {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  color: var(--neutral-60);
+}
+
+/* Barra de acciones. */
+.psc-user-drawer-actions {
+  padding: 12px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.psc-user-drawer-btn--danger {
+  color: var(--error);
+  border-color: color-mix(
+    in srgb,
+    var(--error) 30%,
+    transparent
+  );
+}
+
+.psc-user-drawer-btn--danger:hover {
+  background: color-mix(
+    in srgb,
+    var(--error) 10%,
+    transparent
+  );
+}
+
+
+/* Four-area user popup. Theme/status rules above are also used by Settings. */
+.psc-user-drawer {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  background: var(--container);
+  color: var(--label);
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.psc-user-drawer > *,
+.psc-user-drawer-info > *,
+.psc-user-drawer-info-block > *,
+.psc-user-drawer-info-field > * {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.psc-user-drawer-identity {
+  gap: 14px;
+  min-width: 0;
+}
+
+.psc-user-drawer-identity-text {
+  gap: 6px;
+  min-width: 0;
+}
+
+.psc-user-drawer-name,
+.psc-user-drawer-chip,
+.psc-user-drawer-info-title,
+.psc-user-drawer-info-label,
+.psc-user-drawer-info-value,
+.psc-user-drawer-info-message,
+.psc-user-drawer-footer-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.psc-user-drawer-info {
+  min-height: 64px;
+  padding: 16px 24px;
+  gap: 16px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.psc-user-drawer-info-block {
+  gap: 8px;
+}
+
+.psc-user-drawer-info-field {
+  gap: 3px;
+}
+
+.psc-user-drawer-info-title {
+  color: var(--neutral-70);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.psc-user-drawer-info-label {
+  color: var(--neutral-70);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.psc-user-drawer-info-value {
+  color: var(--label);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.psc-user-drawer-info-message {
+  color: var(--neutral-70);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.psc-user-drawer-actions > .psc-user-drawer-btn--danger {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+}
+
+.psc-user-drawer-footer {
+  padding: 6px 24px;
+  gap: 4px 12px;
+  border-top: 1px solid var(--border);
+  background: var(--containerRoot);
+}
+
+.psc-user-drawer-footer-text {
+  min-width: 0;
+  max-width: 100%;
+  color: var(--neutral-70);
+  font-size: 11px;
+  line-height: 1.3;
+  text-align: left;
+}
+
+/* On low screens, scroll the complete popup instead of squeezing Info. */
+@media (max-height: 480px) {
+  .psc-user-drawer > .psc-user-drawer-info {
+    flex: 0 0 auto !important;
+    overflow-y: visible;
+  }
+}
+
+@media (max-width: 360px) {
+  .psc-user-drawer-hero,
+  .psc-user-drawer-info,
+  .psc-user-drawer-actions,
+  .psc-user-drawer-footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #popup-userdrawer.ia_popup {
+    animation: none;
+  }
+}

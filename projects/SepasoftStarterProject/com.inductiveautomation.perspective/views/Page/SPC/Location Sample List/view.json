@@ -1,0 +1,281 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "SplitContainer"
+        },
+        "type": "ia.container.split",
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "split": {
+            "position": "35%"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "flx_left"
+            },
+            "position": {
+              "position": "left"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex",
+            "children": [
+              {
+                "meta": {
+                  "name": "locationSelector"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "basis": "50px"
+                },
+                "props": {
+                  "displayText": "Location",
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  },
+                  "includeMESLocationObjects": true
+                }
+              },
+              {
+                "meta": {
+                  "name": "definitionSelector"
+                },
+                "type": "mes.production.mesObjectSelector",
+                "position": {
+                  "basis": "50px"
+                },
+                "props": {
+                  "displayText": "Sample Definition",
+                  "style": {
+                    "margin": "4px 6px",
+                    "overflow": "visible"
+                  },
+                  "includeSampleDefinitionObjects": true
+                }
+              },
+              {
+                "meta": {
+                  "name": "btn_createAdHocSample"
+                },
+                "type": "ia.input.button",
+                "position": {
+                  "basis": "40px"
+                },
+                "props": {
+                  "text": "Create Ad Hoc Sample",
+                  "style": {
+                    "margin": "4px 6px"
+                  }
+                },
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tlocSelector = self.getSibling(\"locationSelector\")\n\tdefSelector = self.getSibling(\"definitionSelector\")\n\t\n\tlocationPath=locSelector.props.selectedMESObject.equipmentPath\n\tdefName=defSelector.props.selectedMESObject.name\n\t\n\tsample = system.mes.spc.sample.getNewByDefName(defName, locationPath)\n\t\n\tsystem.mes.spc.sample.update(sample, False)\n\t\n\tsampleUUID = sample.getSampleUUID()\n\t\n\tself.getSibling(\"sampleEntry\").props.sampleUUID = sampleUUID"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                }
+              },
+              {
+                "meta": {
+                  "name": "sampleEntry"
+                },
+                "type": "mes.spc.sampleEntry",
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.sampleUUID": {
+                    "binding": {
+                      "config": {
+                        "path": ".../flx_right/locationSampleList.props.selectedSampleUUID"
+                      },
+                      "type": "property"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "flx_right"
+            },
+            "position": {
+              "position": "right"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex",
+            "children": [
+              {
+                "meta": {
+                  "name": "flx_header"
+                },
+                "type": "ia.container.flex",
+                "position": {
+                  "basis": "50px"
+                },
+                "props": {
+                  "direction": "row",
+                  "style": {
+                    "gap": "10px",
+                    "alignItems": "center"
+                  }
+                },
+                "children": [
+                  {
+                    "meta": {
+                      "name": "mesObjectSelector"
+                    },
+                    "type": "mes.production.mesObjectSelector",
+                    "position": {
+                      "basis": "340px"
+                    },
+                    "props": {
+                      "displayText": "Location",
+                      "style": {
+                        "margin": "4px 6px",
+                        "overflow": "visible"
+                      },
+                      "includeMESLocationObjects": true
+                    }
+                  },
+                  {
+                    "meta": {
+                      "name": "dt_start"
+                    },
+                    "type": "ia.input.date-time-input",
+                    "position": {
+                      "basis": "220px"
+                    },
+                    "props": {
+                      "style": {
+                        "margin": "4px 6px"
+                      }
+                    },
+                    "propConfig": {
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "expression": "dateArithmetic(now(0), -7, \"day\")"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "meta": {
+                      "name": "dt_end"
+                    },
+                    "type": "ia.input.date-time-input",
+                    "position": {
+                      "basis": "220px"
+                    },
+                    "props": {
+                      "style": {
+                        "margin": "4px 6px"
+                      }
+                    },
+                    "propConfig": {
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "expression": "now(0)"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "meta": {
+                      "name": "chk_includeApproved"
+                    },
+                    "type": "ia.input.checkbox",
+                    "position": {
+                      "basis": "160px"
+                    },
+                    "props": {
+                      "text": "Include Approved",
+                      "selected": false,
+                      "style": {
+                        "margin": "4px 6px"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "meta": {
+                  "name": "locationSampleList"
+                },
+                "type": "mes.spc.locationSampleList",
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.locationPath": {
+                    "binding": {
+                      "config": {
+                        "path": "../flx_header/mesObjectSelector.props.selectedMESObject.equipmentPath"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.startDate": {
+                    "binding": {
+                      "config": {
+                        "path": "../flx_header/dt_start.props.value"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.endDate": {
+                    "binding": {
+                      "config": {
+                        "path": "../flx_header/dt_end.props.value"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.showApprovedSamples": {
+                    "binding": {
+                      "config": {
+                        "path": "../flx_header/chk_includeApproved.props.selected"
+                      },
+                      "type": "property"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

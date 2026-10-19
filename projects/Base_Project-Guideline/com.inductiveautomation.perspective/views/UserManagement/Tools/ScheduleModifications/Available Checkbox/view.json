@@ -1,0 +1,78 @@
+{
+  "custom": {},
+  "params": {
+    "row": "",
+    "scheduleModifications": []
+  },
+  "propConfig": {
+    "params.row": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.scheduleModifications": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 30,
+      "width": 30
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\t# Sends a message to the Schedule Modification table, to update the table when the Available cell is toggled.\n\tif self.view.params.scheduleModifications:\n\t\tsystem.perspective.sendMessage(\u0027UserManagement_ScheduleModificationAvailability\u0027, payload\u003d{\u0027row\u0027:self.view.params.row, \u0027availability\u0027:self.props.selected}, scope\u003d\u0027page\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Checkbox"
+        },
+        "position": {
+          "basis": "36px"
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "path": "view.params.scheduleModifications"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\t# Displays True or False depending on the row\u0027s Available value.\n\treturn value[self.view.params.row][\u0027Available\u0027]",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": ""
+        },
+        "type": "ia.input.checkbox"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "UserManagement/MainFont",
+        "overflow": "visible"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

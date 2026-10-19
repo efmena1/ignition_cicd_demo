@@ -1,0 +1,52 @@
+{
+  "changesetData": {
+    "uuid": "661b04c3-9407-45b6-a6c5-2e2b9fbd855b",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:40.936Z",
+    "appliedOnChangesetUUID": "b269a51d-2aea-4173-8c56-7cbe57ca93e5",
+    "hash": "a601a664799fb7aadb7d6b2fa686af72307aaa3c68df3ce41a9407fbb50c7c41",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:40.925144700Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Equipment Mode Root": {
+        "8c99f038-f002-41a6-b06b-ad39be8371c2": {
+          "meta": {
+            "name": "Equipment Modes"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "8c99f038-f002-41a6-b06b-ad39be8371c2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Equipment Modes"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "Core"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

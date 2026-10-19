@@ -1,0 +1,96 @@
+{
+  "changesetData": {
+    "uuid": "5e5a9528-ea84-4c2a-8708-13e8d4dadeac",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T20:39:23.402Z",
+    "appliedOnChangesetUUID": "0256dff1-caaa-412f-8da1-f7cc6d823725",
+    "hash": "74dabcf69d4753a2149897020b1bcb58a8de8adc240075c6adae7899c3f87b34",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T20:39:23.317420300Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Definition": {
+        "9ed9cd56-10e2-4e98-938a-2eac5418446d": {
+          "meta": {
+            "name": "Signature_Template"
+          },
+          "changes": [
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "f2dc28f9-5b9f-4dd9-815b-6f7373d6f8c4|Inactive - Enqueue Formula State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.Inactive - Enqueue Formula State.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "15"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "e67f560b-ae4a-4871-9fa1-44caaa86efa3|Inactive - Modify Formula State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.Inactive - Modify Formula State.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "16"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "efad0b1d-6394-4a13-bdd2-9e550a41cd19|Preproduction - Enqueue Formula State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.Preproduction - Enqueue Formula State.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "17"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "9e1de249-2d18-4c66-bd3c-7a5515520d0c|Preproduction - Modify Formula State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.Preproduction - Modify Formula State.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "18"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "e32044e4-a220-4741-934c-b8e461df2cd2|Production Ready - Enqueue Formula State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.Production Ready - Enqueue Formula State.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "19"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "36a260b5-852a-401c-a35f-b3931b2337ac|Production Ready - Modify Formula State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.Production Ready - Modify Formula State.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "20"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

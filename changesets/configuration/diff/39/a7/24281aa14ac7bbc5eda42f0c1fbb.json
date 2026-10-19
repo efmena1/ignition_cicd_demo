@@ -1,0 +1,748 @@
+{
+  "changesetData": {
+    "uuid": "39a72428-1aa1-4ac7-bbc5-eda42f0c1fbb",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T20:39:25.612Z",
+    "appliedOnChangesetUUID": "5e5a9528-ea84-4c2a-8708-13e8d4dadeac",
+    "hash": "9a1c8082ca3049461356a2117a8a85e17de8a885d2bbd2960f74b27a2a1dda63",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T20:39:25.524045900Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Batch Phase": {
+        "57f533e2-e279-4037-8c0e-da56e2a2b517": {
+          "meta": {
+            "name": "Terminator"
+          },
+          "changes": [
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchPhaseParameters",
+              "newValue": "3ca9ea4e-a146-4bb7-92ee-f094cc62cc76|Execute_Step"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamUUID",
+              "oldValue": "",
+              "newValue": "56ea8efd-ef2d-449d-857e-86cb76b69cb6"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamFriendlyName",
+              "oldValue": "",
+              "newValue": "Execute_Step"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamKind",
+              "oldValue": "0",
+              "newValue": "6",
+              "oldValueFriendly": "unknown",
+              "newValueFriendly": "Built-in"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamImmutable",
+              "oldValue": "false",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamRecordingType",
+              "oldValue": "1",
+              "newValue": "4",
+              "oldValueFriendly": "Changes Not Saved",
+              "newValueFriendly": "All to Object and History"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamDataType",
+              "oldValue": "String",
+              "newValue": "Boolean"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParameterValueSource",
+              "oldValue": "0",
+              "newValue": "7",
+              "oldValueFriendly": "Recipe",
+              "newValueFriendly": "Neither"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamMinimumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamMaximumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamValue",
+              "oldValue": "",
+              "newValue": "true"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchPhaseParameters",
+              "newValue": "ab4765e6-4d25-4d6a-a169-cb6ce602712e|Skip_Count"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamUUID",
+              "oldValue": "",
+              "newValue": "b20b17da-1433-43a6-80f0-3f29788f71f1"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamFriendlyName",
+              "oldValue": "",
+              "newValue": "Skip_Count"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamKind",
+              "oldValue": "0",
+              "newValue": "6",
+              "oldValueFriendly": "unknown",
+              "newValueFriendly": "Built-in"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamImmutable",
+              "oldValue": "false",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamRecordingType",
+              "oldValue": "1",
+              "newValue": "4",
+              "oldValueFriendly": "Changes Not Saved",
+              "newValueFriendly": "All to Object and History"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamDataType",
+              "oldValue": "String",
+              "newValue": "Long"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParameterValueSource",
+              "oldValue": "0",
+              "newValue": "7",
+              "oldValueFriendly": "Recipe",
+              "newValueFriendly": "Neither"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamMinimumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamMaximumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamValue",
+              "oldValue": "",
+              "newValue": "0"
+            }
+          ]
+        },
+        "56a23d37-e1dc-4bd1-947f-01857a6bcdc7": {
+          "meta": {
+            "name": "Or End"
+          },
+          "changes": [
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchPhaseParameters",
+              "newValue": "7f6d3e2c-4cc2-4420-9c14-1444e83c2f88|Execute_Step"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamUUID",
+              "oldValue": "",
+              "newValue": "56ea8efd-ef2d-449d-857e-86cb76b69cb6"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamFriendlyName",
+              "oldValue": "",
+              "newValue": "Execute_Step"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamKind",
+              "oldValue": "0",
+              "newValue": "6",
+              "oldValueFriendly": "unknown",
+              "newValueFriendly": "Built-in"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamImmutable",
+              "oldValue": "false",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamRecordingType",
+              "oldValue": "1",
+              "newValue": "4",
+              "oldValueFriendly": "Changes Not Saved",
+              "newValueFriendly": "All to Object and History"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamDataType",
+              "oldValue": "String",
+              "newValue": "Boolean"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParameterValueSource",
+              "oldValue": "0",
+              "newValue": "7",
+              "oldValueFriendly": "Recipe",
+              "newValueFriendly": "Neither"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamMinimumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamMaximumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamValue",
+              "oldValue": "",
+              "newValue": "true"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchPhaseParameters",
+              "newValue": "b843d954-c8d2-4b7a-af3a-7c6b696bd90d|Skip_Count"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamUUID",
+              "oldValue": "",
+              "newValue": "b20b17da-1433-43a6-80f0-3f29788f71f1"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamFriendlyName",
+              "oldValue": "",
+              "newValue": "Skip_Count"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamKind",
+              "oldValue": "0",
+              "newValue": "6",
+              "oldValueFriendly": "unknown",
+              "newValueFriendly": "Built-in"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamImmutable",
+              "oldValue": "false",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamRecordingType",
+              "oldValue": "1",
+              "newValue": "4",
+              "oldValueFriendly": "Changes Not Saved",
+              "newValueFriendly": "All to Object and History"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamDataType",
+              "oldValue": "String",
+              "newValue": "Long"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParameterValueSource",
+              "oldValue": "0",
+              "newValue": "7",
+              "oldValueFriendly": "Recipe",
+              "newValueFriendly": "Neither"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamMinimumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamMaximumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamValue",
+              "oldValue": "",
+              "newValue": "0"
+            }
+          ]
+        },
+        "8aeccdcb-7ff2-42d2-a394-7dc594de440f": {
+          "meta": {
+            "name": "And End"
+          },
+          "changes": [
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchPhaseParameters",
+              "newValue": "85bec02b-f818-4f1b-8ad0-17d4ab3e6bed|Execute_Step"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamUUID",
+              "oldValue": "",
+              "newValue": "56ea8efd-ef2d-449d-857e-86cb76b69cb6"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamFriendlyName",
+              "oldValue": "",
+              "newValue": "Execute_Step"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamKind",
+              "oldValue": "0",
+              "newValue": "6",
+              "oldValueFriendly": "unknown",
+              "newValueFriendly": "Built-in"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamImmutable",
+              "oldValue": "false",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamRecordingType",
+              "oldValue": "1",
+              "newValue": "4",
+              "oldValueFriendly": "Changes Not Saved",
+              "newValueFriendly": "All to Object and History"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamDataType",
+              "oldValue": "String",
+              "newValue": "Boolean"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParameterValueSource",
+              "oldValue": "0",
+              "newValue": "7",
+              "oldValueFriendly": "Recipe",
+              "newValueFriendly": "Neither"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamMinimumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamMaximumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamValue",
+              "oldValue": "",
+              "newValue": "true"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchPhaseParameters",
+              "newValue": "822f8518-6e57-45f5-99b1-76f0b556b811|Skip_Count"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamUUID",
+              "oldValue": "",
+              "newValue": "b20b17da-1433-43a6-80f0-3f29788f71f1"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamFriendlyName",
+              "oldValue": "",
+              "newValue": "Skip_Count"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamKind",
+              "oldValue": "0",
+              "newValue": "6",
+              "oldValueFriendly": "unknown",
+              "newValueFriendly": "Built-in"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamImmutable",
+              "oldValue": "false",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamRecordingType",
+              "oldValue": "1",
+              "newValue": "4",
+              "oldValueFriendly": "Changes Not Saved",
+              "newValueFriendly": "All to Object and History"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamDataType",
+              "oldValue": "String",
+              "newValue": "Long"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParameterValueSource",
+              "oldValue": "0",
+              "newValue": "7",
+              "oldValueFriendly": "Recipe",
+              "newValueFriendly": "Neither"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamMinimumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamMaximumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamValue",
+              "oldValue": "",
+              "newValue": "0"
+            }
+          ]
+        },
+        "e7c4a33e-7010-4692-89f1-c655e88270cd": {
+          "meta": {
+            "name": "Transition"
+          },
+          "changes": [
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchPhaseParameters",
+              "newValue": "6ddcf98f-ed71-4973-8285-d7088174d658|Execute_Step"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamUUID",
+              "oldValue": "",
+              "newValue": "56ea8efd-ef2d-449d-857e-86cb76b69cb6"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamFriendlyName",
+              "oldValue": "",
+              "newValue": "Execute_Step"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamKind",
+              "oldValue": "0",
+              "newValue": "6",
+              "oldValueFriendly": "unknown",
+              "newValueFriendly": "Built-in"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamImmutable",
+              "oldValue": "false",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamRecordingType",
+              "oldValue": "1",
+              "newValue": "4",
+              "oldValueFriendly": "Changes Not Saved",
+              "newValueFriendly": "All to Object and History"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamDataType",
+              "oldValue": "String",
+              "newValue": "Boolean"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParameterValueSource",
+              "oldValue": "0",
+              "newValue": "7",
+              "oldValueFriendly": "Recipe",
+              "newValueFriendly": "Neither"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamMinimumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamMaximumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamValue",
+              "oldValue": "",
+              "newValue": "true"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchPhaseParameters",
+              "newValue": "2e97c662-5a3a-4dd1-8a4f-54e49476a2f2|Skip_Count"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamUUID",
+              "oldValue": "",
+              "newValue": "b20b17da-1433-43a6-80f0-3f29788f71f1"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamFriendlyName",
+              "oldValue": "",
+              "newValue": "Skip_Count"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamKind",
+              "oldValue": "0",
+              "newValue": "6",
+              "oldValueFriendly": "unknown",
+              "newValueFriendly": "Built-in"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamImmutable",
+              "oldValue": "false",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamRecordingType",
+              "oldValue": "1",
+              "newValue": "4",
+              "oldValueFriendly": "Changes Not Saved",
+              "newValueFriendly": "All to Object and History"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamDataType",
+              "oldValue": "String",
+              "newValue": "Long"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParameterValueSource",
+              "oldValue": "0",
+              "newValue": "7",
+              "oldValueFriendly": "Recipe",
+              "newValueFriendly": "Neither"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamMinimumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamMaximumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamValue",
+              "oldValue": "",
+              "newValue": "0"
+            }
+          ]
+        },
+        "2cf27cf9-ac1b-44e0-97ff-6fdbd140699e": {
+          "meta": {
+            "name": "Start"
+          },
+          "changes": [
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchPhaseParameters",
+              "newValue": "4e5193d2-5f8e-47fe-8953-a4647a06a7de|Execute_Step"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamUUID",
+              "oldValue": "",
+              "newValue": "56ea8efd-ef2d-449d-857e-86cb76b69cb6"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamFriendlyName",
+              "oldValue": "",
+              "newValue": "Execute_Step"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamKind",
+              "oldValue": "0",
+              "newValue": "6",
+              "oldValueFriendly": "unknown",
+              "newValueFriendly": "Built-in"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamImmutable",
+              "oldValue": "false",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamRecordingType",
+              "oldValue": "1",
+              "newValue": "4",
+              "oldValueFriendly": "Changes Not Saved",
+              "newValueFriendly": "All to Object and History"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamDataType",
+              "oldValue": "String",
+              "newValue": "Boolean"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParameterValueSource",
+              "oldValue": "0",
+              "newValue": "7",
+              "oldValueFriendly": "Recipe",
+              "newValueFriendly": "Neither"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamMinimumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamMaximumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Execute_Step.ParamValue",
+              "oldValue": "",
+              "newValue": "true"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchPhaseParameters",
+              "newValue": "66d55526-a119-4360-b9e8-cb0f5223a234|Skip_Count"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamUUID",
+              "oldValue": "",
+              "newValue": "b20b17da-1433-43a6-80f0-3f29788f71f1"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamFriendlyName",
+              "oldValue": "",
+              "newValue": "Skip_Count"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamKind",
+              "oldValue": "0",
+              "newValue": "6",
+              "oldValueFriendly": "unknown",
+              "newValueFriendly": "Built-in"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamImmutable",
+              "oldValue": "false",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamRecordingType",
+              "oldValue": "1",
+              "newValue": "4",
+              "oldValueFriendly": "Changes Not Saved",
+              "newValueFriendly": "All to Object and History"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamDataType",
+              "oldValue": "String",
+              "newValue": "Long"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParameterValueSource",
+              "oldValue": "0",
+              "newValue": "7",
+              "oldValueFriendly": "Recipe",
+              "newValueFriendly": "Neither"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamMinimumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamMaximumValue",
+              "oldValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchPhaseParameters.Skip_Count.ParamValue",
+              "oldValue": "",
+              "newValue": "0"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

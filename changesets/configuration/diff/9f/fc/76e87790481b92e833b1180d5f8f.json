@@ -1,0 +1,36 @@
+{
+  "changesetData": {
+    "uuid": "9ffc76e8-7790-481b-92e8-33b1180d5f8f",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:16.421Z",
+    "appliedOnChangesetUUID": "e2131351-bc1e-4a81-9cbe-831efafc2008",
+    "hash": "ccafcd815c927f914a93b99a9c8c91d5e5db936701223ccf4d149df826a7d306",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:16.405385300Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Definition": {
+        "cf4e729b-be38-4fd4-b758-9d8b0504b179": {
+          "meta": {
+            "name": "Lot_Status"
+          },
+          "changes": [
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in enum for Lot Status options on Material Properties."
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

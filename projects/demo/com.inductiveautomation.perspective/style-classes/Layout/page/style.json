@@ -1,0 +1,18 @@
+{
+  "base": {
+    "style": {
+      "padding": "10px"
+    }
+  },
+  "variants": [
+    {
+      "media": {
+        "feature": "maxWidth",
+        "value": "760px"
+      },
+      "style": {
+        "padding": "8px"
+      }
+    }
+  ]
+}

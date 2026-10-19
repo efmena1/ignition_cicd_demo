@@ -1,0 +1,27 @@
+{
+  "pages": {
+    "/": {
+      "title": "Home",
+      "viewPath": ""
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom",
+    "top": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 52,
+        "viewParams": {},
+        "viewPath": "Layout/Header"
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "base": {
+    "style": {
+      "borderTopLeftRadius": "8px",
+      "borderTopRightRadius": "8px",
+      "borderBottomLeftRadius": "8px",
+      "borderBottomRightRadius": "8px",
+      "color": "var(--neutral-70)",
+      "cursor": "pointer"
+    }
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "animation": {
+        "duration": "0.3s",
+        "direction": "reverse",
+        "iterationCount": "1",
+        "timingFunction": "ease-in",
+        "fillMode": "forwards",
+        "keyframes": {
+          "0%": {
+            "backgroundColor": "var(--neutral-30)",
+            "color": "var(--neutral-100)"
+          },
+          "100%": {}
+        }
+      }
+    }
+  ]
+}

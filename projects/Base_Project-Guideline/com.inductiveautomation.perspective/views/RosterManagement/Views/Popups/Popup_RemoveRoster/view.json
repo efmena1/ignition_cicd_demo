@@ -1,0 +1,137 @@
+{
+  "custom": {},
+  "params": {
+    "roster": ""
+  },
+  "propConfig": {
+    "params.roster": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 120,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\u0027Are you sure you want to remove \"\u0027 + {view.params.roster} + \u0027\"?\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginBottom": "10px",
+            "marginTop": "10px",
+            "paddingLeft": "10px",
+            "paddingRight": "10px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.roster.deleteRoster(self.view.params.roster)\n\t\t\n\t# Update roster to reflect the changes and close popup.\n\tsystem.perspective.sendMessage(messageType\u003d\"RosterManagement_UpdateTable\", scope\u003d\"page\")\n\tsystem.perspective.closePopup(\u0027RosterManagement_RemoveRoster\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Yes"
+            },
+            "position": {
+              "basis": "100px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "classes": "RosterManagement/Buttons/Removal"
+              },
+              "text": "Yes"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "draggable": true,
+                    "id": "RosterManagement_RemoveRoster",
+                    "modal": false,
+                    "overlayDismiss": false,
+                    "resizable": true,
+                    "showCloseIcon": true,
+                    "type": "close",
+                    "viewPath": "RosterManagement/Views/Popups/Popup_CheckRemoval"
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "No"
+            },
+            "position": {
+              "basis": "100px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "classes": "RosterManagement/Buttons/Cancel"
+              },
+              "text": "No"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Buttons"
+        },
+        "position": {
+          "basis": "40px",
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-evenly"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "justify": "center",
+      "style": {
+        "classes": "ScheduleManagement/InputFont",
+        "textAlign": "center"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

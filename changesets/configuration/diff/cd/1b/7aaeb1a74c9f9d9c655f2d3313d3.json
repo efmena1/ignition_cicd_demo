@@ -1,0 +1,86 @@
+{
+  "changesetData": {
+    "uuid": "cd1b7aae-b1a7-4c9f-9d9c-655f2d3313d3",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "emena",
+    "appliedAt": "2026-10-15T05:17:53.797Z",
+    "appliedOnChangesetUUID": "11d68366-b8ae-47e2-962f-b40f8dbb4a87",
+    "hash": "1284afd1951587f7569b34829aa648c01d5a503a415ff9b23511876156764974",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:17:53.774207Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Area": {
+        "45e5b7ef-8d33-40e5-9983-da435a8b417b": {
+          "meta": {
+            "name": "Area"
+          },
+          "changes": [
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "19d7a5d3-31e3-43a4-bf9a-3825f8087e5a|ProcessCell",
+              "friendlyPath": "Enterprise\\Site\\Area\\New Process Cell",
+              "newValueFriendly": "New Process Cell"
+            }
+          ]
+        }
+      },
+      "Process Cell": {
+        "19d7a5d3-31e3-43a4-bf9a-3825f8087e5a": {
+          "meta": {
+            "name": "New Process Cell"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "19d7a5d3-31e3-43a4-bf9a-3825f8087e5a"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentActiveType",
+              "oldValue": "ACTIVE",
+              "newValue": "INACTIVE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentCellOrder",
+              "newValue": "0"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "45e5b7ef-8d33-40e5-9983-da435a8b417b|Area",
+              "friendlyPath": "Enterprise\\Site\\Area",
+              "newValueFriendly": "Area"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "New Process Cell"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentPath",
+              "oldValue": "",
+              "newValue": "Enterprise\\Site\\Area\\New Process Cell"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

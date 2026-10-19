@@ -1,0 +1,35 @@
+{
+  "changesetData": {
+    "uuid": "6fb3057c-4748-4415-b96e-c43d16542692",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:14.635Z",
+    "appliedOnChangesetUUID": "3e80989f-82a6-4607-be39-ad9377052e29",
+    "hash": "cf695bea945e45c93892c8823f0f72f81a7f98e989415f65d5e8a314760ee196",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:14.620255500Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Definition": {
+        "438d5b14-f8ce-4bb9-bf31-8ed68f5a11ce": {
+          "meta": {
+            "name": "Script"
+          },
+          "changes": [
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "29253d25-5b15-4a67-9bcd-f8239b1b31c4|No Operation"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

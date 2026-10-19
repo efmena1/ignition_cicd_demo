@@ -1,0 +1,107 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "flx_header"
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "50px"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "gap": "10px",
+            "alignItems": "center"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "mesObjectSelector"
+            },
+            "type": "mes.production.mesObjectSelector",
+            "position": {
+              "basis": "340px"
+            },
+            "props": {
+              "displayText": "Equipment",
+              "style": {
+                "margin": "4px 6px",
+                "overflow": "visible"
+              },
+              "includeMESEnterpriseObjects": true,
+              "includeMESSiteObjects": true,
+              "includeMESAreaObjects": true,
+              "includeMESLineObjects": true,
+              "includeMESLineCellObjects": true
+            }
+          },
+          {
+            "meta": {
+              "name": "scoSelectorCombo"
+            },
+            "type": "mes.recipe.scoSelectorCombo",
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "margin": "4px 6px",
+                "overflow": "visible"
+              }
+            },
+            "propConfig": {
+              "props.equipmentPath": {
+                "binding": {
+                  "config": {
+                    "path": "../mesObjectSelector.props.selectedMESObject.equipmentPath"
+                  },
+                  "type": "property"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "scoEditorTable"
+        },
+        "type": "mes.recipe.scoEditorTable",
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.equipmentPath": {
+            "binding": {
+              "config": {
+                "path": "../flx_header/mesObjectSelector.props.selectedMESObject.equipmentPath"
+              },
+              "type": "property"
+            }
+          },
+          "props.recipeName": {
+            "binding": {
+              "config": {
+                "path": "../flx_header/scoSelectorCombo.props.selectedRecipeName"
+              },
+              "type": "property"
+            }
+          }
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

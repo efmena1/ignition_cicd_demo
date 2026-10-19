@@ -1,0 +1,122 @@
+{
+  "changesetData": {
+    "uuid": "34069330-49f8-4ae2-9dba-9b749adaed20",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:16.471Z",
+    "appliedOnChangesetUUID": "9ffc76e8-7790-481b-92e8-33b1180d5f8f",
+    "hash": "69f1ddc19f9bd4b15d40f38b24812ce425d07e0573c9ea0419694694723c0fe1",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:16.446024400Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Root": {
+        "a3fc72c4-6a3b-11ea-bc55-0242ac130003": {
+          "meta": {
+            "name": "Enum Definitions"
+          },
+          "changes": [
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "adb4208b-e1f6-47e4-bcfa-55d96ca41535|EnumDefinition",
+              "newValueFriendly": "Material_UOM"
+            }
+          ]
+        }
+      },
+      "Enum Definition": {
+        "adb4208b-e1f6-47e4-bcfa-55d96ca41535": {
+          "meta": {
+            "name": "Material_UOM"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "adb4208b-e1f6-47e4-bcfa-55d96ca41535"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Material_UOM"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "System Modifiable"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "26be8172-596b-4da5-8a74-3c2f3313712b|__BLANK__"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "42182a0f-5767-4d2c-8aa4-1f1ee1daa6ed|Each"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.Each.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "1"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "da4dbd0a-16f9-4987-a0b9-3d7ddc95515e|Bundle"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.Bundle.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "2"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "a24829cf-cb3c-4ea5-bbf6-e7e5ad6f4900|Case"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.Case.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "3"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "7bb838e6-5ba3-43a7-bf52-e974060d6025|Pallet"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.Pallet.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "4"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "a3fc72c4-6a3b-11ea-bc55-0242ac130003|EnumRoot",
+              "newValueFriendly": "Enum Definitions"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

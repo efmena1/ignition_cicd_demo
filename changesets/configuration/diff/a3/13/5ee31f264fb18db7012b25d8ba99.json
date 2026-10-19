@@ -1,0 +1,36 @@
+{
+  "changesetData": {
+    "uuid": "a3135ee3-1f26-4fb1-8db7-012b25d8ba99",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:16.521Z",
+    "appliedOnChangesetUUID": "34069330-49f8-4ae2-9dba-9b749adaed20",
+    "hash": "4d057208b64235fdbe9724deedfe29bf2ba8a82f65cdbd75d0948192f498ba3a",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:16.504386100Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Definition": {
+        "adb4208b-e1f6-47e4-bcfa-55d96ca41535": {
+          "meta": {
+            "name": "Material_UOM"
+          },
+          "changes": [
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in enum for Unit of Measure (UOM) options on Material Properties."
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

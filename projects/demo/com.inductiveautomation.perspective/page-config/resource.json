@@ -1,0 +1,16 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModificationSignature": "cfee9f2e0874fa024b3857024b936a63593059f8705d456e844fa4c0343a96d5",
+    "lastModification": {
+      "actor": "emena",
+      "timestamp": "2026-10-15T05:12:48Z"
+    }
+  }
+}

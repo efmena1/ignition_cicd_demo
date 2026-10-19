@@ -1,0 +1,184 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "flx_dates"
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "56px"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "gap": "10px",
+            "alignItems": "center"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "mesObjectSelector"
+            },
+            "type": "mes.production.mesObjectSelector",
+            "position": {
+              "basis": "340px"
+            },
+            "props": {
+              "displayText": "Equipment",
+              "style": {
+                "margin": "4px 6px",
+                "overflow": "visible"
+              },
+              "includeMESLineCellObjects": true,
+              "includeMESLineObjects": true,
+              "includeMESLocationObjects": true,
+              "showEquipmentPath": true
+            }
+          },
+          {
+            "meta": {
+              "name": "DateTimeInputFrom"
+            },
+            "type": "ia.input.date-time-input",
+            "position": {
+              "basis": "220px"
+            },
+            "props": {
+              "style": {
+                "margin": "4px 6px"
+              }
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "expression": "dateArithmetic(now(0), -1, \"day\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "DateTimeInputTo"
+            },
+            "type": "ia.input.date-time-input",
+            "position": {
+              "basis": "220px"
+            },
+            "props": {
+              "style": {
+                "margin": "4px 6px"
+              }
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "expression": "now(0)"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "Body"
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "0px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "gap": "12px"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "mesAnalysisSelector"
+            },
+            "type": "mes.production.mesAnalysisSelector",
+            "position": {
+              "basis": "300px",
+              "shrink": 0
+            },
+            "props": {
+              "filterParams": [
+                {
+                  "param": "path",
+                  "type": "string"
+                }
+              ]
+            },
+            "propConfig": {
+              "props.startDate": {
+                "binding": {
+                  "config": {
+                    "path": ".../flx_dates/DateTimeInputFrom.props.value"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.endDate": {
+                "binding": {
+                  "config": {
+                    "path": ".../flx_dates/DateTimeInputTo.props.value"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.filterParams[0].value": {
+                "binding": {
+                  "config": {
+                    "path": ".../flx_dates/mesObjectSelector.props.selectedMESObject.equipmentPath"
+                  },
+                  "type": "property"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "mesAnalysisTable"
+            },
+            "type": "mes.production.mesAnalysisTable",
+            "position": {
+              "basis": "0px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.data": {
+                "binding": {
+                  "config": {
+                    "path": "../mesAnalysisSelector.props.data"
+                  },
+                  "type": "property"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

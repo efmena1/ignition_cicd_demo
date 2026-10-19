@@ -1,0 +1,310 @@
+/* Direct stylesheet authoring is an advanced feature. Knowledge of CSS required.*/
+
+/* ==========================================================================
+   Modern, restrained look for this training starter.
+
+   No new brand palette - everything below is built on Ignition's own
+   --neutral-N / --callToActionHighlight theme tokens, so it stays one
+   consistent muted accent (whatever the session theme's accent color is)
+   instead of introducing new hex colors. Not dark-mode-tuned specifically;
+   the --neutral-N tokens already adapt with the session theme on their own.
+
+   Selectors are Ignition's own internal .ia_-prefixed component classes
+   (unscoped, so every instance of a component gets this project-wide) -
+   confirmed real/live against a working sibling project's stylesheet.css
+   (Finite Scheduling/8066/Workshop) plus AI-Knowledge-Repo's
+   ignition-perspective-table-styling skill, not guessed.
+   ========================================================================== */
+
+.psc-stylesheet {}
+
+/* --------------------------------------------------------------------
+   Tables
+   -------------------------------------------------------------------- */
+
+.ia_tableComponent {
+	border-radius: 8px;
+	overflow: hidden;
+	background: var(--neutral-10);
+	border: 1px solid var(--neutral-30);
+	box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+
+.ia_tableComponent__filterContainer {
+	background: var(--neutral-20);
+	padding: 10px 14px;
+	border-bottom: 1px solid var(--neutral-30);
+}
+
+.ia_tableComponent__filterContainer .ia_inputField {
+	background: var(--neutral-10);
+	border: 1px solid var(--neutral-40);
+	border-radius: 6px;
+	padding: 6px 10px;
+	font-size: 13px;
+	color: var(--neutral-100);
+	transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.ia_tableComponent__filterContainer .ia_inputField:focus {
+	border-color: var(--callToActionHighlight);
+	box-shadow: 0 0 0 2px color-mix(in srgb, var(--callToActionHighlight) 25%, transparent);
+	outline: none;
+}
+
+.filterResults {
+	color: var(--neutral-80);
+	font-size: 12px;
+}
+
+.ia_table__head__header {
+	background: var(--neutral-20);
+	border-bottom: 2px solid var(--neutral-30);
+}
+
+.ia_table__head__header__cell {
+	font-weight: 600;
+	font-size: 12px;
+	letter-spacing: .03em;
+	text-transform: uppercase;
+	color: var(--neutral-90);
+	padding: 10px 14px !important;
+}
+
+.ia_table__head__header__cell.sortable:hover {
+	background: var(--neutral-30);
+	cursor: pointer;
+}
+
+.ia_table__head__header__sort {
+	opacity: .5;
+	transition: opacity .15s ease;
+}
+
+.ia_table__head__header__cell:hover .ia_table__head__header__sort {
+	opacity: 1;
+}
+
+.ia_table__body__row--even {
+	background: var(--neutral-10);
+}
+
+.ia_table__body__row--odd {
+	background: var(--neutral-20);
+}
+
+.ia_table__body__rowGroup {
+	transition: background-color .15s ease;
+}
+
+.ia_table__body__rowGroup:hover {
+	background: color-mix(in srgb, var(--callToActionHighlight) 8%, var(--neutral-10) 92%) !important;
+}
+
+.ia_table__cell {
+	padding: 10px 14px !important;
+	font-size: 13px;
+	color: var(--neutral-100);
+	border-bottom: 1px solid var(--neutral-30);
+}
+
+.ia_pager {
+	background: var(--neutral-20);
+	border-top: 1px solid var(--neutral-30);
+	padding: 8px 0;
+}
+
+.ia_pager__page {
+	border-radius: 999px;
+	min-width: 26px;
+	height: 26px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 3px;
+	font-size: 12px;
+	color: var(--neutral-80);
+	transition: background-color .15s ease, color .15s ease;
+}
+
+.ia_pager__page:hover {
+	background: var(--neutral-30);
+	cursor: pointer;
+}
+
+.ia_pager__page--active {
+	background: var(--callToActionHighlight);
+	color: var(--neutral-10);
+	font-weight: 600;
+}
+
+/* Scrollbar - Chromium engine is what Perspective clients actually run,
+   scrollbar-width/-color included anyway as a harmless Firefox fallback. */
+.ia_tableComponent .ReactVirtualized__Grid {
+	scrollbar-width: thin;
+	scrollbar-color: var(--neutral-40) var(--neutral-20);
+}
+
+.ia_tableComponent .ReactVirtualized__Grid::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+.ia_tableComponent .ReactVirtualized__Grid::-webkit-scrollbar-track {
+	background: var(--neutral-20);
+}
+
+.ia_tableComponent .ReactVirtualized__Grid::-webkit-scrollbar-thumb {
+	background-color: var(--neutral-40);
+	border-radius: 999px;
+	border: 2px solid var(--neutral-20);
+}
+
+.ia_tableComponent .ReactVirtualized__Grid::-webkit-scrollbar-thumb:hover {
+	background-color: var(--neutral-60);
+}
+
+.ia_tableComponent .ReactVirtualized__Grid::-webkit-scrollbar-button {
+	display: none;
+}
+
+/* --------------------------------------------------------------------
+   Dropdowns (mesObjectSelector/mesLotSelector/combo boxes are all built
+   on Perspective's own base dropdown widget, so this covers every MES
+   picker in the project too, not just plain Dropdown components).
+   -------------------------------------------------------------------- */
+
+.ia_dropdown {
+	border-radius: 6px;
+	border: 1px solid var(--neutral-40);
+	background: var(--neutral-10);
+	transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.ia_dropdown:hover {
+	border-color: var(--neutral-60);
+}
+
+.ia_dropdown.ia_dropdown--active,
+.ia_dropdown:focus-within {
+	border-color: var(--callToActionHighlight);
+	box-shadow: 0 0 0 2px color-mix(in srgb, var(--callToActionHighlight) 20%, transparent);
+}
+
+.ia_dropdown__placeholder {
+	color: var(--neutral-70);
+}
+
+.ia_dropdown__expandIcon {
+	color: var(--neutral-60);
+	transition: transform .15s ease;
+}
+
+.ia_dropdown.ia_dropdown--active .ia_dropdown__expandIcon {
+	transform: rotate(180deg);
+}
+
+.ia_dropdown__optionsModal {
+	border-radius: 8px;
+	overflow: hidden;
+	border: 1px solid var(--neutral-30);
+	box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+
+.iaDropdownCommon_options {
+	background: var(--neutral-10);
+	padding: 4px;
+}
+
+.ia_dropdown__option {
+	border-radius: 6px;
+	margin: 2px;
+	padding: 8px 10px !important;
+	color: var(--neutral-100);
+	transition: background-color .12s ease;
+}
+
+.ia_dropdown__option:hover {
+	background: var(--neutral-20);
+}
+
+.ia_dropdown__option.selected,
+.ia_dropdown__option--selected {
+	background: color-mix(in srgb, var(--callToActionHighlight) 16%, var(--neutral-10) 84%) !important;
+	color: var(--neutral-100) !important;
+}
+
+/* --------------------------------------------------------------------
+   Containers - popup/modal chrome (the one generic "container" class
+   Ignition exposes project-wide; a plain Flex/Coordinate container has
+   no confirmed .ia_ class to hook into from here, so those stay styled
+   inline per-screen instead - see the Card-style headers/READMEs).
+   -------------------------------------------------------------------- */
+
+.ia_popup {
+	border-radius: 16px;
+	overflow: hidden;
+	box-shadow: 0 20px 48px rgba(0,0,0,.28);
+}
+
+.ia_popup_header {
+	padding: 10px 14px;
+	font-weight: 600;
+	letter-spacing: .2px;
+	border-bottom: 1px solid rgba(0,0,0,.06);
+}
+
+/* --------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------- */
+
+.ia-button {
+	border-radius: 6px;
+	transition: filter .15s ease;
+}
+
+.ia-button:hover {
+	filter: brightness(.96);
+}
+
+/* --------------------------------------------------------------------
+   Tab container (Trace/Operation Patterns) - clean rounded pills, no
+   gradients/glow, just a clear active state.
+   -------------------------------------------------------------------- */
+
+.ia_tabContainerComponent__tabs {
+	display: flex;
+	gap: 4px;
+	padding: 4px;
+	border-radius: 10px;
+	background: var(--neutral-20);
+}
+
+.ia_tabContainerComponent__tab--classic {
+	border-radius: 8px;
+	padding: 8px 16px;
+	color: var(--neutral-80);
+	font-size: 13px;
+	font-weight: 500;
+	transition: background-color .15s ease, color .15s ease;
+}
+
+.ia_tabContainerComponent__tab--classic:hover {
+	background: var(--neutral-30);
+	color: var(--neutral-100);
+}
+
+.ia_tabContainerComponent__tab--classic.ia_tabContainerComponent__tab--classic--active {
+	background: var(--neutral-10);
+	color: var(--neutral-100);
+	font-weight: 600;
+	box-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+
+/* --------------------------------------------------------------------
+   Nav menu (Docks/Menu) - styled entirely by the Menu/Menu, Menu/Item and
+   Menu/All_Header Style Classes (copied from the Batch Demo project,
+   Ignition-8089/BatchStarter) so this project matches its formatting.
+   Deliberately no .ia_menuTreeComponent* rules here - they would override
+   the Style Classes.
+   -------------------------------------------------------------------- */

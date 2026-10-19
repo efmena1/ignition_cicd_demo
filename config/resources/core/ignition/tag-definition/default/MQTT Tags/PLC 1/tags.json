@@ -1,0 +1,32 @@
+[
+  {
+    "dataType": "Int4",
+    "defaultValue": 1,
+    "name": "Example Tag",
+    "readOnly": false,
+    "readPermissions": {
+      "securityLevels": [],
+      "type": "AllOf"
+    },
+    "tagType": "AtomicTag",
+    "writePermissions": {
+      "securityLevels": [],
+      "type": "AllOf"
+    }
+  },
+  {
+    "dataType": "String",
+    "defaultValue": "This folder contains tags tied to an MQTT Transmission \u0027Transmitter\u0027 configuration. Any tags added directly under the \u0027MQTT Tags\u0027 folder will be published to the configured MQTT Server. Additional information about how to modify this configuration to represent different tag structures can be found here: https://docs.chariot.io/display/CLD80/MQTT+Transmission+Transmitters+and+Tag+Trees",
+    "name": "MQTT Quickstart",
+    "readOnly": true,
+    "readPermissions": {
+      "securityLevels": [],
+      "type": "AllOf"
+    },
+    "tagType": "AtomicTag",
+    "writePermissions": {
+      "securityLevels": [],
+      "type": "AllOf"
+    }
+  }
+]

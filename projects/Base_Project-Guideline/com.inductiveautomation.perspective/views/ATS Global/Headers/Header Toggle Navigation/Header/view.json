@@ -1,0 +1,409 @@
+{
+  "custom": {},
+  "params": {
+    "params": {
+      "Title": ""
+    },
+    "size": "medium"
+  },
+  "propConfig": {
+    "params.params": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.size": {
+      "paramDirection": "input"
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 50,
+      "width": 1325
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "id": "menu-cover",
+                "type": "toggle"
+              },
+              "scope": "C",
+              "type": "dock"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon_Menu"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "props": {
+          "path": "material/menu",
+          "style": {
+            "classes": "ats-global/headers/action-labels ats-global/headers/primary-labels"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Left Section"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "gap": "3px",
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "page": "/"
+              },
+              "scope": "C",
+              "type": "nav"
+            }
+          }
+        },
+        "meta": {
+          "name": "ATS-Global-Corporate-Logo"
+        },
+        "position": {
+          "basis": "90px",
+          "shrink": 0
+        },
+        "props": {
+          "fit": {
+            "mode": "contain"
+          },
+          "source": "data:image/png;base64,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\u003d\u003d",
+          "style": {
+            "padding": "5px"
+          }
+        },
+        "type": "ia.display.image"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "ScreenName",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "meta.tooltip.text": {
+            "binding": {
+              "config": {
+                "path": "this.props.text"
+              },
+              "type": "property"
+            }
+          },
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "{page.props.dimensions.primaryView.width} \u003e 600"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "page.props.title"
+              },
+              "enabled": false,
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "padding": "10px"
+          },
+          "text": "BASE PROJECT",
+          "textStyle": {
+            "classes": "ats-global/headers/primary-labels",
+            "fontSize": "20px",
+            "fontWeight": "lighter",
+            "lineHeight": "18px",
+            "marginTop": "6px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\t\n\tx \u003d event[\u0027pageX\u0027]\n\ty \u003d event[\u0027pageY\u0027]\n\t\n\tposition \u003d {\n\t\t\u0027left\u0027: x - 220,\n\t\t\u0027top\u0027: 50\n\t}\n\t\n\t\n\tsystem.perspective.openPopup(\n\t\t\u0027header\u0027, \n\t\tview \u003d \u0027ATS Global/Headers/Shortcuts/Shortcuts\u0027,\n\t\tshowCloseIcon \u003d False,\n\t\tmodal \u003d True,\n\t\toverlayDismiss \u003d True,\n\t\tdraggable \u003d False,\n\t\tposition \u003d position,\n\t\tbackgroundDimissible \u003d False\n\t)\n"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "props": {
+          "path": "material/more_vert",
+          "style": {
+            "classes": "ats-global/headers/action-labels ats-global/headers/primary-labels",
+            "marginRight": "-5px"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tif self.session.props.auth.authenticated:\t\n\t\tx \u003d event[\u0027pageX\u0027]\n\t\ty \u003d event[\u0027pageY\u0027]\n\t\t\n\t\tposition \u003d {\n\t\t\t\u0027left\u0027: x - 220,\n\t\t\t\u0027top\u0027: 50\n\t\t}\n\t\t\n\t\t\n\t\tsystem.perspective.openPopup(\n\t\t\t\u0027header\u0027, \n\t\t\tview \u003d \u0027ATS Global/Headers/User Details/UserInfo\u0027,\n\t\t\tshowCloseIcon \u003d False,\n\t\t\tmodal \u003d True,\n\t\t\toverlayDismiss \u003d True,\n\t\t\tdraggable \u003d False,\n\t\t\tposition \u003d position\n\t\t)\n\telse:\n\t\tsystem.perspective.login()"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "User"
+        },
+        "position": {
+          "basis": "35px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "path": "session.props.auth.authenticated"
+              },
+              "transforms": [
+                {
+                  "fallback": "ats-global/headers/secondary-labels",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "ats-global/headers/action-labels ats-global/headers/primary-labels"
+                    }
+                  ],
+                  "outputType": "style-list",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "material/account_circle",
+          "style": {
+            "cursor": "pointer",
+            "marginLeft": "5px",
+            "marginRight": "1px"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tif self.session.props.auth.authenticated:\t\n\t\tx \u003d event[\u0027pageX\u0027]\n\t\ty \u003d event[\u0027pageY\u0027]\n\t\t\n\t\tposition \u003d {\n\t\t\t\u0027left\u0027: x - 220,\n\t\t\t\u0027top\u0027: 50\n\t\t}\n\t\t\n\t\t\n\t\tsystem.perspective.openPopup(\n\t\t\t\u0027header\u0027, \n\t\t\tview \u003d \u0027ATS Global/Headers/User Details/UserInfo\u0027,\n\t\t\tshowCloseIcon \u003d False,\n\t\t\tmodal \u003d True,\n\t\t\toverlayDismiss \u003d True,\n\t\t\tdraggable \u003d False,\n\t\t\tposition \u003d position\n\t\t)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{session.props.auth.user.userName} !\u003d NULL"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.auth.user.userName"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tfirstName \u003d self.session.props.auth.user.firstName if self.session.props.auth.user.firstName !\u003d None else \u0027\u0027\n\tlastName \u003d self.session.props.auth.user.lastName if self.session.props.auth.user.lastName !\u003d None else \u0027\u0027\n\tuser \u003d firstName + \u0027 \u0027 + lastName\n\treturn user",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "alignVertical": "top",
+              "style": {
+                "classes": "ats-global/headers/primary-labels",
+                "cursor": "pointer",
+                "fontSize": "15px"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tif self.session.props.auth.authenticated:\t\n\t\tx \u003d event[\u0027pageX\u0027]\n\t\ty \u003d event[\u0027pageY\u0027]\n\t\t\n\t\tposition \u003d {\n\t\t\t\u0027left\u0027: x - 220,\n\t\t\t\u0027top\u0027: 50\n\t\t}\n\t\t\n\t\t\n\t\tsystem.perspective.openPopup(\n\t\t\t\u0027header\u0027, \n\t\t\tview \u003d \u0027ATS Global/Headers/User Details/UserInfo\u0027,\n\t\t\tshowCloseIcon \u003d False,\n\t\t\tmodal \u003d True,\n\t\t\toverlayDismiss \u003d True,\n\t\t\tdraggable \u003d False,\n\t\t\tposition \u003d position\n\t\t)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Label_1"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.auth.user.userName"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value \u003d\u003d None:\n\t\treturn \u0027\u0027\n\treturn value",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "ats-global/headers/secondary-labels",
+                "cursor": "pointer",
+                "fontSize": "12px"
+              },
+              "textStyle": {
+                "marginLeft": "2px"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "forceAuth": false
+                  },
+                  "scope": "C",
+                  "type": "login"
+                }
+              }
+            },
+            "meta": {
+              "name": "Label_2"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{session.props.auth.user.userName} \u003d NULL"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "ats-global/headers/action-labels ats-global/headers/secondary-labels",
+                "cursor": "pointer",
+                "fontSize": "15px",
+                "marginRight": "10px"
+              },
+              "text": "Sign In"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_User"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "justify": "center",
+          "style": {
+            "marginRight": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "var(--neutral-10)",
+        "borderBottomColor": "var(--neutral-20)",
+        "borderBottomStyle": "solid",
+        "borderBottomWidth": "1px",
+        "borderLeftStyle": "none",
+        "borderRightStyle": "none",
+        "borderTopStyle": "none",
+        "classes": "header",
+        "overflow": "hidden",
+        "padding": "0px 12px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

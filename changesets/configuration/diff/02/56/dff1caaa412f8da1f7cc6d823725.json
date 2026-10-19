@@ -1,0 +1,59 @@
+{
+  "changesetData": {
+    "uuid": "0256dff1-caaa-412f-8da1-f7cc6d823725",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "emena",
+    "appliedAt": "2026-10-15T05:19:10.823Z",
+    "appliedOnChangesetUUID": "648dded4-0882-40e4-8693-79f1245d4a07",
+    "hash": "442ac8eee2cb54c42ddbde8c32402d255ece0dbbd2362e8a0d32c901f4200d0c",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:19:10.801563900Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Unit": {
+        "d4ba74a0-1fb4-4099-b3a0-28ac0429880d": {
+          "meta": {
+            "name": "New Unit"
+          },
+          "changes": [
+            {
+              "changeType": "ParentRemoved",
+              "changePath": "[parent]",
+              "oldValue": "19d7a5d3-31e3-43a4-bf9a-3825f8087e5a|ProcessCell",
+              "friendlyPath": "Enterprise\\Site\\Area\\Process Cell",
+              "oldValueFriendly": "Process Cell"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Enabled",
+              "oldValue": "true",
+              "newValue": "false"
+            }
+          ]
+        }
+      },
+      "Process Cell": {
+        "19d7a5d3-31e3-43a4-bf9a-3825f8087e5a": {
+          "meta": {
+            "name": "Process Cell"
+          },
+          "changes": [
+            {
+              "changeType": "ChildRemoved",
+              "changePath": "[child]",
+              "oldValue": "d4ba74a0-1fb4-4099-b3a0-28ac0429880d|Unit",
+              "friendlyPath": "Enterprise\\Site\\Area\\Process Cell\\New Unit",
+              "oldValueFriendly": "New Unit"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

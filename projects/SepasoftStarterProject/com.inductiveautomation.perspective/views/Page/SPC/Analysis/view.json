@@ -1,0 +1,975 @@
+{
+  "custom": {},
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\n\tself.getChild(\"root\").getChild(\"Header\").getChild(\"DateContainer\").getChild(\"endDate\").props.value = system.date.now()\n\tself.getChild(\"root\").getChild(\"Header\").getChild(\"DateContainer\").getChild(\"startDate\").props.value  = system.date.addHours(system.date.now(),-8)"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "permissions": {
+    "securityLevels": [],
+    "type": "AnyOf"
+  },
+  "props": {
+    "defaultSize": {
+      "height": 1080,
+      "width": 2051
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "50px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "..../BodyContainer/sideBar/spcAnalysisSelector.props.spcChartSettings.settings.spcDataFormat"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif value:\n\t\treturn 'SPC Data Format: ' + value\n\treturn ''",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "flx_message"
+            },
+            "position": {
+              "basis": "350px",
+              "grow": 1
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "props": {
+                  "style": {
+                    "fontFamily": "Roboto",
+                    "marginLeft": 15,
+                    "marginRight": 15,
+                    "textAlign": "right"
+                  },
+                  "text": "From"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "startDate"
+                },
+                "props": {
+                  "formattedValue": "Nov 1, 2025 5:36 AM",
+                  "placeholder": "Start Date",
+                  "style": {
+                    "marginLeft": 15,
+                    "marginRight": 15
+                  },
+                  "value": {
+                    "$": [
+                      "ts",
+                      0,
+                      1762378768930
+                    ],
+                    "$ts": 1762000563000
+                  }
+                },
+                "type": "ia.input.date-time-input"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "props": {
+                  "style": {
+                    "fontFamily": "Roboto",
+                    "marginLeft": 15,
+                    "marginRight": 15,
+                    "textAlign": "right"
+                  },
+                  "text": "To"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "endDate"
+                },
+                "props": {
+                  "formattedValue": "Nov 6, 2025 1:36 PM",
+                  "placeholder": "End Date",
+                  "style": {
+                    "marginLeft": 15,
+                    "marginRight": 15
+                  },
+                  "value": {
+                    "$": [
+                      "ts",
+                      0,
+                      1762379173784
+                    ],
+                    "$ts": 1762464964000
+                  }
+                },
+                "type": "ia.input.date-time-input"
+              }
+            ],
+            "meta": {
+              "name": "DateContainer"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "justify": "center"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tself.parent.parent.parent.getChild(\"BodyContainer\").getChild(\"Table\").position.display = True\n\tself.parent.parent.parent.getChild(\"BodyContainer\").getChild(\"Charts\").position.display = False"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "icon_table"
+                },
+                "position": {
+                  "basis": "50px"
+                },
+                "props": {
+                  "path": "material/table_view",
+                  "style": {
+                    "cursor": "pointer",
+                    "marginLeft": 20,
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tself.parent.parent.parent.getChild(\"BodyContainer\").getChild(\"Table\").position.display = False\n\tself.parent.parent.parent.getChild(\"BodyContainer\").getChild(\"Charts\").position.display = True"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "contextMenu": {
+                    "enabled": true,
+                    "items": [
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {
+                            "chartType": "Individual"
+                          },
+                          "scope": "page",
+                          "type": "showChart"
+                        },
+                        "method": {
+                          "name": "showChart",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Individual",
+                        "type": "message"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {
+                            "chartType": "XBarR"
+                          },
+                          "scope": "page",
+                          "type": "showChart"
+                        },
+                        "method": {
+                          "name": "showChart",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "XBar",
+                        "type": "message"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {
+                            "chartType": "Box and Whisker"
+                          },
+                          "scope": "page",
+                          "type": "showChart"
+                        },
+                        "method": {
+                          "name": "showChart",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Box and Whisker",
+                        "type": "message"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {
+                            "chartType": "C"
+                          },
+                          "scope": "page",
+                          "type": "showChart"
+                        },
+                        "method": {
+                          "name": "showChart",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "C",
+                        "type": "message"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {
+                            "chartType": "Histogram"
+                          },
+                          "scope": "page",
+                          "type": "showChart"
+                        },
+                        "method": {
+                          "name": "showChart",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Histogram",
+                        "type": "message"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {
+                            "chartType": "Median"
+                          },
+                          "scope": "page",
+                          "type": "showChart"
+                        },
+                        "method": {
+                          "name": "showChart",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Median",
+                        "type": "message"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {
+                            "chartType": "Moving Range"
+                          },
+                          "scope": "page",
+                          "type": "showChart"
+                        },
+                        "method": {
+                          "name": "showChart",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Moving Range",
+                        "type": "message"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {
+                            "chartType": "NP"
+                          },
+                          "scope": "page",
+                          "type": "showChart"
+                        },
+                        "method": {
+                          "name": "showChart",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "NP",
+                        "type": "message"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {
+                            "chartType": "P"
+                          },
+                          "scope": "page",
+                          "type": "showChart"
+                        },
+                        "method": {
+                          "name": "showChart",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "P",
+                        "type": "message"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {
+                            "chartType": "Pareto"
+                          },
+                          "scope": "page",
+                          "type": "showChart"
+                        },
+                        "method": {
+                          "name": "showChart",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Pareto",
+                        "type": "message"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {
+                            "chartType": "Process Capability and Performance"
+                          },
+                          "scope": "page",
+                          "type": "showChart"
+                        },
+                        "method": {
+                          "name": "showChart",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Process Capability and Performance",
+                        "type": "message"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {
+                            "chartType": "Process Performance"
+                          },
+                          "scope": "page",
+                          "type": "showChart"
+                        },
+                        "method": {
+                          "name": "showChart",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Process Performance",
+                        "type": "message"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {
+                            "chartType": "Process Capability"
+                          },
+                          "scope": "page",
+                          "type": "showChart"
+                        },
+                        "method": {
+                          "name": "showChart",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Process Capability",
+                        "type": "message"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {
+                            "chartType": "XBarS"
+                          },
+                          "scope": "page",
+                          "type": "showChart"
+                        },
+                        "method": {
+                          "name": "showChart",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "XBarS",
+                        "type": "message"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {
+                            "chartType": "U"
+                          },
+                          "scope": "page",
+                          "type": "showChart"
+                        },
+                        "method": {
+                          "name": "showChart",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "U",
+                        "type": "message"
+                      }
+                    ]
+                  },
+                  "name": "icon_pareto"
+                },
+                "position": {
+                  "basis": "50px"
+                },
+                "props": {
+                  "path": "material/multiline_chart",
+                  "style": {
+                    "cursor": "pointer",
+                    "marginLeft": 20,
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "documentTitle": "Analysis",
+                        "target": "View"
+                      },
+                      "scope": "C",
+                      "type": "request-print"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "icon_print"
+                },
+                "position": {
+                  "basis": "50px"
+                },
+                "props": {
+                  "path": "material/local_printshop",
+                  "style": {
+                    "cursor": "pointer",
+                    "marginLeft": 20,
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "IconContainer"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "props": {
+              "justify": "flex-end"
+            },
+            "scripts": {
+              "customMethods": [
+                {
+                  "name": "hideAnalysisTable",
+                  "params": [],
+                  "script": "\t# implement your method here\n\tself.parent.parent.getChild(\"BodyContainer\").getChild(\"mesAnalysisTable\").position.display = False"
+                }
+              ],
+              "extensionFunctions": null,
+              "messageHandlers": []
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Header"
+        },
+        "props": {
+          "style": {
+            "marginBottom": 15
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "spcAnalysisSelector"
+                },
+                "position": {
+                  "basis": "750px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.spcChartSettings.endDate": {
+                    "binding": {
+                      "config": {
+                        "path": "..../Header/DateContainer/endDate.props.value"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.spcChartSettings.settings.spcDataFormat": {
+                    "onChange": {
+                      "enabled": null,
+                      "script": "\tpayload = {'chartType': currentValue.value}\n\tsystem.perspective.sendMessage('showChart', payload, scope='page')\n\t"
+                    }
+                  },
+                  "props.spcChartSettings.spcData": {
+                    "persistent": false
+                  },
+                  "props.spcChartSettings.startDate": {
+                    "binding": {
+                      "config": {
+                        "path": "..../Header/DateContainer/startDate.props.value"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "spcChartSettings": {
+                    "autoRefresh": true,
+                    "autoUpdate": true,
+                    "settings": {
+                      "attributeFilter": "Attribute 1",
+                      "attributeName": "Attribute 1",
+                      "boxAndWhiskerFilter": [
+                        "Attribute 1"
+                      ],
+                      "controlLimitSummary": "",
+                      "controlLimits": [
+                        ""
+                      ],
+                      "definitionName": "Test",
+                      "filterSummary": "Location=New Enterprise\\Site 1\\Simulation Area\\Simulation Line\\Location 1",
+                      "filters": {
+                        "factors": {},
+                        "location": "New Enterprise\\Site 1\\Simulation Area\\Simulation Line\\Location 1"
+                      },
+                      "measurement": "Measurement 1",
+                      "nonconformingFilter": [
+                        ""
+                      ],
+                      "nonconformityFilter": [
+                        ""
+                      ],
+                      "paretoFilter": [
+                        ""
+                      ],
+                      "signalSummary": "",
+                      "signals": [
+                        ""
+                      ],
+                      "spcDataFormat": "Box and Whisker"
+                    },
+                    "spcResults": {
+                      "calculatedValues": {
+                        "calcValueList": [
+                          {
+                            "category": "Box_and_whisker",
+                            "chartShapeInfo": {
+                              "chartShapeInfo": "None",
+                              "color": "#000000"
+                            },
+                            "color": "#000000",
+                            "columnName": "Location",
+                            "dataType": "java.lang.String",
+                            "defaultValue": 0,
+                            "displayName": "Location",
+                            "kind": "None",
+                            "name": "Location",
+                            "type": "Normal"
+                          },
+                          {
+                            "category": "Box_and_whisker",
+                            "chartShapeInfo": {
+                              "chartShapeInfo": "None",
+                              "color": "#000000"
+                            },
+                            "color": "#000000",
+                            "columnName": "ProductCode",
+                            "dataType": "java.lang.String",
+                            "defaultValue": 0,
+                            "displayName": "Product Code",
+                            "kind": "None",
+                            "name": "Product Code",
+                            "type": "Normal"
+                          },
+                          {
+                            "category": "Box_and_whisker",
+                            "chartShapeInfo": {
+                              "chartShapeInfo": "None",
+                              "color": "#000000"
+                            },
+                            "color": "#000000",
+                            "columnName": "AttrValue",
+                            "dataType": "java.lang.Double",
+                            "defaultValue": 0,
+                            "displayName": "Value",
+                            "kind": "None",
+                            "name": "Value",
+                            "type": "Normal"
+                          },
+                          {
+                            "category": "Box_and_whisker",
+                            "chartShapeInfo": {
+                              "chartShapeInfo": "None",
+                              "color": "#000000"
+                            },
+                            "color": "#000000",
+                            "columnName": "AttributeName",
+                            "dataType": "java.lang.String",
+                            "defaultValue": 0,
+                            "displayName": "Attribute Name",
+                            "kind": "None",
+                            "name": "Attribute Name",
+                            "type": "Normal"
+                          }
+                        ],
+                        "measurementFormat": "#0.00"
+                      },
+                      "definitionUUID": "920d235d-8db3-4dc8-a2f9-46e337d23730"
+                    },
+                    "storedSPCName": "Test"
+                  }
+                },
+                "type": "mes.spc.mesAnalysisSelector"
+              }
+            ],
+            "meta": {
+              "name": "sideBar"
+            },
+            "position": {
+              "basis": "300px"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Table"
+            },
+            "position": {
+              "basis": "400px",
+              "display": false,
+              "grow": 1
+            },
+            "propConfig": {
+              "props.columns": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.data"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tdef getColumnData(columnName):\n\t\tif 'Date' in columnName:\n\t\t\trender = 'date'\n\t\telse:\n\t\t\trender = 'auto'\n\t\treturn\t{\n\t\t  \"field\": columnName,\n\t\t  \"visible\": True,\n\t\t  \"editable\": False,\n\t\t  \"render\": render,\n\t\t  \"justify\": \"auto\",\n\t\t  \"align\": \"center\",\n\t\t  \"resizable\":True,\n\t\t  \"sortable\": True,\n\t\t  \"sort\": \"none\",\n\t\t  \"filter\": {\n\t\t    \"enabled\": False,\n\t\t    \"visible\": \"on-hover\",\n\t\t    \"string\": {\n\t\t      \"condition\": \"\",\n\t\t      \"value\": \"\"\n\t\t    },\n\t\t    \"number\": {\n\t\t      \"condition\": \"\",\n\t\t      \"value\": \"\"\n\t\t    },\n\t\t    \"boolean\": {\n\t\t      \"condition\": \"\"\n\t\t    },\n\t\t    \"date\": {\n\t\t      \"condition\": \"\",\n\t\t      \"value\": \"\"\n\t\t    }\n\t\t  },\n\t\t  \"viewPath\": \"\",\n\t\t  \"viewParams\": {},\n\t\t  \"boolean\": \"checkbox\",\n\t\t  \"number\": \"value\",\n\t\t  \"progressBar\": {\n\t\t    \"max\": 100,\n\t\t    \"min\": 0,\n\t\t    \"bar\": {\n\t\t      \"color\": \"\",\n\t\t      \"style\": {\n\t\t        \"classes\": \"\"\n\t\t      }\n\t\t    },\n\t\t    \"track\": {\n\t\t      \"color\": \"\",\n\t\t      \"style\": {\n\t\t        \"classes\": \"\"\n\t\t      }\n\t\t    },\n\t\t    \"value\": {\n\t\t      \"enabled\": True,\n\t\t      \"format\": \"0,0.##\",\n\t\t      \"justify\": \"center\",\n\t\t      \"style\": {\n\t\t        \"classes\": \"\"\n\t\t      }\n\t\t    }\n\t\t  },\n\t\t  \"toggleSwitch\": {\n\t\t    \"color\": {\n\t\t      \"selected\": \"\",\n\t\t      \"unselected\": \"\"\n\t\t    }\n\t\t  },\n\t\t  \"nullFormat\": {\n\t\t    \"includeNullStrings\": False,\n\t\t    \"strict\": False,\n\t\t    \"nullFormatValue\": \"\"\n\t\t  },\n\t\t  \"numberFormat\": \"0,0.##\",\n\t\t  \"dateFormat\": \"MM/DD/YYYY HH:mm:ss\",\n\t\t  \"width\": \"\",\n\t\t  \"strictWidth\": False,\n\t\t  \"style\": {\n\t\t  },\n\t\t  \"header\": {\n\t\t    \"title\": \"\",\n\t\t    \"justify\": \"left\",\n\t\t    \"align\": \"center\",\n\t\t    \"style\": {\n\t\t      \"classes\": \"\"\n\t\t    }\n\t\t  },\n\t\t  \"footer\": {\n\t\t    \"title\": \"\",\n\t\t    \"justify\": \"left\",\n\t\t    \"align\": \"center\",\n\t\t    \"style\": {\n\t\t      \"classes\": \"\"\n\t\t    }\n\t\t  }\n\t\t}\n\t\n\treturn [getColumnData(col) for col in value.getColumnNames()]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.data": {
+                "binding": {
+                  "config": {
+                    "path": "../sideBar/spcAnalysisSelector.props.spcChartSettings.spcData"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "dragOrderable": false
+            },
+            "type": "ia.display.table"
+          },
+          {
+            "meta": {
+              "name": "Charts"
+            },
+            "position": {
+              "basis": "320px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.params.spcChartSettings": {
+                "binding": {
+                  "config": {
+                    "path": "../sideBar/spcAnalysisSelector.props.spcChartSettings"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.path": {
+                "onChange": {
+                  "enabled": null,
+                  "script": "\timport time\n\ttime.sleep(1)\n\tcurrDate = self.parent.parent.getChild(\"Header\").getChild(\"DateContainer\").getChild(\"startDate\").props.value\n\tself.parent.parent.getChild(\"Header\").getChild(\"DateContainer\").getChild(\"startDate\").props.value = system.date.addSeconds(currDate, -1)"
+                }
+              }
+            },
+            "props": {
+              "loading": {
+                "order": "with-parent"
+              },
+              "path": "Page/Embedded/SPC Charts/Box and Whisker",
+              "style": {
+                "overflow": "visible"
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "BodyContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "",
+        "margin": 15
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "showChart",
+          "pageScope": true,
+          "script": "\tchartType = payload['chartType']\n\tviewPath = 'Page/Embedded/SPC Charts/' + chartType\n\tself.getChild(\"BodyContainer\").getChild(\"Charts\").props.path = viewPath\n\tself.getChild(\"BodyContainer\").getChild(\"Charts\").position.display = True\n\tself.getChild(\"BodyContainer\").getChild(\"Table\").position.display = False",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

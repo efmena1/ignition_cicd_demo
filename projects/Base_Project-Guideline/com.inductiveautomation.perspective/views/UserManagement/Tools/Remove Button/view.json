@@ -1,0 +1,78 @@
+{
+  "custom": {},
+  "params": {
+    "contactInformation": [],
+    "removeType": "",
+    "row": "",
+    "rowSelected": "",
+    "scheduleModifications": []
+  },
+  "propConfig": {
+    "params.contactInformation": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.removeType": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.row": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.rowSelected": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.scheduleModifications": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 23,
+      "width": 30
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\t# Depending on if the removal is from the Contact Information or Schedule Management table, \n\t# grab the respective input view param.\n\tremoveType \u003d self.view.params.removeType\n\tif removeType \u003d\u003d \u0027contactInformation\u0027:\n\t\tdata \u003d self.view.params.contactInformation\n\telse:\n\t\tdata \u003d self.view.params.scheduleModifications\n\t\t\n\t# Remove the selected row from the respective array.\n\tdel data[self.view.params.row]\t\t\n\t\n\t# Depending which table the remove action came from, send an update message to update the respective table\n\t# with the new array.\n\tif removeType \u003d\u003d \u0027contactInformation\u0027:\n\t\t# If the row being removed is the row that is selected, unselect the row on table.\n\t\tif self.view.params.rowSelected \u003d\u003d self.view.params.row:\n\t\t\tsystem.perspective.sendMessage(\u0027UserManagement_UpdateContactInfo\u0027, payload\u003d{\u0027contactInformation\u0027:data, \u0027unselectRow\u0027:True}, scope\u003d\u0027page\u0027)\t\n\t\telse:\n\t\t\tsystem.perspective.sendMessage(\u0027UserManagement_UpdateContactInfo\u0027, payload\u003d{\u0027contactInformation\u0027:data, \u0027unselectRow\u0027:False}, scope\u003d\u0027page\u0027)\t\n\telse:\n\t\tsystem.perspective.sendMessage(\u0027UserManagement_UpdateScheduleModifications\u0027, payload\u003d{\u0027scheduleModification\u0027:data}, scope\u003d\u0027page\u0027)\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Delete Icon"
+        },
+        "position": {
+          "basis": "24px"
+        },
+        "props": {
+          "path": "material/delete",
+          "style": {
+            "classes": "UserManagement/TableEditorIcons"
+          }
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "UserManagement/MainFont"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

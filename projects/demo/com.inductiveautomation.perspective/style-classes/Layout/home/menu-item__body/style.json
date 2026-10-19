@@ -1,0 +1,40 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--card-blur)",
+      "borderTopLeftRadius": "10px",
+      "borderTopRightRadius": "10px",
+      "borderBottomLeftRadius": "10px",
+      "borderBottomRightRadius": "10px",
+      "cursor": "pointer",
+      "fontFamily": "Poppins",
+      "overflow": "visible",
+      "padding": "10px"
+    }
+  },
+  "variants": [
+    {
+      "pseudo": "disabled",
+      "style": {
+        "backgroundColor": "#DF4242"
+      }
+    },
+    {
+      "pseudo": "hover",
+      "animation": {
+        "duration": ".3s",
+        "direction": "normal",
+        "iterationCount": "1",
+        "keyframes": {
+          "0%": {
+            "boxShadow": "0px 0px 0px 0px rgba(0,0,0,.5)",
+            "overflow": "visible"
+          },
+          "100%": {
+            "boxShadow": "0px 8px 25px 0px rgba(0,0,0,.5)"
+          }
+        }
+      }
+    }
+  ]
+}

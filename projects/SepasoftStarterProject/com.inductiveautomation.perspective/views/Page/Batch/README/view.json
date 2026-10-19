@@ -1,0 +1,62 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Card"
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "maxWidth": "900px",
+            "width": "100%",
+            "margin": "0 auto",
+            "backgroundColor": "rgba(0,0,0,0.02)",
+            "border": "1px solid rgba(0,0,0,0.08)",
+            "borderRadius": "8px",
+            "padding": "28px 32px"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "Markdown"
+            },
+            "type": "ia.display.markdown",
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "markdown": {
+                "escapeHtml": false
+              },
+              "source": "# Batch\n\nStock `mes.batch.*` (plus `mes.production.mesEquipmentManager`/`mesEnumManager`/`mesSignatureTemplateManager`/`mesAuthChallengeList` and `mes.production.batchSelector`) screens for ISA-88 batch procedures. The menu order is the build order - work top to bottom the first time through.\n\n## Configuration\n\n1. **Equipment Manager** (Production module) - build the equipment model (Enterprise/Site/Area/Process Cell/Unit) a batch runs against.\n2. **Enum Manager** - register the option list for any Enum-typed parameter (e.g. a unit-of-measure or status parameter) before a phase/recipe references it - writing a value that isn't a registered member fails at runtime.\n3. **Unit Class Manager** - define unit classes: what a physical unit is capable of running.\n4. **Unit Manager** - assign a unit class to the units under a selected Process Cell.\n5. **Phase Manager** - build phase classes and phases (the most granular unit of recipe logic) and attach them to a unit class so they show up in the Recipe Editor palette.\n6. **Recipe Editor** - author master recipes (Procedure > Unit Procedure > optional Operation > Phase, wired up with transitions) and validate them - an invalid recipe can't be queued.\n7. **Formula Manager** (optional) - save a named, pre-scaled set of parameter values for a recipe, for repeat batches that don't need every value re-entered by hand.\n8. **Signature Templates** - define who (user/role expression) must sign off on a batch command, for any command that should require e-signature authorization.\n\n## Execution & reporting\n\n9. **Batch List** - browse the batch queue: queued, running, and completed batches.\n10. **Batch Controller** - select a batch and command it (start/hold/pause/resume/abort) or step it manually.\n11. **Recipe Monitor** - watch a running batch's procedure chart advance live.\n12. **Message List** - answer operator prompts (Value Prompt / User Message phases) raised by a running batch.\n13. **Auth Challenges** - complete pending e-signature authorization challenges triggered by a batch command.\n14. **EBR Viewer** - view a batch's Electronic Batch Record - what actually happened - once it's running or complete.\n",
+              "style": {
+                "fontSize": 15,
+                "lineHeight": "1.6"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "padding": "24px",
+        "overflow": "auto"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

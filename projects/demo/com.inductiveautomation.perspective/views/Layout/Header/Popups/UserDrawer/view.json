@@ -1,0 +1,741 @@
+{
+  "custom": {},
+  "params": {
+    "userSource": "default"
+  },
+  "propConfig": {
+    "custom.userInfo": {
+      "binding": {
+        "config": {
+          "struct": {
+            "authenticated": "{session.props.auth.authenticated}",
+            "userSource": "{view.params.userSource}",
+            "username": "{session.props.auth.user.userName}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tfrom java.lang import Exception as JavaException\n\t\n\tdef empty(status):\n\t    return {\"emails\": [], \"phones\": [], \"badge\": u\"\", \"schedule\": u\"\", \"status\": status}\n\t\n\tdef clean(item):\n\t    return unicode(item).strip() if item is not None else u\"\"\n\t\n\tif not value[\"authenticated\"] or not clean(value[\"username\"]):\n\t    return empty(\"unavailable\")\n\t\n\ttry:\n\t    user \u003d system.user.getUser(value[\"userSource\"], value[\"username\"])\n\t    if user is None:\n\t        system.util.getLogger(\"UserDrawer\").warn(\"User information unavailable: user lookup returned no result.\")\n\t        return empty(\"unavailable\")\n\t    result \u003d empty(\"ready\")\n\t    seenEmails \u003d set()\n\t    seenPhones \u003d set()\n\t    for contact in user.getContactInfo() or []:\n\t        kind \u003d clean(contact.contactType).lower()\n\t        text \u003d clean(contact.value)\n\t        if not text:\n\t            continue\n\t        if kind \u003d\u003d \"email\" and text.lower() not in seenEmails:\n\t            result[\"emails\"].append(text)\n\t            seenEmails.add(text.lower())\n\t        elif kind in (\"phone\", \"sms\") and text not in seenPhones:\n\t            result[\"phones\"].append(text)\n\t            seenPhones.add(text)\n\t    result[\"badge\"] \u003d clean(user.get(\"badge\"))\n\t    result[\"schedule\"] \u003d clean(user.get(\"schedule\"))\n\t    return result\n\texcept (Exception, JavaException):\n\t    # Provider exceptions can contain personal data; log a fixed message only.\n\t    system.util.getLogger(\"UserDrawer\").warn(\"User information unavailable: user source lookup failed.\")\n\t    return empty(\"unavailable\")\n",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": false
+    },
+    "params.userSource": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 520,
+      "width": 380
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Avatar"
+                },
+                "position": {
+                  "basis": "56px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "authenticated": "{session.props.auth.authenticated}",
+                          "firstName": "{session.props.auth.user.firstName}",
+                          "lastName": "{session.props.auth.user.lastName}",
+                          "username": "{session.props.auth.user.userName}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif not value[\"authenticated\"]:\n\t    return u\"\"\n\tfirst \u003d unicode(value[\"firstName\"] or u\"\").strip()\n\tlast \u003d unicode(value[\"lastName\"] or u\"\").strip()\n\tinitials \u003d first[:1] + last[:1]\n\treturn (initials or unicode(value[\"username\"] or u\"\").strip()[:2]).upper()\n",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "user-drawer-avatar"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Name"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "struct": {
+                              "authenticated": "{session.props.auth.authenticated}",
+                              "firstName": "{session.props.auth.user.firstName}",
+                              "lastName": "{session.props.auth.user.lastName}",
+                              "username": "{session.props.auth.user.userName}"
+                            },
+                            "waitOnAll": true
+                          },
+                          "transforms": [
+                            {
+                              "code": "\tif not value[\"authenticated\"]:\n\t    return u\"\"\n\tfullName \u003d u\" \".join(unicode(value[key]).strip() for key in (\"firstName\", \"lastName\") if value[key] and unicode(value[key]).strip())\n\treturn fullName or unicode(value[\"username\"] or u\"\").strip()\n",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr-struct"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "user-drawer-name"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Roles"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "path": "session.props.auth.user.roles"
+                              },
+                              "transforms": [
+                                {
+                                  "code": "\treturn u\", \".join(unicode(role).strip() for role in (value or []) if role and unicode(role).strip())\n",
+                                  "type": "script"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "classes": "user-drawer-chip"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "RoleRow"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "position.display": {
+                        "binding": {
+                          "config": {
+                            "expression": "len({./Roles.props.text}) \u003e 0"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "gap": 6
+                      },
+                      "wrap": "wrap"
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "Identity"
+                },
+                "position": {
+                  "basis": "0px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "classes": "user-drawer-identity-text"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "AvatarWrap"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "alignItems": "center",
+              "style": {
+                "classes": "user-drawer-identity"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Hero"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "user-drawer-hero"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Title"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "classes": "user-drawer-info-title"
+                  },
+                  "text": "#auth.user.contactInfo"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Title"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "user-drawer-info-label"
+                      },
+                      "text": "#auth.user.email"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Value"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.userInfo.emails"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\treturn u\"\\n\".join(value or [])\n",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "user-drawer-info-value"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Emails"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.custom.userInfo.emails}) \u003e 0"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "classes": "user-drawer-info-field"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Title"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "user-drawer-info-label"
+                      },
+                      "text": "#auth.user.phone"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Value"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.userInfo.phones"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\treturn u\"\\n\".join(value or [])\n",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "user-drawer-info-value"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Phones"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.custom.userInfo.phones}) \u003e 0"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "classes": "user-drawer-info-field"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Contact"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "len({view.custom.userInfo.emails}) \u003e 0 || len({view.custom.userInfo.phones}) \u003e 0"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "classes": "user-drawer-info-block"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Title"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "classes": "user-drawer-info-title"
+                  },
+                  "text": "#auth.user.badge"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.userInfo.badge"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "user-drawer-info-value"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Badge"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "len({view.custom.userInfo.badge}) \u003e 0"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "classes": "user-drawer-info-block"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Title"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "classes": "user-drawer-info-title"
+                  },
+                  "text": "#auth.user.schedule"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.userInfo.schedule"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "user-drawer-info-value"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Schedule"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "len({view.custom.userInfo.schedule}) \u003e 0"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "classes": "user-drawer-info-block"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Message"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.userInfo.status} !\u003d \"ready\" || (len({view.custom.userInfo.emails}) \u003d 0 \u0026\u0026 len({view.custom.userInfo.phones}) \u003d 0 \u0026\u0026 len({view.custom.userInfo.badge}) \u003d 0 \u0026\u0026 len({view.custom.userInfo.schedule}) \u003d 0)"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.custom.userInfo.status} \u003d \"loading\", \"#auth.user.infoLoading\", if({view.custom.userInfo.status} \u003d \"ready\", \"#auth.user.infoEmpty\", \"#auth.user.infoUnavailable\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "user-drawer-info-message"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Info"
+        },
+        "position": {
+          "basis": "0px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "user-drawer-info"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {},
+                  "scope": "C",
+                  "type": "logout"
+                }
+              }
+            },
+            "meta": {
+              "name": "Logout"
+            },
+            "position": {
+              "basis": "40px",
+              "shrink": 0
+            },
+            "props": {
+              "image": {
+                "icon": {
+                  "path": "material/login"
+                }
+              },
+              "primary": false,
+              "style": {
+                "classes": "user-drawer-btn--danger"
+              },
+              "text": "#auth.user.logout"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Actions"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "user-drawer-actions"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "SessionTime"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "!isNull({session.props.auth.user.timestamp})"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "locale": "{session.props.locale}",
+                      "timeZoneId": "{session.props.timeZoneId}",
+                      "timestamp": "{session.props.auth.user.timestamp}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value[\"timestamp\"] is None:\n\t    return u\"\"\n\tfrom java.util import Locale, TimeZone\n\tfrom java.text import DateFormat\n\tlocale \u003d Locale.forLanguageTag(unicode(value[\"locale\"] or \"en\").replace(\"_\", \"-\"))\n\tformatter \u003d DateFormat.getTimeInstance(DateFormat.MEDIUM, locale)\n\tformatter.setTimeZone(TimeZone.getTimeZone(value[\"timeZoneId\"]))\n\treturn u\"%s: %s\" % (system.util.translate(\"#session.login.time\", value[\"locale\"]), formatter.format(value[\"timestamp\"]))\n",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "user-drawer-footer-text"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Project"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{session.props.locale}"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \"%s: %s\"%(system.util.translate(\"#common.project\", value), system.util.getProjectName())",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "user-drawer-footer-text"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Footer"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "user-drawer-footer"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "domId": "userDrawer",
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "user-drawer"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

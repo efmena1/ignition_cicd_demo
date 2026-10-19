@@ -1,0 +1,163 @@
+{
+  "custom": {},
+  "params": {
+    "badge": "",
+    "mode": "",
+    "notes": "",
+    "password": "",
+    "role": "",
+    "username": ""
+  },
+  "propConfig": {
+    "params.badge": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.mode": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.notes": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.password": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.role": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.username": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 230,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.mode"
+              },
+              "transforms": [
+                {
+                  "code": "\t# Change title depending on whether the error is on the user or roles view.\n\tif value \u003d\u003d \u0027user\u0027:\n\t\treturn \u0027Error Saving User\u0027\n\telse:\n\t\treturn \u0027Error Saving Role\u0027",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#790000",
+            "classes": "UserManagement/Headers",
+            "fontSize": "15px",
+            "marginBottom": "10px",
+            "textTransform": "capitalize"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Text"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "propConfig": {
+          "props.source": {
+            "binding": {
+              "config": {
+                "expression": "if(len({view.params.username}), \"+ \" + {view.params.username} + \"\\n\", \"\") +\r\nif(len({view.params.password}), \"+ \" + {view.params.password} + \"\\n\", \"\") +\r\nif(len({view.params.notes}),    \"+ \" + {view.params.notes}    + \"\\n\", \"\") +\r\nif(len({view.params.badge}),    \"+ \" + {view.params.badge}    + \"\\n\", \"\") +\r\nif(len({view.params.role}),     \"+ \" + {view.params.role}     + \"\\n\", \"\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UserManagement/InputFont",
+            "fontWeight": "normal",
+            "marginLeft": "-8px",
+            "marginRight": "8px",
+            "overflowWrap": "normal",
+            "textAlign": "left",
+            "textTransform": "capitalize"
+          }
+        },
+        "type": "ia.display.markdown"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "draggable": true,
+                "id": "UserManagement_SaveError",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "type": "close",
+                "viewPath": "UserManagement/Views/Popup_SaveError"
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Close"
+        },
+        "position": {
+          "basis": "35px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "fontSize": "14px",
+            "marginBottom": "10px",
+            "marginLeft": "80px",
+            "marginRight": "80px",
+            "marginTop": "10px"
+          },
+          "text": "Close"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "UserManagement/InputFont",
+        "fontWeight": "bold",
+        "textAlign": "center",
+        "textTransform": "uppercase"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

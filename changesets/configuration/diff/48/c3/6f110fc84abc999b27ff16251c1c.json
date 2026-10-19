@@ -1,0 +1,126 @@
+{
+  "changesetData": {
+    "uuid": "48c36f11-0fc8-4abc-999b-27ff16251c1c",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "emena",
+    "appliedAt": "2026-10-15T05:18:10.549Z",
+    "appliedOnChangesetUUID": "d52658bb-b1b4-4314-bdd4-960b9bf807c7",
+    "hash": "f4bc3ad819fbea323b113703adae7fb51b4682928e4c99a93d3a462dc6b31c32",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:18:10.525821200Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Area": {
+        "45e5b7ef-8d33-40e5-9983-da435a8b417b": {
+          "meta": {
+            "name": "Area"
+          },
+          "changes": [
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "38ba031f-fb42-4f91-99f2-2837957e2995|StorageZone",
+              "friendlyPath": "Enterprise\\Site\\Area\\New Storage Zone",
+              "newValueFriendly": "New Storage Zone"
+            }
+          ]
+        }
+      },
+      "Storage Zone": {
+        "38ba031f-fb42-4f91-99f2-2837957e2995": {
+          "meta": {
+            "name": "New Storage Zone"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "38ba031f-fb42-4f91-99f2-2837957e2995"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentActiveType",
+              "oldValue": "ACTIVE",
+              "newValue": "INACTIVE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentCellOrder",
+              "newValue": "1"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "45e5b7ef-8d33-40e5-9983-da435a8b417b|Area",
+              "friendlyPath": "Enterprise\\Site\\Area",
+              "newValueFriendly": "Area"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "New Storage Zone"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentPath",
+              "oldValue": "",
+              "newValue": "Enterprise\\Site\\Area\\New Storage Zone"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "aa6e5812-3347-44a9-a4ef-d62a0e7a25f4|Recipe Enabled"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Recipe Enabled.TagCollectorType",
+              "newValue": "Recipe Enabled"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "58800058-d2b8-4067-85dc-d925cd930caf|Active Recipe"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Active Recipe.TagCollectorType",
+              "newValue": "Active Recipe"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "2ce297fe-6cfb-4a4d-b0cf-423ca6f4c76a|Recipe Change Note"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Recipe Change Note.TagCollectorType",
+              "newValue": "Recipe Change Note"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "TagCollector",
+              "newValue": "97be96e1-f9f6-40e6-89a8-8826423802e4|Recipe Scale"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "TagCollector.Recipe Scale.TagCollectorType",
+              "newValue": "Recipe Scale"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "changesetData": {
+    "uuid": "fa350c00-0a2e-4c0a-b0db-dab7e9d9bb20",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:15.619Z",
+    "appliedOnChangesetUUID": "9939137d-9e44-46f3-8c55-931d47b5f539",
+    "hash": "103480cd97f3d1e93f5371234fcf1c037ba0ae9b3a9ca0ffece0d1424852aa54",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:15.604744700Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Manifest Class": {
+        "5f957994-aac8-426f-a300-313d0cc25840": {
+          "meta": {
+            "name": "\u003cany manifest\u003e"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "5f957994-aac8-426f-a300-313d0cc25840"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "\u003cany manifest\u003e"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "Core"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

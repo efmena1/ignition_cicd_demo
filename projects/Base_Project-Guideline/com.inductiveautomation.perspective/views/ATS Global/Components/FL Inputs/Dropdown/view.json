@@ -1,0 +1,150 @@
+{
+  "custom": {},
+  "params": {
+    "options": [
+      {
+        "label": "Value1 sdfasdfsafsdaf dsafsdfasd",
+        "value": 1
+      },
+      {
+        "label": "Value2",
+        "value": 2
+      },
+      {
+        "label": "value2",
+        "value": 3
+      }
+    ],
+    "title": "Dropdown",
+    "value": null
+  },
+  "propConfig": {
+    "params.options": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.title": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.value": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 50,
+      "width": 250
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "basis": "20px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.title"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "fl-label fl-label--active"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tval \u003d self.props.value\n\tif not val:\n\t    self.getSibling(\"Title\").props.style.classes \u003d \"fl-label\""
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          },
+          "dom": {
+            "onBlur": {
+              "config": {
+                "script": "\tval \u003d self.props.value\n\tif not val:\n\t    self.getSibling(\"Title\").props.style.classes \u003d \"fl-label\""
+              },
+              "scope": "G",
+              "type": "script"
+            },
+            "onFocus": {
+              "config": {
+                "script": "\tself.getSibling(\"Title\").props.style.classes \u003d \"fl-label fl-label--active\""
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Dropdown"
+        },
+        "position": {
+          "basis": "20px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.options": {
+            "binding": {
+              "config": {
+                "path": "view.params.options"
+              },
+              "type": "property"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.value"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "dropdownOptionStyle": {
+            "classes": "fl-input-mod"
+          },
+          "placeholder": {
+            "text": ""
+          },
+          "showClearIcon": true,
+          "style": {
+            "classes": "fl-input",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.input.dropdown"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "margin": "2px",
+        "overflow": "hidden",
+        "position": "relative"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

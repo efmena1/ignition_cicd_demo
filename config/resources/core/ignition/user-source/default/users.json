@@ -1,0 +1,95 @@
+{
+  "users": [
+    {
+      "uuid": "df78fe38-ea16-4666-b6d7-3b4c02ead4e9",
+      "username": "admin",
+      "schedule": "Always",
+      "password": "[4ef1b741]8423bf77fc5b5f474e6c13c8370ea30c938df12eb3d0b613be29e9015c778724",
+      "passwordDate": "20260924.155014247-0500",
+      "passwordHistory": [],
+      "createdDate": "20260924.155014247-0500",
+      "lastModifiedDate": "20260924.155014247-0500",
+      "roles": [
+        "40e6f8f0-de4c-4bba-b902-2c4af185e2ec"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "3bb98d50-b06b-4b78-99fa-393f0a26e3e3",
+      "username": "emena",
+      "firstName": "Edison",
+      "lastName": "Mena",
+      "schedule": "Always",
+      "language": "en",
+      "description": "",
+      "password": "[1F9A9905]28f718b79e08069a72302271831226b9d56e2261d02644d9d940744920d93965",
+      "passwordDate": "20260930.131046295-0500",
+      "passwordHistory": [],
+      "badge": "Badge code 001",
+      "createdDate": "20260930.131046292-0500",
+      "lastModifiedDate": "20261014.161400551-0500",
+      "roles": [
+        "40e6f8f0-de4c-4bba-b902-2c4af185e2ec"
+      ],
+      "extraProps": [
+        {
+          "propertyKey": "user.pin",
+          "propertyValue": ""
+        }
+      ],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "emena@test.com",
+          "order": 0
+        },
+        {
+          "contactType": "phone",
+          "value": "+593997391207",
+          "order": 1
+        }
+      ]
+    }
+  ],
+  "roles": [
+    {
+      "uuid": "40e6f8f0-de4c-4bba-b902-2c4af185e2ec",
+      "rolename": "Administrator",
+      "createdDate": "20260924.155014247-0500",
+      "lastModifiedDate": "20260930.131117843-0500"
+    },
+    {
+      "uuid": "e7b094e9-17ae-4070-a48c-07c7bc79103b",
+      "rolename": "Rol 1",
+      "createdDate": "20261014.154604764-0500",
+      "lastModifiedDate": "20261014.154729085-0500"
+    },
+    {
+      "uuid": "baa017c1-8d60-4124-9a21-442fffbcc328",
+      "rolename": "Rol 2",
+      "createdDate": "20261014.154608315-0500",
+      "lastModifiedDate": "20261014.154729210-0500"
+    },
+    {
+      "uuid": "ffc273c6-346f-4bbb-9230-043657136736",
+      "rolename": "Rol 3",
+      "createdDate": "20261014.154611473-0500",
+      "lastModifiedDate": "20261014.154729305-0500"
+    },
+    {
+      "uuid": "1da8dfd4-fcc7-447d-a2bc-370b1c4bca56",
+      "rolename": "Operator",
+      "createdDate": "20261014.154615590-0500",
+      "lastModifiedDate": "20261014.154729389-0500"
+    },
+    {
+      "uuid": "f9edafdc-f48c-4963-b02a-d3d763e634f7",
+      "rolename": "Supervisor",
+      "createdDate": "20261014.154620872-0500",
+      "lastModifiedDate": "20261014.154729468-0500"
+    }
+  ]
+}

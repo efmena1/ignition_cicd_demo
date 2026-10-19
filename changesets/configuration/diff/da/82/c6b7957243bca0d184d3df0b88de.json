@@ -1,0 +1,36 @@
+{
+  "changesetData": {
+    "uuid": "da82c6b7-9572-43bc-a0d1-84d3df0b88de",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:16.832Z",
+    "appliedOnChangesetUUID": "013ff30a-65e1-4dd6-898e-ff6f108095d9",
+    "hash": "f25fad40098cd7a4f77666325a666e479351b6d2dbe203541f8160681850ddad",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:16.812756900Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Definition": {
+        "7c7ab26f-7912-429c-9faa-09a409f11605": {
+          "meta": {
+            "name": "Equipment_Status"
+          },
+          "changes": [
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in enum for Equipment Status options on Supplemental Equipment Properties."
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

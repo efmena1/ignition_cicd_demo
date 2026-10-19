@@ -1,0 +1,554 @@
+{
+  "custom": {
+    "originalAutoClose": 0
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tself.custom.originalAutoClose \u003d self.params.autoCloseMs"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "autoCloseMs": 0,
+    "details": "",
+    "level": "success",
+    "message": "",
+    "popupId": "app-alert",
+    "primaryText": "",
+    "secondaryText": "",
+    "title": ""
+  },
+  "propConfig": {
+    "custom.originalAutoClose": {
+      "persistent": true
+    },
+    "params.autoCloseMs": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.details": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.level": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.message": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.popupId": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.primaryText": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.secondaryText": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.title": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 200,
+      "width": 460
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Accent"
+        },
+        "position": {
+          "basis": "6px",
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "alert-dialog-accent"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Icon"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.path": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.level"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "material/info",
+                              "inputType": "scalar",
+                              "mappings": [
+                                {
+                                  "input": "success",
+                                  "output": "material/check_circle"
+                                },
+                                {
+                                  "input": "warning",
+                                  "output": "material/warning"
+                                },
+                                {
+                                  "input": "error",
+                                  "output": "material/error"
+                                }
+                              ],
+                              "outputType": "scalar",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "type": "ia.display.icon"
+                  }
+                ],
+                "meta": {
+                  "name": "Icon"
+                },
+                "position": {
+                  "basis": "24px",
+                  "shrink": 0
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "classes": "alert-dialog-icon",
+                    "marginRight": "12px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "Title"
+                },
+                "position": {
+                  "basis": "0px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "if(len({view.params.title}) \u003e 0, {view.params.title},\r\n  case({view.params.level},\r\n    \u0027success\u0027, \u0027Operación Successful\u0027,\r\n    \u0027warning\u0027, \u0027Warning\u0027,\r\n    \u0027danger\u0027,   \u0027Danger\u0027,\r\n    \u0027Information\u0027))"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "alert-dialog-title"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "children": [
+                  {
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "draggable": true,
+                            "id": "{view.params.popupId}",
+                            "modal": false,
+                            "overlayDismiss": false,
+                            "resizable": true,
+                            "showCloseIcon": true,
+                            "type": "close",
+                            "viewPath": "",
+                            "viewportBound": false
+                          },
+                          "scope": "C",
+                          "type": "popup"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Close"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "path": "material/close"
+                    },
+                    "type": "ia.display.icon"
+                  }
+                ],
+                "meta": {
+                  "name": "Close"
+                },
+                "position": {
+                  "basis": "20px",
+                  "shrink": 0
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "classes": "alert-dialog-icon",
+                    "cursor": "pointer"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Header"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "alignItems": "center",
+              "style": {
+                "classes": "alert-dialog-header"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Message"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.message"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "alert-dialog-message"
+                  },
+                  "textStyle": {
+                    "whiteSpace": "normal"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Markdown"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "meta.visible": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.params.details})\u003e0"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.source": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.details"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "sectionSpacing": 12,
+                  "style": {
+                    "classes": "alert-dialog-details"
+                  }
+                },
+                "type": "ia.display.markdown"
+              }
+            ],
+            "meta": {
+              "name": "Body"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "classes": "alert-dialog-body",
+                "gap": "12px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tsystem.perspective.sendMessage(\n\t\tmessageType\u003d\"alert-result\",\n\t\tpayload\u003d{\"popupId\": self.view.params.popupId, \"action\": \"secondary\"},\n\t\tscope\u003d\"page\")\n\tsystem.perspective.closePopup(self.view.params.popupId)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Secondary"
+                },
+                "position": {
+                  "basis": "80px"
+                },
+                "propConfig": {
+                  "meta.visible": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.params.secondaryText})\u003e0"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.params.secondaryText})\u003e0"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.secondaryText"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "primary": false,
+                  "style": {
+                    "classes": "alert-dialog-button--ghost"
+                  }
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tsystem.perspective.sendMessage(\n\t\tmessageType\u003d\"alert-result\",\n\t\tpayload\u003d{\"popupId\": self.view.params.popupId, \"action\": \"primary\"},\n\t\tscope\u003d\"page\")\n\tsystem.perspective.closePopup(self.view.params.popupId)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Primary"
+                },
+                "position": {
+                  "basis": "80px"
+                },
+                "propConfig": {
+                  "meta.visible": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.params.primaryText})\u003e0"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.params.primaryText})\u003e0"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.primaryText"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "alert-dialog-button--primary"
+                  }
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "Footer"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "len({view.params.primaryText}) \u003e 0 || len({view.params.secondaryText}) \u003e 0"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "justify": "flex-end",
+              "style": {
+                "classes": "alert-dialog-footer",
+                "gap": "8px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Progress"
+            },
+            "position": {
+              "basis": "3px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.style.width": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.params.autoCloseMs} \u003e 0,\r\n   toStr(100 - min(100, dateDiff({/root.custom.openedAt}, now(200), \"ms\") * 100.0 / {view.params.autoCloseMs})) + \u0027%\u0027,\r\n   \u00270%\u0027)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "justify": "flex-end",
+              "style": {
+                "classes": "alert-dialog-progress"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Content"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onMouseEnter": {
+          "config": {
+            "script": "\tself.view.params.autoCloseMs \u003d 0"
+          },
+          "scope": "G",
+          "type": "script"
+        },
+        "onMouseLeave": {
+          "config": {
+            "script": "\tself.custom.openedAt \u003d system.date.now()\n\tself.view.params.autoCloseMs \u003d self.view.custom.originalAutoClose"
+          },
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    },
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.autoClose": {
+        "binding": {
+          "config": {
+            "expression": "if({view.params.autoCloseMs}\u003e0,\r\n  dateDiff({this.custom.openedAt}, now(200), \"ms\") \u003e\u003d {view.params.autoCloseMs},\t\r\n  false)"
+          },
+          "transforms": [
+            {
+              "code": "\tif value:\n\t\tsystem.perspective.closePopup(self.view.params.popupId)\n\treturn value",
+              "type": "script"
+            }
+          ],
+          "type": "expr"
+        }
+      },
+      "custom.openedAt": {
+        "binding": {
+          "config": {
+            "expression": "now(0)"
+          },
+          "type": "expr"
+        }
+      },
+      "props.style.classes": {
+        "binding": {
+          "config": {
+            "expression": "\u0027apopupSizeAuto alert-dialog alert-dialog-\u0027 + {view.params.level}"
+          },
+          "type": "expr"
+        }
+      }
+    },
+    "props": {
+      "style": {
+        "height": "max-content",
+        "min-height": "0px !important",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

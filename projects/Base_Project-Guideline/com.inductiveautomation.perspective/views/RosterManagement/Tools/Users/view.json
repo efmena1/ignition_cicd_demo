@@ -1,0 +1,132 @@
+{
+  "custom": {},
+  "params": {
+    "data": [],
+    "row": ""
+  },
+  "propConfig": {
+    "params.data": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.row": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 25,
+      "width": 398
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.data"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\trow \u003d self.view.params.row\n\tdata \u003d value\n\tvalue \u003d data[row]\n\t\n\t# If there is an error message, display the error.\n\tif value.has_key(\"errorMessage\"):\n\t\treturn value[\"username\"]\n\telif (value[\"firstName\"] \u003d\u003d \"\" or value[\"lastName\"] \u003d\u003d \"\") or (value[\"firstName\"] \u003d\u003d None or value[\"lastName\"] \u003d\u003d None):\n\t\treturn \"(\"+value[\"username\"]+\")\"\n\telse:\n\t\treturn \"(\" + value[\"username\"] + \") \" + value[\"firstName\"] + \" \" + value[\"lastName\"]",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": "14px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "basis": "320px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "this.props.instances"
+              },
+              "transforms": [
+                {
+                  "fallback": true,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": null,
+                      "output": false
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.instances": {
+            "binding": {
+              "config": {
+                "path": "view.params.data"
+              },
+              "transforms": [
+                {
+                  "code": "\trow \u003d self.view.params.row\n\tif row !\u003d None:\n\t\tcontactInfo \u003d value[row][\"contactInfo\"]\n\t\ticons \u003d []\n\t\tfor type in contactInfo:\n\t\t\ticons.append({\"type\":type.split(\":\")[0]})\n\t\t\n\t\tsortedIcons \u003d icons.sort()\n\t\treturn icons\n\treturn []\n\t\t",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "elementPosition": {
+            "basis": "20px",
+            "grow": 0,
+            "shrink": 0
+          },
+          "elementStyle": {
+            "marginRight": "2px"
+          },
+          "path": "RosterManagement/Tools/Icon",
+          "style": {
+            "marginLeft": "5px",
+            "overflow": "visible"
+          },
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "overflow": "visible"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

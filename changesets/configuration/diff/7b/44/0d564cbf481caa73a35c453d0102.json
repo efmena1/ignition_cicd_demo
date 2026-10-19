@@ -1,0 +1,128 @@
+{
+  "changesetData": {
+    "uuid": "7b440d56-4cbf-481c-aa73-a35c453d0102",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:17.100Z",
+    "appliedOnChangesetUUID": "a7039dbb-7775-4d14-bcfd-e996dd195014",
+    "hash": "bb11c2007821028df5d8b1e297a1b4a704da4bf0408502ec8212eae0447c5de4",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:17.082977600Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Process Segment": {
+        "9dbe639c-899a-4301-9648-9409751b2db8": {
+          "meta": {
+            "name": "OEE Production"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "9dbe639c-899a-4301-9648-9409751b2db8"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "OEE Production"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "OEE"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "Material",
+              "newValue": "6c71644e-b220-468d-a0e5-8b45f8c88a53|Material Out"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Material.Material Out.MaterialUse",
+              "newValue": "Out"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Material.Material Out.MaterialAutoGenerateLot",
+              "oldValue": "false",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Material.Material Out.MaterialRefUUID",
+              "newValue": "e350f622-7667-45c9-9840-0641b238f386"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Material.Material Out.MaterialRefType",
+              "newValue": "MaterialClass"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Material.Material Out.MaterialEquipmentRefUUID",
+              "newValue": "d7fc5652-b19b-4f3c-a1fb-c2e42252c222"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Material.Material Out.MaterialEquipmentRefType",
+              "newValue": "EquipmentClass"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Material.Material Out.MaterialLotNoSource",
+              "newValue": "Auto"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Material.Material Out.MaterialQuantitySource",
+              "newValue": "MES Counter"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Material.Material Out.MaterialQuantitySourceLink",
+              "newValue": "Material Out"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Material.Material Out.MaterialRatePeriod",
+              "newValue": "Hour"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Material.Material Out.MaterialRate",
+              "newValue": "100.0"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "Equipment",
+              "newValue": "a6d7b251-cf99-4955-86fa-bf801d09352b|Station"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Equipment.Station.EquipmentRefUUID",
+              "newValue": "d7fc5652-b19b-4f3c-a1fb-c2e42252c222"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Equipment.Station.EquipmentRefType",
+              "newValue": "EquipmentClass"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

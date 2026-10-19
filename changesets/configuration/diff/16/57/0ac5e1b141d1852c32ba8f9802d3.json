@@ -1,0 +1,1177 @@
+{
+  "changesetData": {
+    "uuid": "16570ac5-e1b1-41d1-852c-32ba8f9802d3",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:17.231Z",
+    "appliedOnChangesetUUID": "7b440d56-4cbf-481c-aa73-a35c453d0102",
+    "hash": "48f61b14ee3a44071c573be3f45e1e093443efceed5f088df152a77cc37ffadc",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:17.195244800Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Batch States": {
+        "4c23cbb4-7a9a-11ea-bc55-0242ac130003": {
+          "meta": {
+            "name": "Batch States"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "4c23cbb4-7a9a-11ea-bc55-0242ac130003"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Batch States"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "71133dc3-0e5a-419a-9a70-1918aed71299|Unknown"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Unknown.BatchStateType",
+              "oldValue": "",
+              "newValue": "UNKNOWN"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "b472d04a-6e84-4224-a089-36cdc5baf0ce|Idle"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Idle.BatchStateType",
+              "oldValue": "",
+              "newValue": "IDLE"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "d5a2d1e9-4094-479d-bfa2-e3a00e3923c6|Running"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Running.BatchStateType",
+              "oldValue": "",
+              "newValue": "RUNNING"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "62271fb4-6c5c-427f-b4f8-ecbd92a2904e|Complete"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Complete.BatchStateType",
+              "oldValue": "",
+              "newValue": "COMPLETE"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "0db8814b-ab2c-45a1-951c-65b428428a19|Restarting"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Restarting.BatchStateType",
+              "oldValue": "",
+              "newValue": "RESTARTING"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "94e5e900-c1b1-4eb1-822d-4dda36e927fa|Resetting"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Resetting.BatchStateType",
+              "oldValue": "",
+              "newValue": "RESETTING"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "ea8cf37f-c2f4-4ced-b316-ab6e57c7774d|Pausing"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Pausing.BatchStateType",
+              "oldValue": "",
+              "newValue": "PAUSING"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "855b1146-aeaf-42e9-ada7-97a52bad9ca7|Paused"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Paused.BatchStateType",
+              "oldValue": "",
+              "newValue": "PAUSED"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "d42eb1a8-9895-4cd6-b059-f2be1562970c|Holding"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Holding.BatchStateType",
+              "oldValue": "",
+              "newValue": "HOLDING"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "bc88f400-ce1e-46d6-85f1-4f2897cb1625|Held"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Held.BatchStateType",
+              "oldValue": "",
+              "newValue": "HELD"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "509e83ec-36a2-4179-a1d3-ddf3cd553c64|Stopping"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Stopping.BatchStateType",
+              "oldValue": "",
+              "newValue": "STOPPING"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "ebeb22c5-9fb6-43dd-8823-44b848c02a66|Stopped"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Stopped.BatchStateType",
+              "oldValue": "",
+              "newValue": "STOPPED"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "4086890c-3fc2-4dbd-b538-41d284513160|Aborting"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Aborting.BatchStateType",
+              "oldValue": "",
+              "newValue": "ABORTING"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "649ec72c-92ac-4747-a156-1288ba820373|Aborted"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Aborted.BatchStateType",
+              "oldValue": "",
+              "newValue": "ABORTED"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "7236bd09-9882-46cd-b4b9-ef90e53ddda8|Executed"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Executed.BatchStateType",
+              "oldValue": "",
+              "newValue": "EXECUTED"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "554f649b-1e73-4c41-93eb-6ab5119279b6|Removed"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Removed.BatchStateType",
+              "oldValue": "",
+              "newValue": "REMOVED"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "46a46031-2b55-4ffa-820c-4c96625e62d5|Internal Fault"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Internal Fault.BatchStateType",
+              "oldValue": "",
+              "newValue": "INTERNAL_FAULT"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStates",
+              "newValue": "1e871e21-3433-43dd-8f51-2d1d5930ce66|Permissive Start"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStates.Permissive Start.BatchStateType",
+              "oldValue": "",
+              "newValue": "PERMISSIVE_START"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateCommands",
+              "newValue": "a64a2c1c-43c9-4a76-976a-5a0816b06a42|None"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateCommands.None.BatchCommandType",
+              "oldValue": "",
+              "newValue": "NONE"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateCommands",
+              "newValue": "3231035a-d279-4198-bda7-99b53b95b78f|Start"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateCommands.Start.BatchCommandType",
+              "oldValue": "",
+              "newValue": "START"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateCommands",
+              "newValue": "be460f66-bf7d-4e4e-8e7a-988f1aec8540|Pause"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateCommands.Pause.BatchCommandType",
+              "oldValue": "",
+              "newValue": "PAUSE"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateCommands",
+              "newValue": "1247b0f0-546a-449c-b6a0-1d4063d7d1dd|Resume"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateCommands.Resume.BatchCommandType",
+              "oldValue": "",
+              "newValue": "RESUME"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateCommands",
+              "newValue": "0a04eacf-08b1-40ea-be3c-5e49318d8a2b|Hold"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateCommands.Hold.BatchCommandType",
+              "oldValue": "",
+              "newValue": "HOLD"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateCommands",
+              "newValue": "7e41f83f-a18d-4d51-ad7c-57645dde45a5|Restart"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateCommands.Restart.BatchCommandType",
+              "oldValue": "",
+              "newValue": "RESTART"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateCommands",
+              "newValue": "934503c4-0d3a-48df-aa7b-31afe1fe0ddf|Stop"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateCommands.Stop.BatchCommandType",
+              "oldValue": "",
+              "newValue": "STOP"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateCommands",
+              "newValue": "38468694-9913-47d1-952a-5bdf60f61166|Reset"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateCommands.Reset.BatchCommandType",
+              "oldValue": "",
+              "newValue": "RESET"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateCommands",
+              "newValue": "22be8ee2-2f52-46e6-8aec-df0bbc25b236|Abort"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateCommands.Abort.BatchCommandType",
+              "oldValue": "",
+              "newValue": "ABORT"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "be348f62-3b0c-4a95-9008-4aa85e4d26b9|PERMISSIVE_START-IDLE-NONE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PERMISSIVE_START-IDLE-NONE.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "1e871e21-3433-43dd-8f51-2d1d5930ce66"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PERMISSIVE_START-IDLE-NONE.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "b472d04a-6e84-4224-a089-36cdc5baf0ce"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PERMISSIVE_START-IDLE-NONE.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "a64a2c1c-43c9-4a76-976a-5a0816b06a42"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "d64ae090-63d9-4a33-a84b-518df2519852|IDLE-RUNNING-START"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.IDLE-RUNNING-START.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "b472d04a-6e84-4224-a089-36cdc5baf0ce"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.IDLE-RUNNING-START.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "d5a2d1e9-4094-479d-bfa2-e3a00e3923c6"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.IDLE-RUNNING-START.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "3231035a-d279-4198-bda7-99b53b95b78f"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "d167ed29-f78b-49a8-91e7-68fcc2629ab6|RUNNING-PAUSING-PAUSE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RUNNING-PAUSING-PAUSE.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "d5a2d1e9-4094-479d-bfa2-e3a00e3923c6"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RUNNING-PAUSING-PAUSE.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "ea8cf37f-c2f4-4ced-b316-ab6e57c7774d"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RUNNING-PAUSING-PAUSE.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "be460f66-bf7d-4e4e-8e7a-988f1aec8540"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "ca390a3c-c58d-4eb5-853b-882e2f5308ed|PAUSING-PAUSED-NONE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSING-PAUSED-NONE.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "ea8cf37f-c2f4-4ced-b316-ab6e57c7774d"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSING-PAUSED-NONE.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "855b1146-aeaf-42e9-ada7-97a52bad9ca7"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSING-PAUSED-NONE.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "a64a2c1c-43c9-4a76-976a-5a0816b06a42"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "3a314a8c-8ecb-430e-a968-67dc633e45cb|PAUSED-RUNNING-RESUME"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSED-RUNNING-RESUME.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "855b1146-aeaf-42e9-ada7-97a52bad9ca7"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSED-RUNNING-RESUME.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "d5a2d1e9-4094-479d-bfa2-e3a00e3923c6"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSED-RUNNING-RESUME.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "1247b0f0-546a-449c-b6a0-1d4063d7d1dd"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "4b1ff930-e472-49ae-a1e2-6b5ce5588709|RUNNING-HOLDING-HOLD"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RUNNING-HOLDING-HOLD.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "d5a2d1e9-4094-479d-bfa2-e3a00e3923c6"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RUNNING-HOLDING-HOLD.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "d42eb1a8-9895-4cd6-b059-f2be1562970c"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RUNNING-HOLDING-HOLD.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "0a04eacf-08b1-40ea-be3c-5e49318d8a2b"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "c0e66503-118b-4145-8aff-05b1c68985fb|PAUSING-HOLDING-HOLD"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSING-HOLDING-HOLD.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "ea8cf37f-c2f4-4ced-b316-ab6e57c7774d"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSING-HOLDING-HOLD.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "d42eb1a8-9895-4cd6-b059-f2be1562970c"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSING-HOLDING-HOLD.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "0a04eacf-08b1-40ea-be3c-5e49318d8a2b"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "fa8fb2ed-d2ff-44a9-87e2-db5e6976e379|PAUSED-HOLDING-HOLD"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSED-HOLDING-HOLD.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "855b1146-aeaf-42e9-ada7-97a52bad9ca7"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSED-HOLDING-HOLD.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "d42eb1a8-9895-4cd6-b059-f2be1562970c"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSED-HOLDING-HOLD.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "0a04eacf-08b1-40ea-be3c-5e49318d8a2b"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "1108a81c-c017-4735-9de1-e192ffcd91b4|HOLDING-HOLDING-HOLD"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HOLDING-HOLDING-HOLD.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "d42eb1a8-9895-4cd6-b059-f2be1562970c"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HOLDING-HOLDING-HOLD.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "d42eb1a8-9895-4cd6-b059-f2be1562970c"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HOLDING-HOLDING-HOLD.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "0a04eacf-08b1-40ea-be3c-5e49318d8a2b"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "b40e5e19-a33c-4b38-85c7-f8b6258a9ba4|HOLDING-HELD-NONE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HOLDING-HELD-NONE.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "d42eb1a8-9895-4cd6-b059-f2be1562970c"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HOLDING-HELD-NONE.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "bc88f400-ce1e-46d6-85f1-4f2897cb1625"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HOLDING-HELD-NONE.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "a64a2c1c-43c9-4a76-976a-5a0816b06a42"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "a7ef05e5-ab1b-48ad-bd5e-4b978e1ea098|HELD-RESTARTING-RESTART"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HELD-RESTARTING-RESTART.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "bc88f400-ce1e-46d6-85f1-4f2897cb1625"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HELD-RESTARTING-RESTART.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "0db8814b-ab2c-45a1-951c-65b428428a19"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HELD-RESTARTING-RESTART.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "7e41f83f-a18d-4d51-ad7c-57645dde45a5"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "ddea4ee7-bc12-444d-bee6-4083012a21ff|RESTARTING-HOLDING-HOLD"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RESTARTING-HOLDING-HOLD.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "0db8814b-ab2c-45a1-951c-65b428428a19"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RESTARTING-HOLDING-HOLD.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "d42eb1a8-9895-4cd6-b059-f2be1562970c"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RESTARTING-HOLDING-HOLD.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "0a04eacf-08b1-40ea-be3c-5e49318d8a2b"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "adf51245-dab3-4370-b78f-714383c61d6b|RESTARTING-RUNNING-NONE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RESTARTING-RUNNING-NONE.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "0db8814b-ab2c-45a1-951c-65b428428a19"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RESTARTING-RUNNING-NONE.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "d5a2d1e9-4094-479d-bfa2-e3a00e3923c6"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RESTARTING-RUNNING-NONE.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "a64a2c1c-43c9-4a76-976a-5a0816b06a42"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "22fea199-c66c-4949-b783-6a4320f6dd73|RUNNING-STOPPING-STOP"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RUNNING-STOPPING-STOP.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "d5a2d1e9-4094-479d-bfa2-e3a00e3923c6"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RUNNING-STOPPING-STOP.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "509e83ec-36a2-4179-a1d3-ddf3cd553c64"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RUNNING-STOPPING-STOP.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "934503c4-0d3a-48df-aa7b-31afe1fe0ddf"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "de86ed20-5a66-4ac3-9860-3ce1eac3ee5e|PAUSING-STOPPING-STOP"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSING-STOPPING-STOP.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "ea8cf37f-c2f4-4ced-b316-ab6e57c7774d"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSING-STOPPING-STOP.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "509e83ec-36a2-4179-a1d3-ddf3cd553c64"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSING-STOPPING-STOP.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "934503c4-0d3a-48df-aa7b-31afe1fe0ddf"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "335c1695-431f-4fda-964c-3e477105a088|PAUSED-STOPPING-STOP"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSED-STOPPING-STOP.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "855b1146-aeaf-42e9-ada7-97a52bad9ca7"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSED-STOPPING-STOP.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "509e83ec-36a2-4179-a1d3-ddf3cd553c64"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSED-STOPPING-STOP.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "934503c4-0d3a-48df-aa7b-31afe1fe0ddf"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "c0a85867-3f4f-47bf-8dbc-8008672d420c|HOLDING-STOPPING-STOP"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HOLDING-STOPPING-STOP.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "d42eb1a8-9895-4cd6-b059-f2be1562970c"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HOLDING-STOPPING-STOP.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "509e83ec-36a2-4179-a1d3-ddf3cd553c64"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HOLDING-STOPPING-STOP.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "934503c4-0d3a-48df-aa7b-31afe1fe0ddf"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "edd5b949-be1a-410e-bfb6-94c9a1d9c7a4|HELD-STOPPING-STOP"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HELD-STOPPING-STOP.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "bc88f400-ce1e-46d6-85f1-4f2897cb1625"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HELD-STOPPING-STOP.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "509e83ec-36a2-4179-a1d3-ddf3cd553c64"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HELD-STOPPING-STOP.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "934503c4-0d3a-48df-aa7b-31afe1fe0ddf"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "f4388380-05e7-4e3f-a11c-3ad0298a481a|RESTARTING-STOPPING-STOP"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RESTARTING-STOPPING-STOP.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "0db8814b-ab2c-45a1-951c-65b428428a19"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RESTARTING-STOPPING-STOP.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "509e83ec-36a2-4179-a1d3-ddf3cd553c64"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RESTARTING-STOPPING-STOP.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "934503c4-0d3a-48df-aa7b-31afe1fe0ddf"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "229d6b2e-da24-4c2a-9f59-4f1e7b56319f|STOPPING-STOPPED-NONE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.STOPPING-STOPPED-NONE.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "509e83ec-36a2-4179-a1d3-ddf3cd553c64"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.STOPPING-STOPPED-NONE.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "ebeb22c5-9fb6-43dd-8823-44b848c02a66"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.STOPPING-STOPPED-NONE.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "a64a2c1c-43c9-4a76-976a-5a0816b06a42"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "34d43d1e-db5c-407d-bf50-983c2e9a182e|UNKNOWN-ABORTING-ABORT"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.UNKNOWN-ABORTING-ABORT.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "71133dc3-0e5a-419a-9a70-1918aed71299"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.UNKNOWN-ABORTING-ABORT.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "4086890c-3fc2-4dbd-b538-41d284513160"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.UNKNOWN-ABORTING-ABORT.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "22be8ee2-2f52-46e6-8aec-df0bbc25b236"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "010643ee-4817-49be-867e-98ced067a680|RUNNING-ABORTING-ABORT"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RUNNING-ABORTING-ABORT.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "d5a2d1e9-4094-479d-bfa2-e3a00e3923c6"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RUNNING-ABORTING-ABORT.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "4086890c-3fc2-4dbd-b538-41d284513160"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RUNNING-ABORTING-ABORT.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "22be8ee2-2f52-46e6-8aec-df0bbc25b236"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "6277adf3-4626-4b3d-bf30-737bed7a0597|PAUSING-ABORTING-ABORT"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSING-ABORTING-ABORT.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "ea8cf37f-c2f4-4ced-b316-ab6e57c7774d"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSING-ABORTING-ABORT.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "4086890c-3fc2-4dbd-b538-41d284513160"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSING-ABORTING-ABORT.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "22be8ee2-2f52-46e6-8aec-df0bbc25b236"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "eb41bb8c-5b38-4d8c-b01c-2c745adb8b06|PAUSED-ABORTING-ABORT"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSED-ABORTING-ABORT.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "855b1146-aeaf-42e9-ada7-97a52bad9ca7"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSED-ABORTING-ABORT.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "4086890c-3fc2-4dbd-b538-41d284513160"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.PAUSED-ABORTING-ABORT.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "22be8ee2-2f52-46e6-8aec-df0bbc25b236"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "0f154553-8acc-46d6-b5b0-8bdba9135eb2|HOLDING-ABORTING-ABORT"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HOLDING-ABORTING-ABORT.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "d42eb1a8-9895-4cd6-b059-f2be1562970c"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HOLDING-ABORTING-ABORT.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "4086890c-3fc2-4dbd-b538-41d284513160"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HOLDING-ABORTING-ABORT.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "22be8ee2-2f52-46e6-8aec-df0bbc25b236"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "8b1820e7-dc82-488d-91d3-af1caad71a59|HELD-ABORTING-ABORT"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HELD-ABORTING-ABORT.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "bc88f400-ce1e-46d6-85f1-4f2897cb1625"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HELD-ABORTING-ABORT.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "4086890c-3fc2-4dbd-b538-41d284513160"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.HELD-ABORTING-ABORT.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "22be8ee2-2f52-46e6-8aec-df0bbc25b236"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "cfb4abcc-4632-4e5c-ba3f-827696158195|RESTARTING-ABORTING-ABORT"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RESTARTING-ABORTING-ABORT.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "0db8814b-ab2c-45a1-951c-65b428428a19"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RESTARTING-ABORTING-ABORT.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "4086890c-3fc2-4dbd-b538-41d284513160"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RESTARTING-ABORTING-ABORT.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "22be8ee2-2f52-46e6-8aec-df0bbc25b236"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "cac502ad-4a76-4417-997d-1119f22c40c9|STOPPING-ABORTING-ABORT"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.STOPPING-ABORTING-ABORT.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "509e83ec-36a2-4179-a1d3-ddf3cd553c64"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.STOPPING-ABORTING-ABORT.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "4086890c-3fc2-4dbd-b538-41d284513160"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.STOPPING-ABORTING-ABORT.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "22be8ee2-2f52-46e6-8aec-df0bbc25b236"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "9fc70b2f-30d9-4fa5-b8c2-dcfd91e2315b|STOPPED-ABORTING-ABORT"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.STOPPED-ABORTING-ABORT.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "ebeb22c5-9fb6-43dd-8823-44b848c02a66"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.STOPPED-ABORTING-ABORT.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "4086890c-3fc2-4dbd-b538-41d284513160"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.STOPPED-ABORTING-ABORT.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "22be8ee2-2f52-46e6-8aec-df0bbc25b236"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "5bbffa48-4723-403f-8c3b-4ac233b017f9|ABORTING-ABORTED-NONE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.ABORTING-ABORTED-NONE.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "4086890c-3fc2-4dbd-b538-41d284513160"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.ABORTING-ABORTED-NONE.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "649ec72c-92ac-4747-a156-1288ba820373"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.ABORTING-ABORTED-NONE.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "a64a2c1c-43c9-4a76-976a-5a0816b06a42"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "346ee164-c448-4ae2-8c8a-0d298f33c3c6|COMPLETE-RESETTING-RESET"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.COMPLETE-RESETTING-RESET.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "62271fb4-6c5c-427f-b4f8-ecbd92a2904e"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.COMPLETE-RESETTING-RESET.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "94e5e900-c1b1-4eb1-822d-4dda36e927fa"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.COMPLETE-RESETTING-RESET.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "38468694-9913-47d1-952a-5bdf60f61166"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "287ad1f5-d7bc-4651-889a-636d7486721d|STOPPED-RESETTING-RESET"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.STOPPED-RESETTING-RESET.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "ebeb22c5-9fb6-43dd-8823-44b848c02a66"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.STOPPED-RESETTING-RESET.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "94e5e900-c1b1-4eb1-822d-4dda36e927fa"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.STOPPED-RESETTING-RESET.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "38468694-9913-47d1-952a-5bdf60f61166"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "9efdf47d-6615-4e57-ae27-684af31009ce|ABORTED-RESETTING-RESET"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.ABORTED-RESETTING-RESET.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "649ec72c-92ac-4747-a156-1288ba820373"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.ABORTED-RESETTING-RESET.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "94e5e900-c1b1-4eb1-822d-4dda36e927fa"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.ABORTED-RESETTING-RESET.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "38468694-9913-47d1-952a-5bdf60f61166"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "d9dcbebc-53aa-477b-ab61-4f81d5c6f7d4|UNKNOWN-RESETTING-RESET"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.UNKNOWN-RESETTING-RESET.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "71133dc3-0e5a-419a-9a70-1918aed71299"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.UNKNOWN-RESETTING-RESET.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "94e5e900-c1b1-4eb1-822d-4dda36e927fa"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.UNKNOWN-RESETTING-RESET.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "38468694-9913-47d1-952a-5bdf60f61166"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "f5d82e83-ccaf-473b-8b46-f9856409b365|RESETTING-EXECUTED-NONE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RESETTING-EXECUTED-NONE.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "94e5e900-c1b1-4eb1-822d-4dda36e927fa"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RESETTING-EXECUTED-NONE.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "7236bd09-9882-46cd-b4b9-ef90e53ddda8"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RESETTING-EXECUTED-NONE.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "a64a2c1c-43c9-4a76-976a-5a0816b06a42"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "BatchStateTransitions",
+              "newValue": "a688ec77-5db6-4122-bd8d-d08a8317a0d3|RUNNING-RUNNING-RESTART"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RUNNING-RUNNING-RESTART.BatchSourceStateUUID",
+              "oldValue": "",
+              "newValue": "d5a2d1e9-4094-479d-bfa2-e3a00e3923c6"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RUNNING-RUNNING-RESTART.BatchDestinationStateUUID",
+              "oldValue": "",
+              "newValue": "d5a2d1e9-4094-479d-bfa2-e3a00e3923c6"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "BatchStateTransitions.RUNNING-RUNNING-RESTART.BatchCommandUUID",
+              "oldValue": "",
+              "newValue": "7e41f83f-a18d-4d51-ad7c-57645dde45a5"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

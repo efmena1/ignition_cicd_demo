@@ -1,0 +1,16 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModificationSignature": "38a0c79b5f8db448c155174db900f6362ec2fbcc8b605d596727e346c1c6a141",
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2026-04-07T01:58:29Z"
+    }
+  }
+}

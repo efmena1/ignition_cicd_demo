@@ -1,0 +1,349 @@
+/* Legacy navigation retained for other projects. */
+.docked-view.docked-view-left.dock-cover-shadow-left:has(.psc-docked-nav:not(.psc-ats-navigation)){
+	border-radius: 26px !important;
+	margin-top: -10px;
+	margin-left: 10px;
+}
+
+.docked-view.docked-view-left.dock-cover-shadow-left:has(.psc-docked-nav:not(.psc-ats-navigation)) .content-wrapper {
+    border-radius: 25px !important;
+}
+
+.docked-view.dock-cover-shadow-left:has(.psc-docked-nav:not(.psc-ats-navigation)) {
+    box-shadow: 8px 12px 12px 1px rgb(0 0 0 / 20%);
+}
+
+/* tree    */
+
+.psc-docked-nav:not(.psc-ats-navigation) .psc-tree-nav .ia_treeComponent__node:hover:not(.ia_treeComponent__node--selected){
+	background-color:#b7ccd730 !important;
+	transition: background-color 0.6s ease;
+}
+
+.psc-docked-nav:not(.psc-ats-navigation) .psc-tree-nav .ia_treeComponent__alignmentGuide{
+	color: transparent !important;
+}
+
+/* hover */
+.psc-docked-nav:not(.psc-ats-navigation) .psc-tree-nav .ia_treeComponent__node--selected{
+	background-color:#61a5c7a3;
+}
+
+.psc-docked-nav:not(.psc-ats-navigation) .psc-tree-nav .tree-item-label{
+	 padding: 0 6px;
+}
+
+.psc-docked-nav:not(.psc-ats-navigation) .psc-tree-nav .tree-row {
+
+  border-radius: 15px;
+}
+
+/* no mueve si no tiene items */
+
+/* Ocultar el espacio del expand icon vacío en nodos terminal raíz */
+.psc-docked-nav:not(.psc-ats-navigation) .psc-tree-nav .terminal-node .tree-item .terminal-expand-icon {
+  display: none;
+}
+
+/* Compensar el espacio que ocupaba para que quede alineado con los padres */
+.psc-docked-nav:not(.psc-ats-navigation) .psc-tree-nav .terminal-node .tree-item .tree-item-label {
+  padding-left: 5px;
+}
+
+/* ── Flecha al extremo derecho ── */
+.psc-docked-nav:not(.psc-ats-navigation) .psc-tree-nav .ia_treeComponent__expandIcon {
+  order: 99;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+/* ── Nodo padre expandido: animar sus hijos directos ── */
+.psc-docked-nav:not(.psc-ats-navigation) .psc-tree-nav .ia_treeComponent__node--expanded ~ .terminal-node .tree-item,
+.psc-docked-nav:not(.psc-ats-navigation) .psc-tree-nav .ia_treeComponent__node--expanded ~ .parent-node .tree-item {
+  animation: treeFadeIn 0.4s ease forwards;
+}
+
+.psc-docked-nav:not(.psc-ats-navigation) .psc-tree-nav .ia_treeComponent__node--expanded ~ .terminal-node,
+.psc-docked-nav:not(.psc-ats-navigation) .psc-tree-nav .ia_treeComponent__node--expanded ~ .parent-node {
+  animation: treeFadeIn 0.4s ease forwards;
+}
+
+@keyframes treeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Main wrapper */
+.psc-docked-nav:not(.psc-ats-navigation) .psc-menu-input {
+  position:relative;
+  padding:13px 15px 0px 10px!important;
+  border-radius:0!important;
+  border:none!important;
+  border-bottom:0.5px solid var(--neutral-30)!important;
+  outline:none!important;
+  overflow: visible !important;
+  /* Animated underline (idle + focus) */
+  background:
+    linear-gradient(var(--fl-line-focus),var(--fl-line-focus)) left bottom/0% 2px no-repeat,
+    linear-gradient(var(--fl-line-idle),var(--fl-line-idle)) left bottom/100% 1px no-repeat;
+
+  transition:background-size .3s ease;
+}
+
+/* Focus animation */
+.psc-docked-nav:not(.psc-ats-navigation) .psc-menu-input:focus-within,
+.psc-docked-nav:not(.psc-ats-navigation) .psc-menu-input [tabindex="0"]:focus {
+  outline:none!important;
+  background:
+    linear-gradient(var(--fl-line-focus),var(--fl-line-focus)) left bottom/100% 2px no-repeat,
+    linear-gradient(var(--fl-line-idle),var(--fl-line-idle)) left bottom/100% 1px no-repeat;
+}
+
+/* ATS Navigation. Colors inherit the Gateway co-branding settings. */
+.psc-docked-nav.psc-ats-navigation {
+  --nav-bg: var(--co-branding-background, #002C77);
+  --nav-text: var(--co-branding-color, #FFFFFF);
+  --nav-active-bg: var(--co-branding-button-color, #FFB200);
+  --nav-active-text: var(--co-branding-button-text-color, #002C77);
+  --nav-foreground: color-mix(in srgb, var(--nav-text) 90%, var(--nav-bg));
+  --nav-muted: color-mix(in srgb, var(--nav-text) 60%, var(--nav-bg));
+  --nav-hover-bg: color-mix(in srgb, var(--nav-text) 10%, var(--nav-bg));
+  --nav-input-bg: color-mix(in srgb, var(--nav-text) 8%, var(--nav-bg));
+  --nav-border: color-mix(in srgb, var(--nav-text) 20%, var(--nav-bg));
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  padding: 12px;
+  gap: 12px;
+  background: var(--nav-bg);
+  color: var(--nav-foreground);
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+/* Only the overlay containing this navigation gets the floating treatment. */
+.docked-view.docked-view-left.dock-cover-shadow-left:has(.psc-ats-navigation) {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 8px 12px 24px rgb(0 0 0 / 20%);
+}
+
+.docked-view.docked-view-left.dock-cover-shadow-left:has(.psc-ats-navigation) > .content-wrapper {
+  border-radius: 16px;
+}
+
+.psc-ats-navigation > * {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.psc-ats-navigation .psc-ats-nav-search {
+  position: relative;
+  min-height: 36px;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.psc-ats-navigation .psc-menu-input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 36px;
+  padding: 0 36px;
+  border: 1px solid var(--nav-border);
+  border-radius: 8px;
+  background: var(--nav-input-bg);
+  color: var(--nav-text);
+  font: 400 13px "Poppins", sans-serif;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.psc-ats-navigation .psc-menu-input::placeholder {
+  color: var(--nav-muted);
+  opacity: 1;
+}
+
+.psc-ats-navigation .psc-menu-input:focus {
+  border-color: var(--nav-active-bg);
+  outline: 2px solid var(--nav-active-bg);
+  outline-offset: 1px;
+  box-shadow: none;
+}
+
+.psc-ats-navigation .psc-ats-nav-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.psc-ats-navigation .psc-ats-nav-clear {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  box-sizing: border-box;
+  z-index: 1;
+  min-width: 0;
+  padding: 4px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--nav-foreground);
+  box-shadow: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.psc-ats-navigation .psc-ats-nav-clear:hover {
+  background: var(--nav-hover-bg);
+}
+
+.psc-ats-navigation .psc-ats-nav-clear:focus-visible,
+.psc-ats-navigation .psc-tree-nav:focus-visible,
+.psc-ats-navigation .tree-row:focus-visible,
+.psc-ats-navigation .tree-row:has(:focus-visible) {
+  outline: 2px solid var(--nav-active-bg);
+  outline-offset: -2px;
+}
+
+.psc-ats-navigation .psc-tree-nav {
+  --icon: var(--nav-foreground);
+  --icon--selected: var(--nav-active-text);
+  min-width: 0;
+  min-height: 80px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: transparent;
+  scrollbar-width: thin;
+  scrollbar-color: var(--nav-muted) var(--nav-bg);
+}
+
+.psc-ats-navigation .psc-tree-nav .tree-row {
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.psc-ats-navigation .psc-tree-nav .ia_treeComponent__node:hover:not(.ia_treeComponent__node--selected) {
+  background-color: var(--nav-hover-bg);
+}
+
+.psc-ats-navigation .psc-tree-nav .ia_treeComponent__node--selected {
+  background-color: var(--nav-active-bg);
+  color: var(--nav-active-text);
+  font-weight: 600;
+}
+
+.psc-ats-navigation .psc-tree-nav .ia_treeComponent__alignmentGuide {
+  color: transparent;
+}
+
+.psc-ats-navigation .psc-tree-nav .tree-item-label {
+  padding: 0 6px;
+}
+
+.psc-ats-navigation .psc-tree-nav .ia_treeComponent__node__icon,
+.psc-ats-navigation .psc-tree-nav .ia_treeComponent__expandIcon {
+  fill: currentColor;
+}
+
+.psc-ats-navigation .psc-tree-nav .ia_treeComponent__expandIcon {
+  order: 99;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.psc-ats-navigation .psc-ats-nav-footer {
+  min-height: 88px;
+  flex-shrink: 0;
+  padding-top: 10px;
+  gap: 3px;
+  border-top: 1px solid var(--nav-border);
+}
+
+.psc-ats-navigation .psc-ats-nav-logo {
+  box-sizing: border-box;
+  width: 76px;
+  height: 40px;
+  flex: 0 0 40px !important;
+  padding: 3px 6px;
+  border-radius: 6px;
+  background: #FFFFFF;
+  object-fit: contain;
+  align-self: flex-start;
+}
+
+.psc-ats-navigation .psc-ats-nav-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+}
+
+.psc-ats-navigation .psc-ats-nav-tagline,
+.psc-ats-navigation .psc-ats-nav-tagline-strong {
+  min-width: 0;
+  flex: 0 0 auto !important;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  color: var(--nav-muted);
+  font: 400 10px/1.4 "Poppins", sans-serif;
+}
+
+.psc-ats-navigation .psc-ats-nav-tagline-strong {
+  color: var(--nav-foreground);
+  font-family: "Poppins-SemiBold", "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Override the shared scrollbar only within this panel. */
+.psc-ats-navigation::-webkit-scrollbar,
+.psc-ats-navigation .psc-tree-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.psc-ats-navigation::-webkit-scrollbar-track,
+.psc-ats-navigation .psc-tree-nav::-webkit-scrollbar-track {
+  background: var(--nav-bg);
+}
+
+.psc-ats-navigation::-webkit-scrollbar-thumb,
+.psc-ats-navigation .psc-tree-nav::-webkit-scrollbar-thumb {
+  background: var(--nav-muted) !important;
+  border: 1px solid var(--nav-bg);
+  border-radius: 6px;
+}
+
+@media (max-height: 360px) {
+  .psc-docked-nav.psc-ats-navigation {
+    overflow-y: auto;
+  }
+  .psc-ats-navigation > .psc-tree-nav {
+    flex: 0 0 auto !important;
+    overflow-y: visible;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .psc-ats-navigation .tree-row,
+  .psc-ats-navigation .psc-menu-input {
+    transition: none;
+  }
+}

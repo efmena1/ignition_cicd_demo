@@ -1,0 +1,52 @@
+{
+  "changesetData": {
+    "uuid": "29ce3f89-1614-4320-8604-6763901adf5d",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:21.402Z",
+    "appliedOnChangesetUUID": "e1fa8121-e90b-4c05-b243-837028011095",
+    "hash": "855a645dfcfab4bef8ab120fee3359778ab268bd30dcd0b7fc1e9a279967becf",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:21.389670400Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Batch Formula Root": {
+        "4613979a-300e-44d9-932d-53d6cb70893a": {
+          "meta": {
+            "name": "Batch Formula Root"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "4613979a-300e-44d9-932d-53d6cb70893a"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Batch Formula Root"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

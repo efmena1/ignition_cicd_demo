@@ -1,0 +1,167 @@
+{
+  "custom": {
+    "currentView": "home"
+  },
+  "params": {},
+  "propConfig": {
+    "custom.currentView": {
+      "persistent": true
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Home"
+        },
+        "position": {
+          "basis": "320px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.currentView} \u003d \"home\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "mode": "add",
+            "selectedHoliday": "",
+            "selectedSchedule": ""
+          },
+          "path": "ScheduleManagement/Views/Home"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "AddEditSchedule"
+        },
+        "position": {
+          "basis": "320px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.currentView} \u003d \"addEditSchedule\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.mode": {
+            "binding": {
+              "config": {
+                "path": "../Home.props.params.mode"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.selectedHoliday": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "../Home.props.params.selectedHoliday"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.selectedSchedule": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "../Home.props.params.selectedSchedule"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "ScheduleManagement/Views/AddEditSchedule"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "AddEditHoliday"
+        },
+        "position": {
+          "basis": "320px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.currentView} \u003d \"addEditHoliday\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.mode": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "../Home.props.params.mode"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.selectedHoliday": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "../Home.props.params.selectedHoliday"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.selectedSchedule": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "../Home.props.params.selectedSchedule"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "ScheduleManagement/Views/AddEditHoliday"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "minWidth": "320px",
+        "overflow": "visible"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "ScheduleManagement_ChangeViews",
+          "pageScope": true,
+          "script": "\t# Refresh Schedules and Holiday Table and change views.\n\tsystem.perspective.sendMessage(\"ScheduleManagement_RefreshTables\", scope\u003d\"page\")\n\tself.view.custom.currentView \u003d payload[\"view\"]",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

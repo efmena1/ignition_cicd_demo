@@ -1,0 +1,7 @@
+{
+  "title": "ATS Theme Library",
+  "description": "Editable built-in Perspective variables, extracted from Perspective 3.3.9.",
+  "enabled": true,
+  "inheritable": false,
+  "parent": ""
+}

@@ -1,0 +1,310 @@
+{
+  "custom": {},
+  "params": {
+    "userSource": "default"
+  },
+  "propConfig": {
+    "params.userSource": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 305,
+      "width": 247
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "30px",
+              "shrink": 0
+            },
+            "props": {
+              "path": "material/account_circle"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Name"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "session.props.auth.user"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tfirst_name \u003d value[\u0027firstName\u0027]\n\tlast_name \u003d value[\u0027lastName\u0027]\n\t\n\tresult \u003d \u0027\u0027\n\t\n\tif first_name !\u003d None:\n\t\tresult +\u003d str(first_name)\n\t\n\tif last_name !\u003d None:\n\t\tresult +\u003d \u0027 \u0027 + (last_name)\n\t\n\treturn result",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "ats-global/headers/primary-labels"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Role"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "session.props.auth.user.userName"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "ats-global/headers/secondary-labels"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Info"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {},
+                      "scope": "C",
+                      "type": "logout"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "45px"
+                },
+                "props": {
+                  "style": {
+                    "classes": "ats-global/headers/action-labels ats-global/headers/secondary-labels",
+                    "textAlign": "end"
+                  },
+                  "text": "Logout"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {},
+                      "scope": "C",
+                      "type": "logout"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Logout"
+                },
+                "position": {
+                  "basis": "20px"
+                },
+                "props": {
+                  "color": "var(--neutral-70)",
+                  "path": "material/login",
+                  "style": {
+                    "cursor": "pointer"
+                  }
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "65px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "overflow": "visible"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "basis": "50px",
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "style": {
+            "borderBottomColor": "var(--neutral-30)",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": "0px",
+            "gap": "10px",
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Body"
+        },
+        "position": {
+          "basis": "143px",
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.instances[0].data": {
+            "binding": {
+              "config": {
+                "path": "session.props.auth.user.roles"
+              },
+              "transforms": [
+                {
+                  "code": "\t\n\treturn [] if value \u003d\u003d None else value",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.instances[1].data": {
+            "binding": {
+              "config": {
+                "path": "session.props.auth.user.userName"
+              },
+              "transforms": [
+                {
+                  "code": "\tif value \u003d\u003d None:\n\t\treturn [\u0027\u0027]\n\t\t\n\tschedules \u003d user \u003d system.user.getUser(self.view.params.userSource, value).getContactInfo()\n\t\n\tif schedules \u003d\u003d None:\n\t\treturn [\u0027\u0027]\n\t\t\n\treturn schedules",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.instances[2].data": {
+            "binding": {
+              "config": {
+                "path": "session.props.auth.user.userName"
+              },
+              "transforms": [
+                {
+                  "code": "\tif value \u003d\u003d None:\n\t\treturn [\u0027\u0027]\n\t\n\tbadge \u003d [system.user.getUser(self.view.params.userSource, value).get(\u0027Badge\u0027)]\n\t\n\tif badge \u003d\u003d None:\n\t\treturn [\u0027\u0027]\n\t\t\n\treturn badge",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.instances[3].data": {
+            "binding": {
+              "config": {
+                "path": "session.props.auth.user.userName"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn [system.user.getUser(self.view.params.userSource, value).get(\u0027schedule\u0027)]",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "elementPosition": {
+            "basis": "auto",
+            "grow": 0,
+            "shrink": 0
+          },
+          "instances": [
+            {
+              "header": "Roles",
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              }
+            },
+            {
+              "header": "Contact Info",
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              }
+            },
+            {
+              "header": "Badge",
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              }
+            },
+            {
+              "header": "Schedule",
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              }
+            }
+          ],
+          "path": "ATS Global/Headers/User Details/UserCell",
+          "style": {
+            "overflow": "visible"
+          },
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "visible",
+        "padding": "10px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

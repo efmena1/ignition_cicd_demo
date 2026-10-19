@@ -1,0 +1,143 @@
+{
+  "custom": {},
+  "params": {
+    "message": "",
+    "type": "",
+    "userSource": ""
+  },
+  "propConfig": {
+    "params.message": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.userSource": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 120,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Text"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\"Are you sure you want to remove the \" + if({view.params.type}\u003d\"user\", \u0027user:\"\u0027+{view.params.message}, \u0027role:\"\u0027+{view.params.message}) + \u0027\"?\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginBottom": "10px",
+            "marginTop": "10px",
+            "paddingLeft": "10px",
+            "paddingRight": "10px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "draggable": true,
+                    "id": "UserManagement_CheckBeforeRemoval",
+                    "modal": false,
+                    "overlayDismiss": false,
+                    "resizable": true,
+                    "showCloseIcon": true,
+                    "type": "close",
+                    "viewPath": "UserManagement/Views/Popups/Popup_CheckRemoval"
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "No"
+            },
+            "position": {
+              "basis": "100px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "No"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tuserSource \u003d self.view.params.userSource\n\tmessage \u003d self.view.params.message\n\t\n\t# Remove user or role from Gateway depending on whether the roles or user delete icon was selected.\n\tif self.view.params.type \u003d\u003d \u0027user\u0027:\n\t\tsystem.user.removeUser(userSource, message)\n\telse:\n\t\tsystem.user.removeRole(userSource, message)\n\t\t\n\t# Refresh both user and roles table and then close the popup.\n\tsystem.perspective.sendMessage(\"UserManagement_RefreshTables\", payload\u003d{}, scope\u003d\u0027page\u0027)\n\tsystem.perspective.closePopup(\"UserManagement_CheckBeforeRemoval\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Yes"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "#FC4141"
+              },
+              "text": "Yes"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Buttons"
+        },
+        "position": {
+          "basis": "40px",
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-evenly"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "justify": "center",
+      "style": {
+        "classes": "UserManagement/InputFont",
+        "textAlign": "center"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

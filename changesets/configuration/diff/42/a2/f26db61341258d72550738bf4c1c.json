@@ -1,0 +1,36 @@
+{
+  "changesetData": {
+    "uuid": "42a2f26d-b613-4125-8d72-550738bf4c1c",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:14.721Z",
+    "appliedOnChangesetUUID": "5f0576b2-ec28-474c-bb35-8bb78f953632",
+    "hash": "b3690bd7dde7f6077d11bc0e7a2024690f2b488df7de3487fc72bddd588f9f54",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:14.708534600Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Definition": {
+        "9ed9cd56-10e2-4e98-938a-2eac5418446d": {
+          "meta": {
+            "name": "Signature_Template"
+          },
+          "changes": [
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Immutable Built-in Enum for Signature Template options."
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "custom": {},
+  "params": {
+    "contactInformation": "",
+    "row": "",
+    "type": ""
+  },
+  "propConfig": {
+    "params.contactInformation": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.row": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 26,
+      "width": 200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\t# Sends a message back to the Contact Information table with the row and the updated value of the type.\n\tsystem.perspective.sendMessage(\u0027UserManagement_ContactInfoTypeChange\u0027, payload\u003d{\u0027row\u0027:self.view.params.row, \u0027type\u0027:self.props.value})"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Dropdown"
+        },
+        "position": {
+          "height": 1,
+          "width": 1
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "path": "view.params.contactInformation"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\t# Returns the type for the given row.\n\treturn value[self.view.params.row][\u0027Type\u0027]",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "dropdownOptionStyle": {
+            "classes": "UserManagement/InputFont",
+            "fontSize": "12px"
+          },
+          "options": [
+            {
+              "label": "email",
+              "value": "email"
+            },
+            {
+              "label": "phone",
+              "value": "phone"
+            },
+            {
+              "label": "sms",
+              "value": "sms"
+            }
+          ],
+          "search": {
+            "enabled": false
+          },
+          "style": {
+            "classes": "UserManagement/InputFont",
+            "fontSize": "12px"
+          }
+        },
+        "type": "ia.input.dropdown"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "mode": "percent",
+      "style": {
+        "overflow": "visible"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

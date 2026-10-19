@@ -1,0 +1,8 @@
+[
+  {
+    "dataType": "Boolean",
+    "name": "MESModuleStarted",
+    "tagType": "AtomicTag",
+    "valueSource": "memory"
+  }
+]

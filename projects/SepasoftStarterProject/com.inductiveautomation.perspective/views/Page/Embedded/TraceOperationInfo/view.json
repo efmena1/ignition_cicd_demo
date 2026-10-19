@@ -1,0 +1,72 @@
+{
+  "custom": {},
+  "params": {
+    "responseSegUUID": ""
+  },
+  "propConfig": {
+    "params.responseSegUUID": {
+      "onChange": {
+        "enabled": null,
+        "script": "\trespSegUUID = currentValue.value\n\tmarkdownComponent = self.getChild(\"root\").getChild(\"Markdown\") \n\tmarkup = ''\n\tif len(respSegUUID) == 0:\n\t\tmarkdownComponent.props.source = ''\n\t\treturn\n\t\t\n\tseg = system.mes.loadMESObject(respSegUUID)\n\t\n\tif str(seg.getMESObjectType()) != 'Response Segment':\n\t\tmarkdownComponent.props.source = ''\n\t\treturn\n\t\t\n\tmarkup = '## **' + seg.getName() + '**\\n'\n\tmarkup += '**Started:** ' +str(seg.getPropertyValue('BeginDateTime')) +' \\n\\n'\n\tmarkup += '**Ended:** ' +str(seg.getPropertyValue('EndDateTime')) +' \\n\\n'\n\t\t\t\n\toperationUUID = seg.getPropertyValue('OperationsResponseRefUUID')\n\topResponse = system.mes.loadMESObject(operationUUID)\n\t\n\t#Get the MES object link of where the operation is running\n\teqLink = opResponse.getEquipmentLink()\n\t\n\tmarkup += '### Processing Equipment\\n'\n\tmarkup += '**Type**: '+ str(eqLink.getMESObjectType()) + '\\n \\n'\n\tmarkup += '**Name**: '+ eqLink.getName() +'\\n \\n'\n\t\n\tcomplexProps = seg.getComplexPropertyCount('ResponseMaterial')\n\t\n\tprops = {}\n\tuiList = []\n\tfor i in range(complexProps):\n\t\tprop = seg.getComplexProperty('ResponseMaterial',i)\n\t\t#material prop name\n\t\tpropName = prop.getName()\n\t\tif prop.hasSegmentRefUUID():\n\t\t\t#lot number\n\t\t\tlotName = prop.getMaterialLot().getName()\n\t\t\t#material def name\n\t\t\tmatName = prop.getMaterialRef().getName()\n\t\t\t#location\n\t\t\tlocation = prop.getEquipmentRef().getName()\n\t\t\t#quantity\n\t\t\tquantity = prop.getQuantity()\n\t\t\t#begintime\n\t\t\tbegin = prop.getBeginDateTime()\n\t\t\t#end time\n\t\t\tend = prop.getEndDateTime()\n\t\t\t#use\n\t\t\tuse = prop.getUse()\n\t\t\t\n\t\t\tlotSequence = prop.getLotRefSequence()\n\t\t\t#eqPath = eqLink.getMESObject().getEquipmentPath()\n\t\t\t\n\t\t\tcustomProps = []\n\t\t\t#lot = system.mes.loadMaterialLot(lotName, lotSequence, eqPath, False)\n\t\t\tlot = system.mes.loadMaterialLot(lotName, lotSequence, False)\n\t\t\t\n\t\t\tfor cp in lot.getAllCustomProperties():\n\t\t\t\tcustomProps.append(cp.getName() + ':' + str(cp.getValue()))\n\t\t\t\n\t\t\t#Sublots\n\t\t\tsublots = []\n\t\t\tfor lot in lot.getChildCollection():\n\t\t\t\tsublots.append(system.mes.getMESObjectLink(lot).getName())\n\t\t\t\n\t\t\tfinalProp = {use:\n\t\t\t\t{\n\t\t\t\t\t'propName' : propName,\n\t\t\t\t\t'lotName' : lotName,\t\n\t\t\t\t\t'lotSequence' : lotSequence,\t\n\t\t\t\t\t'matName' : matName,\n\t\t\t\t\t'location' : location,\n\t\t\t\t\t'quantity' : quantity,\n\t\t\t\t\t'begin' : begin,\n\t\t\t\t\t'end': end,\n\t\t\t\t\t'customProps': customProps,\n\t\t\t\t\t'sublots':sublots\n\t\t\t\t}\n\t\t\t}\n\t\n\t\telse:\n\t\t\tfinalProp = {'unused':{'propName':propName}}\n\t\t\t\n\t\t#update relevant material\n\t\tif props.has_key(finalProp.keys()[0]):\n\t\t\tprops[finalProp.keys()[0]].append(finalProp[finalProp.keys()[0]])\n\t\t#create new list of material\n\t\telse:\n\t\t\tprops.update({finalProp.keys()[0]:[finalProp[finalProp.keys()[0]]]})\n\t\n\tuseOrder = ['In','Out','Consumable','By-Product']\n\tbuffersize = 30\n\tfor use in useOrder:\n\t\tfirst = True\n\t\tfor key, values in props.items():\n\t\t\tif key == use:\n\t\t\t\tfor matProp in values:\n\t\t\t\t\tif first == True:\n\t\t\t\t\t\tmarkup += '### **Material - ' + key + '**\\n'\n\t\t\t\t\telse:\n\t\t\t\t\t\tmarkup += ' \\n '\n\t\t\t\t\tmarkup += '|`' + matProp['propName'] + '`:||\\n'\n\t\t\t\t\tmarkup += '|--|--|\\n'\n\t\t\t\t\tmarkup += '|Lot No:|' + matProp['lotName'] + '|\\n'\n\t\t\t\t\tmarkup += '|Lot Sequence|' + str(matProp['lotSequence']) + '|\\n'\n\t\t\t\t\tmarkup += '|Material|' + matProp['matName'] + '|\\n'\n\t\t\t\t\tmarkup += '|Location|' + matProp['location'] + '|\\n'\n\t\t\t\t\tmarkup += '|Quantity|' + str(matProp['quantity']) + '|\\n'\n\t\t\t\t\tmarkup += '|Begin Date Time|' + str(matProp['begin']) + '|\\n'\n\t\t\t\t\tmarkup += '|End Date Time|' + str(matProp['end']) + '|\\n'\n\t\t\t\t\t\n\t\t\t\t\t#custom properties\n\t\t\t\t\tif matProp['customProps']:\n\t\t\t\t\t\tfor cp in matProp['customProps']:\n\t\t\t\t\t\t\tmarkup += '|' + cp.split(':')[0] + '|' + cp.split(':')[1] + '|\\n'\n\t\t\t\t\t\n\t\t\t\t\tfirst = False\n\t\t\t\t\t#sublots\n\t\t\t\t\tif matProp['sublots']:\n\t\t\t\t\t\tfor sublot in matProp['sublots']:\n\t\t\t\t\t\t\tmarkup += '| |'+ sublot + '|\\n'\n\t\n\t\t\t\t\tmarkup += ' ---\\n\\n'\n\t\t\t\t\t\t\n\tmarkdownComponent.props.source = markup\t\t\t\t"
+      },
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 400
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Markdown"
+        },
+        "position": {
+          "height": 0.9725,
+          "width": 0.9525,
+          "x": 0.0249,
+          "y": 0.0125
+        },
+        "propConfig": {
+          "props.source": {
+            "persistent": false
+          },
+          "props.style.color": {
+            "binding": {
+              "config": {
+                "path": "session.props.theme"
+              },
+              "transforms": [
+                {
+                  "code": "\tif value == 'dark':\n\t\treturn '#828282'\n\telse:\n\t\treturn '#090909'",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "markdown": {
+            "escapeHtml": false
+          },
+          "style": {
+            "fontSize": 14,
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.display.markdown"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "mode": "percent"
+    },
+    "type": "ia.container.coord"
+  }
+}

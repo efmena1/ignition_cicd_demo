@@ -1,0 +1,100 @@
+{
+  "changesetData": {
+    "uuid": "e2131351-bc1e-4a81-9cbe-831efafc2008",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:16.367Z",
+    "appliedOnChangesetUUID": "fa350c00-0a2e-4c0a-b0db-dab7e9d9bb20",
+    "hash": "04b172b04f33eac0e0549b4e588443acdb1b3bdb916583d8ce744441a8a28961",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:16.349535Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Root": {
+        "a3fc72c4-6a3b-11ea-bc55-0242ac130003": {
+          "meta": {
+            "name": "Enum Definitions"
+          },
+          "changes": [
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "cf4e729b-be38-4fd4-b758-9d8b0504b179|EnumDefinition",
+              "newValueFriendly": "Lot_Status"
+            }
+          ]
+        }
+      },
+      "Enum Definition": {
+        "cf4e729b-be38-4fd4-b758-9d8b0504b179": {
+          "meta": {
+            "name": "Lot_Status"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "cf4e729b-be38-4fd4-b758-9d8b0504b179"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Lot_Status"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "System Modifiable"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "f8da240a-cdd6-4eb7-a379-3d2972ec0db7|Complete"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "381660cb-602c-4418-abfb-cfb4355fab24|Hold"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.Hold.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "1"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "27cc4559-9e74-4698-82b9-237b1507c367|Scrap"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.Scrap.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "2"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "a3fc72c4-6a3b-11ea-bc55-0242ac130003|EnumRoot",
+              "newValueFriendly": "Enum Definitions"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

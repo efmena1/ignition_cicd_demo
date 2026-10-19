@@ -1,0 +1,113 @@
+{
+  "custom": {},
+  "params": {
+    "title": "Start Date",
+    "value": null
+  },
+  "propConfig": {
+    "params.title": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.value": {
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 50,
+      "width": 250
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Title"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.title"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "fl-label"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onBlur": {
+              "config": {
+                "script": "\tval \u003d self.props.value\n\tif not val:\n\t    self.getSibling(\"Title\").props.style.classes \u003d \"fl-label\""
+              },
+              "scope": "G",
+              "type": "script"
+            },
+            "onFocus": {
+              "config": {
+                "script": "\tself.getSibling(\"Title\").props.style.classes \u003d \"fl-label fl-label--active\""
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "DateTimeInput"
+        },
+        "position": {
+          "basis": "32px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.value"
+              },
+              "type": "property"
+            },
+            "onChange": {
+              "enabled": null,
+              "script": "\tval \u003d self.view.params.value\n\tif not val:\n\t    self.getSibling(\"Title\").props.style.classes \u003d \"fl-label\"\n\telse:\n\t   \tself.getSibling(\"Title\").props.style.classes \u003d \"fl-label fl-label--active\"\t"
+            }
+          }
+        },
+        "props": {
+          "dismissOnSelect": false,
+          "formattedValue": "Mar 10, 2026 12:00 PM",
+          "inputProps": {
+            "style": {
+              "classes": "fl-input",
+              "cursor": "pointer"
+            }
+          },
+          "placeholder": ""
+        },
+        "type": "ia.input.date-time-input"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "margin": "2px",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

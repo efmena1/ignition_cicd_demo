@@ -1,0 +1,36 @@
+{
+  "changesetData": {
+    "uuid": "151bf4ee-ba37-48bf-b02d-fd5bc4ddf1f6",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:16.940Z",
+    "appliedOnChangesetUUID": "7374a126-ab40-4185-a266-3da6942fdc1f",
+    "hash": "f9f877161b55398d12edb4536ededc92c8ec32f5a66bbcd279ca4f0d68b7f476",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:16.923778800Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Definition": {
+        "8000a2f2-14b9-4e01-bbbb-ab515c77c76e": {
+          "meta": {
+            "name": "Equipment_UOM"
+          },
+          "changes": [
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in enum for Unit of Measure (UOM) options on Supplemental Equipment Properties."
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

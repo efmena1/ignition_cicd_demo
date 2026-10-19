@@ -1,0 +1,62 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Card"
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "maxWidth": "900px",
+            "width": "100%",
+            "margin": "0 auto",
+            "backgroundColor": "rgba(0,0,0,0.02)",
+            "border": "1px solid rgba(0,0,0,0.08)",
+            "borderRadius": "8px",
+            "padding": "28px 32px"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "Markdown"
+            },
+            "type": "ia.display.markdown",
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "markdown": {
+                "escapeHtml": false
+              },
+              "source": "# Settings & Changeover\n\nStock `mes.recipe.sco*` (plus `mes.production.mesEquipmentManager`) screens for recipe-driven settings and changeover. Work through them in this order:\n\n1. **Equipment Manager** (Production module) - create the equipment and its recipe parameters.\n2. **Tree Editor** - create recipes against that equipment.\n3. **Recipe Selector** - activate a recipe.\n4. **Variance Viewer** - view variance, if enabled.\n5. **Changelog** - view the recipe changelog.\n6. **Analysis** - view analysis data.\n",
+              "style": {
+                "fontSize": 15,
+                "lineHeight": "1.6"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "padding": "24px",
+        "overflow": "auto"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

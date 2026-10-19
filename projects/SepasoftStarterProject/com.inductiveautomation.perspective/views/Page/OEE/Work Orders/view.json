@@ -1,0 +1,136 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "flx_dates"
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "60px"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "gap": "10px",
+            "alignItems": "center"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "mesObjectSelector"
+            },
+            "type": "mes.production.mesObjectSelector",
+            "position": {
+              "basis": "340px"
+            },
+            "props": {
+              "displayText": "Line",
+              "style": {
+                "margin": "4px 6px",
+                "overflow": "visible"
+              },
+              "includeMESLineObjects": true,
+              "includeMESLineCellGroupObjects": true,
+              "includeMESLineCellObjects": true
+            }
+          },
+          {
+            "meta": {
+              "name": "dt_creationStart"
+            },
+            "type": "ia.input.date-time-input",
+            "position": {
+              "basis": "220px"
+            },
+            "props": {
+              "style": {
+                "margin": "4px 6px"
+              }
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "expression": "dateArithmetic(now(0), -30, \"day\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "dt_creationEnd"
+            },
+            "type": "ia.input.date-time-input",
+            "position": {
+              "basis": "220px"
+            },
+            "props": {
+              "style": {
+                "margin": "4px 6px"
+              }
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "expression": "now(0)"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "mesWorkOrderTable"
+        },
+        "type": "mes.production.mesWorkOrderTable",
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.creationBeginDate": {
+            "binding": {
+              "config": {
+                "path": "../flx_dates/dt_creationStart.props.value"
+              },
+              "type": "property"
+            }
+          },
+          "props.creationEndDate": {
+            "binding": {
+              "config": {
+                "path": "../flx_dates/dt_creationEnd.props.value"
+              },
+              "type": "property"
+            }
+          },
+          "props.equipmentPathFilter": {
+            "binding": {
+              "config": {
+                "path": "../flx_dates/mesObjectSelector.props.selectedMESObject.equipmentPath"
+              },
+              "type": "property"
+            }
+          }
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

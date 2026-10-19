@@ -1,0 +1,64 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 829,
+      "width": 927
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "CSS Installer"
+            },
+            "props": {
+              "path": "ATS Global/Tools/CSS Installer"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Fonts Icons Installer"
+            },
+            "position": {
+              "tabIndex": 1
+            },
+            "props": {
+              "path": "ATS Global/Tools/Fonts Icons Installer"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "TabContainer"
+        },
+        "position": {
+          "basis": "800px",
+          "grow": 1
+        },
+        "props": {
+          "menuType": "modern",
+          "tabSize": {
+            "width": 110
+          },
+          "tabs": [
+            "CSS",
+            "Fonts \u0026 Icons"
+          ]
+        },
+        "type": "ia.container.tab"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

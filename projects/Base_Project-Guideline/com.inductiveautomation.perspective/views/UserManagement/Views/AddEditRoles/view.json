@@ -1,0 +1,592 @@
+{
+  "custom": {},
+  "params": {
+    "mode": "add",
+    "selectedRole": "",
+    "selectedUser": "",
+    "userSource": "default"
+  },
+  "propConfig": {
+    "custom.error": {
+      "binding": {
+        "config": {
+          "path": "/root/Name FlexContainer/Icon.custom.errorMessage"
+        },
+        "transforms": [
+          {
+            "fallback": true,
+            "inputType": "scalar",
+            "mappings": [
+              {
+                "input": "",
+                "output": false
+              }
+            ],
+            "outputType": "scalar",
+            "type": "map"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "params.mode": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.selectedRole": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.selectedUser": {
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.userSource": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 400,
+      "width": 700
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Header"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.params.mode} \u003d \"add\", \"Users \u003e Add Role\", \"Users \u003e Edit Role\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UserManagement/Headers"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Spacing"
+            },
+            "position": {
+              "basis": "20px",
+              "grow": 1,
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "classes": "ScheduleManagement/Headers"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\t# Sends the user back to User Management (home) view.\n\tsystem.perspective.sendMessage(\"UserManagement_ChangeView\", payload\u003d{\"view\":\"home\"}, scope\u003d\"page\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "classes": "ScheduleManagement/Headers",
+                "cursor": "pointer",
+                "fontSize": "15px"
+              },
+              "text": "\u003c Back"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\t\u0027\u0027\u0027\n\tIf there are no errors, adds/updates the role on the Gateway and sends the user back to the User Management (home) view.\n\tIf an error is found, open popup with error message.\n\t\u0027\u0027\u0027\n\tif self.view.custom.error \u003d\u003d True:\n\t\tparams \u003d {\n\t\t\t\u0027role\u0027:\t\tself.parent.parent.getChild(\"Name FlexContainer\").getChild(\"Icon\").custom.errorMessage,\n\t\t\t\u0027mode\u0027:\t\t\u0027role\u0027\t\n\t\t\t}\n\t\t\n\t\t# Open up error message popup with a list of errors.\n\t\tsystem.perspective.openPopup(id\u003d\u0027UserManagement_SaveError\u0027, view\u003d\u0027UserManagement/Views/Popups/Popup_SaveError\u0027, params\u003dparams, showCloseIcon\u003dFalse, draggable\u003dFalse)\n\t\t\n\telse:\n\t\tuserSource \u003d self.view.params.userSource\n\t\tnewRole \u003d self.view.getChild(\"root\").custom.roleName\n\t\tselectedRole \u003d self.view.params.selectedRole\n\t\tmode \u003d self.view.params.mode\n\t\t\n\t\t# If a new role, add the role to the Gateway. Else, edit the role in the Gateway.\n\t\tif mode \u003d\u003d \"add\":\n\t\t\tsystem.user.addRole(userSource, newRole)\n\t\telse:\n\t\t\tsystem.user.editRole(userSource, selectedRole, newRole)\n\n\t\t# Navigate back to the User Management (home) view.\n\t\tsystem.perspective.sendMessage(\"UserManagement_ChangeView\", payload\u003d{\"view\":\"home\"}, scope\u003d\"page\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "basis": "50px",
+              "shrink": 0
+            },
+            "props": {
+              "image": {
+                "position": "center"
+              },
+              "style": {
+                "backgroundColor": "#E9E2E2",
+                "color": "#000000",
+                "marginBottom": "5px",
+                "marginLeft": "10px",
+                "marginRight": "5px",
+                "marginTop": "5px"
+              },
+              "text": "Save"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "basis": "40px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "UserManagement/Headers",
+            "marginBottom": "10px",
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Name Label"
+        },
+        "position": {
+          "basis": "20px"
+        },
+        "props": {
+          "style": {
+            "classes": "UserManagement/InputFont",
+            "marginLeft": "5px"
+          },
+          "text": "Role Name"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Name TextField"
+            },
+            "position": {
+              "basis": "280px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "mode": "{view.params.mode}",
+                      "role": "{view.params.selectedRole}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tmode     \u003d value[\"mode\"]\n\troleName \u003d value[\"role\"]\n\t\n\tif mode \u003d\u003d \"add\":\n\t\treturn \"\"\n\telse:\n\t\treturn roleName",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              }
+            },
+            "props": {
+              "deferUpdates": false,
+              "rejectUpdatesWhileFocused": false,
+              "style": {
+                "classes": "UserManagement/InputFont",
+                "marginLeft": "5px"
+              }
+            },
+            "type": "ia.input.text-field"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onMouseOut": {
+                      "config": {
+                        "script": "\t# Hide the error information popup when mouse out.\n\tself.getSibling(\"Label\").props.style.visibility \u003d \"hidden\""
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    },
+                    "onMouseOver": {
+                      "config": {
+                        "script": "\t# If the error is True, show the error message popup when mouse over.\n\tif self.view.custom.error \u003d\u003d True:\n\t\tself.getSibling(\"Label\").props.style.visibility \u003d \"visible\"\n\t\t"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Icon"
+                },
+                "position": {
+                  "basis": "22px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.color": {
+                    "binding": {
+                      "config": {
+                        "path": "parent.custom.errorMessage"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#FF0000",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": "",
+                              "output": "#228B22"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": "parent.custom.errorMessage"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "material/error",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": "",
+                              "output": "material/check_circle"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "50px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "parent.custom.errorMessage"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "#F6F6F6",
+                    "borderColor": "#BBBBBB",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "fontSize": "12px",
+                    "marginLeft": "25px",
+                    "marginTop": "0px",
+                    "padding": "4px",
+                    "position": "absolute",
+                    "visibility": "hidden",
+                    "width": "auto"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "23px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "custom.errorMessage": {
+                "binding": {
+                  "config": {
+                    "path": "../Name TextField.props.text"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\t# Get list of roles from the Gateway.\n\troles \u003d system.user.getRoles(self.view.params.userSource)\n\t\n\t# Check if the value in the textfield matches a role already defined on the Gateway. \n\tselectedRole \u003d self.view.params.selectedRole\n\tif roles:\n\t\tif value in roles:\n\t\t\tif selectedRole !\u003d \"\":\n\t\t\t\t# If user is editing a role and role matches role being edited. Return no error.\n\t\t\t\tif selectedRole \u003d\u003d value:\n\t\t\t\t\treturn \"\"\n\t\t\t\t# If user is editing a role, but role exists on Gateway. Return error that role exists.\n\t\t\t\telse:\n\t\t\t\t\treturn \"Role already exists.\"\n\t\t\t# If user is adding a new role, but role exists on the Gateway. Return error that role exists.\n\t\t\telse:\n\t\t\t\treturn \"Role already exists.\"\n\t\t# If user leaves input blank. Return error that role cannot be blank.\n\t\telif value \u003d\u003d \u0027\u0027:\n\t\t\treturn \"Role field cannot be empty.\"\n\t\t# Else, role does not exist on Gateway and isn\u0027t an empty string. Return no error.\n\t\telse:\n\t\t\treturn \"\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "overflow": "visible"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Name FlexContainer"
+        },
+        "position": {
+          "basis": "26px"
+        },
+        "props": {
+          "style": {
+            "classes": "UserManagement/InputFont",
+            "marginBottom": "10px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Members Label"
+        },
+        "position": {
+          "basis": "20px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.mode"
+              },
+              "transforms": [
+                {
+                  "fallback": true,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "add",
+                      "output": false
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UserManagement/InputFont",
+            "marginLeft": "5px"
+          },
+          "text": "Members"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onDoubleClick": {
+                  "config": {
+                    "script": "\t# If interactable property is False, skip. Else, navigate to addEditUser view to edit selected user.\n\tif self.props.interactable \u003d\u003d False or self.props.items[0].label \u003d\u003d \"No Users\":\n\t\tpass\n\telse:\n\t\tself.view.params.selectedUser \u003d self.props.items[int(self.props.selection[0])].label\n\t\tsystem.perspective.sendMessage(\"UserManagement_ChangeView\", payload\u003d{\"view\":\"addEditUser\"}, scope\u003d\"page\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Tree"
+            },
+            "position": {
+              "basis": "250px"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.mode"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": true,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "add",
+                          "output": false
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.interactable": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.selectedRole"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": true,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "",
+                          "output": false
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.items": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.selectedRole"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\t# Create a list of all the users that are under the current role and update the members of the tree.\n\tusers \u003d system.user.getUsers(self.view.params.userSource)\n\trole \u003d value\n\t# Create a list of all the users using username and keep track of the amount of users with current role.\n\tuserList \u003d []\n\tuserCount \u003d 0\n\tfor user in users:\n\t\tif role in user.getRoles():\n\t\t\tuserList.append({\u0027label\u0027:user.get(\u0027username\u0027), \u0027expanded\u0027:False, \u0027data\u0027:\u0027\u0027, \u0027items\u0027:[]})\n\t\t\tuserCount +\u003d 1\n\n\t# If there are no users assigned to the current role, display \u0027No Users\u0027.\n\tif userCount \u003d\u003d 0:\n\t\tuserList \u003d [{\u0027label\u0027:\u0027No Users\u0027, \u0027expanded\u0027:False, \u0027data\u0027:\u0027\u0027, \u0027items\u0027:[]}]\n\t\n\treturn userList",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "appearance": {
+                "defaultNodeIcons": {
+                  "collapsed": {
+                    "color": "#5F707E",
+                    "path": "material/folder"
+                  },
+                  "empty": {
+                    "color": "#869DB1",
+                    "path": "material/stop"
+                  },
+                  "expanded": {
+                    "color": "#5F707E",
+                    "path": "material/folder_open"
+                  }
+                },
+                "expandIcons": {
+                  "collapsed": {
+                    "color": "#869DB1",
+                    "path": "material/arrow_right"
+                  },
+                  "empty": {
+                    "color": "#869DB1"
+                  },
+                  "expanded": {
+                    "color": "#869DB1",
+                    "path": "material/arrow_drop_down"
+                  }
+                },
+                "selectedStyle": {
+                  "cursor": "pointer"
+                },
+                "unselectedStyle": {
+                  "cursor": "pointer"
+                }
+              },
+              "style": {
+                "marginLeft": "5px"
+              }
+            },
+            "type": "ia.display.tree"
+          }
+        ],
+        "meta": {
+          "name": "Members FlexContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "classes": "UserManagement/InputFont"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.roleName": {
+        "binding": {
+          "config": {
+            "path": "./Name FlexContainer/Name TextField.props.text"
+          },
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderStyle": "solid",
+        "borderWidth": "1px",
+        "minWidth": "320px",
+        "overflow": "visible"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

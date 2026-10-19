@@ -1,0 +1,72 @@
+{
+  "custom": {},
+  "params": {
+    "type": "email"
+  },
+  "propConfig": {
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 100,
+      "width": 100
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "basis": "20px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.path": {
+            "binding": {
+              "config": {
+                "path": "view.params.type"
+              },
+              "transforms": [
+                {
+                  "fallback": "material/insert_emoticon",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "email",
+                      "output": "material/email"
+                    },
+                    {
+                      "input": "sms",
+                      "output": "material/sms"
+                    },
+                    {
+                      "input": "phone",
+                      "output": "material/phone"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "justify": "center"
+    },
+    "type": "ia.container.flex"
+  }
+}

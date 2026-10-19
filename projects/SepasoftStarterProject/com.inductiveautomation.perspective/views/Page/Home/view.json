@@ -1,0 +1,136 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "basis": "60px"
+        },
+        "props": {
+          "style": {
+            "fontSize": 28,
+            "fontWeight": "bold"
+          },
+          "text": "Sepasoft MES Starter"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "lbl_moduleStatus"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "propConfig": {
+          "props.style.color": {
+            "binding": {
+              "config": {
+                "mode": "direct",
+                "tagPath": "[default]MESModuleStarted"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value}, \"#2e7d32\", \"#c62828\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "tag"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "mode": "direct",
+                "tagPath": "[default]MESModuleStarted"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value}, \"MES Modules: Started\", \"MES Modules: Not Started\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 15,
+            "fontWeight": "600"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "md_moduleStatusHelp"
+        },
+        "position": {
+          "basis": "180px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "mode": "direct",
+                "tagPath": "[default]MESModuleStarted"
+              },
+              "transforms": [
+                {
+                  "expression": "!{value}",
+                  "type": "expression"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "markdown": {
+            "escapeHtml": false
+          },
+          "source": "**MES modules have not fully started.** Common causes:\n\n1. Module version mismatch between the Sepasoft modules themselves\n2. Module version mismatch with the Ignition platform version\n3. The required Production module is missing (every other Sepasoft module depends on it)\n4. The MES database isn\u0027t configured in the MES Settings\n5. MSSQL only: Snapshot Isolation isn\u0027t enabled on the MES database\n\nCheck the Ignition Gateway logs for other possible causes.",
+          "style": {
+            "backgroundColor": "rgba(198,40,40,0.06)",
+            "border": "1px solid rgba(198,40,40,0.25)",
+            "borderRadius": "6px",
+            "fontSize": 13,
+            "padding": "10px 14px"
+          }
+        },
+        "type": "ia.display.markdown"
+      },
+      {
+        "meta": {
+          "name": "Subtitle"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "markdown": {
+            "escapeHtml": false
+          },
+          "source": "This starter project shows the stock Sepasoft MES Perspective components, one screen per component, grouped by module in the menu on the left:\n\n- **Production** - equipment manager, value editing, analysis, material manager\n- **OEE** - equipment manager, work orders, run control, downtime table, time chart, analysis\n- **Batch** - equipment manager, enums, unit classes, units, phases, recipes, formulas, signature templates, batch list/execution/monitoring, messages, auth challenges, EBR viewer\n- **Settings \u0026 Changeover** - equipment manager, recipe selector, tree editor, editor table, variance viewer, changelog, analysis\n- **SPC** - equipment manager, sample definitions, location sample list, analysis, 15 chart types\n- **Trace** - equipment manager, operation patterns, inventory, trace graph\n\nNo demo objects have been created - configure equipment, materials, recipes, etc. through these screens to see the components come to life.\n\nFor further self-paced training, see Sepasoft\u0027s own [MES Module Tutorials](https://docs.sepasoft.com/articles/mes-module-tutorials/training-materials/)."
+        },
+        "type": "ia.display.markdown"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "padding": "20px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

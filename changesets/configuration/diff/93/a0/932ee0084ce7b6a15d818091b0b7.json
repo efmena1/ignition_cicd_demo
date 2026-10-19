@@ -1,0 +1,89 @@
+{
+  "changesetData": {
+    "uuid": "93a0932e-e008-4ce7-b6a1-5d818091b0b7",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:17.551Z",
+    "appliedOnChangesetUUID": "70d60762-cb36-4dc8-9563-147cf7518917",
+    "hash": "f35df45d48c358ab4557e22d57e67136c195d9184a7cded511d0f03f92a8a4fc",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:17.532283600Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Root": {
+        "a3fc72c4-6a3b-11ea-bc55-0242ac130003": {
+          "meta": {
+            "name": "Enum Definitions"
+          },
+          "changes": [
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "5c3616ac-e155-48e9-963f-729b67ec04f9|EnumDefinition",
+              "newValueFriendly": "Sync_Mode"
+            }
+          ]
+        }
+      },
+      "Enum Definition": {
+        "5c3616ac-e155-48e9-963f-729b67ec04f9": {
+          "meta": {
+            "name": "Sync_Mode"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "5c3616ac-e155-48e9-963f-729b67ec04f9"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Sync_Mode"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "f8633ae1-1a90-44c2-883e-9810d3776809|Auto"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "EnumOptions",
+              "newValue": "7f496caf-2fc9-4cdf-8eef-89acf2989e06|Manual"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumOptions.Manual.EnumOrdinalValue",
+              "oldValue": "0",
+              "newValue": "1"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "a3fc72c4-6a3b-11ea-bc55-0242ac130003|EnumRoot",
+              "newValueFriendly": "Enum Definitions"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

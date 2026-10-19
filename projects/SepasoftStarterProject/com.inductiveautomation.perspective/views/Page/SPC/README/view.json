@@ -1,0 +1,62 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Card"
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "maxWidth": "900px",
+            "width": "100%",
+            "margin": "0 auto",
+            "backgroundColor": "rgba(0,0,0,0.02)",
+            "border": "1px solid rgba(0,0,0,0.08)",
+            "borderRadius": "8px",
+            "padding": "28px 32px"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "Markdown"
+            },
+            "type": "ia.display.markdown",
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "markdown": {
+                "escapeHtml": false
+              },
+              "source": "# SPC\n\nStock `mes.spc.*` (plus `mes.production.mesSampleDefinitionManager`) screens for statistical process control. Work through them in this order:\n\n1. **Equipment Manager** (Production module) - define a Location under the equipment model. SPC samples are captured against Location-type objects, not lines or cells directly.\n2. **Sample Definition Manager** - create a sample definition: an attribute, its available location(s), sampling interval, control limits, and rules.\n3. **Location Sample List** - take samples against that definition. Selecting a row on the right populates the Sample Entry panel on the left.\n4. **Analysis** - create an SPC analysis setting that ties a definition/location/date range to a chart type, and browse results through it.\n5. **Charts** - view the sampled data directly on a specific chart type (XBar, C, Pareto, etc.), each scoped independently by its own location and date range.\n",
+              "style": {
+                "fontSize": 15,
+                "lineHeight": "1.6"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "padding": "24px",
+        "overflow": "auto"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

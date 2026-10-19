@@ -1,0 +1,29 @@
+{
+  "scope": "G",
+  "description": "The dark theme for Perspective.",
+  "version": 1,
+  "restricted": false,
+  "overridable": false,
+  "files": [
+    "config.json",
+    "palette/power-chart.css",
+    "palette/horizontal-menu.css",
+    "index.css",
+    "palette/table.css",
+    "palette/alarm-journal-table.css",
+    "globals.css",
+    "palette/equipment-schedule.css",
+    "palette/led.css",
+    "palette/index.css",
+    "variables.css",
+    "palette/alarm-status-table.css",
+    "palette/menu-tree.css"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "theme-manager",
+      "timestamp": "2026-09-30T14:24:46Z"
+    },
+    "lastModificationSignature": "c97fc6f73e2d82c20bf37cd4a6513254f579214a9906306a572905a80c43dcd4"
+  }
+}

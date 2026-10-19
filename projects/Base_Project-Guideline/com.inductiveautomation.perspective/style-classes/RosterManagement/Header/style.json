@@ -1,0 +1,11 @@
+{
+  "base": {
+    "style": {
+      "color": "var(--neutral-80)",
+      "fontSize": "20px",
+      "fontWeight": "lighter",
+      "textAlign": "start",
+      "textIndent": "10px"
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "changesetData": {
+    "uuid": "e8a93460-bc14-49e1-a288-bde52f8434e2",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "emena",
+    "appliedAt": "2026-10-15T05:17:29.363Z",
+    "appliedOnChangesetUUID": "ce0d5e7d-0925-4ad3-86cb-b51c3d4aafc7",
+    "hash": "0eb01590095a212ebc6175e0b0ef4af9d2e257989267e76b48f100c5aa7ddb52",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:17:29.342503400Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enterprise": {
+        "fb3514ce-a2dc-4314-a465-935b38c1f27f": {
+          "meta": {
+            "name": "Enterprise"
+          },
+          "changes": [
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "42de40db-e600-4dce-bc3e-47cb9e67c05d|Site",
+              "friendlyPath": "Enterprise\\New Site",
+              "newValueFriendly": "New Site"
+            }
+          ]
+        }
+      },
+      "Site": {
+        "42de40db-e600-4dce-bc3e-47cb9e67c05d": {
+          "meta": {
+            "name": "New Site"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "42de40db-e600-4dce-bc3e-47cb9e67c05d"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentActiveType",
+              "oldValue": "ACTIVE",
+              "newValue": "INACTIVE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentCellOrder",
+              "newValue": "0"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "fb3514ce-a2dc-4314-a465-935b38c1f27f|Enterprise",
+              "friendlyPath": "Enterprise",
+              "newValueFriendly": "Enterprise"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "New Site"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentPath",
+              "oldValue": "",
+              "newValue": "Enterprise\\New Site"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

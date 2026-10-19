@@ -1,0 +1,15 @@
+{
+  "base": {
+    "style": {}
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "color": "var(--neutral-90)",
+        "cursor": "pointer",
+        "textDecoration": "underline"
+      }
+    }
+  ]
+}

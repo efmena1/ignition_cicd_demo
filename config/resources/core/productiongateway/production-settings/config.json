@@ -1,0 +1,13 @@
+{
+  "analysisDatasourceName": "MES",
+  "analysisQueryCacheExpireDuration": 300,
+  "analysisReadLockTimeout": 30,
+  "authProfileAutoSync": true,
+  "authProfileName": "default",
+  "authProfileRefreshRate": 3600,
+  "cacheInactiveMesObjectThreshold": 60,
+  "cacheMaxMesObjectCount": 10000,
+  "requiredRolesEditScripts": [
+    "Administrator"
+  ]
+}

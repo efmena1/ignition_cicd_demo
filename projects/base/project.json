@@ -1,0 +1,7 @@
+{
+  "title": "Base Project",
+  "description": "Global UI Shared Templates Project",
+  "enabled": true,
+  "inheritable": true,
+  "parent": "global"
+}

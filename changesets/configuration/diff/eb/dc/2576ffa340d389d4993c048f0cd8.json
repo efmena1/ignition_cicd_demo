@@ -1,0 +1,52 @@
+{
+  "changesetData": {
+    "uuid": "ebdc2576-ffa3-40d3-89d4-993c048f0cd8",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:14.494Z",
+    "appliedOnChangesetUUID": "718d9bfe-f62e-421d-9d3f-3eabc26c8a9a",
+    "hash": "4b69c236cfe2479fc3a865593b9bd2548ed03016738aded3750c5194e5142aec",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:14.477584500Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Root": {
+        "a3fc72c4-6a3b-11ea-bc55-0242ac130003": {
+          "meta": {
+            "name": "Enum Definitions"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "a3fc72c4-6a3b-11ea-bc55-0242ac130003"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Enum Definitions"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "Core"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

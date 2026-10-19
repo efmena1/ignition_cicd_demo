@@ -1,0 +1,32 @@
+/* ##### CHROME % EDGE #########*/
+*::-webkit-scrollbar {
+  width: 13px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--neutral-10);
+  border-radius: 20px;  
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: var(--neutral-20) !important;
+  border: 2px var(--neutral-10) solid;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent; 
+}
+
+.psc-horizontal-scroll::-webkit-scrollbar {
+	height: 10px;
+}
+
+.psc-horizontal-scroll::-webkit-scrollbar-track {
+	background: var(--neutral-20) !important;
+}
+
+.psc-horizontal-scroll::-webkit-scrollbar-thumb {
+	background: var(--neutral-20) !important;
+  border: 2px var(--neutral-10) solid;
+}

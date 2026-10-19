@@ -1,0 +1,292 @@
+{
+  "pages": {
+    "/": {
+      "title": "Home",
+      "viewPath": "Page/Home"
+    },
+    "/batch/auth-challenges": {
+      "title": "Auth Challenges",
+      "viewPath": "Page/Batch/Auth Challenges"
+    },
+    "/batch/batch-controller": {
+      "title": "Batch Controller",
+      "viewPath": "Page/Batch/Batch Controller"
+    },
+    "/batch/batch-list": {
+      "title": "Batch List",
+      "viewPath": "Page/Batch/Batch List"
+    },
+    "/batch/ebr-viewer": {
+      "title": "EBR Viewer",
+      "viewPath": "Page/Batch/EBR Viewer"
+    },
+    "/batch/enum-manager": {
+      "title": "Enum Manager",
+      "viewPath": "Page/Batch/Enum Manager"
+    },
+    "/batch/equipment-manager": {
+      "title": "Equipment Manager",
+      "viewPath": "Page/Batch/Equipment Manager"
+    },
+    "/batch/formula-manager": {
+      "title": "Formula Manager",
+      "viewPath": "Page/Batch/Formula Manager"
+    },
+    "/batch/message-list": {
+      "title": "Message List",
+      "viewPath": "Page/Batch/Message List"
+    },
+    "/batch/phase-manager": {
+      "title": "Phase Manager",
+      "viewPath": "Page/Batch/Phase Manager"
+    },
+    "/batch/readme": {
+      "title": "README",
+      "viewPath": "Page/Batch/README"
+    },
+    "/batch/recipe-editor": {
+      "title": "Recipe Editor",
+      "viewPath": "Page/Batch/Recipe Editor"
+    },
+    "/batch/recipe-monitor": {
+      "title": "Recipe Monitor",
+      "viewPath": "Page/Batch/Recipe Monitor"
+    },
+    "/batch/signature-templates": {
+      "title": "Signature Templates",
+      "viewPath": "Page/Batch/Signature Templates"
+    },
+    "/batch/unit-class-manager": {
+      "title": "Unit Class Manager",
+      "viewPath": "Page/Batch/Unit Class Manager"
+    },
+    "/batch/unit-manager": {
+      "title": "Unit Manager",
+      "viewPath": "Page/Batch/Unit Manager"
+    },
+    "/oee/analysis": {
+      "title": "Analysis",
+      "viewPath": "Page/OEE/Analysis"
+    },
+    "/oee/downtime-table": {
+      "title": "Downtime Table",
+      "viewPath": "Page/OEE/Downtime Table"
+    },
+    "/oee/equipment-manager": {
+      "title": "Equipment Manager",
+      "viewPath": "Page/OEE/Equipment Manager"
+    },
+    "/oee/readme": {
+      "title": "README",
+      "viewPath": "Page/OEE/README"
+    },
+    "/oee/run-control": {
+      "title": "Run Control",
+      "viewPath": "Page/OEE/Run Control"
+    },
+    "/oee/time-chart": {
+      "title": "Time Chart",
+      "viewPath": "Page/OEE/Time Chart"
+    },
+    "/oee/work-orders": {
+      "title": "Work Orders",
+      "viewPath": "Page/OEE/Work Orders"
+    },
+    "/production/analysis": {
+      "title": "Analysis",
+      "viewPath": "Page/Production/Analysis"
+    },
+    "/production/equipment-manager": {
+      "title": "Equipment Manager",
+      "viewPath": "Page/Production/Equipment Manager"
+    },
+    "/production/material-manager": {
+      "title": "Material Manager",
+      "viewPath": "Page/Production/Material Manager"
+    },
+    "/production/readme": {
+      "title": "README",
+      "viewPath": "Page/Production/README"
+    },
+    "/production/value-editor": {
+      "title": "Value Editor",
+      "viewPath": "Page/Production/Value Editor"
+    },
+    "/settings/analysis-report": {
+      "title": "Analysis",
+      "viewPath": "Page/Settings/Analysis Report"
+    },
+    "/settings/changelog": {
+      "title": "Changelog",
+      "viewPath": "Page/Settings/Changelog"
+    },
+    "/settings/editor-table": {
+      "title": "Editor Table",
+      "viewPath": "Page/Settings/Editor Table"
+    },
+    "/settings/equipment-manager": {
+      "title": "Equipment Manager",
+      "viewPath": "Page/Settings/Equipment Manager"
+    },
+    "/settings/readme": {
+      "title": "README",
+      "viewPath": "Page/Settings/README"
+    },
+    "/settings/recipe-selector": {
+      "title": "Recipe Selector",
+      "viewPath": "Page/Settings/Recipe Selector"
+    },
+    "/settings/tree-editor": {
+      "title": "Tree Editor",
+      "viewPath": "Page/Settings/Tree Editor"
+    },
+    "/settings/variance-viewer": {
+      "title": "Variance Viewer",
+      "viewPath": "Page/Settings/Variance Viewer"
+    },
+    "/spc/analysis": {
+      "title": "SPC Analysis",
+      "viewPath": "Page/SPC/Analysis"
+    },
+    "/spc/analysis-report": {
+      "title": "Analysis",
+      "viewPath": "Page/SPC/Analysis Report"
+    },
+    "/spc/charts/box-and-whisker": {
+      "title": "Box and Whisker",
+      "viewPath": "Page/SPC/Charts/Box and Whisker"
+    },
+    "/spc/charts/c-chart": {
+      "title": "C-Chart",
+      "viewPath": "Page/SPC/Charts/C-Chart"
+    },
+    "/spc/charts/histogram": {
+      "title": "Histogram",
+      "viewPath": "Page/SPC/Charts/Histogram"
+    },
+    "/spc/charts/individual": {
+      "title": "Individual",
+      "viewPath": "Page/SPC/Charts/Individual"
+    },
+    "/spc/charts/median": {
+      "title": "Median",
+      "viewPath": "Page/SPC/Charts/Median"
+    },
+    "/spc/charts/moving-range": {
+      "title": "Moving Range",
+      "viewPath": "Page/SPC/Charts/Moving Range"
+    },
+    "/spc/charts/np-chart": {
+      "title": "NP-Chart",
+      "viewPath": "Page/SPC/Charts/NP-Chart"
+    },
+    "/spc/charts/p-chart": {
+      "title": "P-Chart",
+      "viewPath": "Page/SPC/Charts/P-Chart"
+    },
+    "/spc/charts/pareto": {
+      "title": "Pareto",
+      "viewPath": "Page/SPC/Charts/Pareto"
+    },
+    "/spc/charts/process-capability": {
+      "title": "Process Capability",
+      "viewPath": "Page/SPC/Charts/Process Capability"
+    },
+    "/spc/charts/process-capability-and-performance": {
+      "title": "Process Capability and Performance",
+      "viewPath": "Page/SPC/Charts/Process Capability and Performance"
+    },
+    "/spc/charts/process-performance": {
+      "title": "Process Performance",
+      "viewPath": "Page/SPC/Charts/Process Performance"
+    },
+    "/spc/charts/u-chart": {
+      "title": "U-Chart",
+      "viewPath": "Page/SPC/Charts/U-Chart"
+    },
+    "/spc/charts/xbar": {
+      "title": "XBar (XBarR)",
+      "viewPath": "Page/SPC/Charts/XBar"
+    },
+    "/spc/charts/xbars": {
+      "title": "XBarS (Std Deviation)",
+      "viewPath": "Page/SPC/Charts/XBarS"
+    },
+    "/spc/equipment-manager": {
+      "title": "Equipment Manager",
+      "viewPath": "Page/SPC/Equipment Manager"
+    },
+    "/spc/location-sample-list": {
+      "title": "Location Sample List",
+      "viewPath": "Page/SPC/Location Sample List"
+    },
+    "/spc/readme": {
+      "title": "README",
+      "viewPath": "Page/SPC/README"
+    },
+    "/spc/sample-definition-manager": {
+      "title": "Sample Definition Manager",
+      "viewPath": "Page/SPC/Sample Definition Manager"
+    },
+    "/trace/equipment-manager": {
+      "title": "Equipment Manager",
+      "viewPath": "Page/Trace/Equipment Manager"
+    },
+    "/trace/inventory": {
+      "title": "Inventory",
+      "viewPath": "Page/Trace/Inventory"
+    },
+    "/trace/operation-patterns": {
+      "title": "Operation Patterns",
+      "viewPath": "Page/Trace/Operation Patterns"
+    },
+    "/trace/readme": {
+      "title": "README",
+      "viewPath": "Page/Trace/README"
+    },
+    "/trace/trace-graph": {
+      "title": "Trace Graph",
+      "viewPath": "Page/Trace/Trace Graph"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom",
+    "left": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 768,
+        "content": "push",
+        "handle": "show",
+        "iconUrl": "",
+        "id": "menu",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 210,
+        "viewParams": {},
+        "viewPath": "Docks/Menu"
+      }
+    ],
+    "top": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 58,
+        "viewParams": {
+          "breakpointLarge": "768",
+          "breakpointMedium": "500",
+          "params": {},
+          "path": "Header/Header"
+        },
+        "viewPath": "Framework/Breakpoint"
+      }
+    ]
+  }
+}

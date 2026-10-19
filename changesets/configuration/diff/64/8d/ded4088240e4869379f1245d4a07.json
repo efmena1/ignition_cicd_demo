@@ -1,0 +1,86 @@
+{
+  "changesetData": {
+    "uuid": "648dded4-0882-40e4-8693-79f1245d4a07",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "emena",
+    "appliedAt": "2026-10-15T05:18:31.818Z",
+    "appliedOnChangesetUUID": "2423dd6c-5a49-4446-99bd-9a6ecb1432f2",
+    "hash": "6c652ced16a45698f210b9ffc46e350d2d7bc191ab4f464085306eb07254ec56",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:18:31.797490800Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Unit": {
+        "d4ba74a0-1fb4-4099-b3a0-28ac0429880d": {
+          "meta": {
+            "name": "New Unit"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "d4ba74a0-1fb4-4099-b3a0-28ac0429880d"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentActiveType",
+              "oldValue": "ACTIVE",
+              "newValue": "INACTIVE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentCellOrder",
+              "newValue": "0"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "19d7a5d3-31e3-43a4-bf9a-3825f8087e5a|ProcessCell",
+              "friendlyPath": "Enterprise\\Site\\Area\\Process Cell",
+              "newValueFriendly": "Process Cell"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "New Unit"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentPath",
+              "oldValue": "",
+              "newValue": "Enterprise\\Site\\Area\\Process Cell\\New Unit"
+            }
+          ]
+        }
+      },
+      "Process Cell": {
+        "19d7a5d3-31e3-43a4-bf9a-3825f8087e5a": {
+          "meta": {
+            "name": "Process Cell"
+          },
+          "changes": [
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "d4ba74a0-1fb4-4099-b3a0-28ac0429880d|Unit",
+              "friendlyPath": "Enterprise\\Site\\Area\\Process Cell\\New Unit",
+              "newValueFriendly": "New Unit"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

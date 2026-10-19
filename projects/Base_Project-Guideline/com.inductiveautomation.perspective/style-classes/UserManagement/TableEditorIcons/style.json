@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "cursor": "pointer",
+      "marginBottom": "1px",
+      "marginTop": "5px"
+    }
+  }
+}

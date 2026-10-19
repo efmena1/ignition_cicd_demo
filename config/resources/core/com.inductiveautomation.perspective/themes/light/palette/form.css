@@ -1,0 +1,233 @@
+.ia_form__title {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.ia_form__label {
+  font-size: 0.75em;
+  font-weight: 600;
+}
+
+.ia_form__label.checkbox-input-label {
+  font-weight: inherit;
+}
+
+.ia_form__label--required::after {
+  color: var(--error);
+  content: '*';
+}
+
+.ia_form .checkable-wrapper--disabled {
+  color: var(--label--disabled);
+}
+
+.ia_form .checkable-label {
+  font-size: 0.75em;
+}
+
+.ia_form__info--caption {
+  font-size: 0.75em;
+  color: var(--neutral-70);
+}
+
+.ia_form .ia_textArea {
+  border-radius: var(--borderRadiusInput);
+}
+
+.ia_form .ia_radio input:focus-visible + svg {
+  outline: var(--borderRadiusInput) solid var(--callToAction--hover);
+  border-radius: var(--borderRadiusInput);
+}
+
+.ia_form .ia_checkbox input:focus-visible + svg {
+  outline: var(--borderRadiusInput) solid var(--callToAction--hover);
+  border-radius: var(--borderRadiusInput);
+}
+
+.ia_form .ia_toggleSwitch:focus {
+  outline: 0;
+}
+
+.ia_form .ia_toggleSwitch:focus-visible {
+  outline: var(--borderRadiusInput) solid var(--callToAction--hover);
+  outline-offset: var(--borderRadius);
+  border-radius: var(--borderRadiusInput);
+}
+
+.ia_form .monthSelectorContainer--focus .ia_select,
+.ia_form .yearSelectorContainer--focus .ia_select {
+  outline: 1px solid var(--callToAction--hover);
+}
+
+.ia_form .iaTimePickerInput--wrapper input:focus {
+  outline: none;
+}
+.ia_form .iaTimePickerInput--wrapper .timePicker--focus {
+  outline: 1px solid var(--callToAction--hover);
+  border-radius: 3px;
+}
+
+.ia_form
+  .iaTimePickerInput--wrapper.ia_form__field--invalid.ia_form__field--touched
+  input,
+.ia_form
+  .iaTimePickerInput--wrapper.ia_form__field--invalid.ia_form__field--touched
+  .ia_timeInput__separator,
+.ia_form
+  .iaTimePickerInput--wrapper.ia_form__field--invalid.ia_form__field--touched
+  .ia_select {
+  border-color: var(--error);
+}
+
+.ia_form
+  .iaTimePickerInput--wrapper.ia_form__field--invalid.ia_form__field--touched
+  .timePicker--focus {
+  outline: 1px solid var(--error);
+  border-radius: 3px;
+}
+
+.ia_form__control .ia-slider .slider-handle:focus {
+  /* due to SliderUtils.getHandleStyle set to "none" */
+  box-shadow: var(--defaultSliderFocusBoxShadow) !important;
+  /* defaultSliderFocusColor in cases where handleColor is not configured */
+  color: var(--sliderFocusColor, var(--defaultSliderFocusColor));
+}
+
+.ia_form__control .ia_fileUploadComponent {
+  color: var(--neutral-90);
+}
+.ia_form__control .ia_fileUploadComponent .file-upload__listItem {
+  border-top: 1px solid var(--neutral-50);
+  font-size: 0.75rem;
+}
+.ia_form__control .ia_fileUploadComponent .file-upload__constraints {
+  font-size: 0.75rem;
+}
+.ia_form__control
+  .ia_fileUploadComponent
+  .file-upload__constraints
+  .primary-message {
+  font-weight: 700;
+}
+
+.ia_form__field__fileUpload__icon--close {
+  fill: var(--neutral-70);
+}
+.ia_form__field__fileUpload__icon--error {
+  fill: var(--red-60);
+}
+.ia_form__field__fileUpload__icon--remove {
+  fill: var(--neutral-70);
+}
+.ia_form__field__fileUpload__icon--success {
+  fill: var(--success);
+}
+.file-upload__listItemAction--disabled
+  .ia_form__field__fileUpload__icon--close {
+  fill: var(--neutral-40);
+}
+.file-upload__listItemAction--disabled
+  .ia_form__field__fileUpload__icon--remove {
+  fill: var(--neutral-40);
+}
+
+.ia_form__field--touched:invalid,
+.ia_form__field--touched:invalid:focus {
+  border-color: var(--error);
+  outline-color: var(--error);
+}
+
+.ia_form__field--invalid.ia_form__field--touched {
+  border-color: var(--error);
+}
+.ia_form__field--invalid.ia_form__field--touched:focus,
+.ia_form__field--invalid.ia_form__field--touched.ia_dropdown--focused {
+  outline-color: var(--error);
+}
+
+.ia_form--submitted .ia_form__field--invalid {
+  border-color: var(--error);
+}
+
+.ia_form--submitted .ia_form__field--invalid:focus,
+.ia_form--submitted .ia_form__field--invalid.ia_dropdown--focused {
+  outline-color: var(--error);
+}
+
+.ia_form__error {
+  font-size: 0.75em;
+  line-height: 1.25em;
+  color: var(--error);
+}
+
+.ia_form__actionBar {
+  border-top-color: transparent;
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+.ia_form__actionBar--fixed {
+  border-top-color: #8f8b8b;
+  background-color: var(--white);
+}
+
+.ia_form__actionBar .ia_form__button:disabled {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.ia_form__notificationTitle,
+.ia_form__notificationMessage {
+  font-size: 0.75em;
+  line-height: 1em;
+}
+
+.ia_form__notificationTitle--error {
+  color: var(--error);
+}
+.ia_form__notificationTitle--success {
+  color: var(--success);
+}
+
+.ia_form__tooltip {
+  font-size: 0.75em;
+  line-height: 1.5;
+  opacity: 1;
+}
+
+.ia_form__tooltip-inner {
+  color: var(--white);
+  text-align: left;
+  text-decoration: none;
+  border-radius: 0;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
+  background-color: var(
+    --tooltip-background-color
+  ); /* defined in TooltipCommon via configured styles */
+  border-color: var(
+    --tooltip-background-color
+  ); /* defined in TooltipCommon via configured styles */
+}
+
+.ia_form__tooltip-placement-top .ia_form__tooltip-arrow {
+  border-top-color: var(
+    --arrow-color
+  ); /* defined in TooltipCommon via configured styles */
+}
+
+.ia_form__tooltip-placement-right .ia_form__tooltip-arrow {
+  border-right-color: var(
+    --arrow-color
+  ); /* defined in TooltipCommon via configured styles */
+}
+
+.ia_form__tooltip-placement-left .ia_form__tooltip-arrow {
+  border-left-color: var(
+    --arrow-color
+  ); /* defined in TooltipCommon via configured styles */
+}
+
+.ia_form__tooltip-placement-bottom .ia_form__tooltip-arrow {
+  border-bottom-color: var(
+    --arrow-color
+  ); /* defined in TooltipCommon via configured styles */
+}

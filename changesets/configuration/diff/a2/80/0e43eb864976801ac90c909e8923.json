@@ -1,0 +1,48 @@
+{
+  "changesetData": {
+    "uuid": "a2800e43-eb86-4976-801a-c90c909e8923",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "emena",
+    "appliedAt": "2026-10-15T05:17:38.477Z",
+    "appliedOnChangesetUUID": "e8a93460-bc14-49e1-a288-bde52f8434e2",
+    "hash": "adf66863858c5c39c7c988afb3f2e162ae1d76956aeb70834e0a78dacee60f75",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:17:38.457268800Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Site": {
+        "42de40db-e600-4dce-bc3e-47cb9e67c05d": {
+          "meta": {
+            "name": "Site"
+          },
+          "changes": [
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "oldValue": "New Site",
+              "newValue": "Site"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentActiveType",
+              "oldValue": "INACTIVE",
+              "newValue": "ACTIVE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentPath",
+              "oldValue": "Enterprise\\New Site",
+              "newValue": "Enterprise\\Site"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

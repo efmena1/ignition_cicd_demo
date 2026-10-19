@@ -1,0 +1,494 @@
+{
+  "changesetData": {
+    "uuid": "f73dab27-4520-4054-bf4c-fcca370075fc",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:15.233Z",
+    "appliedOnChangesetUUID": "a9e6c48f-b825-49dd-b83f-68e4bd0e36f0",
+    "hash": "9e298687d6f89b387bf1f0c267c082fd312858bc97ba876034945fe9c0398ce7",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:15.181156500Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Signature Root Template": {
+        "da1c126e-0e6e-4832-8aac-d6bbd51e0db1": {
+          "meta": {
+            "name": "Signature Templates"
+          },
+          "changes": [
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "b9ec8116-a4c8-45a7-a1d5-1df6806dfeb2|SignatureTemplate",
+              "newValueFriendly": "Production Ready - Modify Recipe State"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "cfbacc17-b2ae-4dc9-bd3b-79b1bb2a62b3|SignatureTemplate",
+              "newValueFriendly": "Preproduction - Modify Recipe State"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "f0996298-e302-4ffa-a589-0c6814a73870|SignatureTemplate",
+              "newValueFriendly": "Inactive - Modify Recipe State"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "770c480b-52d0-45bc-9320-1d8a16100089|SignatureTemplate",
+              "newValueFriendly": "Production Ready - Enqueue Recipe State"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "3a17d0c2-d8f6-4f66-8de9-449094be0026|SignatureTemplate",
+              "newValueFriendly": "Preproduction - Enqueue Recipe State"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "ad9f8464-a84d-4ab3-ac93-42510b8e2d54|SignatureTemplate",
+              "newValueFriendly": "Inactive - Enqueue Recipe State"
+            }
+          ]
+        }
+      },
+      "Signature Template": {
+        "3a17d0c2-d8f6-4f66-8de9-449094be0026": {
+          "meta": {
+            "name": "Preproduction - Enqueue Recipe State"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Preproduction - Enqueue Recipe State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "3a17d0c2-d8f6-4f66-8de9-449094be0026"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to enqueue recipe state in the state Preproduction."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumReferenceUUID",
+              "newValue": "368c9c4f-fa35-448a-8dee-192567bb842b"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumRelationshipType",
+              "newValue": "enqueue"
+            }
+          ]
+        },
+        "cfbacc17-b2ae-4dc9-bd3b-79b1bb2a62b3": {
+          "meta": {
+            "name": "Preproduction - Modify Recipe State"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Preproduction - Modify Recipe State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "cfbacc17-b2ae-4dc9-bd3b-79b1bb2a62b3"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to modify recipe state in the state Preproduction."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumReferenceUUID",
+              "newValue": "368c9c4f-fa35-448a-8dee-192567bb842b"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumRelationshipType",
+              "newValue": "modify"
+            }
+          ]
+        },
+        "b9ec8116-a4c8-45a7-a1d5-1df6806dfeb2": {
+          "meta": {
+            "name": "Production Ready - Modify Recipe State"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Production Ready - Modify Recipe State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "b9ec8116-a4c8-45a7-a1d5-1df6806dfeb2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to modify recipe state in the state Production Ready."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumReferenceUUID",
+              "newValue": "faedead3-2f52-49bc-bfa1-8276620c50c2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumRelationshipType",
+              "newValue": "modify"
+            }
+          ]
+        },
+        "ad9f8464-a84d-4ab3-ac93-42510b8e2d54": {
+          "meta": {
+            "name": "Inactive - Enqueue Recipe State"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Inactive - Enqueue Recipe State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "ad9f8464-a84d-4ab3-ac93-42510b8e2d54"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to enqueue recipe state in the state Inactive."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumReferenceUUID",
+              "newValue": "a9d999a6-7b98-44ae-a63e-7e5b12303b9f"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumRelationshipType",
+              "newValue": "enqueue"
+            }
+          ]
+        },
+        "f0996298-e302-4ffa-a589-0c6814a73870": {
+          "meta": {
+            "name": "Inactive - Modify Recipe State"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Inactive - Modify Recipe State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "f0996298-e302-4ffa-a589-0c6814a73870"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to modify recipe state in the state Inactive."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumReferenceUUID",
+              "newValue": "a9d999a6-7b98-44ae-a63e-7e5b12303b9f"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumRelationshipType",
+              "newValue": "modify"
+            }
+          ]
+        },
+        "770c480b-52d0-45bc-9320-1d8a16100089": {
+          "meta": {
+            "name": "Production Ready - Enqueue Recipe State"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Production Ready - Enqueue Recipe State"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "770c480b-52d0-45bc-9320-1d8a16100089"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to enqueue recipe state in the state Production Ready."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumReferenceUUID",
+              "newValue": "faedead3-2f52-49bc-bfa1-8276620c50c2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EnumRelationshipType",
+              "newValue": "enqueue"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

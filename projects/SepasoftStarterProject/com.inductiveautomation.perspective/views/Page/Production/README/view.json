@@ -1,0 +1,62 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Card"
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "maxWidth": "900px",
+            "width": "100%",
+            "margin": "0 auto",
+            "backgroundColor": "rgba(0,0,0,0.02)",
+            "border": "1px solid rgba(0,0,0,0.08)",
+            "borderRadius": "8px",
+            "padding": "28px 32px"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "Markdown"
+            },
+            "type": "ia.display.markdown",
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "markdown": {
+                "escapeHtml": false
+              },
+              "source": "# Production\n\nStock `mes.production.*` screens: Equipment Manager, Value Editor, Analysis, Material Manager.\n\n## Why \"Production\" components show up outside the Production menu too\n\nThis gateway has one combined **Production module** installed (`Production-module.modl`), which actually bundles Batch Procedure, Document Phase, OEE, Settings & Changeover, and SPC together with the core Production/equipment-model components. Track & Trace is the only separately-installed add-on (`Trace-module.modl`). Because of that, a component's Perspective type namespace doesn't line up with which menu section it lives in here - components are placed in this starter by what they're used *for*, not by which module owns their namespace.\n\nTwo components in particular turn up all over the other modules' screens, each menu section instantiating its own copy:\n\n- **`mes.production.mesEquipmentManager`** - the same Equipment Manager screen appears in every module's menu (Production, OEE, Batch, Settings & Changeover, SPC, Trace), not just here. It's the same component and the same underlying equipment model every time, just reachable from wherever a module needs it.\n- **`mes.production.mesObjectSelector`** - the equipment/location picker. Nearly every screen across every module has its own instance, each one scoped to whatever level of the equipment model that screen cares about.\n\n`mes.production.batchSelector` (the Batch ID picker) is the exception - it's only used within the Batch section (Batch Controller, Recipe Monitor, EBR Viewer), not reused elsewhere.\n",
+              "style": {
+                "fontSize": 15,
+                "lineHeight": "1.6"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "padding": "24px",
+        "overflow": "auto"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

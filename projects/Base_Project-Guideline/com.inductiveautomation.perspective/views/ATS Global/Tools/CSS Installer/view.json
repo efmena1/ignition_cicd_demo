@@ -1,0 +1,473 @@
+{
+  "custom": {
+    "cssContent": "\r\n.docked-view.docked-view-left.dock-cover-shadow-left:has(.psc-docked-nav){\r\n\tborder-radius: 26px !important;\r\n\tmargin-top: -10px;\r\n\tmargin-left: 10px;\r\n}\r\n\r\n\r\n.docked-view.docked-view-left.dock-cover-shadow-left:has(.psc-docked-nav) .content-wrapper {\r\n    border-radius: 25px !important;\r\n}\r\n\r\n.docked-view.dock-cover-shadow-left:has(.psc-docked-nav) {\r\n    box-shadow: 8px 12px 12px 1px rgb(0 0 0 / 20%);\r\n}\r\n\r\n\r\n\r\n/* tree    */\r\n\r\n\r\n.ia_treeComponent__node:hover:not(.ia_treeComponent__node--selected){\r\n\tbackground-color:#b7ccd730 !important;\r\n\ttransition: background-color 0.6s ease;\r\n}\r\n\r\n.psc-tree-nav .ia_treeComponent__alignmentGuide{\r\n\tcolor: transparent !important;\r\n}\r\n\r\n\r\n/* hover */\r\n.psc-tree-nav .ia_treeComponent__node--selected{\r\n\tbackground-color:#61a5c7a3;\r\n}\r\n\r\n.psc-tree-nav .tree-item-label{\r\n\t padding: 0 6px;\r\n}\r\n\r\n\r\n.psc-tree-nav .tree-row {\r\n\r\n  border-radius: 15px;\r\n}\r\n\r\n/* no mueve si no tiene items */\r\n\r\n/* Ocultar el espacio del expand icon vacío en nodos terminal raíz */\r\n.psc-tree-nav .terminal-node .tree-item .terminal-expand-icon {\r\n  display: none;\r\n}\r\n\r\n/* Compensar el espacio que ocupaba para que quede alineado con los padres */\r\n.psc-tree-nav .terminal-node .tree-item .tree-item-label {\r\n  padding-left: 5px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n/* ── Flecha al extremo derecho ── */\r\n.psc-tree-nav .ia_treeComponent__expandIcon {\r\n  order: 99;\r\n  margin-left: auto;\r\n  margin-right: 10px;\r\n  opacity: 0.3;\r\n}\r\n\r\n/* ── Nodo padre expandido: animar sus hijos directos ── */\r\n.psc-tree-nav .ia_treeComponent__node--expanded ~ .terminal-node .tree-item,\r\n.psc-tree-nav .ia_treeComponent__node--expanded ~ .parent-node .tree-item {\r\n  animation: treeFadeIn 0.4s ease forwards;\r\n}\r\n\r\n.psc-tree-nav .ia_treeComponent__node--expanded ~ .terminal-node,\r\n.psc-tree-nav .ia_treeComponent__node--expanded ~ .parent-node {\r\n  animation: treeFadeIn 0.4s ease forwards;\r\n}\r\n\r\n@keyframes treeFadeIn {\r\n  from {\r\n    opacity: 0;\r\n    transform: translateY(-6px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n  }\r\n}\r\n\r\n\r\n/* Main wrapper */\r\n.psc-menu-input {\r\n  position:relative;\r\n  padding:13px 15px 0px 10px!important;\r\n  border-radius:0!important;\r\n  border:none!important;\r\n  border-bottom:0.5px solid var(--neutral-30)!important;\r\n  outline:none!important;\r\n  overflow: visible !important;\r\n  /* Animated underline (idle + focus) */\r\n  background:\r\n    linear-gradient(var(--fl-line-focus),var(--fl-line-focus)) left bottom/0% 2px no-repeat,\r\n    linear-gradient(var(--fl-line-idle),var(--fl-line-idle)) left bottom/100% 1px no-repeat;\r\n\r\n  transition:background-size .3s ease;\r\n}\r\n\r\n/* Dropdown alignment fix */\r\n.psc-menu-input.iaDropdownCommon\u003ediv\u003e*:first-child,\r\n.psc-header-input-mod.iaDropdownCommon\u003ediv\u003e*:first-child { margin-left:0!important; }\r\n\r\n/* Dropdown value padding */\r\n.psc-menu-input.iaDropdownCommon .iaDropdownCommon_value,\r\n.psc-menu-input-mod.iaDropdownCommon .iaDropdownCommon_value { padding:0; }\r\n\r\n/* Focus animation */\r\n.psc-menu-input:focus-within,\r\n.psc-menu-input [tabindex\u003d\"0\"]:focus {\r\n  outline:none!important;\r\n  background:\r\n    linear-gradient(var(--fl-line-focus),var(--fl-line-focus)) left bottom/100% 2px no-repeat,\r\n    linear-gradient(var(--fl-line-idle),var(--fl-line-idle)) left bottom/100% 1px no-repeat;\r\n}\r\n\r\n\r\n/* Dropdown modal container */\r\n.component-modal-large-viewport:has(.ia_dropdown__option.psc-menu-input) {\r\n  box-shadow:none!important;\r\n  border:none;\r\n  background:rgba(20,20,20,0.06);\r\n  backdrop-filter:blur(8px);\r\n  -webkit-backdrop-filter:blur(8px);\r\n  animation:dropdownEnter .5s ease;\r\n  border-radius:10px!important;\r\n}\r\n\r\n/* Dropdown animation */\r\n@keyframes dropdownEnter {\r\n  from { opacity:0; transform:translateY(-15px); }\r\n  to { opacity:1; transform:translateY(0); }\r\n}\r\n\r\n/* Dropdown modal styling */\r\n.iaDropdownCommon_options_modal:has(.psc-menu-input-mod) {\r\n  border:none!important;\r\n  background:rgba(20,20,20,0.06) !important;\r\n  backdrop-filter:blur(8px) !important;\r\n  -webkit-backdrop-filter:blur(8px) !important;\r\n  border-radius:10px!important;\r\n  min-width:150px!important;\r\n  box-shadow:none!important;\r\n  animation:dropdownEnter .5s ease;\r\n  cursor: pointer;\r\n}",
+    "cssFileName": "docked-navigation.css",
+    "fileReady": true,
+    "installDone": true,
+    "statusMsg": "--  Ignition 8.1.50 (b2025093011) detected -\u003e 8.1 path\n--  Folder already exists\n--  resource.json read\n--  config.json already exists\n--  index.css already exists\nOK  File written: docked-navigation.css\nOK  docked-navigation.css registered in resource.json\nOK  docked-navigation.css added to index.css\n--  @import already exists in: dark-warm (no changes)\n--  @import already exists in: light-cool (no changes)\n--  @import already exists in: light-warm (no changes)\n--  @import already exists in: dark-cool (no changes)\n--  @import already exists in: light (no changes)\n--  @import already exists in: dark (no changes)",
+    "themeDark": true,
+    "themeDarkCool": true,
+    "themeDarkWarm": true,
+    "themeLight": true,
+    "themeLightCool": true,
+    "themeLightWarm": true
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 780,
+      "width": 900
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "LblTitle"
+        },
+        "position": {
+          "height": 32,
+          "width": 400,
+          "x": 24,
+          "y": 19
+        },
+        "props": {
+          "style": {
+            "color": "#1a1a1a",
+            "fontSize": "20px",
+            "fontWeight": "500"
+          },
+          "text": "ATS — CSS Theme Installer"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LblSubtitle"
+        },
+        "position": {
+          "height": 20,
+          "width": 600,
+          "x": 24,
+          "y": 54
+        },
+        "props": {
+          "style": {
+            "color": "#666666",
+            "fontSize": "13px"
+          },
+          "text": "Upload a .css file, choose the themes, and press Install."
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LblUploadTitle"
+        },
+        "position": {
+          "height": 20,
+          "width": 200,
+          "x": 24,
+          "y": 92
+        },
+        "props": {
+          "style": {
+            "color": "#444444",
+            "fontSize": "12px",
+            "fontWeight": "500"
+          },
+          "text": "1. Select the .css file"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onFileReceived": {
+              "config": {
+                "script": "\tif not event.file.name.endswith(\u0027.css\u0027):\n\t\tself.view.custom.statusMsg \u003d \u0027Error: Only .css files are allowed\u0027\n\t\tself.view.custom.fileReady \u003d False\n\t\treturn\n\ttry:\n\t\tsystem.perspective.print(dir(event.file))\n\t\tcontent \u003d event.file.getString()\n\t\tself.view.custom.cssContent  \u003d content\n\t\tself.view.custom.cssFileName \u003d event.file.name\n\t\tself.view.custom.fileReady   \u003d True\n\t\tself.view.custom.installDone \u003d False\n\t\tself.view.custom.statusMsg   \u003d \u0027File Ready: \u0027 + event.file.name\n\texcept Exception as e:\n\t\tself.view.custom.fileReady \u003d False\n\t\tself.view.custom.statusMsg \u003d \u0027Error: \u0027 + str(e)\n"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "FileUpload"
+        },
+        "position": {
+          "height": 120,
+          "width": 380,
+          "x": 24,
+          "y": 116
+        },
+        "type": "ia.input.fileupload"
+      },
+      {
+        "meta": {
+          "name": "LblFileName"
+        },
+        "position": {
+          "height": 20,
+          "width": 380,
+          "x": 24,
+          "y": 242
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.cssFileName"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "#999999",
+            "fontSize": "12px",
+            "fontStyle": "italic"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LblTemasTitle"
+        },
+        "position": {
+          "height": 20,
+          "width": 200,
+          "x": 24,
+          "y": 278
+        },
+        "props": {
+          "style": {
+            "color": "#444444",
+            "fontSize": "12px",
+            "fontWeight": "500"
+          },
+          "text": "2. Select the themes"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "ChkLight"
+        },
+        "position": {
+          "height": 28,
+          "width": 160,
+          "x": 24,
+          "y": 304
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.themeLight"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "light"
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "meta": {
+          "name": "ChkDark"
+        },
+        "position": {
+          "height": 28,
+          "width": 160,
+          "x": 24,
+          "y": 334
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.themeDark"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "dark"
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "meta": {
+          "name": "ChkDarkCool"
+        },
+        "position": {
+          "height": 28,
+          "width": 160,
+          "x": 24,
+          "y": 364
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.themeDarkCool"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "dark-cool"
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "meta": {
+          "name": "ChkLightCool"
+        },
+        "position": {
+          "height": 28,
+          "width": 160,
+          "x": 24,
+          "y": 394
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.themeLightCool"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "light-cool"
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "meta": {
+          "name": "LblPreviewTitle"
+        },
+        "position": {
+          "height": 20,
+          "width": 200,
+          "x": 440,
+          "y": 92
+        },
+        "props": {
+          "style": {
+            "color": "#444444",
+            "fontSize": "12px",
+            "fontWeight": "500"
+          },
+          "text": "3. CSS Preview"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\timport os\n\timport json\n\t\n\tlogger  \u003d system.util.getLogger(\u0027ATS-CSS-Installer\u0027)\n\tresults \u003d []\n\t\n\tGLOBAL_FOLDER \u003d \u0027ats-global\u0027\n\t\n\t# ── Automatically detect Ignition version ─────────────────────────\n\ttry:\n\t\tversion_info \u003d system.util.getVersion()\n\t\tversion_str  \u003d str(version_info)\n\t\tparts        \u003d version_str.split(\u0027.\u0027)\n\t\tmajor        \u003d int(parts[0])\n\t\tminor        \u003d int(parts[1])\n\texcept Exception:\n\t\tmajor, minor, version_str \u003d 8, 1, \u0027unknown\u0027\n\t\n\tif major \u003e 8 or (major \u003d\u003d 8 and minor \u003e\u003d 3):\n\t\tTHEMES_BASE \u003d os.path.join(\u0027data\u0027,\u0027config\u0027,\u0027resources\u0027,\u0027core\u0027,\u0027com.inductiveautomation.perspective\u0027,\u0027themes\u0027)\n\t\tresults.append(\u0027--  Ignition \u0027 + version_str + \u0027 detected -\u003e 8.3 path\u0027)\n\telse:\n\t\tTHEMES_BASE \u003d os.path.join(\u0027data\u0027,\u0027modules\u0027,\u0027com.inductiveautomation.perspective\u0027,\u0027themes\u0027)\n\t\tresults.append(\u0027--  Ignition \u0027 + version_str + \u0027 detected -\u003e 8.1 path\u0027)\n\t\n\tcss_content  \u003d self.view.custom.cssContent\n\tcss_filename \u003d self.view.custom.cssFileName\n\t\n\tif not css_content or not css_filename:\n\t\tself.view.custom.statusMsg \u003d \u0027No file selected\u0027\n\t\treturn\n\t\n\tthemes_map \u003d {\n\t\t\u0027light\u0027:      self.view.custom.themeLight,\n\t\t\u0027dark\u0027:       self.view.custom.themeDark,\n\t\t\u0027dark-cool\u0027:  self.view.custom.themeDarkCool,\n\t\t\u0027light-cool\u0027: self.view.custom.themeLightCool,\n\t\t\u0027dark-warm\u0027:  self.view.custom.themeDarkWarm,\n\t\t\u0027light-warm\u0027: self.view.custom.themeLightWarm,\n\t}\n\tthemes_selected \u003d [t for t, active in themes_map.items() if active]\n\t\n\tif not themes_selected:\n\t\tself.view.custom.statusMsg \u003d \u0027Select at least one theme.\u0027\n\t\treturn\n\t\n\tif minor \u003c 3:\n\t\ttheme_import_line \u003d \u0027@import \"./\u0027 + GLOBAL_FOLDER + \u0027/index.css\";\u0027\n\telse:\n\t\ttheme_import_line \u003d \u0027@import \"../\u0027 + GLOBAL_FOLDER + \u0027/index.css\";\u0027\n\t\n\t\n\tfile_import_line  \u003d \u0027@import \"./\u0027 + css_filename + \u0027\";\u0027\n\t\n\ttry:\n\t\tglobal_dir    \u003d os.path.join(THEMES_BASE, GLOBAL_FOLDER)\n\t\tresource_path \u003d os.path.join(global_dir, \u0027resource.json\u0027)\n\t\tconfig_path   \u003d os.path.join(global_dir, \u0027config.json\u0027)\n\t\tindex_path    \u003d os.path.join(global_dir, \u0027index.css\u0027)\n\t\tcss_path      \u003d os.path.join(global_dir, css_filename)\n\t\n\t\t# ── 1. Create ats-global folder if it does not exist ──────────────────────────\n\t\tif not os.path.exists(global_dir):\n\t\t\tos.makedirs(global_dir)\n\t\t\tresults.append(\u0027OK  Folder created: \u0027 + global_dir)\n\t\telse:\n\t\t\tresults.append(\u0027--  Folder already exists\u0027)\n\t\n\t\t# ── 2. Read or initialize resource_data as Python dict ──────────────\n\t\tif os.path.exists(resource_path):\n\t\t\ttry:\n\t\t\t\twith open(resource_path, \u0027r\u0027) as f:\n\t\t\t\t\traw \u003d f.read().strip()\n\t\t\t\tif raw:\n\t\t\t\t\tresource_data \u003d json.loads(raw)\n\t\t\t\telse:\n\t\t\t\t\traise ValueError(\u0027empty\u0027)\n\t\t\t\tresults.append(\u0027--  resource.json read\u0027)\n\t\t\texcept Exception as ex:\n\t\t\t\tresults.append(\u0027!!  Invalid resource.json, recreating (\u0027 + str(ex) + \u0027)\u0027)\n\t\t\t\tresource_data \u003d None\n\t\telse:\n\t\t\tresource_data \u003d None\n\t\n\t\tif resource_data is None:\n\t\t\tresource_data \u003d {\n\t\t\t\t\u0027scope\u0027: \u0027A\u0027,\n\t\t\t\t\u0027version\u0027: 1,\n\t\t\t\t\u0027restricted\u0027: False,\n\t\t\t\t\u0027overridable\u0027: True,\n\t\t\t\t\u0027files\u0027: [\u0027config.json\u0027, \u0027index.css\u0027],\n\t\t\t\t\u0027attributes\u0027: {}\n\t\t\t}\n\t\t\tresults.append(\u0027OK  resource.json initialized\u0027)\n\t\n\t\t# ── 3. Create config.json if it does not exist ─────────────────────────────────\n\t\tif not os.path.exists(config_path):\n\t\t\twith open(config_path, \u0027w\u0027) as f:\n\t\t\t\tf.write(\u0027{\\n\\t\"entrypoint\": \"index.css\"\\n}\u0027)\n\t\t\tresults.append(\u0027OK  config.json created (entrypoint: index.css)\u0027)\n\t\telse:\n\t\t\tresults.append(\u0027--  config.json already exists\u0027)\n\t\n\t\t# ── 4. Create index.css if it does not exist ───────────────────────────────────\n\t\tif not os.path.exists(index_path):\n\t\t\twith open(index_path, \u0027w\u0027) as f:\n\t\t\t\tf.write(\u0027/* ATS Global - component index */\\n\u0027)\n\t\t\tresults.append(\u0027OK  index.css created\u0027)\n\t\telse:\n\t\t\tresults.append(\u0027--  index.css already exists\u0027)\n\t\n\t\t# ── 5. Write uploaded CSS file ─────────────────────────────────\n\t\twith open(css_path, \u0027w\u0027) as f:\n\t\t\tf.write(css_content)\n\t\tresults.append(\u0027OK  File written: \u0027 + css_filename)\n\t\n\t\t# ── 6. Register css_filename in resource_data[\u0027files\u0027] and save ─────\n\t\t#      indent\u003d4 (int) because Jython 2.7 does not accept indent\u003d\u0027\\t\u0027 (str)\n\t\tif css_filename not in resource_data[\u0027files\u0027]:\n\t\t\tresource_data[\u0027files\u0027].append(css_filename)\n\t\t\tresults.append(\u0027OK  \u0027 + css_filename + \u0027 registered in resource.json\u0027)\n\t\telse:\n\t\t\tresults.append(\u0027--  \u0027 + css_filename + \u0027 already exists in resource.json\u0027)\n\t\n\t\twith open(resource_path, \u0027w\u0027) as f:\n\t\t\tjson.dump(resource_data, f, indent\u003d4)\n\t\n\t\t# ── 7. Add @import of the file into ats-global index.css ─────────\n\t\twith open(index_path, \u0027r\u0027) as f:\n\t\t\tindex_content \u003d f.read()\n\t\n\t\tif file_import_line in index_content:\n\t\t\tresults.append(\u0027--  \u0027 + css_filename + \u0027 already imported in index.css (no changes)\u0027)\n\t\telse:\n\t\t\twith open(index_path, \u0027a\u0027) as f:\n\t\t\t\tf.write(\u0027\\n\u0027 + file_import_line + \u0027\\n\u0027)\n\t\t\tresults.append(\u0027OK  \u0027 + css_filename + \u0027 added to index.css\u0027)\n\t\n\t\t# ── 8. Add @import of ats-global into each selected theme ─────────\n\t\tfor theme in themes_selected:\n\t\t\tif minor \u003c 3:\n\t\t\t\ttheme_index_path \u003d os.path.join(THEMES_BASE, theme +\u0027.css\u0027)\n\t\t\telse:\n\t\t\t\ttheme_index_path \u003d os.path.join(THEMES_BASE, theme, \u0027index.css\u0027)\n\t\t\t\n\t\t\tif not os.path.exists(theme_index_path):\n\t\t\t\tresults.append(\u0027!!  Not found: \u0027 + theme_index_path)\n\t\t\t\tcontinue\n\t\n\t\t\twith open(theme_index_path, \u0027r\u0027) as f:\n\t\t\t\texisting \u003d f.read()\n\t\n\t\t\tif theme_import_line in existing:\n\t\t\t\tresults.append(\u0027--  @import already exists in: \u0027 + theme + \u0027 (no changes)\u0027)\n\t\t\t\tcontinue\n\t\n\t\t\twith open(theme_index_path, \u0027a\u0027) as f:\n\t\t\t\tf.write(\u0027\\n\\n/* ATS Global Components */\\n\u0027 + theme_import_line + \u0027\\n\u0027)\n\t\t\tresults.append(\u0027OK  @import added in: \u0027 + theme_index_path)\n\t\n\t\tself.view.custom.statusMsg   \u003d \u0027\\n\u0027.join(results)\n\t\tself.view.custom.installDone \u003d True\n\t\tlogger.info(\u0027\\n\u0027.join(results))\n\t\n\texcept Exception as e:\n\t\tself.view.custom.statusMsg \u003d \u0027ERROR: \u0027 + str(e)\n\t\tlogger.error(str(e))"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "BtnInstalar"
+        },
+        "position": {
+          "height": 36,
+          "width": 140,
+          "x": 24,
+          "y": 514
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "path": "view.custom.fileReady"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontFamily": "Nunito",
+            "fontWeight": "500"
+          },
+          "text": "Install"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tself.view.custom.cssContent   \u003d \u0027\u0027\n\tself.view.custom.cssFileName  \u003d \u0027\u0027\n\tself.view.custom.fileReady    \u003d False\n\tself.view.custom.statusMsg    \u003d \u0027\u0027\n\tself.view.custom.installDone  \u003d False\n"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "BtnLimpiar"
+        },
+        "position": {
+          "height": 36,
+          "width": 100,
+          "x": 176,
+          "y": 514
+        },
+        "props": {
+          "text": "Clean"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "LblStatus"
+        },
+        "position": {
+          "height": 203,
+          "width": 852,
+          "x": 24,
+          "y": 564
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.statusMsg"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "background": "var(--neutral-30)",
+            "border": "1px solid #e0e0e0",
+            "borderRadius": "4px",
+            "color": "var(--neutral-80)",
+            "fontFamily": "monospace",
+            "fontSize": "12px",
+            "padding": "10px",
+            "whiteSpace": "pre-wrap"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "ChkDarkWarm"
+        },
+        "position": {
+          "height": 28,
+          "width": 160,
+          "x": 24,
+          "y": 424
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.themeDarkWarm"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "dark-warm"
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "meta": {
+          "name": "ChkLightWarm"
+        },
+        "position": {
+          "height": 28,
+          "width": 160,
+          "x": 24,
+          "y": 454
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.themeLightWarm"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "light-warm"
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "meta": {
+          "name": "TxtPreview"
+        },
+        "position": {
+          "height": 430,
+          "width": 441,
+          "x": 432,
+          "y": 116
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.cssContent"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontFamily": "Nunito"
+          }
+        },
+        "type": "ia.input.text-area"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "x": 142,
+      "y": 2
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "var(--neutral-10)"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

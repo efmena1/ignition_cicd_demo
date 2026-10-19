@@ -1,0 +1,174 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "headerCard"
+        },
+        "type": "ia.container.flex",
+        "props": {
+          "direction": "row",
+          "style": {
+            "alignItems": "center",
+            "gap": "16px",
+            "flexWrap": "wrap",
+            "backgroundColor": "rgba(0,0,0,0.02)",
+            "border": "1px solid rgba(0,0,0,0.08)",
+            "borderRadius": "8px",
+            "padding": "16px 20px",
+            "overflow": "visible"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "selMaterial"
+            },
+            "type": "mes.production.mesObjectSelector",
+            "position": {
+              "basis": "280px"
+            },
+            "props": {
+              "displayText": "Material",
+              "includeMaterialDefObjects": true,
+              "style": {
+                "margin": "4px 6px",
+                "overflow": "visible"
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "selEquipment"
+            },
+            "type": "mes.production.mesObjectSelector",
+            "position": {
+              "basis": "280px"
+            },
+            "props": {
+              "displayText": "Equipment",
+              "includeAllEquipmentObjects": true,
+              "style": {
+                "margin": "4px 6px",
+                "overflow": "visible"
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "btnRefresh"
+            },
+            "type": "ia.input.button",
+            "position": {
+              "basis": "180px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Refresh Inventory",
+              "style": {
+                "margin": "4px 6px"
+              }
+            },
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\troot = self.parent.parent\n\tselMaterial = self.getSibling(\"selMaterial\")\n\tselEquipment = self.getSibling(\"selEquipment\")\n\tlblStatus = self.getSibling(\"lblStatus\")\n\ttable = root.getChild(\"tblInventory\")\n\t\n\ttry:\n\t\tkwargs = {}\n\t\tif selMaterial.props.selectedMESObject:\n\t\t\tkwargs[\"materialName\"] = selMaterial.props.selectedMESObject.name\n\t\tif selEquipment.props.selectedMESObject:\n\t\t\tkwargs[\"equipmentPath\"] = selEquipment.props.selectedMESObject.equipmentPath\n\t\t\n\t\tresult = system.mes.trace.getInventory(**kwargs)\n\t\ttable.props.data = result[\"lots\"]\n\t\tlblStatus.props.text = str(len(result[\"lots\"])) + \" lot(s)\"\n\t\tlblStatus.props.style = {\"color\": \"#2e7d32\", \"fontWeight\": \"600\"}\n\texcept Exception, e:\n\t\tlblStatus.props.text = \"Error: \" + str(e)\n\t\tlblStatus.props.style = {\"color\": \"#c62828\", \"fontWeight\": \"600\"}"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "lblStatus"
+            },
+            "type": "ia.display.label",
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "text": "",
+              "style": {
+                "fontWeight": "600"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "tblInventory"
+        },
+        "type": "ia.display.table",
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "columns": [
+            {
+              "field": "LotNumber",
+              "title": "Lot Number"
+            },
+            {
+              "field": "LotSequence",
+              "title": "Seq"
+            },
+            {
+              "field": "MaterialName",
+              "title": "Material"
+            },
+            {
+              "field": "MaterialDescription",
+              "title": "Description"
+            },
+            {
+              "field": "Location Name",
+              "title": "Location"
+            },
+            {
+              "field": "Location Type",
+              "title": "Location Type"
+            },
+            {
+              "field": "AvailableQuantity",
+              "title": "Available"
+            },
+            {
+              "field": "InQuantity",
+              "title": "In"
+            },
+            {
+              "field": "OutQuantity",
+              "title": "Out"
+            },
+            {
+              "field": "NetQuantity",
+              "title": "Net"
+            },
+            {
+              "field": "Units",
+              "title": "Units"
+            }
+          ]
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "padding": "20px",
+        "gap": "16px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,568 @@
+{
+  "changesetData": {
+    "uuid": "8d8e4f9b-a9fa-4a25-9f1b-786f76e6225d",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:14.173Z",
+    "appliedOnChangesetUUID": "fa4d3163-896d-4a36-9a53-67a790ae12ad",
+    "hash": "3fad0c34a3e41ffbf3371a317a9a3086adb41492787029cdf377e9e01e888133",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:14.110113Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Signature Root Template": {
+        "da1c126e-0e6e-4832-8aac-d6bbd51e0db1": {
+          "meta": {
+            "name": "Signature Templates"
+          },
+          "changes": [
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "6a2c09d9-89d6-42d7-bd75-21d3c93857e1|SignatureTemplate",
+              "newValueFriendly": "batchStartAuthorization"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "eac6e970-26cf-439c-acbf-ec2afc53c6a7|SignatureTemplate",
+              "newValueFriendly": "batchPauseAuthorization"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "c0d22c0d-73f9-4930-b6b2-57951f70117d|SignatureTemplate",
+              "newValueFriendly": "batchResumeAuthorization"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "94bbd896-c962-46e2-a774-292cba755a16|SignatureTemplate",
+              "newValueFriendly": "batchHoldAuthorization"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "8f043534-5203-4d92-9643-835e670dd524|SignatureTemplate",
+              "newValueFriendly": "batchRestartAuthorization"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "15be32df-f9bd-42bb-9723-87aa8013db72|SignatureTemplate",
+              "newValueFriendly": "batchStopAuthorization"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "27a684b6-1672-404a-9244-bd9cbff01412|SignatureTemplate",
+              "newValueFriendly": "batchResetAuthorization"
+            },
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "46d9cc45-c326-4fb8-b8cc-801306ac5f92|SignatureTemplate",
+              "newValueFriendly": "batchAbortAuthorization"
+            }
+          ]
+        }
+      },
+      "Signature Template": {
+        "c0d22c0d-73f9-4930-b6b2-57951f70117d": {
+          "meta": {
+            "name": "batchResumeAuthorization"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "batchResumeAuthorization"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "c0d22c0d-73f9-4930-b6b2-57951f70117d"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to execute the Resume command on a Batch Queue Entry."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            }
+          ]
+        },
+        "eac6e970-26cf-439c-acbf-ec2afc53c6a7": {
+          "meta": {
+            "name": "batchPauseAuthorization"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "batchPauseAuthorization"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "eac6e970-26cf-439c-acbf-ec2afc53c6a7"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to execute the Pause command on a Batch Queue Entry."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            }
+          ]
+        },
+        "6a2c09d9-89d6-42d7-bd75-21d3c93857e1": {
+          "meta": {
+            "name": "batchStartAuthorization"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "batchStartAuthorization"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "6a2c09d9-89d6-42d7-bd75-21d3c93857e1"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to execute the Start command on a Batch Queue Entry."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            }
+          ]
+        },
+        "46d9cc45-c326-4fb8-b8cc-801306ac5f92": {
+          "meta": {
+            "name": "batchAbortAuthorization"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "batchAbortAuthorization"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "46d9cc45-c326-4fb8-b8cc-801306ac5f92"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to execute the Abort command on a Batch Queue Entry."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            }
+          ]
+        },
+        "8f043534-5203-4d92-9643-835e670dd524": {
+          "meta": {
+            "name": "batchRestartAuthorization"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "batchRestartAuthorization"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "8f043534-5203-4d92-9643-835e670dd524"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to execute the Restart command on a Batch Queue Entry."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            }
+          ]
+        },
+        "27a684b6-1672-404a-9244-bd9cbff01412": {
+          "meta": {
+            "name": "batchResetAuthorization"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "batchResetAuthorization"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "27a684b6-1672-404a-9244-bd9cbff01412"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to execute the Reset command on a Batch Queue Entry."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            }
+          ]
+        },
+        "94bbd896-c962-46e2-a774-292cba755a16": {
+          "meta": {
+            "name": "batchHoldAuthorization"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "batchHoldAuthorization"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "94bbd896-c962-46e2-a774-292cba755a16"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to execute the Hold command on a Batch Queue Entry."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            }
+          ]
+        },
+        "15be32df-f9bd-42bb-9723-87aa8013db72": {
+          "meta": {
+            "name": "batchStopAuthorization"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "batchStopAuthorization"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "15be32df-f9bd-42bb-9723-87aa8013db72"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to execute the Stop command on a Batch Queue Entry."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

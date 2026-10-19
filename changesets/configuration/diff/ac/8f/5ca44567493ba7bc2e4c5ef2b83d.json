@@ -1,0 +1,52 @@
+{
+  "changesetData": {
+    "uuid": "ac8f5ca4-4567-493b-a7bc-2e4c5ef2b83d",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:16.984Z",
+    "appliedOnChangesetUUID": "151bf4ee-ba37-48bf-b02d-fd5bc4ddf1f6",
+    "hash": "965c9f15b91be87467ff6de7618f284e3fd923cba1f69888ccd9dde29ddde2b6",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:16.971493400Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Material Root": {
+        "a94a546c-1045-4f31-a7c4-4320328f9856": {
+          "meta": {
+            "name": "Material Root"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "a94a546c-1045-4f31-a7c4-4320328f9856"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Material Root"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "Core"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

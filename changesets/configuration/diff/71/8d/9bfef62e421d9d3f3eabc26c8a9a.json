@@ -1,0 +1,99 @@
+{
+  "changesetData": {
+    "uuid": "718d9bfe-f62e-421d-9d3f-3eabc26c8a9a",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:14.400Z",
+    "appliedOnChangesetUUID": "8d8e4f9b-a9fa-4a25-9f1b-786f76e6225d",
+    "hash": "82a570c241a5d3fba8d0b4fa4a980092a92dfd63f8c44e9c83e9c5678312e779",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:14.379836900Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Signature Root Template": {
+        "da1c126e-0e6e-4832-8aac-d6bbd51e0db1": {
+          "meta": {
+            "name": "Signature Templates"
+          },
+          "changes": [
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "abcc3b62-996d-455e-9e22-f5e586952e53|SignatureTemplate",
+              "newValueFriendly": "MESAdmin"
+            }
+          ]
+        }
+      },
+      "Signature Template": {
+        "abcc3b62-996d-455e-9e22-f5e586952e53": {
+          "meta": {
+            "name": "MESAdmin"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "abcc3b62-996d-455e-9e22-f5e586952e53"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "da1c126e-0e6e-4832-8aac-d6bbd51e0db1|SignatureRootTemplate",
+              "newValueFriendly": "Signature Templates"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "MESAdmin"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in Signature Template for requiring authorization to modify Batch Formulas in \u0027Admin\u0027 mode."
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "FramingOption",
+              "newValue": "EMBEDDED"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Timeout",
+              "newValue": "2"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Force",
+              "newValue": "true"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "IdpName",
+              "newValue": "default"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

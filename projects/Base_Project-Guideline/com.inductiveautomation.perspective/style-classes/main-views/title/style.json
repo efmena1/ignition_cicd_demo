@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "color": "var(--neutral-70)",
+      "fontSize": "20px",
+      "fontWeight": "normal",
+      "paddingLeft": "20px"
+    }
+  }
+}

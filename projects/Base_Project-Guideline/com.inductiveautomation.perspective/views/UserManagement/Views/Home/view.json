@@ -1,0 +1,1282 @@
+{
+  "custom": {},
+  "params": {
+    "mode": "add",
+    "selectedRole": "",
+    "selectedUser": "",
+    "userSource": "default"
+  },
+  "propConfig": {
+    "params.mode": {
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.selectedRole": {
+      "binding": {
+        "config": {
+          "expression": "if({/root/Roles Table/Table.props.selection.selectedRow}!\u003dNone, {/root/Roles Table/Table.props.selection.data[0].Roles}, \"\")"
+        },
+        "type": "expr"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.selectedUser": {
+      "binding": {
+        "config": {
+          "expression": "if({/root/Users Table/Table.props.selection.selectedRow}!\u003dNone, {/root/Users Table/Table.props.selection.data[0].username}, \"\")"
+        },
+        "type": "expr"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.userSource": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 400,
+      "width": 700
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Title"
+            },
+            "position": {
+              "basis": "370px",
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"User Management \u003e User Source: \" + {view.params.userSource}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UserManagement/Headers"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "basis": "40px",
+          "shrink": 0
+        },
+        "props": {
+          "alignContent": "space-around",
+          "alignItems": "center",
+          "style": {
+            "classes": "UserManagement/Headers",
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Users Title"
+        },
+        "position": {
+          "basis": "20px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "UserManagement/SectionHeaders",
+            "marginBottom": "2px",
+            "marginTop": "5px",
+            "textIndent": "10px"
+          },
+          "text": "Users"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onRowDoubleClick": {
+                  "config": {
+                    "script": "\t# Calls to edit icon\u0027s custom method which will switch the user to AddEditUser view.\n\tself.parent.getChild(\"Icons\").getChild(\"Edit\").editUser()"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Table"
+            },
+            "position": {
+              "basis": "750px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.data": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.userSource"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tusers \u003d system.user.getUsers(self.view.params.userSource)\n\t\t\n\t# Loops through the user stored on Gateway and creates a dataset of users.\n\tuserArray \u003d []\n\tfor user in users:\n\t\tusername \u003d user.get(\"username\")\n\t\tfirstName \u003d user.get(\"firstname\") if user.get(\"firstname\") else \"\"\n\t\tlastName \u003d user.get(\"lastname\") if user.get(\"lastname\") else \"\"\n\t\troles \u003d str(user.getRoles()) if user.getRoles() else \"\"\n\t\tcontactInfo \u003d str(user.getContactInfo()) if user.getContactInfo() else \"\"\n\t\tschedule \u003d user.get(\"schedule\")\n\t\trow \u003d [username, firstName, lastName, roles, contactInfo, schedule]\n\t\tuserArray.append(row)\n\t\t\n\theaders \u003d [\"username\", \"firstName\", \"lastName\", \"roles\", \"contactInfo\", \"schedule\"]\n\tuserDataset \u003d system.dataset.toDataSet(headers, userArray)\n\t\n\t# Check if the dataset is empty, else return an empty row with the headers.\n\tif userDataset.getRowCount() \u003d\u003d 0:\n\t\theaders \u003d [\"Username\", \"First Name\", \"Last Name\", \"Roles\", \"Contact Info\", \"Schedule\"]\n\t\trows \u003d [[\"No Users Exist\", \"\", \"\", \"\", \"\", \"\"]]\n\t\temptyDataset \u003d system.dataset.toDataSet(headers, rows)\n\t\tself.props.selection.enableRowSelection \u003d False\n\t\treturn emptyDataset\n\telse:\n\t\tself.props.selection.enableRowSelection \u003d True\n\t\treturn system.dataset.sort(userDataset, \"username\")",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "columns": [
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "username",
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Username"
+                  },
+                  "justify": "left",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "#62A3F6",
+                      "linecap": "round",
+                      "width": 5
+                    },
+                    "max": 100,
+                    "track": {
+                      "color": "#DADADA",
+                      "linecap": "round",
+                      "width": 2
+                    },
+                    "value": {
+                      "color": "#7D7D7D",
+                      "show": true
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "#2196F3",
+                      "unselected": "#FFFFFF"
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "firstName",
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": "UserManagement/LeftVerticalHeaderBar"
+                    },
+                    "title": "First Name"
+                  },
+                  "justify": "auto",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "#62A3F6",
+                      "linecap": "round",
+                      "width": 5
+                    },
+                    "max": 100,
+                    "track": {
+                      "color": "#DADADA",
+                      "linecap": "round",
+                      "width": 2
+                    },
+                    "value": {
+                      "color": "#7D7D7D",
+                      "show": true
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "#2196F3",
+                      "unselected": "#FFFFFF"
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "lastName",
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": "UserManagement/LeftVerticalHeaderBar"
+                    },
+                    "title": "Last Name"
+                  },
+                  "justify": "auto",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "#62A3F6",
+                      "linecap": "round",
+                      "width": 5
+                    },
+                    "max": 100,
+                    "track": {
+                      "color": "#DADADA",
+                      "linecap": "round",
+                      "width": 2
+                    },
+                    "value": {
+                      "color": "#7D7D7D",
+                      "show": true
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "#2196F3",
+                      "unselected": "#FFFFFF"
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "roles",
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": "UserManagement/LeftVerticalHeaderBar"
+                    },
+                    "title": "Roles"
+                  },
+                  "justify": "auto",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "#62A3F6",
+                      "linecap": "round",
+                      "width": 5
+                    },
+                    "max": 100,
+                    "track": {
+                      "color": "#DADADA",
+                      "linecap": "round",
+                      "width": 2
+                    },
+                    "value": {
+                      "color": "#7D7D7D",
+                      "show": true
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "#2196F3",
+                      "unselected": "#FFFFFF"
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "contactInfo",
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": "UserManagement/LeftVerticalHeaderBar"
+                    },
+                    "title": "Contact Info"
+                  },
+                  "justify": "auto",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "#62A3F6",
+                      "linecap": "round",
+                      "width": 5
+                    },
+                    "max": 100,
+                    "track": {
+                      "color": "#DADADA",
+                      "linecap": "round",
+                      "width": 2
+                    },
+                    "value": {
+                      "color": "#7D7D7D",
+                      "show": true
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "#2196F3",
+                      "unselected": "#FFFFFF"
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "schedule",
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": "UserManagement/LeftVerticalHeaderBar"
+                    },
+                    "title": "Schedule"
+                  },
+                  "justify": "auto",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "#62A3F6",
+                      "linecap": "round",
+                      "width": 5
+                    },
+                    "max": 100,
+                    "track": {
+                      "color": "#DADADA",
+                      "linecap": "round",
+                      "width": 2
+                    },
+                    "value": {
+                      "color": "#7D7D7D",
+                      "show": true
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "#2196F3",
+                      "unselected": "#FFFFFF"
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                }
+              ],
+              "pager": {
+                "bottom": false
+              },
+              "rows": {
+                "style": {
+                  "classes": "InputFont"
+                }
+              },
+              "style": {
+                "borderWidth": "1px",
+                "marginBottom": "10px",
+                "marginLeft": "10px",
+                "marginTop": "5px"
+              }
+            },
+            "type": "ia.display.table"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\timport time\n\t\n\t# Refresh user table binding and rotate refresh icon.\n\tself.parent.parent.getChild(\"Table\").refreshBinding(\"props.data\")\n\tself.rotateIcon()"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Refresh"
+                },
+                "position": {
+                  "basis": "26px",
+                  "shrink": 0
+                },
+                "props": {
+                  "color": "#5A5A5A",
+                  "path": "material/refresh",
+                  "style": {
+                    "classes": "UserManagement/TableEditorIcons",
+                    "transform": "rotate(360deg)"
+                  }
+                },
+                "scripts": {
+                  "customMethods": [
+                    {
+                      "name": "rotateIcon",
+                      "params": [],
+                      "script": "\timport time\n\t\n\t# Rotate icon 360 degrees.\n\tfor degree in range(0,361, 10):\n\t\tself.props.style.transform \u003d \u0027rotate(\u0027 + str(degree) + \u0027deg)\u0027\n\t\ttime.sleep(0.0278)"
+                    }
+                  ],
+                  "extensionFunctions": null,
+                  "messageHandlers": [
+                    {
+                      "messageType": "UserManagement_RefreshTables",
+                      "pageScope": true,
+                      "script": "\t# Refresh user table binding\n\tself.parent.parent.getChild(\"Table\").refreshBinding(\"props.data\")",
+                      "sessionScope": false,
+                      "viewScope": false
+                    }
+                  ]
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# Clears selected user and navigates to AddEditUser view.\n\tself.view.params.selectedUser \u003d \"\"\n\tself.view.params.mode \u003d \"add\"\n\tsystem.perspective.sendMessage(\"UserManagement_ChangeView\", payload\u003d{\"view\":\"addEditUser\"}, scope\u003d\"page\")"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Add"
+                },
+                "position": {
+                  "basis": "29px",
+                  "shrink": 0
+                },
+                "props": {
+                  "color": "#5A5A5A",
+                  "path": "material/add",
+                  "style": {
+                    "classes": "UserManagement/TableEditorIcons"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# Calls to custom method to navigate the user to AddEditUser view.\n\tself.editUser()"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Edit"
+                },
+                "position": {
+                  "basis": "24px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.color": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Table.props.selection.selectedRow"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#5A5A5A",
+                          "inputType": "expression",
+                          "mappings": [
+                            {
+                              "input": "None",
+                              "output": "#C9C9C9"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.style.cursor": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Table.props.selection.selectedRow"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "pointer",
+                          "inputType": "expression",
+                          "mappings": [
+                            {
+                              "input": "None",
+                              "output": "auto"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "material/create",
+                  "style": {
+                    "classes": "UserManagement/TableEditorIcons"
+                  }
+                },
+                "scripts": {
+                  "customMethods": [
+                    {
+                      "name": "editUser",
+                      "params": [],
+                      "script": "\t# If a table row is selected, navigates to the AddEditUser view to edit the selected user.\n\tif self.parent.parent.getChild(\"Table\").props.selection.selectedRow !\u003d None:\t\n\t\tself.view.params.mode \u003d \"edit\"\n\t\tsystem.perspective.sendMessage(\"UserManagement_ChangeView\", payload\u003d{\"view\":\"addEditUser\"}, scope\u003d\"page\")"
+                    }
+                  ],
+                  "extensionFunctions": null,
+                  "messageHandlers": []
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# If row is selected, open popup to confirm deletion of user.\n\tif self.parent.parent.getChild(\"Table\").props.selection.selectedRow !\u003d None:\n\t\tsystem.perspective.openPopup(\n\t\t\tid            \u003d \u0027UserManagement_CheckBeforeRemoval\u0027,\n\t\t\tview          \u003d \u0027UserManagement/Views/Popups/Popup_CheckRemoval\u0027, \n\t\t\tparams        \u003d {\u0027type\u0027:\u0027user\u0027, \u0027userSource\u0027:self.view.params.userSource, \u0027message\u0027:self.parent.parent.getChild(\"Table\").props.selection.data[0].username}, \n\t\t\tshowCloseIcon \u003d False, \n\t\t\tdraggable     \u003d False\n\t\t)\n\t\tself.parent.parent.getChild(\"Table\").props.selection.selectedRow \u003d \u0027\u0027"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Delete"
+                },
+                "position": {
+                  "basis": "27px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.color": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Table.props.selection.selectedRow"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#5A5A5A",
+                          "inputType": "expression",
+                          "mappings": [
+                            {
+                              "input": "None",
+                              "output": "#C9C9C9"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.style.cursor": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Table.props.selection.selectedRow"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "pointer",
+                          "inputType": "expression",
+                          "mappings": [
+                            {
+                              "input": "None",
+                              "output": "auto"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "material/clear",
+                  "style": {
+                    "classes": "UserManagement/TableEditorIcons"
+                  }
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "Icons"
+            },
+            "position": {
+              "basis": "50px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Users Table"
+        },
+        "position": {
+          "basis": "100px",
+          "grow": 2
+        },
+        "props": {
+          "alignContent": "flex-start",
+          "style": {
+            "classes": "UserManagement/InputFont"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Roles Title"
+        },
+        "position": {
+          "basis": "20px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "UserManagement/SectionHeaders",
+            "fontSize": "15px",
+            "marginBottom": "2px",
+            "marginTop": "5px",
+            "textIndent": "10px"
+          },
+          "text": "Roles"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onRowDoubleClick": {
+                  "config": {
+                    "script": "\t# Calls to edit icon\u0027s custom method which will switch the user to AddEditRoles view.\n\tself.parent.getChild(\"Icons\").getChild(\"Edit\").editRole()"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Table"
+            },
+            "position": {
+              "basis": "750px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.data": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.userSource"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\troles \u003d system.user.getRoles(self.view.params.userSource)\n\tusers \u003d system.user.getUsers(self.view.params.userSource)\n\t\t\n\t# Loops through the roles stored on Gateway and creates a dataset of roles.\n\troleArray \u003d []\n\tfor role in roles:\n\t\tuserCount \u003d 0\n\t\tfor user in users:\n\t\t\tif role in user.getRoles():\n\t\t\t\tuserCount +\u003d 1\n\t\trow \u003d [role, userCount]\n\t\troleArray.append(row)\n\t\t\n\theaders \u003d [\"Roles\", \"Num of Users\"]\n\troleDataset \u003d system.dataset.toDataSet(headers, roleArray)\n\t\n\t# If there are no rows, fill with empty dataset and disable row selection. Else, enabled allow rows to be selected on table.\n\tif roleDataset.getRowCount() \u003d\u003d 0:\n\t\theaders \u003d [\"Roles\", \"# of Users\"]\n\t\trows \u003d [[\"No Roles Exist\", \"\"]]\n\t\temptyDataset \u003d system.dataset.toDataSet(headers, rows)\n\t\tself.props.selection.enableRowSelection \u003d False\n\t\treturn emptyDataset\n\telse:\n\t\tself.props.selection.enableRowSelection \u003d True\n\t\treturn system.dataset.sort(roleDataset, \"Roles\")",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "columns": [
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "Roles",
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Roles"
+                  },
+                  "justify": "auto",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "#62A3F6",
+                      "linecap": "round",
+                      "width": 5
+                    },
+                    "max": 100,
+                    "track": {
+                      "color": "#DADADA",
+                      "linecap": "round",
+                      "width": 2
+                    },
+                    "value": {
+                      "color": "#7D7D7D",
+                      "show": true
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "#2196F3",
+                      "unselected": "#FFFFFF"
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "Num of Users",
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": "UserManagement/LeftVerticalHeaderBar"
+                    },
+                    "title": "Number of Users"
+                  },
+                  "justify": "auto",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "#62A3F6",
+                      "linecap": "round",
+                      "width": 5
+                    },
+                    "max": 100,
+                    "track": {
+                      "color": "#DADADA",
+                      "linecap": "round",
+                      "width": 2
+                    },
+                    "value": {
+                      "color": "#7D7D7D",
+                      "show": true
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "#2196F3",
+                      "unselected": "#FFFFFF"
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                }
+              ],
+              "pager": {
+                "bottom": false
+              },
+              "rows": {
+                "style": {
+                  "classes": "InputFont"
+                }
+              },
+              "style": {
+                "borderStyle": "none",
+                "borderWidth": "1px",
+                "marginBottom": "10px",
+                "marginLeft": "10px",
+                "marginTop": "5px",
+                "transform": "rotate(0deg)"
+              }
+            },
+            "type": "ia.display.table"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# Refresh roles table binding and rotate refresh icon.\n\tself.parent.parent.getChild(\"Table\").refreshBinding(\"props.data\")\n\tself.rotateIcon()"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Refresh"
+                },
+                "position": {
+                  "basis": "26px",
+                  "shrink": 0
+                },
+                "props": {
+                  "color": "#5A5A5A",
+                  "path": "material/refresh",
+                  "style": {
+                    "classes": "UserManagement/TableEditorIcons",
+                    "transform": "rotate(360deg)"
+                  }
+                },
+                "scripts": {
+                  "customMethods": [
+                    {
+                      "name": "rotateIcon",
+                      "params": [],
+                      "script": "\timport time\n\n\t# Rotate icon 360 degrees.\n\tfor degree in range(0,361, 10):\n\t\tself.props.style.transform \u003d \u0027rotate(\u0027 + str(degree) + \u0027deg)\u0027\n\t\ttime.sleep(0.0278)"
+                    }
+                  ],
+                  "extensionFunctions": null,
+                  "messageHandlers": [
+                    {
+                      "messageType": "UserManagement_RefreshTables",
+                      "pageScope": true,
+                      "script": "\t# refresh roles table binding\n\tself.parent.parent.getChild(\"Table\").refreshBinding(\"props.data\")",
+                      "sessionScope": false,
+                      "viewScope": false
+                    }
+                  ]
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# Clears selected role and navigates to AddEditRoles view.\n\tself.view.params.selectedRole \u003d \"\"\n\tself.view.params.mode \u003d \"add\"\n\tsystem.perspective.sendMessage(\"UserManagement_ChangeView\", payload\u003d{\"view\":\"addEditRoles\"}, scope\u003d\"page\")"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Add"
+                },
+                "position": {
+                  "basis": "29px",
+                  "shrink": 0
+                },
+                "props": {
+                  "color": "#5A5A5A",
+                  "path": "material/add",
+                  "style": {
+                    "classes": "UserManagement/TableEditorIcons"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# Calls to custom method to navigate the user to AddEditRole view.\n\tself.editRole()"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Edit"
+                },
+                "position": {
+                  "basis": "24px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.color": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Table.props.selection.selectedRow"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#5A5A5A",
+                          "inputType": "expression",
+                          "mappings": [
+                            {
+                              "input": "None",
+                              "output": "#C9C9C9"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.style.cursor": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Table.props.selection.selectedRow"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "pointer",
+                          "inputType": "expression",
+                          "mappings": [
+                            {
+                              "input": "None",
+                              "output": "auto"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "material/create",
+                  "style": {
+                    "classes": "UserManagement/TableEditorIcons"
+                  }
+                },
+                "scripts": {
+                  "customMethods": [
+                    {
+                      "name": "editRole",
+                      "params": [],
+                      "script": "\t# Set the selected role as current role and navigate to AddEditRoles.\n\tif self.parent.parent.getChild(\"Table\").props.selection.selectedRow !\u003d None:\n\t\tself.view.params.mode \u003d \"edit\"\n\t\tsystem.perspective.sendMessage(\"UserManagement_ChangeView\", payload\u003d{\"view\":\"addEditRoles\"}, scope\u003d\"page\")"
+                    }
+                  ],
+                  "extensionFunctions": null,
+                  "messageHandlers": []
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# If a row is selected, open popup to confirm deletion of role.\n\tif self.parent.parent.getChild(\"Table\").props.selection.selectedRow !\u003d None:\n\t\tsystem.perspective.openPopup(\n\t\t\tid            \u003d \u0027UserManagement_CheckBeforeRemoval\u0027, \n\t\t\tview          \u003d \u0027UserManagement/Views/Popups/Popup_CheckRemoval\u0027, \n\t\t\tparams        \u003d {\u0027type\u0027:\u0027role\u0027, \u0027userSource\u0027:self.view.params.userSource, \u0027message\u0027:self.parent.parent.getChild(\"Table\").props.selection.data[0].Roles}, \n\t\t\tshowCloseIcon \u003d False, \n\t\t\tdraggable     \u003d False\n\t\t)\n\t\tself.parent.parent.getChild(\"Table\").props.selection.selectedRow \u003d \u0027\u0027"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Delete"
+                },
+                "position": {
+                  "basis": "27px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.color": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Table.props.selection.selectedRow"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#5A5A5A",
+                          "inputType": "expression",
+                          "mappings": [
+                            {
+                              "input": "None",
+                              "output": "#C9C9C9"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.style.cursor": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Table.props.selection.selectedRow"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "pointer",
+                          "inputType": "expression",
+                          "mappings": [
+                            {
+                              "input": "None",
+                              "output": "auto"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "material/clear",
+                  "style": {
+                    "classes": "UserManagement/TableEditorIcons"
+                  }
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "Icons"
+            },
+            "position": {
+              "basis": "50px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Roles Table"
+        },
+        "position": {
+          "basis": "120px",
+          "grow": 1
+        },
+        "props": {
+          "alignContent": "flex-start",
+          "style": {
+            "classes": "UserManagement/InputFont"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "custom": {
+      "UserSource": "default"
+    },
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "alignContent": "center",
+      "direction": "column",
+      "justify": "center",
+      "style": {
+        "backgroundColor": "var(--neutral-20)",
+        "borderStyle": "none",
+        "borderWidth": "1px",
+        "minWidth": "320px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

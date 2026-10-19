@@ -1,0 +1,172 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "flx_header"
+        },
+        "type": "ia.container.flex",
+        "position": {
+          "basis": "50px"
+        },
+        "props": {
+          "direction": "row",
+          "style": {
+            "gap": "10px",
+            "alignItems": "center"
+          }
+        },
+        "children": [
+          {
+            "meta": {
+              "name": "mesObjectSelector"
+            },
+            "type": "mes.production.mesObjectSelector",
+            "position": {
+              "basis": "340px"
+            },
+            "props": {
+              "displayText": "Location",
+              "style": {
+                "margin": "4px 6px",
+                "overflow": "visible"
+              },
+              "includeMESLocationObjects": true
+            }
+          },
+          {
+            "meta": {
+              "name": "analysisSettingsSelector"
+            },
+            "type": "mes.production.mesObjectSelector",
+            "position": {
+              "basis": "340px"
+            },
+            "props": {
+              "displayText": "Stored Analysis",
+              "style": {
+                "margin": "4px 6px",
+                "overflow": "visible"
+              },
+              "includeAnalysisSettingsObjects": true
+            }
+          },
+          {
+            "meta": {
+              "name": "dt_start"
+            },
+            "type": "ia.input.date-time-input",
+            "position": {
+              "basis": "220px"
+            },
+            "props": {
+              "style": {
+                "margin": "4px 6px"
+              }
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "expression": "dateArithmetic(now(0), -7, \"day\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "dt_end"
+            },
+            "type": "ia.input.date-time-input",
+            "position": {
+              "basis": "220px"
+            },
+            "props": {
+              "style": {
+                "margin": "4px 6px"
+              }
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "expression": "now(0)"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "chart"
+        },
+        "type": "mes.spc.mesProcessCapabilityAndPerformanceChart",
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "storedSettings": {
+            "autoRefresh": true
+          }
+        },
+        "propConfig": {
+          "props.spcChartSettings.settings.filters.location": {
+            "binding": {
+              "config": {
+                "path": "../flx_header/mesObjectSelector.props.selectedMESObject.equipmentPath"
+              },
+              "type": "property"
+            }
+          },
+          "props.storedSettings.location": {
+            "binding": {
+              "config": {
+                "path": "../flx_header/mesObjectSelector.props.selectedMESObject.equipmentPath"
+              },
+              "type": "property"
+            }
+          },
+          "props.storedSettings.storedSPCName": {
+            "binding": {
+              "config": {
+                "path": "../flx_header/analysisSettingsSelector.props.selectedMESObject.name"
+              },
+              "type": "property"
+            }
+          },
+          "props.storedSettings.startDate": {
+            "binding": {
+              "config": {
+                "path": "../flx_header/dt_start.props.value"
+              },
+              "type": "property"
+            }
+          },
+          "props.storedSettings.endDate": {
+            "binding": {
+              "config": {
+                "path": "../flx_header/dt_end.props.value"
+              },
+              "type": "property"
+            }
+          }
+        }
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "changesetData": {
+    "uuid": "a7039dbb-7775-4d14-bcfd-e996dd195014",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:17.030Z",
+    "appliedOnChangesetUUID": "ac8f5ca4-4567-493b-a7bc-2e4c5ef2b83d",
+    "hash": "d74e6c6aba69aaf923b9a594c25682fc45fdab1b184f3121f14a0277b28b8d42",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:17.012738900Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Process Segment": {
+        "6c425178-e344-477a-92a9-fb8f4bcb5ee7": {
+          "meta": {
+            "name": "OEE Changeover"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "6c425178-e344-477a-92a9-fb8f4bcb5ee7"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "OEE Changeover"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EndOperationWhenComplete",
+              "oldValue": "true",
+              "newValue": "false"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "OEE"
+            },
+            {
+              "changeType": "ComplexPropertyAdded",
+              "changePath": "Equipment",
+              "newValue": "e58367c4-9f01-44b9-aea5-ec78cf48e3b0|Station"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Equipment.Station.EquipmentRefUUID",
+              "newValue": "d7fc5652-b19b-4f3c-a1fb-c2e42252c222"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Equipment.Station.EquipmentRefType",
+              "newValue": "EquipmentClass"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

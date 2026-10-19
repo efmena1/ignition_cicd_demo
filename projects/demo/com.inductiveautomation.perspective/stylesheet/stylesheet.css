@@ -1,0 +1,251 @@
+
+:root {
+	font-family: Poppins;
+	--card-blur: #FFFFFFAA;
+	--card: #FFFFFF;
+	--bw: #FFFFFF;
+}
+
+body{
+	font-family: Poppins;
+	font-size: 13px;
+}
+
+html{
+	font-family: Poppins;
+	--global-border-radius: 8px; 
+	--callToAction--disabled: var(--neutral-30) !important;
+	--border--disabled: var(--neutral-50) !important;
+	--gap-size: 5px;
+	--toolbarButtonColor: var(--neutral-70) !important;
+	--font-global: Poppins;
+}
+
+.popup .popup-body,
+.client-root .popup{
+	border-radius:10px;
+	
+}
+
+.client-root .popup .popup-header{
+	border-radius: 10px 10px 0 0;
+	border-bottom: none;
+	background: none !important;
+	font-family: var(--font-global) !important;
+	color: var(--neutral-70);
+	padding-left: 15px;
+	font-size: 15px;
+}
+
+.client-root .popup{
+	box-shadow: 0px 0px 5px 0 rgba(0,0,0,.12), 0px 0px 8px 0 rgba(0,0,0,.2);
+}
+
+.ia_popup {
+  overflow: hidden;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* ============================================================
+
+   BUTTONS (psc-icss-fl-input-ts-wval)
+
+   ============================================================ */
+
+
+.ia_button--primary,
+.ia_button--secondary{
+	border-radius: var(--global-border-radius) !important;
+	border: solid 0.5px var(--neutral-30);
+	font-family: Poppins;
+	font-weight: lighter;
+	font-size: 13px;
+	line-height: 12px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	min-height: 35px;
+}
+
+
+.ia_button--primary--disabled, .ia_button--secondary--disabled{
+	color: var(--neutral-30);
+	min-height: 35px;
+}
+
+
+
+/* ============================================================
+
+   TOGGLE SWITCH (psc-icss-fl-input-ts-wval)
+
+   ============================================================ */
+
+.ia_toggleSwitchComponent .ia_toggleSwitch__track {
+
+  box-shadow:0 5px 5px -8px #c5d6d6;
+  border-radius:15px;
+  height:22px;
+  width:35px;
+}
+
+.ia_toggleSwitchComponent .ia_toggleSwitch__thumb {
+  top:-19px;
+  margin-left:2px;
+  box-shadow:0 2px 2px rgba(0,0,0,0.2);
+  transition:background .3s ease,transform .2s ease;
+}
+
+.ia_toggleSwitchComponent .ia_toggleSwitch:active .ia_toggleSwitch__thumb {
+  transform:scale(1.2);
+}
+
+.ia_toggleSwitchComponent .ia_toggleSwitch__track {
+  backdrop-filter:blur(2px);
+}
+.ia_toggleSwitch { outline:none!important; }
+
+/* ============================================================
+
+   MENU ITEM animacion para agrandar
+
+   ============================================================ */
+
+@keyframes fadeIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(50%);
+  }
+  100% 
+  { 
+    opacity: 1; 
+    transform: translateY(0%);
+    
+  }
+}
+
+
+.psc-adss-grid-item {
+    animation: fadeIn 0.8s forwards;
+    opacity: 0;
+    overflow: visible;
+}
+
+.psc-layout\/home\/menu-item__body{
+	
+}
+
+.psc-layout\/home\/menu-item__body:hover {
+	transform: scale(1.1);
+	transition: all 300ms linear;
+	z-index: 999 !important;
+	
+	
+	
+}
+
+.psc-adss-grid{
+	
+}
+
+.psc-adss-grid .view-parent.psc-adss-grid-item {
+    -webkit-backdrop-filter: blur(5px) saturate(140%) !important;
+    backdrop-filter: blur(5px) saturate(140%) !important;
+}
+
+
+.psc-adss-grid .view-parent:nth-child(1).psc-adss-grid-item{
+	animation-delay: 0s;
+	
+}
+
+.psc-adss-grid .view-parent:nth-child(2).psc-adss-grid-item{
+	animation-delay: 0.1s;
+}
+
+.psc-adss-grid .view-parent:nth-child(3).psc-adss-grid-item{
+	animation-delay: 0.2s;
+	
+}
+
+.psc-adss-grid .view-parent:nth-child(4).psc-adss-grid-item{
+	animation-delay: 0.3s;
+}
+
+.psc-adss-grid .view-parent:nth-child(5).psc-adss-grid-item{
+	animation-delay: 0.4s;
+}
+
+.psc-adss-grid .view-parent:nth-child(6).psc-adss-grid-item{
+	animation-delay: 0.5s;
+}
+
+.psc-adss-grid .view-parent:nth-child(7).psc-adss-grid-item{
+	animation-delay: 0.6s;
+}
+
+.psc-adss-grid .view-parent:nth-child(8).psc-adss-grid-item{
+	animation-delay: 0.7s;
+}
+
+.psc-adss-grid .view-parent:nth-child(9).psc-adss-grid-item{
+	animation-delay: 0.8s;
+}
+
+.psc-adss-grid .view-parent:nth-child(10).psc-adss-grid-item{
+	animation-delay: 0.9s;
+}
+
+.psc-adss-grid .view-parent:nth-child(11).psc-adss-grid-item{
+	animation-delay: 1s;
+}
+
+.psc-adss-grid .view-parent:nth-child(12).psc-adss-grid-item{
+	animation-delay: 1.1s;
+}
+
+.psc-adss-grid .view-parent:nth-child(13).psc-adss-grid-item{
+	animation-delay: 1.2s;
+}
+
+.psc-adss-grid .view-parent:nth-child(14).psc-adss-grid-item{
+	animation-delay: 1.3s;
+}
+
+.psc-adss-grid .view-parent:nth-child(15).psc-adss-grid-item{
+	animation-delay: 1.4s;
+}
+
+/* TRACE GRAPH */
+
+ .psc-tracegraph-blur .mes_traceGraph__diagram{
+	background-color: var(--card);
+}
+
+[data-component="ia.display.markdown"] table tr{
+	background-color: var(--card);
+}
+
+[data-component="ia.display.markdown"] table th{
+	background-color: var(--card);
+}
+
+[data-component="ia.display.markdown"] table td {
+	background-color:transparent;
+}
+
+[data-component="ia.display.markdown"] table tr:nth-child(2n){
+	background-color:transparent;
+}
+
+
+.mes_mesTable__toolbar{
+	background:var(--neutral-10) !important;
+}
+
+
+.mes_scrollList__zebraStripe>li:nth-of-type(2n) {
+    background-color: var(--neutral-20);
+}

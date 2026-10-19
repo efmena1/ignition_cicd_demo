@@ -1,0 +1,793 @@
+{
+  "custom": {},
+  "params": {
+    "mode": "add",
+    "selectedHoliday": "",
+    "selectedSchedule": ""
+  },
+  "propConfig": {
+    "params.mode": {
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.selectedHoliday": {
+      "binding": {
+        "config": {
+          "expression": "if({/root/Holidays Table/Table.props.selection.selectedRow}!\u003dNone, {/root/Holidays Table/Table.props.selection.data[0].Name}, \"\")"
+        },
+        "type": "expr"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.selectedSchedule": {
+      "binding": {
+        "config": {
+          "expression": "if({/root/Schedules Table/Table.props.selection.selectedRow}!\u003dNone, {/root/Schedules Table/Table.props.selection.data[0].Name}, \"\")"
+        },
+        "type": "expr"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 400,
+      "width": 700
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "basis": "40px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "ScheduleManagement/Headers"
+          },
+          "text": "Schedule Manager"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Schedules Title"
+        },
+        "position": {
+          "basis": "20px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "ScheduleManagement/SectionHeaders",
+            "marginTop": "5px",
+            "textIndent": "10px"
+          },
+          "text": "Schedules"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onRowDoubleClick": {
+                  "config": {
+                    "script": "\t# Calls to custom method on Edit Icon to change view to AddEditSchedule and pass the selected Schedules name to the view.\n\tself.parent.getChild(\"Icons\").getChild(\"Edit\").editSchedule()"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Table"
+            },
+            "position": {
+              "basis": "750px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.data": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.selectedSchedule"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\t\u0027\u0027\u0027\n\tPulls all current schedules from the Gateway and broadcasts a session scope message\n\twith a dataset containing the schedules.\n\t\u0027\u0027\u0027\t\n\t# Try to get schedules from Gateway, if that fails, return no schedules message and disable row selection.\n\ttry:\n\t\tschedules \u003d system.user.getSchedules()\n\texcept:\n\t\theaders \u003d [\u0027Name\u0027, \u0027Description\u0027]\n\t\trows \u003d [[\"No Schedules Exist\", \"\"]]\n\t\tdataset \u003d system.dataset.toDataSet(headers, rows)\n\t\tself.props.selection.enableRowSelection \u003d False\n\t\treturn dataset\n\n\t# Create a list schedule objects that doesn\u0027t include schedules that aren\u0027t basic schedule types and duplicates schedule names.\n\tfilteredSchedules \u003d {}\n\tscheduleList \u003d []\n\t# Create a list of schedule objects that only includes basic schedule types and does not include duplicate schedule names.\n\tfor schedule in filter(lambda x: x.getType() \u003d\u003d \u0027basic schedule\u0027, schedules):\n\t\tif schedule.getName() not in filteredSchedules:\n\t\t\t# Add schedule to filteredSchedules for checking duplicates and add to ScheduleList for creating dataset for table.\n\t\t\tfilteredSchedules[schedule.getName()] \u003d None\n\t\t\tscheduleList.append([schedule.getName(), schedule.getDescription()])\t\n\t\t\t\n\t# Create dataset using the list scheduleList.\n\theaders \u003d [\"Name\", \"Description\"]\n\tscheduleDataset \u003d system.dataset.toDataSet(headers, scheduleList)\t\n\t\n\t# Sort dataset based on the first column\n\tsortedScheduleDataset \u003d system.dataset.sort(scheduleDataset, 0)\n\n\t# Enable row selection and return dataset.\n\tself.props.selection.enableRowSelection \u003d True\n\treturn sortedScheduleDataset",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "columns": [
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "Name",
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "justify": "auto",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "#62A3F6",
+                      "linecap": "round",
+                      "width": 5
+                    },
+                    "max": 100,
+                    "track": {
+                      "color": "#DADADA",
+                      "linecap": "round",
+                      "width": 2
+                    },
+                    "value": {
+                      "color": "#7D7D7D",
+                      "show": true
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "#2196F3",
+                      "unselected": "#FFFFFF"
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "Description",
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": "ScheduleManagement/LeftVerticalHeaderBar"
+                    },
+                    "title": ""
+                  },
+                  "justify": "auto",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "#62A3F6",
+                      "linecap": "round",
+                      "width": 5
+                    },
+                    "max": 100,
+                    "track": {
+                      "color": "#DADADA",
+                      "linecap": "round",
+                      "width": 2
+                    },
+                    "value": {
+                      "color": "#7D7D7D",
+                      "show": true
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "#2196F3",
+                      "unselected": "#FFFFFF"
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                }
+              ],
+              "pager": {
+                "bottom": false
+              },
+              "rows": {
+                "style": {
+                  "classes": "InputFont"
+                }
+              },
+              "style": {
+                "borderStyle": "none",
+                "borderWidth": "1px",
+                "classes": "ScheduleManagement/InputFont",
+                "marginBottom": "10px",
+                "marginLeft": "10px",
+                "marginTop": "5px"
+              }
+            },
+            "type": "ia.display.table"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# Refresh schedule table data binding and rotate refresh icon.\n\tself.parent.parent.getChild(\"Table\").refreshBinding(\"props.data\")\n\tself.rotateIcon()"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Refresh"
+                },
+                "position": {
+                  "basis": "26px",
+                  "shrink": 0
+                },
+                "props": {
+                  "color": "#5A5A5A",
+                  "path": "material/refresh",
+                  "style": {
+                    "classes": "ScheduleManagement/TableIcons",
+                    "transform": "rotate(360deg)"
+                  }
+                },
+                "scripts": {
+                  "customMethods": [
+                    {
+                      "name": "rotateIcon",
+                      "params": [],
+                      "script": "\timport time\n\t\n\t# Animation: Rotate icon 360 degrees:\n\tfor degree in range(0, 361, 10):\n\t\tself.props.style.transform \u003d \"rotate(\" + str(degree) + \"deg)\"\n\t\ttime.sleep(0.0278)"
+                    }
+                  ],
+                  "extensionFunctions": null,
+                  "messageHandlers": [
+                    {
+                      "messageType": "ScheduleManagement_RefreshTables",
+                      "pageScope": true,
+                      "script": "\t# Refresh schedule table data binding.\n\tself.parent.parent.getChild(\"Table\").refreshBinding(\"props.data\")",
+                      "sessionScope": false,
+                      "viewScope": false
+                    }
+                  ]
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# Change mode to add and change the view to AddEditSchedule.\n\tself.view.params.mode \u003d \"add\"\n\tsystem.perspective.sendMessage(messageType\u003d\u0027ScheduleManagement_ChangeViews\u0027, payload\u003d{\"view\":\"addEditSchedule\"}, scope\u003d\"page\")"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Add"
+                },
+                "position": {
+                  "basis": "29px",
+                  "shrink": 0
+                },
+                "props": {
+                  "color": "#5A5A5A",
+                  "path": "material/add",
+                  "style": {
+                    "classes": "ScheduleManagement/TableIcons"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# Uses Custom Method for changing views and passing chosen Schedule name to the view.\n\tself.editSchedule()"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Edit"
+                },
+                "position": {
+                  "basis": "24px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.color": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Table.props.selection.selectedRow"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif value \u003d\u003d None:\n\t\treturn \"#C9C9C9\"\n\telse:\n\t\ttry:\n\t\t\tif self.parent.parent.getChild(\"Table\").props.selection.data[0].Name \u003d\u003d \"Always\":\n\t\t\t\treturn \"#C9C9C9\"\n\t\t\telse:\t\n\t\t\t\treturn \"#5A5A5A\"\n\t\texcept:\n\t\t\treturn \"#5A5A5A\"",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.style.cursor": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Table.props.selection.selectedRow"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif value \u003d\u003d None:\n\t\treturn \"auto\"\n\telse:\n\t\ttry:\n\t\t\tif self.parent.parent.getChild(\"Table\").props.selection.data[0].Name \u003d\u003d \"Always\":\n\t\t\t\treturn \"auto\"\n\t\t\telse:\t\n\t\t\t\treturn \"pointer\"\n\t\texcept:\n\t\t\treturn \"pointer\"",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "material/create",
+                  "style": {
+                    "classes": "ScheduleManagement/TableIcons"
+                  }
+                },
+                "scripts": {
+                  "customMethods": [
+                    {
+                      "name": "editSchedule",
+                      "params": [],
+                      "script": "\t# If a table row is not selected do nothing, else change mode to edit, view to AddEditSchedule, and pass chosen Schedule name to view.\n\tif self.parent.parent.getChild(\"Table\").props.selection.selectedRow \u003d\u003d None or self.parent.parent.getChild(\"Table\").props.selection.data[0].Name \u003d\u003d \"Always\":\n\t\tpass\n\telse:\t\t\n\t\tself.view.params.mode \u003d \"edit\"\n\t\tsystem.perspective.sendMessage(messageType\u003d\"ScheduleManagement_ChangeViews\", payload\u003d{\"view\":\"addEditSchedule\"}, scope\u003d\"page\")"
+                    }
+                  ],
+                  "extensionFunctions": null,
+                  "messageHandlers": []
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# If a row isn\u0027t selected or selected schedule is \"Always\" do nothing. Else, open popup to check with user before removing schedule.\n\tif self.parent.parent.getChild(\"Table\").props.selection.selectedRow is None or self.parent.parent.getChild(\"Table\").props.selection.data[0].Name is \"Always\":\n\t\tpass\n\telse:\n\t\tsystem.perspective.openPopup(\n\t\t\tid            \u003d \"ScheduleManagement_CheckBeforeRemoval\", \n\t\t\tview          \u003d \"ScheduleManagement/Views/Popups/Popup_CheckRemoval\", \n\t\t\tparams        \u003d {\"type\":\"schedule\", \"name\":self.parent.parent.getChild(\"Table\").props.selection.data[0].Name}, \n\t\t\tshowCloseIcon \u003d False, \n\t\t\tdraggable     \u003d False\n\t\t)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Delete"
+                },
+                "position": {
+                  "basis": "27px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.color": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Table.props.selection.selectedRow"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif value \u003d\u003d None:\n\t\treturn \"#C9C9C9\"\n\telse:\n\t\ttry:\n\t\t\tif self.parent.parent.getChild(\"Table\").props.selection.data[0].Name \u003d\u003d \"Always\":\n\t\t\t\treturn \"#C9C9C9\"\n\t\t\telse:\t\n\t\t\t\treturn \"#5A5A5A\"\n\t\texcept:\n\t\t\treturn \"#5A5A5A\"",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.style.cursor": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Table.props.selection.selectedRow"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif value \u003d\u003d None:\n\t\treturn \"auto\"\n\telse:\n\t\ttry:\n\t\t\tif self.parent.parent.getChild(\"Table\").props.selection.data[0].Name \u003d\u003d \"Always\":\n\t\t\t\treturn \"auto\"\n\t\t\telse:\t\n\t\t\t\treturn \"pointer\"\n\t\texcept:\n\t\t\treturn \"pointer\"",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "material/clear",
+                  "style": {
+                    "classes": "ScheduleManagement/TableIcons"
+                  }
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "Icons"
+            },
+            "position": {
+              "basis": "50px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Schedules Table"
+        },
+        "position": {
+          "basis": "100px",
+          "grow": 2
+        },
+        "props": {
+          "style": {
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Holidays Title"
+        },
+        "position": {
+          "basis": "20px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "ScheduleManagement/SectionHeaders",
+            "fontSize": "15px",
+            "marginTop": "5px",
+            "textIndent": "10px"
+          },
+          "text": "Holidays"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onRowDoubleClick": {
+                  "config": {
+                    "script": "\t# Calls to custom method on Edit Icon to change view to AddEditHoliday and pass the selected Holiday name to the view.\n\tself.parent.getChild(\"Icons\").getChild(\"Edit\").editHoliday()"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Table"
+            },
+            "position": {
+              "basis": "750px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.data": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.selectedHoliday"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\t\u0027\u0027\u0027\n\tPulls all current holidays from the Gateway and broadcasts a session scope message\n\twith a dataset containing the holidays.\n\t\u0027\u0027\u0027\n\tholidays \u003d system.user.getHolidays()\n\t\n\t# If holidays do not exists on the Gateway, return no holidays message and disable row selection.\n\tif not holidays:\n\t\theaders \u003d [\u0027Name\u0027]\n\t\trows \u003d [[\"No Holidays Exist\"]]\n\t\tdataset \u003d system.dataset.toDataSet(headers, rows)\n\t\tself.props.selection.enableRowSelection \u003d False\n\t\treturn dataset\n\t\t\n\t# Loop through holidays creating a list of holiday names.\n\tholidayList \u003d []\n\tfor holiday in holidays:\n\t\tholidayList.append([holiday.getName()])\n\t\n\t# Create dataset using the list holidayList.\t\n\theaders \u003d [\"Name\"]\n\tholidayDataset \u003d system.dataset.toDataSet(headers, holidayList)\n\n\t# Sort dataset based on the first column.\n\tsortedHolidayDataset \u003d system.dataset.sort(holidayDataset, 0)\n\t\n\t# Enable row selection and return dataset.\n\tself.props.selection.enableRowSelection \u003d True\n\treturn sortedHolidayDataset",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "pager": {
+                "bottom": false
+              },
+              "rows": {
+                "style": {
+                  "classes": "InputFont"
+                }
+              },
+              "selection": {
+                "enableRowSelection": false
+              },
+              "style": {
+                "borderStyle": "none",
+                "borderWidth": "1px",
+                "classes": "ScheduleManagement/InputFont",
+                "marginBottom": "10px",
+                "marginLeft": "10px",
+                "marginTop": "5px"
+              }
+            },
+            "type": "ia.display.table"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# Refresh holiday table data binding and rotate refresh icon.\n\tself.parent.parent.getChild(\"Table\").refreshBinding(\"props.data\")\n\tself.rotateIcon()"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Refresh"
+                },
+                "position": {
+                  "basis": "26px"
+                },
+                "props": {
+                  "color": "#5A5A5A",
+                  "path": "material/refresh",
+                  "style": {
+                    "classes": "ScheduleManagement/TableIcons",
+                    "transform": "rotate(360deg)"
+                  }
+                },
+                "scripts": {
+                  "customMethods": [
+                    {
+                      "name": "rotateIcon",
+                      "params": [],
+                      "script": "\timport time\n\t\n\t# Animation: Rotate icon 360 degrees:\n\tfor degree in range(0, 361, 10):\n\t\tself.props.style.transform \u003d \"rotate(\" + str(degree) + \"deg)\"\n\t\ttime.sleep(0.0278)"
+                    }
+                  ],
+                  "extensionFunctions": null,
+                  "messageHandlers": [
+                    {
+                      "messageType": "ScheduleManagement_RefreshTables",
+                      "pageScope": true,
+                      "script": "\t# Refresh holiday table data binding.\n\tself.parent.parent.getChild(\"Table\").refreshBinding(\"props.data\")",
+                      "sessionScope": false,
+                      "viewScope": false
+                    }
+                  ]
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# Change mode to add and change views to AddEditHoliday\n\tself.view.params.mode \u003d \"add\"\n\tsystem.perspective.sendMessage(messageType\u003d\"ScheduleManagement_ChangeViews\", payload\u003d{\"view\":\"addEditHoliday\"}, scope\u003d\"page\")"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Add"
+                },
+                "position": {
+                  "basis": "29px",
+                  "shrink": 0
+                },
+                "props": {
+                  "color": "#5A5A5A",
+                  "path": "material/add",
+                  "style": {
+                    "classes": "ScheduleManagement/TableIcons"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# Uses Custom Method for changing views and passing chosen Holiday name to the view.\n\tself.editHoliday()"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Edit"
+                },
+                "position": {
+                  "basis": "24px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.color": {
+                    "binding": {
+                      "config": {
+                        "expression": "if ({.../Table.props.selection.selectedRow} \u003d null, \u0027#C9C9C9\u0027, \u0027#5A5A5A\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.cursor": {
+                    "binding": {
+                      "config": {
+                        "expression": "if (({.../Table.props.selection.selectedRow} \u003d null) || ({.../Table.props.selection.data[0].Name} \u003d \"Always\"), \u0027auto\u0027, \u0027pointer\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "material/create",
+                  "style": {
+                    "classes": "ScheduleManagement/TableIcons"
+                  }
+                },
+                "scripts": {
+                  "customMethods": [
+                    {
+                      "name": "editHoliday",
+                      "params": [],
+                      "script": "\t# If a table row is not selected do nothing, else change the mode to edit, view to AddEditHoliday, and pass chosen Holiday name to view. \n\tif self.parent.parent.getChild(\"Table\").props.selection.selectedRow \u003d\u003d None:\n\t\tpass\n\telse:\n\t\tself.view.params.mode \u003d \"edit\"\n\t\tsystem.perspective.sendMessage(messageType\u003d\"ScheduleManagement_ChangeViews\", payload\u003d{\"view\":\"addEditHoliday\"}, scope\u003d\"page\")"
+                    }
+                  ],
+                  "extensionFunctions": null,
+                  "messageHandlers": []
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# If a row is not selected do nothing. Else, open popup to check with user before Holiday removal.\n\tif self.parent.parent.getChild(\"Table\").props.selection.selectedRow \u003d\u003d None:\n\t\tpass\n\telse:\n\t\tsystem.perspective.openPopup(\n\t\t\tid            \u003d \"ScheduleManagement_CheckBeforeRemoval\", \n\t\t\tview          \u003d \"ScheduleManagement/Views/Popups/Popup_CheckRemoval\", \n\t\t\tparams        \u003d {\"type\":\"holiday\", \"name\":self.parent.parent.getChild(\"Table\").props.selection.data[0].Name}, \n\t\t\tshowCloseIcon \u003d False, \n\t\t\tdraggable     \u003d False\n\t\t)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Delete"
+                },
+                "position": {
+                  "basis": "27px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.color": {
+                    "binding": {
+                      "config": {
+                        "expression": "if ({.../Table.props.selection.selectedRow} \u003d null, \u0027#C9C9C9\u0027, \u0027#5A5A5A\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.cursor": {
+                    "binding": {
+                      "config": {
+                        "expression": "if (({.../Table.props.selection.selectedRow} \u003d null) || ({.../Table.props.selection.data[0].Name} \u003d \"Always\"), \u0027auto\u0027, \u0027pointer\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "material/clear",
+                  "style": {
+                    "classes": "ScheduleManagement/TableIcons"
+                  }
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "Icons"
+            },
+            "position": {
+              "basis": "50px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Holidays Table"
+        },
+        "position": {
+          "basis": "120px",
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "alignContent": "center",
+      "direction": "column",
+      "justify": "center",
+      "style": {
+        "backgroundColor": "var(--neutral-20)",
+        "borderStyle": "none",
+        "borderWidth": "1px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

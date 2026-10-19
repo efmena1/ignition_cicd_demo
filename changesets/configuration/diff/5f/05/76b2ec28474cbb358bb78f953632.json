@@ -1,0 +1,73 @@
+{
+  "changesetData": {
+    "uuid": "5f0576b2-ec28-474c-bb35-8bb78f953632",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:14.680Z",
+    "appliedOnChangesetUUID": "6fb3057c-4748-4415-b96e-c43d16542692",
+    "hash": "d45d5e2b443c2aef95838894eb97e0574507b9c66accd4833ac360c55d828d25",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:14.658004300Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Root": {
+        "a3fc72c4-6a3b-11ea-bc55-0242ac130003": {
+          "meta": {
+            "name": "Enum Definitions"
+          },
+          "changes": [
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "9ed9cd56-10e2-4e98-938a-2eac5418446d|EnumDefinition",
+              "newValueFriendly": "Signature_Template"
+            }
+          ]
+        }
+      },
+      "Enum Definition": {
+        "9ed9cd56-10e2-4e98-938a-2eac5418446d": {
+          "meta": {
+            "name": "Signature_Template"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "9ed9cd56-10e2-4e98-938a-2eac5418446d"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Signature_Template"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "a3fc72c4-6a3b-11ea-bc55-0242ac130003|EnumRoot",
+              "newValueFriendly": "Enum Definitions"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

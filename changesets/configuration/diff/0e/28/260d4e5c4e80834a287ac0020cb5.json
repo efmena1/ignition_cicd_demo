@@ -1,0 +1,48 @@
+{
+  "changesetData": {
+    "uuid": "0e28260d-4e5c-4e80-834a-287ac0020cb5",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "emena",
+    "appliedAt": "2026-10-15T05:18:17.192Z",
+    "appliedOnChangesetUUID": "48c36f11-0fc8-4abc-999b-27ff16251c1c",
+    "hash": "e43c6c1a1d435081b345acada528da8b9a7f43a580881e25d9b305dfb60ad6e4",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:18:17.177034400Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Storage Zone": {
+        "38ba031f-fb42-4f91-99f2-2837957e2995": {
+          "meta": {
+            "name": "Storage Zone"
+          },
+          "changes": [
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "oldValue": "New Storage Zone",
+              "newValue": "Storage Zone"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentActiveType",
+              "oldValue": "INACTIVE",
+              "newValue": "ACTIVE"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "EquipmentPath",
+              "oldValue": "Enterprise\\Site\\Area\\New Storage Zone",
+              "newValue": "Enterprise\\Site\\Area\\Storage Zone"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

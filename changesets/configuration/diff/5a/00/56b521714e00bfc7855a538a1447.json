@@ -1,0 +1,36 @@
+{
+  "changesetData": {
+    "uuid": "5a0056b5-2171-4e00-bfc7-855a538a1447",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:14.920Z",
+    "appliedOnChangesetUUID": "862e4f07-7be4-4cec-9835-899f2b15a66d",
+    "hash": "e8007dcbdb9f9b70c28ea48d6ea9272400fd3137381d00c887d992820627da73",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:14.902310800Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Definition": {
+        "430e12ab-2833-48e5-bb95-bf1e8b501e3a": {
+          "meta": {
+            "name": "Formula_State"
+          },
+          "changes": [
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in enum for Formula State options."
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

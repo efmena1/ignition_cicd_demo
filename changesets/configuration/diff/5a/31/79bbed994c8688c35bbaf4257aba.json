@@ -1,0 +1,52 @@
+{
+  "changesetData": {
+    "uuid": "5a3179bb-ed99-4c86-88c3-5bbaf4257aba",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:21.299Z",
+    "appliedOnChangesetUUID": "6837b5ac-3015-4f71-9ea0-31814096bc56",
+    "hash": "78a4fb8011f01fa1a4c58384c751fb5f4bb6fd7e7f1c83290824227ee8637685",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:21.289098100Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Batch Root Master Recipe": {
+        "8b666745-c4f0-4264-a1c8-39920f5c54ab": {
+          "meta": {
+            "name": "Master Recipes"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "8b666745-c4f0-4264-a1c8-39920f5c54ab"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Master Recipes"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

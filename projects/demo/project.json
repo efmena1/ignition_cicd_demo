@@ -1,0 +1,7 @@
+{
+  "title": "Demo",
+  "description": "Demo Project",
+  "enabled": true,
+  "inheritable": false,
+  "parent": "global"
+}

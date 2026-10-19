@@ -1,0 +1,142 @@
+{
+  "custom": {},
+  "params": {
+    "spcChartSettings": {
+      "autoRefresh": false,
+      "autoUpdate": false,
+      "dynamic": {
+        "factor": {},
+        "location": "",
+        "productCode": "",
+        "referenceNo": "",
+        "sampleApprovedBy": "",
+        "sampleTakenBy": "",
+        "shift": ""
+      },
+      "endDate": {
+        "$": [
+          "ts",
+          192,
+          1715817739880
+        ],
+        "$ts": 1715817227988
+      },
+      "histogram": {
+        "autoBarCount": true,
+        "dataBarCount": 7,
+        "paddingBarCount": 1
+      },
+      "settings": {
+        "additionalFactors": [],
+        "attributeName": "",
+        "attributeUnits": "",
+        "boxAndWhiskerFilter": [],
+        "controlLimits": [],
+        "definitionName": "",
+        "enableFutureLimitEditing": false,
+        "filters": {
+          "factors": {},
+          "location": ""
+        },
+        "measurement": "",
+        "nonconformingFilter": [],
+        "nonconformityFilter": [],
+        "paretoFilter": [],
+        "rowLimit": 100,
+        "signals": [],
+        "spcDataFormat": "None",
+        "useDefaultChartType": false
+      },
+      "spcData": {
+        "$": [
+          "ds",
+          192,
+          1715817739880
+        ],
+        "$columns": []
+      },
+      "spcResults": {
+        "calculatedValues": {
+          "calcValueList": [],
+          "defaultChart": "None",
+          "measurementFormat": "",
+          "units": ""
+        },
+        "definitionUUID": "",
+        "measurementCount": 1,
+        "messages": {
+          "errorMessage": "Stored SPC settings () not found.",
+          "warningMessage": ""
+        }
+      },
+      "startDate": {
+        "$": [
+          "ts",
+          192,
+          1715817739880
+        ],
+        "$ts": 1715817227988
+      },
+      "storedSPCName": ""
+    }
+  },
+  "propConfig": {
+    "params.spcChartSettings": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Moving Range"
+        },
+        "position": {
+          "basis": "500px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.spcChartSettings": {
+            "binding": {
+              "config": {
+                "path": "view.params.spcChartSettings"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "propertySource": "Use_binding",
+          "storedSettings": {
+            "endDate": {
+              "$": [
+                "ts",
+                192,
+                1715818561399
+              ],
+              "$ts": 1715818561399
+            },
+            "startDate": {
+              "$": [
+                "ts",
+                192,
+                1715818561399
+              ],
+              "$ts": 1715818561399
+            }
+          }
+        },
+        "type": "mes.spc.mesMovingRangeChart"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

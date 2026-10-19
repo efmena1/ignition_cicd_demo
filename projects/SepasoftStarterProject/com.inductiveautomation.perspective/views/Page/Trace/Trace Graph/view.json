@@ -1,0 +1,190 @@
+{
+  "custom": {},
+  "params": {
+    "pushedLotUUID": ""
+  },
+  "propConfig": {
+    "params.pushedLotUUID": {
+      "onChange": {
+        "enabled": null,
+        "script": null
+      },
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 837,
+      "width": 1348
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "nodeClicked": {
+              "config": {
+                "script": "\tif event.getType() == 'ResponseSegment':\n\t\tself.getSibling(\"emb_opInfo\").props.params.responseSegUUID = event.getSegmentUUID()\n\telse:\n\t\tself.getSibling(\"emb_opInfo\").props.params.responseSegUUID = ''"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "MES Trace Graph"
+        },
+        "position": {
+          "height": 0.8,
+          "width": 0.7522,
+          "x": 0.2366,
+          "y": 0.14
+        },
+        "propConfig": {
+          "props.lotUUID": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "pushed": "{view.params.pushedLotUUID}",
+                  "selected": "{../mesLotSelector.props.selectedLotUUID}"
+                },
+                "waitOnAll": false
+              },
+              "transforms": [
+                {
+                  "code": "\tif value.get('pushed'):\n\t\treturn value['pushed']\n\treturn value.get('selected')",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          }
+        },
+        "props": {
+          "detailedMode": true
+        },
+        "type": "mes.trace.traceGraph"
+      },
+      {
+        "meta": {
+          "name": "mesLotSelector"
+        },
+        "position": {
+          "height": 0.061,
+          "width": 0.72,
+          "x": 0.2366,
+          "y": 0.07
+        },
+        "propConfig": {
+          "props.beginDateTime": {
+            "binding": {
+              "config": {
+                "path": "../dt_start.props.value"
+              },
+              "type": "property"
+            }
+          },
+          "props.endDateTime": {
+            "binding": {
+              "config": {
+                "path": "../dt_end.props.value"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "includeActiveLots": true,
+          "includeLotSequence": true,
+          "includeSupplementalEquipment": true,
+          "lotAvailabilityFilter": "Both",
+          "maxResults": 1000,
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "mes.trace.mesLotSelector"
+      },
+      {
+        "meta": {
+          "name": "dt_start"
+        },
+        "position": {
+          "height": 0.05,
+          "width": 0.11,
+          "x": 0.0045,
+          "y": 0.014
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": "dateArithmetic(now(0), -2, \"hour\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {},
+        "type": "ia.input.date-time-input"
+      },
+      {
+        "meta": {
+          "name": "dt_end"
+        },
+        "position": {
+          "height": 0.05,
+          "width": 0.11,
+          "x": 0.118,
+          "y": 0.014
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": "now(60000)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {},
+        "type": "ia.input.date-time-input"
+      },
+      {
+        "meta": {
+          "name": "emb_opInfo"
+        },
+        "position": {
+          "height": 0.8,
+          "width": 0.2248,
+          "x": 0.0045,
+          "y": 0.14
+        },
+        "propConfig": {
+          "props.params.responseSegUUID": {
+            "binding": {
+              "config": {
+                "path": "../mesLotSelector.props.selectedUUID"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Page/Embedded/TraceOperationInfo"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "mode": "percent"
+    },
+    "type": "ia.container.coord"
+  }
+}

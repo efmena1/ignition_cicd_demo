@@ -1,0 +1,33 @@
+{
+  "clientIdentifierType": "UUID",
+  "dataFormatTypeWrapper": "Sparkplug_B_v1_0_Protobuf",
+  "hostnameVerification": true,
+  "keepAlive": 30,
+  "password": {
+    "data": {
+      "ciphertext": "zIiwYTu0znm_0g",
+      "encrypted_key": "ze_4s4K4DLhlJelFMDJ4lGi7mUb27M_l9DvpalG8m8mAos-PGA7pHw",
+      "iv": "KczhLWUx1E0_aAt1",
+      "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzkwMjgzMDYzLCJ6aXAiOiJERUYifQ",
+      "tag": "_d04zyckgsUNCyvr9BABuQ"
+    },
+    "type": "Embedded"
+  },
+  "reconnectDelay": 1000,
+  "rpcHostnameVerification": true,
+  "rpcPassword": {
+    "data": {
+      "ciphertext": "ru4n80lHfxBuZQ",
+      "encrypted_key": "v0-9Dgylcit7ofMr2bwYiYQJnXAerCHRa-WMOYeJabGO87uY5bAfww",
+      "iv": "UDKcfGBC3eLBgzX0",
+      "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzkwMjgzMDYzLCJ6aXAiOiJERUYifQ",
+      "tag": "sl7R1p5hxLdN_fbemRs2ww"
+    },
+    "type": "Embedded"
+  },
+  "rpcUsername": "admin",
+  "serverSet": "Default",
+  "subscribeToLegacyStateTopic": true,
+  "url": "tcp://localhost:1883",
+  "username": "admin"
+}

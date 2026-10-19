@@ -1,0 +1,19 @@
+{
+  "scope": "A",
+  "description": "API Key for AI Agent Integration (Codex, Claude)",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2026-09-30T14:21:04Z"
+    },
+    "uuid": "deb22737-659f-4e69-8fbf-ff82ad693c04",
+    "lastModificationSignature": "256d31104633d63a96861d166e15b22da1c09b555e1280988e8b53d58d460bd3",
+    "enabled": true
+  }
+}

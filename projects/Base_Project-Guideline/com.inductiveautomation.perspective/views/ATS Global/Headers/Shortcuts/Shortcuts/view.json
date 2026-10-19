@@ -1,0 +1,339 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 189,
+      "width": 224
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "65px"
+            },
+            "props": {
+              "alignVertical": "bottom",
+              "style": {
+                "classes": "ats-global/headers/secondary-labels"
+              },
+              "text": "Theme"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Dropdown"
+            },
+            "position": {
+              "basis": "95px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "session.props.theme"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "allowCustomOptions": true,
+              "dropdownOptionStyle": {
+                "classes": "header-input-mod"
+              },
+              "options": [
+                {
+                  "label": "DARK",
+                  "value": "dark-cool"
+                },
+                {
+                  "label": "LIGHT",
+                  "value": "light-cool"
+                }
+              ],
+              "style": {
+                "classes": "header-input"
+              }
+            },
+            "type": "ia.input.dropdown"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "style": {
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "65px"
+            },
+            "props": {
+              "alignVertical": "bottom",
+              "style": {
+                "classes": "ats-global/headers/secondary-labels"
+              },
+              "text": "Language"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Dropdown"
+            },
+            "position": {
+              "basis": "95px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "session.props.locale"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "allowCustomOptions": true,
+              "dropdownOptionStyle": {
+                "classes": "header-input-mod"
+              },
+              "options": [
+                {
+                  "label": "ENG",
+                  "value": "en-US"
+                },
+                {
+                  "label": "ESP",
+                  "value": "es-MX"
+                }
+              ],
+              "style": {
+                "classes": "header-input"
+              }
+            },
+            "type": "ia.input.dropdown"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "65px"
+            },
+            "props": {
+              "alignVertical": "bottom",
+              "style": {
+                "classes": "ats-global/headers/secondary-labels"
+              },
+              "text": "IP Address"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0",
+              "tooltip": {
+                "enabled": true
+              }
+            },
+            "position": {
+              "basis": "87px",
+              "grow": 1
+            },
+            "propConfig": {
+              "meta.tooltip.text": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.text"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.host"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "header-input",
+                "overflow": "auto"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_2"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "style": {
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "action": "Toggle",
+                    "type": "Page"
+                  },
+                  "scope": "C",
+                  "type": "fullscreen"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon",
+              "tooltip": {
+                "enabled": true,
+                "text": "Fullscreen"
+              }
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "props": {
+              "path": "material/fullscreen",
+              "style": {
+                "classes": "ats-global/headers/action-labels ats-global/headers/primary-labels"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {},
+                  "scope": "C",
+                  "type": "refresh"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon_0",
+              "tooltip": {
+                "enabled": true,
+                "text": "Refresh"
+              }
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "props": {
+              "path": "material/refresh",
+              "style": {
+                "classes": "ats-global/headers/action-labels ats-global/headers/primary-labels"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "documentTitle": "Screenshot",
+                    "target": "Page"
+                  },
+                  "scope": "C",
+                  "type": "request-print"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon_1",
+              "tooltip": {
+                "enabled": true,
+                "text": "Print Page"
+              }
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "props": {
+              "path": "material/photo_camera",
+              "style": {
+                "classes": "ats-global/headers/action-labels ats-global/headers/primary-labels"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "basis": "44px"
+        },
+        "props": {
+          "justify": "space-between",
+          "style": {
+            "paddingTop": "10px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "padding": "10px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

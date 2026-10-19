@@ -1,0 +1,36 @@
+{
+  "changesetData": {
+    "uuid": "a9e6c48f-b825-49dd-b83f-68e4bd0e36f0",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:15.206Z",
+    "appliedOnChangesetUUID": "8e8e3410-d6c3-47d4-8e3a-e709ce40e9fc",
+    "hash": "864a0b50f95cc2a5cfa7bd6a55a89178c07e70f165ec07a0e05a23050b464caf",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:15.183281700Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Definition": {
+        "3c019afb-50c1-4799-9339-920331269615": {
+          "meta": {
+            "name": "Recipe_State"
+          },
+          "changes": [
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Description",
+              "oldValue": "",
+              "newValue": "Built-in enum for Recipe State options."
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "changesetData": {
+    "uuid": "46daa169-8cd7-4c36-ae7f-26f2524d477d",
+    "note": "",
+    "description": "",
+    "state": "CLOSED",
+    "cancelled": false,
+    "applied": true,
+    "appliedBy": "Unknown",
+    "appliedAt": "2026-10-15T05:16:14.543Z",
+    "appliedOnChangesetUUID": "ebdc2576-ffa3-40d3-89d4-993c048f0cd8",
+    "hash": "6e96912801ad878913853a5047b30b6039e4b3b99baf9e766aab71ba52229258",
+    "version": "1",
+    "changesetStartDate": "2026-10-15T05:16:14.524805700Z",
+    "executionTime": 0,
+    "installedModules": {},
+    "mesObjects": {
+      "Enum Root": {
+        "a3fc72c4-6a3b-11ea-bc55-0242ac130003": {
+          "meta": {
+            "name": "Enum Definitions"
+          },
+          "changes": [
+            {
+              "changeType": "ChildAdded",
+              "changePath": "[child]",
+              "newValue": "438d5b14-f8ce-4bb9-bf31-8ed68f5a11ce|EnumDefinition",
+              "newValueFriendly": "Script"
+            }
+          ]
+        }
+      },
+      "Enum Definition": {
+        "438d5b14-f8ce-4bb9-bf31-8ed68f5a11ce": {
+          "meta": {
+            "name": "Script"
+          },
+          "changes": [
+            {
+              "changeType": "ObjectCreated",
+              "changePath": "",
+              "oldValue": "",
+              "newValue": ""
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "UUID",
+              "newValue": "438d5b14-f8ce-4bb9-bf31-8ed68f5a11ce"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Name",
+              "newValue": "Script"
+            },
+            {
+              "changeType": "PropertyValue",
+              "changePath": "Creator",
+              "oldValue": "Unknown",
+              "newValue": "batch"
+            },
+            {
+              "changeType": "ParentAdded",
+              "changePath": "[parent]",
+              "newValue": "a3fc72c4-6a3b-11ea-bc55-0242ac130003|EnumRoot",
+              "newValueFriendly": "Enum Definitions"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {}
+  }
+}
